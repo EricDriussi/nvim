@@ -210,9 +210,8 @@ nnoremap <leader>gl <cmd>Gitsigns toggle_current_line_blame<CR>
 nnoremap <leader>tt <cmd>ToggleTerm<CR>
 nnoremap <leader>ts <cmd>lua _SML_TOGGLE()<CR>
 nnoremap <leader>tg <cmd>lua _LAZYGIT_TOGGLE()<CR>
-
-
-
+nnoremap <leader>th <cmd>ToggleTerm size=10 direction=horizontal<cr>
+nnoremap <leader>tv <cmd>ToggleTerm size=80 direction=vertical<cr>
 
 "Telescope
 nnoremap <leader>f <cmd>Telescope git_files<cr>

@@ -73,10 +73,7 @@ local opts = {
 local mappings = {
   ["u"] = { "<cmd>UndotreeToggle<cr>", "Undo Tree" },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-  ["/"] = { "<cmd>call nerdcommenter#Comment(0, 'toggle')<CR>", "Tgl Comment" },
   ["m"] = { "<cmd>MarkdownPreviewToggle<cr>", "Preview MD" },
-  ["s"] = { "<cmd>Telescope spell_suggest<cr>", "Spelling" },
-  ["r"] = { "rp *``cgn", "Dumb Replace" },
 
   g = {
     name = "Git",
@@ -94,34 +91,6 @@ local mappings = {
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
   },
-
-  f = {
-    name = "Find Stuff",
-    f = { "<cmd>Telescope git_files<cr>", "Files - <LDR>f" },
-    F = { "<cmd>Telescope live_grep<cr>", "Grep Files - <LDR>F" },
-    A = { "<cmd>Telescope commands<cr>", "Actions - <LDR>A" },
-    r = { "<cmd>Telescope registers<cr>", "Registers - <LDR>r" },
-    sf = { "<cmd>lua require'telescope.builtin'.find_files{ cwd = '~/' }<CR>", "Suer Find - <LDR>sf" },
-    k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-  },
-
-  l = {
-    name = "LSP",
-    a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action - <A-cr>" },
-    d = {"<cmd>lua vim.lsp.buf.declaration()<CR>", "GoTo Declaration - gD"},
-    D = {"<cmd>lua vim.lsp.buf.definition()<CR>", "GoTo Definition - gd"},
-    i = {"<cmd>lua vim.lsp.buf.implementation()<CR>", "GoTo Implementation - gi"},
-    r = {"<cmd>lua vim.lsp.buf.references()<CR>", "GoTo References - gr"},
-    R = {"<cmd>lua vim.lsp.buf.rename()<CR>", "Rename - rn"},
-    h = {"<cmd>lua vim.lsp.buf.hover()<CR>", "Hover - K"},
-    H = {"<cmd>lua vim.lsp.buf.signature_help()<CR>", "Help - <C-k>"},
-    e = {'<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" )}<cr>', "GoTo Error in Line - ge"},
-    n = {'<cmd>lua vim.diagnostic.goto_next({ border = "rounded" )}<cr>', "Goto Next Error - <LDR>n"},
-    p = {'<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" )}<cr>', "Goto Prev Error - <LDR>p"},
-    q = {"<cmd>lua vim.diagnostic.setloclist()<CR>", "Send to QuickFix - <LDR>q"},
-    f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
-
-    },
 }
 
 which_key.setup(setup)
