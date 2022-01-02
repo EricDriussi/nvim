@@ -88,8 +88,7 @@ local mappings = {
     t = { "<cmd>ToggleTerm<CR>", "Toggle" },
     s = { "<cmd>lua _SML_TOGGLE()<CR>", "SML REPL" },
     g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Git-Lazy" },
-    h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-    v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+    h = { "<cmd>call TermToggle(15)<CR>", "Horizontal" },
   },
 }
 

@@ -21,4 +21,4 @@ function! DiffMe()
     endif
 endfunction
 
-nnoremap <leader>d :call DiffMe()<CR>
+nnoremap <leader>d <cmd>call DiffMe()<CR>
