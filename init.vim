@@ -21,6 +21,8 @@ lua << EOF
     require("plugins-config.toggleterm")
     -- WhichKey
     require("plugins-config.which-key")
+    -- Comment
+    require("plugins-config.comment")
 EOF
 
 "Settings
@@ -178,8 +180,8 @@ nnoremap <leader>u <cmd>UndotreeToggle<CR>
 nnoremap <leader>e <cmd>NvimTreeToggle<CR>
 
 "NerdCommenter
-nnoremap <leader>/ <cmd>call nerdcommenter#Comment(0, "toggle")<CR>
-vnoremap <leader>/ <cmd>call nerdcommenter#Comment(0, "toggle")<CR>gv
+nmap <leader>/ <plug>NERDCommenterToggle<CR>k
+vmap <leader>/ <plug>NERDCommenterToggle<CR>k
 
 "Surround.vim
 vmap ( S)

@@ -88,7 +88,6 @@ let g:lightline = {
       \ }
 
 let g:NERDToggleCheckAllLines = 1
-let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 " SML REPL!
 let g:sml_smlnj_executable = '/usr/bin/smlnj'
