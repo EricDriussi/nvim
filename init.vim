@@ -143,10 +143,10 @@ nnoremap + :vertical resize +2<CR>
 nnoremap - :vertical resize -2<CR>
 
 "Navigate splits
-nnoremap <C-M-l> :wincmd l<cr>
-nnoremap <C-M-h> :wincmd h<cr>
-nnoremap <C-M-j> :wincmd j<cr>
-nnoremap <C-M-k> :wincmd k<cr>
+nnoremap <C-M-l> <cmd>wincmd l<cr>
+nnoremap <C-M-h> <cmd>wincmd h<cr>
+nnoremap <C-M-j> <cmd>wincmd j<cr>
+nnoremap <C-M-k> <cmd>wincmd k<cr>
 
 "Home made auto-pairs
 inoremap ( ()<Left>
@@ -209,6 +209,7 @@ nnoremap <leader>gl <cmd>Gitsigns toggle_current_line_blame<CR>
 nnoremap <leader>tt <cmd>ToggleTerm<CR>
 nnoremap <leader>ts <cmd>lua _SML_TOGGLE()<CR>
 nnoremap <leader>tg <cmd>lua _LAZYGIT_TOGGLE()<CR>
+nnoremap <leader>td <cmd>lua _LAZYDOCKER_TOGGLE()<CR>
 
 "Telescope
 nnoremap <leader>f <cmd>Telescope git_files<cr>

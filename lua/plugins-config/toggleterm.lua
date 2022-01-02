@@ -43,13 +43,19 @@ function _LAZYGIT_TOGGLE()
 	lazygit:toggle()
 end
 
+local lazydocker = Terminal:new({ cmd = "lazydocker", hidden = true })
+
+function _LAZYDOCKER_TOGGLE()
+	lazydocker:toggle()
+end
+
 local node = Terminal:new({ cmd = "node", hidden = true })
 
 function _NODE_TOGGLE()
 	node:toggle()
 end
 
-local sml = Terminal:new({ cmd = "sml", hidden = true, direction = "vertical", size=200 })
+local sml = Terminal:new({ cmd = "sml", hidden = true })
 
 function _SML_TOGGLE()
 	sml:toggle()
