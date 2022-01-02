@@ -5,8 +5,8 @@ end
 
 local setup = {
   plugins = {
-    marks = true, -- shows a list of your marks on ' and `
-    registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+    marks = false, -- shows a list of your marks on ' and `
+    registers = false, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
     spelling = {
       enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
       suggestions = 20, -- how many suggestions should be shown in the list?
@@ -74,6 +74,10 @@ local mappings = {
   ["u"] = { "<cmd>UndotreeToggle<cr>", "Undo Tree" },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["m"] = { "<cmd>MarkdownPreviewToggle<cr>", "Preview MD" },
+  ["f"] = { "<cmd>Telescope git_files<cr>", "Find - Git" },
+  ["F"] = { "<cmd>Telescope live_grep<cr>", "Find - Grep" },
+  ["A"] = { "<cmd>Telescope commands<cr>", "Actions" },
+  ["r"] = { "<cmd>Telescope registers<cr>", "Registers" },
 
   g = {
     name = "Git",
@@ -88,6 +92,7 @@ local mappings = {
     t = { "<cmd>ToggleTerm<CR>", "Toggle" },
     s = { "<cmd>lua _SML_TOGGLE()<CR>", "SML REPL" },
     g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Git-Lazy" },
+    d = { "<cmd>lua _LAZYDOCKER_TOGGLE()<CR>", "Docker-Lazy" },
     h = { "<cmd>call TermToggle(15)<CR>", "Horizontal" },
   },
 }
