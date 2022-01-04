@@ -1,9 +1,4 @@
-local status_ok, toggleterm = pcall(require, "toggleterm")
-if not status_ok then
-	return
-end
-
-toggleterm.setup({
+require'toggleterm'.setup({
 	size = 20,
 	open_mapping = [[<c-\>]],
 	hide_numbers = true,
@@ -41,12 +36,6 @@ local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
 
 function _LAZYGIT_TOGGLE()
 	lazygit:toggle()
-end
-
-local lazydocker = Terminal:new({ cmd = "lazydocker", hidden = true })
-
-function _LAZYDOCKER_TOGGLE()
-	lazydocker:toggle()
 end
 
 local node = Terminal:new({ cmd = "node", hidden = true })

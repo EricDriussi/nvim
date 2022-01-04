@@ -1,11 +1,6 @@
-local status_ok, telescope = pcall(require, "telescope")
-if not status_ok then
-  return
-end
-
 local actions = require "telescope.actions"
 
-telescope.setup {
+require'telescope'.setup {
   defaults = {
 
 file_ignore_patterns = {"node_modules"},
@@ -76,4 +71,4 @@ file_ignore_patterns = {"node_modules"},
         }
       }
 }
-telescope.load_extension('fzf')
+require'telescope'.load_extension('fzf')
