@@ -21,8 +21,8 @@ lua << EOF
     require("plugins-config.toggleterm")
     -- WhichKey
     require("plugins-config.which-key")
-    -- Comment
-    require("plugins-config.comment")
+    -- NvimTree
+    require("plugins-config.nvim-tree")
 EOF
 
 "Settings
@@ -53,7 +53,7 @@ set formatoptions-=cor
 "Lightline already shows mode
 set noshowmode
 "Breathing space
-set scrolloff=10
+set scrolloff=8
 set sidescrolloff=5
 "Avoid splitting words when wrapping lines
 set linebreak
@@ -226,88 +226,6 @@ nnoremap <Leader>sf <cmd>lua require'telescope.builtin'.find_files{ cwd = "~/" }
 "Code actions made pretty
 nnoremap <A-CR> <cmd>Telescope lsp_code_actions<cr>
 nnoremap <C-Space> <cmd>Telescope spell_suggest<cr>
-
-" ---------------------------nvim.tree---------------------------"
-
-let g:nvim_tree_quit_on_open = 1 "0 by default, closes the tree when you open a file
-let g:nvim_tree_indent_markers = 1 "0 by default, this option shows indent markers when folders are open
-let g:nvim_tree_git_hl = 1 "0 by default, will enable file highlight for git attributes (can be used without the icons).
-let g:nvim_tree_root_folder_modifier = ':~' "This is the default. See :help filename-modifiers for more options
-let g:nvim_tree_width_allow_resize  = 1 "0 by default, will not resize the tree when opening a file
-let g:nvim_tree_add_trailing = 1 "0 by default, append a trailing slash to folder names
-let g:nvim_tree_group_empty = 1 " 0 by default, compact folders that only contain a single folder into one node in the file tree
-let g:nvim_tree_special_files = [ 'README.md', 'Makefile', 'MAKEFILE' ] " List of filenames that gets highlighted with NvimTreeSpecialFile
-let g:nvim_tree_show_icons = {
-    \ 'git': 1,
-    \ 'folders': 0,
-    \ 'files': 0,
-    \ }
-let g:nvim_tree_icons = {
-    \ 'default': '',
-    \ 'symlink': '',
-    \ 'git': {
-    \   'unstaged': "✗",
-    \   'staged': "✓",
-    \   'unmerged': "",
-    \   'renamed': "➜",
-    \   'untracked': "★",
-    \   'deleted': "",
-    \   'ignored': "◌"
-    \   },
-    \ 'folder': {
-    \   'default': "",
-    \   'open': "",
-    \   'empty': "",
-    \   'empty_open': "",
-    \   'symlink': "",
-    \   'symlink_open': "",
-    \   },
-    \   'lsp': {
-    \     'hint': "",
-    \     'info': "",
-    \     'warning': "",
-    \     'error': "",
-    \   }
-    \ }
-
-lua <<EOF
-local tree_cb = require'nvim-tree.config'.nvim_tree_callback
-
-require'nvim-tree'.setup {
-    disable_netrw       = true,
-    filters = {
-        dotfiles = false,
-        custom = { '.git', 'node_modules', '.cache' },
-    },
-    open_on_tab         = false,
-    disable_netrw       = true,
-    hijack_netrw        = true,
-    diagnostics = {
-        enable = true,
-        icons = {
-            hint = "",
-            info = "",
-            warning = "",
-            error = "",
-        }
-    },
-    view = {
-        mappings = {
-            list = {
-                { key = "l",              cb = tree_cb("edit") },
-                { key = "<C-H>", 	        cb = tree_cb("toggle_dotfiles") },
-                { key = "<C-h>",          cb = tree_cb("split") },
-                { key = "<C-v>",          cb = tree_cb("vsplit") },
-                { key = "R",              cb = tree_cb("refresh") },
-                { key = "a",              cb = tree_cb("create") },
-                { key = "d",              cb = tree_cb("remove") },
-                { key = "y",              cb = tree_cb("copy") },
-                { key = "h",              cb = tree_cb("close_node") },
-            }
-        },
-    }
-}
-EOF
 
 " ---------------------------diffview.nvim---------------------------"
 
