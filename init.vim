@@ -23,6 +23,8 @@ lua << EOF
     require("plugins-config.which-key")
     -- NvimTree
     require("plugins-config.nvim-tree")
+    -- Autopairs
+    require('plugins-config.autopairs')
 EOF
 
 "Settings
@@ -150,15 +152,6 @@ nnoremap <C-M-h> <cmd>wincmd h<cr>
 nnoremap <C-M-j> <cmd>wincmd j<cr>
 nnoremap <C-M-k> <cmd>wincmd k<cr>
 
-"Home made auto-pairs
-inoremap ( ()<Left>
-inoremap { {}<Left>
-inoremap {<CR> {<CR>}<Esc>O<Tab>
-inoremap [ []<Left>
-inoremap < <><Left>
-"inoremap ' ''<Left>
-inoremap " ""<Left>
-
 "Add Undo break points
 inoremap , ,<c-g>u
 inoremap . .<c-g>u
@@ -189,7 +182,6 @@ vmap [ S]
 vmap { S}
 vmap ' S'
 vmap " S"
-vmap * S*
 vmap ` S`
 
 "md-preview
@@ -221,8 +213,7 @@ nnoremap <leader>A <cmd>Telescope commands<cr>
 "Display reg
 nnoremap <leader>r <cmd>Telescope registers<cr>
 "Super-Find anywhere
-nnoremap <Leader>sf <cmd>lua require'telescope.builtin'.find_files{ cwd = "~/" }<CR>
-"nnoremap <leader>sf <cmd>Telescope find_files<cr>
+nnoremap <Leader>sf <cmd>Telescope find_files<CR>
 "Code actions made pretty
 nnoremap <A-CR> <cmd>Telescope lsp_code_actions<cr>
 nnoremap <C-Space> <cmd>Telescope spell_suggest<cr>

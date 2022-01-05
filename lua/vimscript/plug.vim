@@ -2,14 +2,10 @@ call plug#begin('~/.config/nvim/plugged')
 
 
 "Looks
-Plug 'tpope/vim-surround'
 Plug 'itchyny/lightline.vim'
-Plug 'p00f/nvim-ts-rainbow'
 Plug 'ap/vim-css-color'
-"Plug 'morhetz/gruvbox'
-"TreeSitter support!
-Plug 'rktjmp/lush.nvim'
-Plug 'ellisonleao/gruvbox.nvim'
+" Theme
+Plug 'gruvbox-community/gruvbox'
 
 "Needed for other plugins
 Plug 'nvim-lua/popup.nvim'
@@ -55,6 +51,11 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 "Plug 'sindrets/diffview.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'lewis6991/gitsigns.nvim'
+
+" Parenthesis and such
+Plug 'windwp/nvim-autopairs'
+Plug 'tpope/vim-surround'
+Plug 'p00f/nvim-ts-rainbow'
 
 "MISC
 "Multi-Cursor
