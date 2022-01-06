@@ -77,7 +77,8 @@ local mappings = {
   ["f"] = { "<cmd>Telescope git_files<cr>", "Find - Git" },
   ["F"] = { "<cmd>Telescope live_grep<cr>", "Find - Grep" },
   ["A"] = { "<cmd>Telescope commands<cr>", "Actions" },
-  ["r"] = { "<cmd>Telescope registers<cr>", "Registers" },
+  ["R"] = { "<cmd>Telescope registers<cr>", "Registers" },
+  ["d"] = { "<cmd>call DiffMe()<CR>", "Diff Mode" },
 
   g = {
     name = "Git",
@@ -92,7 +93,6 @@ local mappings = {
     t = { "<cmd>ToggleTerm<CR>", "Toggle" },
     s = { "<cmd>lua _SML_TOGGLE()<CR>", "SML REPL" },
     g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Git-Lazy" },
-    d = { "<cmd>lua _LAZYDOCKER_TOGGLE()<CR>", "Docker-Lazy" },
     h = { "<cmd>call TermToggle(15)<CR>", "Horizontal" },
   },
 }

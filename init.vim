@@ -7,15 +7,15 @@ source ~/.config/nvim/lua/vimscript/diffmode.vim
 source ~/.config/nvim/lua/vimscript/terminal.vim
 
 lua << EOF
-    -- Completion settings
+    -- Completion
     require("plugins-config.cmp")
-    -- LSP settings
+    -- LSP
     require("plugins-config.lsp")
-    -- Telescopic settings
+    -- Telescopic
     require("plugins-config.telescope")
-    -- Treesitter settings
+    -- Treesitter
     require("plugins-config.treesitter")
-    -- Gitsigns settings
+    -- Gitsigns
     require("plugins-config.gitsigns")
     -- ToggleTerm
     require("plugins-config.toggleterm")
@@ -24,11 +24,13 @@ lua << EOF
     -- NvimTree
     require("plugins-config.nvim-tree")
     -- Autopairs
-    require('plugins-config.autopairs')
+    require("plugins-config.autopairs")
+    -- Null-ls
+    require("plugins-config.null-ls")
 EOF
 
 "Settings
-filetype plugin indent on
+"filetype plugin indent on
 set ignorecase
 set smartcase
 set spelllang=en,es,cjk
@@ -79,7 +81,7 @@ set signcolumn=yes
 set numberwidth=4
 set conceallevel=0
 
-"Keymaps
+" --------------------------------Keymaps--------------------------------"
 "SML REPL
 nnoremap <leader>s :SMLReplStop<CR>:SMLReplStart<CR>:wincmd l<cr>
 
@@ -164,7 +166,7 @@ nnoremap <c-u> <c-u>m'
 nnoremap <c-d> <c-d>m'
 
 
-" ------------------------------MAPPINGS-Plugins------------------------------"
+" --------------------------------Plugins--------------------------------"
 
 "UndoTree
 nnoremap <leader>u <cmd>UndotreeToggle<CR>
@@ -192,9 +194,6 @@ nnoremap <leader>gs <cmd>Gvdiffsplit<bar>windo set wrap<CR>
 "Fugitive Blame
 nnoremap <leader>gL <cmd>Git blame<CR>
 
-"Emulate IntelliJ Ctrl-K with diffview.nvim
-"nnoremap <C-k> <cmd>DiffviewOpen<cr>
-
 "Gitsigns!
 nnoremap <leader>gb <cmd>Gitsigns reset_hunk<CR>
 nnoremap <leader>gl <cmd>Gitsigns toggle_current_line_blame<CR>
@@ -211,24 +210,9 @@ nnoremap <leader>F <cmd>Telescope live_grep<cr>
 "Display all commands (Actions)
 nnoremap <leader>A <cmd>Telescope commands<cr>
 "Display reg
-nnoremap <leader>r <cmd>Telescope registers<cr>
+nnoremap <leader>R <cmd>Telescope registers<cr>
 "Super-Find anywhere
 nnoremap <Leader>sf <cmd>Telescope find_files<CR>
 "Code actions made pretty
 nnoremap <A-CR> <cmd>Telescope lsp_code_actions<cr>
 nnoremap <C-Space> <cmd>Telescope spell_suggest<cr>
-
-" ---------------------------diffview.nvim---------------------------"
-
-"lua <<EOF
-"local cb = require'diffview.config'.diffview_callback
-
-"require'diffview'.setup {
-    "key_bindings = {
-        "disable_defaults = false,
-        "view = {
-              "["gf"]    = cb("goto_file_tab"),
-        "}
-    "}
-"}
-"EOF
