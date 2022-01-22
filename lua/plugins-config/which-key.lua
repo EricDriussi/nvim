@@ -79,6 +79,7 @@ local mappings = {
   ["A"] = { "<cmd>Telescope commands<cr>", "Actions" },
   ["R"] = { "<cmd>Telescope registers<cr>", "Registers" },
   ["d"] = { "<cmd>call DiffMe()<CR>", "Diff Mode" },
+  ["l"] = { "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", "Format" },
 
   g = {
     name = "Git",
@@ -86,14 +87,6 @@ local mappings = {
     b = { "<cmd>Gitsigns reset_hunk<CR>", "Git Back Hunk" },
     l = { "<cmd>Gitsigns toggle_current_line_blame<CR>", "bLame Line" },
     L = { "<cmd>Git blame<CR>", "bLame File" },
-  },
-
-  t = {
-    name = "Terminal",
-    t = { "<cmd>ToggleTerm<CR>", "Toggle" },
-    s = { "<cmd>lua _SML_TOGGLE()<CR>", "SML REPL" },
-    g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Git-Lazy" },
-    h = { "<cmd>call TermToggle(15)<CR>", "Horizontal" },
   },
 }
 

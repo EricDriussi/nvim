@@ -15,6 +15,7 @@ null_ls.setup({
 
 		-- CSS
 		formatting.stylelint,
+		diagnostics.stylelint,
 
 		-- LSP for shell sucks a bit
 		formatting.shellharden,

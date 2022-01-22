@@ -33,8 +33,9 @@ EOF
 "filetype plugin indent on
 set ignorecase
 set smartcase
-set spelllang=en,es,cjk
-set spell
+"set spelllang=en,es,cjk
+"set spell
+set nospell
 set encoding=utf-8
 set fileencoding=utf-8
 set updatetime=200
@@ -43,10 +44,10 @@ set noerrorbells
 set number relativenumber
 set mouse=a
 set hidden
-"set termguicolors
+set termguicolors
 set wrap
 set incsearch
-set cursorline
+"set cursorline
 set splitright
 set splitbelow
 "Snek case...
@@ -82,9 +83,6 @@ set numberwidth=4
 set conceallevel=0
 
 " --------------------------------Keymaps--------------------------------"
-"SML REPL
-nnoremap <leader>s :SMLReplStop<CR>:SMLReplStart<CR>:wincmd l<cr>
-
 "Kinda scrolling
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
@@ -198,11 +196,13 @@ nnoremap <leader>gL <cmd>Git blame<CR>
 nnoremap <leader>gb <cmd>Gitsigns reset_hunk<CR>
 nnoremap <leader>gl <cmd>Gitsigns toggle_current_line_blame<CR>
 
+"SML REPL
+nnoremap <leader>s :SMLReplStop<CR>:SMLReplStart<CR>:wincmd l<cr>
+
 "ToggleTerm
-nnoremap <leader>tt <cmd>ToggleTerm<CR>
-nnoremap <leader>ts <cmd>lua _SML_TOGGLE()<CR>
-nnoremap <leader>tg <cmd>lua _LAZYGIT_TOGGLE()<CR>
-nnoremap <leader>td <cmd>lua _LAZYDOCKER_TOGGLE()<CR>
+nnoremap <a-s> <cmd>lua _SML_TOGGLE()<CR>
+nnoremap <a-g> <cmd>lua _LAZYGIT_TOGGLE()<CR>
+nnoremap <a-n> <cmd>lua _NODE_TOGGLE()<CR>
 
 "Telescope
 nnoremap <leader>f <cmd>Telescope git_files<cr>
@@ -216,3 +216,31 @@ nnoremap <Leader>sf <cmd>Telescope find_files<CR>
 "Code actions made pretty
 nnoremap <A-CR> <cmd>Telescope lsp_code_actions<cr>
 nnoremap <C-Space> <cmd>Telescope spell_suggest<cr>
+
+"Format Null-ls
+nnoremap <leader>l <cmd>lua vim.lsp.buf.formatting_sync()<CR>
+"Diagnostics Null-ls
+"Possible issues since overrides keymap in LSP-handlers
+nnoremap ge <cmd>lua vim.diagnostic.open_float()<CR>
+
+"Refactor!
+"vnoremap <Leader>re <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]]
+"vnoremap <Leader>rf <Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>
+"vnoremap <Leader>rv <Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>
+"vnoremap <Leader>ri <Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>
+
+lua << EOF
+-- Remaps for each of the four debug operations currently offered by the plugin
+vim.api.nvim_set_keymap("v", "<Leader>re", [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]], {noremap = true, silent = true, expr = false})
+vim.api.nvim_set_keymap("v", "<Leader>rf", [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>]], {noremap = true, silent = true, expr = false})
+vim.api.nvim_set_keymap("v", "<Leader>rv", [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>]], {noremap = true, silent = true, expr = false})
+vim.api.nvim_set_keymap("v", "<Leader>ri", [[ <Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]], {noremap = true, silent = true, expr = false})
+
+vim.api.nvim_set_keymap(
+	"v",
+	"<leader>rr",
+	"<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>",
+	{ noremap = true }
+)
+
+EOF
