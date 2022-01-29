@@ -82,6 +82,11 @@ set signcolumn=yes
 set numberwidth=4
 set conceallevel=0
 
+"Highlight references for word under cursor
+hi! LspReferenceText guibg=#504945
+hi! LspReferenceRead guibg=#504945
+hi! LspReferenceWrite guibg=#504945
+
 " --------------------------------Keymaps--------------------------------"
 "Kinda scrolling
 nnoremap <C-d> <C-d>zz
