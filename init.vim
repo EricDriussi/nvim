@@ -71,7 +71,7 @@ set undodir=~/.config/nvim/undodir
 set undofile
 "Tab be gud
 set autoindent
-set softtabstop=4
+set softtabstop=2
 set expandtab
 set shiftwidth=4
 set smartindent
