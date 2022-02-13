@@ -86,8 +86,11 @@ set conceallevel=0
 hi! LspReferenceText guibg=#504945
 hi! LspReferenceRead guibg=#504945
 hi! LspReferenceWrite guibg=#504945
+"Too much red...
+hi! link Keyword GruvboxAqua
+hi! link Include GruvboxRed
 
-" --------------------------------Keymaps--------------------------------"
+" --------------------------------Keymap--------------------------------"
 "Kinda scrolling
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
