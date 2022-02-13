@@ -69,6 +69,7 @@ require'nvim-tree'.setup {
         { key = "yn", cb = tree_cb "copy_name" },
         { key = "yp", cb = tree_cb "copy_path" },
         { key = "H", cb = tree_cb "toggle_ignored" },
+        { key = "-", action = "" },
       },
     },
     number = false,

@@ -6,7 +6,7 @@ local null_ls = require("null-ls")
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
-
+local actions = null_ls.builtins.code_actions
 null_ls.setup({
 	debug = false,
 	sources = {
@@ -20,5 +20,6 @@ null_ls.setup({
 		-- LSP for shell sucks a bit
 		formatting.shellharden,
 		diagnostics.shellcheck,
+    actions.shellcheck,
 	},
 })
