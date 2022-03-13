@@ -10,8 +10,14 @@ local actions = null_ls.builtins.code_actions
 null_ls.setup({
 	debug = false,
 	sources = {
-		formatting.stylua,
-		formatting.eslint,
+		formatting.stylua.with({
+                    timeout = 10000
+                }),
+		formatting.eslint.with({
+                    timeout = 10000
+                }),
+
+		--diagnostics.eslint,
 
 		-- CSS
 		formatting.stylelint,
@@ -20,6 +26,7 @@ null_ls.setup({
 		-- LSP for shell sucks a bit
 		formatting.shellharden,
 		diagnostics.shellcheck,
-    actions.shellcheck,
+                actions.shellcheck,
+
 	},
 })

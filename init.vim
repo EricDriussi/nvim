@@ -6,29 +6,6 @@ source ~/.config/nvim/lua/vimscript/diffmode.vim
 "Script to toggle an IDE like terminal
 source ~/.config/nvim/lua/vimscript/terminal.vim
 
-lua << EOF
-    -- Completion
-    require("plugins-config.cmp")
-    -- LSP
-    require("plugins-config.lsp")
-    -- Telescopic
-    require("plugins-config.telescope")
-    -- Treesitter
-    require("plugins-config.treesitter")
-    -- Gitsigns
-    require("plugins-config.gitsigns")
-    -- ToggleTerm
-    require("plugins-config.toggleterm")
-    -- WhichKey
-    require("plugins-config.which-key")
-    -- NvimTree
-    require("plugins-config.nvim-tree")
-    -- Autopairs
-    require("plugins-config.autopairs")
-    -- Null-ls
-    require("plugins-config.null-ls")
-EOF
-
 "Settings
 "filetype plugin indent on
 set ignorecase
@@ -86,6 +63,7 @@ set conceallevel=0
 hi! LspReferenceText guibg=#504945
 hi! LspReferenceRead guibg=#504945
 hi! LspReferenceWrite guibg=#504945
+
 "Too much red...
 hi! link Keyword GruvboxAqua
 hi! link Include GruvboxRed
@@ -150,6 +128,9 @@ vnoremap <a-k> :m '<-2<cr>gv=gv
 "Save all 
 nnoremap <C-s> :wa <CR>
 
+"Split right
+nnoremap <c-a-O> <cmd>vsp %<cr>
+
 "Resize vertical splits
 nnoremap + :vertical resize +2<CR>
 nnoremap - :vertical resize -2<CR>
@@ -170,85 +151,3 @@ nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 nnoremap <c-u> <c-u>m'
 nnoremap <c-d> <c-d>m'
-
-
-" --------------------------------Plugins--------------------------------"
-
-"UndoTree
-nnoremap <leader>u <cmd>UndotreeToggle<CR>
-
-"NvimTree
-nnoremap <leader>e <cmd>NvimTreeToggle<CR>
-
-"NerdCommenter
-nmap <leader>/ <plug>NERDCommenterToggle<CR>k
-vmap <leader>/ <plug>NERDCommenterToggle<CR>k
-
-"Surround.vim
-vmap ( S)
-vmap [ S]
-vmap { S}
-vmap ' S'
-vmap " S"
-vmap ` S`
-
-"md-preview
-nnoremap <leader>m <cmd>MarkdownPreviewToggle<cr>
-
-"Fugitive Split
-nnoremap <leader>gs <cmd>Gvdiffsplit<bar>windo set wrap<CR>
-"Fugitive Blame
-nnoremap <leader>gL <cmd>Git blame<CR>
-
-"Gitsigns!
-nnoremap <leader>gb <cmd>Gitsigns reset_hunk<CR>
-nnoremap <leader>gl <cmd>Gitsigns toggle_current_line_blame<CR>
-
-"SML REPL
-nnoremap <leader>s :SMLReplStop<CR>:SMLReplStart<CR>:wincmd l<cr>
-
-"ToggleTerm
-nnoremap <a-s> <cmd>lua _SML_TOGGLE()<CR>
-nnoremap <a-g> <cmd>lua _LAZYGIT_TOGGLE()<CR>
-nnoremap <a-n> <cmd>lua _NODE_TOGGLE()<CR>
-
-"Telescope
-nnoremap <leader>f <cmd>Telescope git_files<cr>
-nnoremap <leader>F <cmd>Telescope live_grep<cr>
-"Display all commands (Actions)
-nnoremap <leader>A <cmd>Telescope commands<cr>
-"Display reg
-nnoremap <leader>R <cmd>Telescope registers<cr>
-"Super-Find anywhere
-nnoremap <Leader>sf <cmd>Telescope find_files<CR>
-"Code actions made pretty
-nnoremap <A-CR> <cmd>Telescope lsp_code_actions<cr>
-nnoremap <C-Space> <cmd>Telescope spell_suggest<cr>
-
-"Format Null-ls
-nnoremap <leader>l <cmd>lua vim.lsp.buf.formatting_sync()<CR>
-"Diagnostics Null-ls
-"Possible issues since overrides keymap in LSP-handlers
-nnoremap ge <cmd>lua vim.diagnostic.open_float()<CR>
-
-"Refactor!
-"vnoremap <Leader>re <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]]
-"vnoremap <Leader>rf <Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>
-"vnoremap <Leader>rv <Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>
-"vnoremap <Leader>ri <Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>
-
-lua << EOF
--- Remaps for each of the four debug operations currently offered by the plugin
-vim.api.nvim_set_keymap("v", "<Leader>re", [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]], {noremap = true, silent = true, expr = false})
-vim.api.nvim_set_keymap("v", "<Leader>rf", [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>]], {noremap = true, silent = true, expr = false})
-vim.api.nvim_set_keymap("v", "<Leader>rv", [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>]], {noremap = true, silent = true, expr = false})
-vim.api.nvim_set_keymap("v", "<Leader>ri", [[ <Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]], {noremap = true, silent = true, expr = false})
-
-vim.api.nvim_set_keymap(
-	"v",
-	"<leader>rr",
-	"<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>",
-	{ noremap = true }
-)
-
-EOF
