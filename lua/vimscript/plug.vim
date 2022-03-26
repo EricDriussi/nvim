@@ -174,15 +174,19 @@ nnoremap <a-n> <cmd>lua _NODE_TOGGLE()<CR>
 "Telescope
 nnoremap <leader>f <cmd>Telescope git_files<cr>
 nnoremap <leader>F <cmd>Telescope live_grep<cr>
+vnoremap <leader>F <cmd>Telescope grep_string<cr>
+nnoremap <leader>gr <cmd>Telescope git_branches<cr>
 "Display all commands (Actions)
-nnoremap <leader>A <cmd>Telescope commands<cr>
-"Display reg
-nnoremap <leader>R <cmd>Telescope registers<cr>
-"Super-Find anywhere
+nnoremap <leader>A <cmd>Telescope commands<cr><Esc>
+nnoremap <leader>R <cmd>Telescope registers<cr><Esc>
 nnoremap <Leader>sf <cmd>Telescope find_files<CR>
 "Code actions made pretty
-nnoremap <A-CR> <cmd>Telescope lsp_code_actions<cr>
-nnoremap <C-Space> <cmd>Telescope spell_suggest<cr>
+nnoremap <A-CR> <cmd>Telescope lsp_code_actions<cr><Esc>
+nnoremap <C-Space> <cmd>Telescope spell_suggest<cr><Esc>
+"LSP
+nnoremap gd <cmd>Telescope lsp_definitions<CR><Esc>
+nnoremap gi <cmd>Telescope lsp_implementations<CR><Esc>
+nnoremap gr <cmd>Telescope lsp_references<CR><Esc>
 
 "Format Null-ls
 nnoremap <leader>l <cmd>lua vim.lsp.buf.formatting_sync()<CR>

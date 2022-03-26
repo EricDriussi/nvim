@@ -18,6 +18,7 @@ null_ls.setup({
                 }),
 
 		--diagnostics.eslint,
+                diagnostics.yamllint,
 
 		-- CSS
 		formatting.stylelint,

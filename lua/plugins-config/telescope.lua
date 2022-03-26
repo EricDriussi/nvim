@@ -3,13 +3,19 @@ local actions = require "telescope.actions"
 require'telescope'.setup {
   defaults = {
 
-file_ignore_patterns = {"node_modules"},
+    file_ignore_patterns = {"node_modules"},
+    layout_config = {width = 0.95},
     prompt_prefix = "⫸ ",
     selection_caret = " ⮚ ",
-    path_display = { "smart" },
+    path_display = { "shortest" },
 
     mappings = {
       i = {
+        ["<C-i>"] = actions.cycle_history_next,
+        ["<C-o>"] = actions.cycle_history_prev,
+
+        ["<M-q>"] = actions.send_to_qflist + actions.open_qflist,
+
         ["<C-w>"] = actions.close,
         ["<C-q>"] = actions.close,
 
@@ -30,6 +36,9 @@ file_ignore_patterns = {"node_modules"},
       },
 
       n = {
+        ["<C-i>"] = actions.cycle_history_next,
+        ["<C-o>"] = actions.cycle_history_prev,
+
         ["<esc>"] = actions.close,
         ["<C-w>"] = actions.close,
         ["<C-q>"] = actions.close,
@@ -60,6 +69,15 @@ file_ignore_patterns = {"node_modules"},
         find_files = {
             theme = "dropdown",
             previewer = false
+        },
+        lsp_definitions = {
+            theme = "ivy"
+        },
+        lsp_implementations = {
+            theme = "ivy"
+        },
+        lsp_references = {
+            theme = "ivy"
         }
     },
     extensions = {
