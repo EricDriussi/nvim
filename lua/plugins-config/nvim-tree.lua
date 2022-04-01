@@ -10,7 +10,6 @@ require'nvim-tree'.setup {
     "dashboard",
     "alpha",
   },
-  auto_close = true,
   open_on_tab = false,
   hijack_cursor = false,
   update_cwd = true,
@@ -116,3 +115,6 @@ vim.g.nvim_tree_icons = {
     symlink = "",
   },
 }
+
+-- Magic trick to make nvim-tree auto-close
+vim.api.nvim_exec([[ autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]], false)
