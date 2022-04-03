@@ -20,5 +20,3 @@ function! DiffMe()
         let g:diffmode = 0
     endif
 endfunction
-
-nnoremap <leader>d <cmd>call DiffMe()<CR>

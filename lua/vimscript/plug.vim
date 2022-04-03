@@ -133,16 +133,6 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " --------------------------------Plugins keymaps--------------------------------"
 
-"UndoTree
-nnoremap <leader>u <cmd>UndotreeToggle<CR>
-
-"NvimTree
-nnoremap <leader>e <cmd>NvimTreeToggle<CR>
-
-"NerdCommenter
-nmap <leader>/ <plug>NERDCommenterToggle<CR>k
-vmap <leader>/ <plug>NERDCommenterToggle<CR>k
-
 "Surround.vim
 vmap ( S)
 vmap [ S]
@@ -151,69 +141,8 @@ vmap ' S'
 vmap " S"
 vmap ` S`
 
-"md-preview
-nnoremap <leader>m <cmd>MarkdownPreviewToggle<cr>
-
-"Fugitive Split
-nnoremap <leader>gs <cmd>Gvdiffsplit<bar>windo set wrap<CR>
-"Fugitive Blame
-nnoremap <leader>gL <cmd>Git blame<CR>
-
-"Gitsigns!
-nnoremap <leader>gb <cmd>Gitsigns reset_hunk<CR>
-nnoremap <leader>gl <cmd>Gitsigns toggle_current_line_blame<CR>
-
 "SML REPL
 nnoremap <leader>s :SMLReplStop<CR>:SMLReplStart<CR>:wincmd l<cr>
 
-"ToggleTerm
-nnoremap <a-s> <cmd>lua _SML_TOGGLE()<CR>
-nnoremap <a-g> <cmd>lua _LAZYGIT_TOGGLE()<CR>
-nnoremap <a-n> <cmd>lua _NODE_TOGGLE()<CR>
-
 "Telescope
-nnoremap <leader>f <cmd>Telescope git_files<cr>
 nnoremap <Leader>sf <cmd>Telescope find_files<CR>
-nnoremap <leader>F <cmd>Telescope live_grep<cr>
-vnoremap <leader>F <cmd>Telescope grep_string<cr>
-nnoremap <leader>gr <cmd>Telescope git_branches<cr>
-"Display all commands (Actions)
-nnoremap <leader>A <cmd>Telescope commands<cr><Esc>
-
-nnoremap <leader>R <cmd>Telescope registers<cr><Esc>
-nnoremap <leader>M <cmd>Telescope marks<cr><Esc>
-"Code actions made pretty
-nnoremap <A-CR> <cmd>Telescope lsp_code_actions<cr><Esc>
-nnoremap <C-Space> <cmd>Telescope spell_suggest<cr><Esc>
-"LSP
-nnoremap gd <cmd>Telescope lsp_definitions<CR><Esc>
-nnoremap gi <cmd>Telescope lsp_implementations<CR><Esc>
-nnoremap gr <cmd>Telescope lsp_references<CR><Esc>
-
-"Format Null-ls
-nnoremap <leader>l <cmd>lua vim.lsp.buf.formatting_sync()<CR>
-"Diagnostics Null-ls
-"Possible issues since overrides keymap in LSP-handlers
-nnoremap ge <cmd>lua vim.diagnostic.open_float()<CR>
-
-"Refactor!
-"vnoremap <Leader>re <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]]
-"vnoremap <Leader>rf <Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>
-"vnoremap <Leader>rv <Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>
-"vnoremap <Leader>ri <Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>
-
-lua << EOF
--- Remaps for each of the four debug operations currently offered by the plugin
-vim.api.nvim_set_keymap("v", "<Leader>re", [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]], {noremap = true, silent = true, expr = false})
-vim.api.nvim_set_keymap("v", "<Leader>rf", [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>]], {noremap = true, silent = true, expr = false})
-vim.api.nvim_set_keymap("v", "<Leader>rv", [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>]], {noremap = true, silent = true, expr = false})
-vim.api.nvim_set_keymap("v", "<Leader>ri", [[ <Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]], {noremap = true, silent = true, expr = false})
-
-vim.api.nvim_set_keymap(
-	"v",
-	"<leader>rr",
-	"<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>",
-	{ noremap = true }
-)
-
-EOF

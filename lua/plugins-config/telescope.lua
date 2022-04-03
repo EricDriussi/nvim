@@ -4,7 +4,7 @@ require'telescope'.setup {
   defaults = {
 
     file_ignore_patterns = {"node_modules"},
-    layout_config = {width = 0.95},
+    layout_config = {width = 0.90},
     prompt_prefix = "⫸ ",
     selection_caret = " ⮚ ",
     path_display = { "shortest" },
