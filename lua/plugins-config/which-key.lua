@@ -75,8 +75,8 @@ local mappings_base = {
   ["rn"] = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
   ["<A-CR>"] = { "<cmd>Telescope lsp_code_actions<cr><Esc>", "Code Actions" },
   ["<C-Space>"] = { "<cmd>Telescope spell_suggest<cr><Esc>", "Spelling" },
-  ["<a-h>"] = { "<cmd>call TermToggle(15)<CR>", "Horizontal Terminal" },
-
+  ["<a-h>"] = { "<cmd>call HorTermToggle()<CR>", "Horizontal Terminal" },
+  ["<a-v>"] = { "<cmd>call VertTermToggle()<CR>", "Vertical Terminal" },
   ["<a-g>"] = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
   ["<a-s>"] = { "<cmd>lua _SML_TOGGLE()<CR>", "SML REPL" },
   ["<a-n>"] = { "<cmd>lua _NODE_TOGGLE()<CR>", "Node REPL" },

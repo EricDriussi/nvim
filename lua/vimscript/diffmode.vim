@@ -1,5 +1,3 @@
-" ---------------------------Set up diff view between different files---------------------------"
-
 let g:diffmode = 0
 function! DiffMe()
     if g:diffmode == 0
