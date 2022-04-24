@@ -44,7 +44,7 @@ function! HorTermToggle()
 endfunction
 
 " Toggle terminal on/off (neovim)
-tnoremap <a-h> <C-\><C-n><cmd>call HorTermToggle()<CR>
+tnoremap <a-b> <C-\><C-n><cmd>call HorTermToggle()<CR>
 tnoremap <a-v> <C-\><C-n><cmd>call VertTermToggle()<CR>
 
 " Terminal go back to normal mode
