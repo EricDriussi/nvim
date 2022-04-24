@@ -2,7 +2,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 "Looks
 Plug 'itchyny/lightline.vim'
-Plug 'ap/vim-css-color'
+Plug 'chrisbra/Colorizer'
 " Theme
 Plug 'gruvbox-community/gruvbox'
 
@@ -101,6 +101,7 @@ EOF
 let g:gruvbox_contrast_dark = 'medium'
 colorscheme gruvbox
 set background=dark 
+au BufEnter *.css :ColorHighlight<CR>
 
 let g:lightline = {
       \ 'active': {
