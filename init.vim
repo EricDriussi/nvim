@@ -132,8 +132,8 @@ nnoremap <C-s> :wa <CR>
 nnoremap <c-a-O> <cmd>vsp %<cr>
 
 "Resize vertical splits
-nnoremap + :vertical resize +2<CR>
-nnoremap - :vertical resize -2<CR>
+nnoremap + :vertical resize +5<CR>
+nnoremap - :vertical resize -5<CR>
 
 "Navigate splits
 nnoremap <C-M-l> <cmd>wincmd l<cr>
