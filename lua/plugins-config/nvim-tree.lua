@@ -78,22 +78,27 @@ require'nvim-tree'.setup {
     cmd = "trash",
     require_confirm = true,
   },
-  quit_on_open = 1, -- This is broken, needs the old school setting
-  git_hl = 1,
-  disable_window_picker = 0,
-  root_folder_modifier = ":t",
-  show_icons = {
-    git = 1,
-    folders = 1,
-    files = 1,
-    folder_arrows = 1,
-    tree_width = 30,
+  actions = {
+    open_file = {
+      quit_on_open = true,
+      window_picker ={
+        enable = true
+      }
+    }
+  },
+  renderer = {
+    root_folder_modifier = ":t",
+    highlight_git = true,
+    icons = {
+      show = {
+        git = true,
+        folder = true,
+        file = true,
+        folder_arrow = true,
+      }
+    }
   },
 }
-
--- Old school setting...
-local g = vim.g
-g.nvim_tree_quit_on_open = 1
 
 vim.g.nvim_tree_icons = {
   default = "",
