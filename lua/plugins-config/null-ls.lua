@@ -29,5 +29,6 @@ null_ls.setup({
 		diagnostics.shellcheck,
                 actions.shellcheck,
 
+                formatting.black,
 	},
 })
