@@ -73,7 +73,7 @@ local mappings_base = {
   ["K"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover" },
   ["<C-k>"] = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature" },
   ["rn"] = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
-  ["<A-CR>"] = { "<cmd>Telescope lsp_code_actions<cr><Esc>", "Code Actions" },
+  ["<A-CR>"] = { "<cmd>lua vim.lsp.buf.code_action()<cr><Esc>", "Code Actions" },
   ["<C-Space>"] = { "<cmd>Telescope spell_suggest<cr><Esc>", "Spelling" },
   ["<a-b>"] = { "<cmd>call HorTermToggle()<CR>", "Horizontal Terminal" },
   ["<a-v>"] = { "<cmd>call VertTermToggle()<CR>", "Vertical Terminal" },
@@ -103,6 +103,8 @@ local mappings_leader = {
   ["d"] = { "<cmd>call DiffMe()<CR>", "Diff Mode" },
   ["l"] = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format" },
   ["/"] = { "<plug>NERDCommenterToggle<CR>k", "Comment" },
+  ["t"] = { "<cmd> :TestNearest<CR>", "Comment" },
+  ["r"] = { "<cmd> :TestLast<CR>", "Comment" },
 
   g = {
     name = "Git",
