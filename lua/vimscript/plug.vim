@@ -35,6 +35,7 @@ Plug 'akinsho/toggleterm.nvim'
 Plug 'folke/which-key.nvim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ThePrimeagen/refactoring.nvim'
+Plug 'vim-test/vim-test'
 
 "Needed for other plugins
 Plug 'nvim-lua/popup.nvim'
