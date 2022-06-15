@@ -134,11 +134,11 @@ local mappings_visual = {
   ["F"] = { "<cmd>Telescope grep_string<cr><esc>", "Find - Grep" },
     r = {
     name = "Refactor",
-      r = { "<cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "List Refactors" },
-      e = { "<cmd>lua require('refactoring').refactor('Extract Function')<CR>", "Extract Function" },
-      f = { "<cmd>lua require('refactoring').refactor('Extract Function To File')<CR>", "Extract To File" },
-      v = { "<cmd>lua require('refactoring').refactor('Extract Variable')<CR>", "Extract Variable" },
-      i = { "<cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline Variable" },
+      r = { "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "List Refactors" },
+      e = { "<Esc><cmd>lua require('refactoring').refactor('Extract Function')<CR>", "Extract Function" },
+      f = { "<Esc><cmd>lua require('refactoring').refactor('Extract Function To File')<CR>", "Extract To File" },
+      v = { "<Esc><cmd>lua require('refactoring').refactor('Extract Variable')<CR>", "Extract Variable" },
+      i = { "<Esc><cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline Variable" },
     }
 }
 

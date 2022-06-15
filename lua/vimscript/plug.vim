@@ -1,22 +1,24 @@
 call plug#begin('~/.config/nvim/plugged')
 
-"Looks
+" Looks
 Plug 'itchyny/lightline.vim'
 Plug 'chrisbra/Colorizer'
 " Theme
 Plug 'gruvbox-community/gruvbox'
 
-"Undo, File Explorer and auto-comments
+" Undo, File Explorer and auto-comments
 Plug 'mbbill/undotree'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'preservim/nerdcommenter'
 
-"Telescope!
+" Telescope!
 Plug 'nvim-telescope/telescope.nvim'
-"Make it faster!
+" Also for core nvim stuff
+Plug 'nvim-telescope/telescope-ui-select.nvim'
+" Make it faster!
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
-"GIT
+" GIT
 Plug 'tpope/vim-fugitive'
 Plug 'lewis6991/gitsigns.nvim'
 
@@ -24,11 +26,16 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'windwp/nvim-autopairs'
 Plug 'tpope/vim-surround'
 Plug 'p00f/nvim-ts-rainbow'
+Plug 'windwp/nvim-ts-autotag'
 
-"MISC
-"Multi-Cursor
+" Needed for other plugins
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+
+" MISC
+" Multi-Cursor
 Plug 'mg979/vim-visual-multi'
-Plug 'jez/vim-better-sml'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'unblevable/quick-scope'
 Plug 'akinsho/toggleterm.nvim'
@@ -36,38 +43,38 @@ Plug 'folke/which-key.nvim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ThePrimeagen/refactoring.nvim'
 Plug 'vim-test/vim-test'
-
-"Needed for other plugins
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'kyazdani42/nvim-web-devicons'
+" Improve speed
+Plug 'lewis6991/impatient.nvim'
+" Fix bug
+Plug 'antoinemadec/FixCursorHold.nvim'
 
 " --------------------------------LSP-STUFF--------------------------------"
 
-"TreeSitter for Highlight
+" TreeSitter for Highlight
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-"Completion
+" Completion
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'f3fora/cmp-spell'
 Plug 'hrsh7th/cmp-emoji'
 
-"Snippets
+" Snippets
 Plug 'L3MON4D3/LuaSnip'
 Plug 'rafamadriz/friendly-snippets'
 
-"LSP
+" LSP
 Plug 'neovim/nvim-lspconfig'
-"Install servers easily
+" Install servers easily
 Plug 'williamboman/nvim-lsp-installer'
-"Settings made easy
+" Settings made easy
 Plug 'tamago324/nlsp-settings.nvim'
-"Formatting and LSP like stuff for non-lsp langs
+" Formatting and LSP like stuff for non-lsp langs
 Plug 'jose-elias-alvarez/null-ls.nvim'
 
 call plug#end()
@@ -133,9 +140,12 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 " Thing between editorconfig and fugitive
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
+" FixCursorHold
+let g:cursorhold_updatetime = 100
+
 " --------------------------------Plugins keymaps--------------------------------"
 
-"Surround.vim
+" Surround.vim
 vmap ( S)
 vmap [ S]
 vmap { S}
@@ -143,8 +153,8 @@ vmap ' S'
 vmap " S"
 vmap ` S`
 
-"SML REPL
+" SML REPL
 nnoremap <leader>s :SMLReplStop<CR>:SMLReplStart<CR>:wincmd l<cr>
 
-"Telescope
+" Telescope
 nnoremap <Leader>sf <cmd>Telescope find_files<CR>

@@ -63,9 +63,6 @@ require'telescope'.setup {
             theme = "cursor",
             layout_config = {width = 25}
         },
-        lsp_code_actions = {
-            theme = "cursor",
-        },
         find_files = {
             theme = "dropdown",
             previewer = false
@@ -90,3 +87,4 @@ require'telescope'.setup {
       }
 }
 require'telescope'.load_extension('fzf')
+require'telescope'.load_extension("ui-select")
