@@ -46,6 +46,9 @@ local kind_icons = {
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
 cmp.setup {
+  view = {
+    entries = "custom"
+  },
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body) -- For `luasnip` users.
@@ -53,8 +56,8 @@ cmp.setup {
   },
   mapping = {
     -- scroll popup
-    ["<C-k>"] = cmp.mapping.select_prev_item(),
-		["<C-j>"] = cmp.mapping.select_next_item(),
+    ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+    ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
     -- scroll docs
     ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
@@ -71,7 +74,7 @@ cmp.setup {
     -- Super tab!!
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
-        cmp.select_next_item()
+        cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
       elseif luasnip.expandable() then
         luasnip.expand()
       elseif luasnip.expand_or_jumpable() then
@@ -87,7 +90,7 @@ cmp.setup {
     }),
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
-        cmp.select_prev_item()
+        cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
       elseif luasnip.jumpable(-1) then
         luasnip.jump(-1)
       else
@@ -110,7 +113,8 @@ cmp.setup {
         path = "[PATH]",
         spell = "[SPELL]",
         luasnip = "[SNIP]",
-        emoji = "💻",
+        emoji = "[💻]",
+        cmp_tabnine = "[9]",
       })[entry.source.name]
       return vim_item
     end,
@@ -118,6 +122,7 @@ cmp.setup {
   sources = {
     { name = "nvim_lsp" },
     { name = "nvim_lua" },
+    { name = "cmp_tabnine" },
     { name = "luasnip" },
     { name = "buffer" },
     { name = 'spell' },
@@ -130,11 +135,18 @@ cmp.setup {
   },
   window = {
     documentation = {
-      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+      border = 'rounded',
+      winhighlight = 'Normal:Normal,FloatBorder:Normal,CursorLine:CursorLine,Search:None',
+      zindex = 1001,
+      col_offset = 0,
+      side_padding = 1
     },
-  },
-  experimental = {
-    ghost_text = true,
-    native_menu = false,
+    completion = {
+      border = 'rounded',
+      winhighlight = 'Normal:Normal,FloatBorder:Normal,CursorLine:CursorLine,Search:None',
+      zindex = 1001,
+      col_offset = 0,
+      side_padding = 1
+    },
   },
 }
