@@ -78,8 +78,8 @@ local mappings_base = {
   ["<a-b>"] = { "<cmd>call HorTermToggle()<CR>", "Horizontal Terminal" },
   ["<a-v>"] = { "<cmd>call VertTermToggle()<CR>", "Vertical Terminal" },
   ["<a-g>"] = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
-  ["<a-s>"] = { "<cmd>lua _SML_TOGGLE()<CR>", "SML REPL" },
   ["<a-n>"] = { "<cmd>lua _NODE_TOGGLE()<CR>", "Node REPL" },
+  ["<leader>sf"] = { "<cmd>Telescope find_files<CR>", "Super Find" },
 }
 
 local opts_leader = {
