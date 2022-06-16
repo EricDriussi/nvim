@@ -52,6 +52,8 @@ set pumheight=10
 set signcolumn=yes
 set numberwidth=4
 
+set laststatus=3
+
 "Highlight references for word under cursor
 hi! LspReferenceText guibg=#504945
 hi! LspReferenceRead guibg=#504945
