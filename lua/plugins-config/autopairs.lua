@@ -57,7 +57,7 @@ npairs.add_rules({
     :set_end_pair_length(2),
 
 -- spacing for = sign
-  Rule('=', '')
+  Rule('=', '', {'-vim', '-zsh', '-env'})
     :with_pair(cond.not_inside_quote())
     :with_pair(function(opts)
         local last_char = opts.line:sub(opts.col - 1, opts.col - 1)
