@@ -43,6 +43,8 @@ Plug 'folke/which-key.nvim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ThePrimeagen/refactoring.nvim'
 Plug 'vim-test/vim-test'
+" Handle camelCase and snek_case
+Plug 'chaoren/vim-wordmotion'
 " Improve speed
 Plug 'lewis6991/impatient.nvim'
 " Fix bug

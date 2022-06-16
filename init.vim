@@ -7,11 +7,8 @@ source ~/.config/nvim/lua/vimscript/diffmode.vim
 source ~/.config/nvim/lua/vimscript/terminal.vim
 
 "Settings
-"filetype plugin indent on
 set ignorecase
 set smartcase
-"set spelllang=en,es,cjk
-"set spell
 set nospell
 set encoding=utf-8
 set fileencoding=utf-8
@@ -24,12 +21,9 @@ set hidden
 set termguicolors
 set wrap
 set incsearch
-"set cursorline
+set cursorline
 set splitright
 set splitbelow
-"Snek case...
-set iskeyword-=_
-set iskeyword-=-
 "Don't comment on CR
 set formatoptions-=cor
 "Lightline already shows mode
@@ -47,13 +41,13 @@ set nobackup
 set undodir=~/.config/nvim/undodir
 set undofile
 "Tab be gud
-set autoindent
+"set autoindent
 set softtabstop=2
 set expandtab
-set shiftwidth=4
+set shiftwidth=2
 set smartindent
 
-set completeopt="menuone, preview"
+set completeopt="menuone, noselect, preview"
 set pumheight=10
 set signcolumn=yes
 set numberwidth=4
@@ -117,6 +111,12 @@ vnoremap < <gv
 vnoremap > >gv
 nnoremap <a-h> <<
 nnoremap <a-l> >>
+
+"Exit Vim meme here
+:command! WQ wq
+:command! Wq wq
+:command! W w
+:command! Q q
 
 "Move current line and selected lines
 noremap <a-j> :m .+1<cr>==
