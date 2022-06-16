@@ -1,14 +1,21 @@
 call plug#begin('~/.config/nvim/plugged')
 
-" Looks
-Plug 'itchyny/lightline.vim'
+" Tabs
+Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+" Status Line
+Plug 'nvim-lualine/lualine.nvim'
+" Color on hex codes
 Plug 'chrisbra/Colorizer'
+" Intend Line
+Plug 'lukas-reineke/indent-blankline.nvim'
 " Theme
 Plug 'gruvbox-community/gruvbox'
 
-" Undo, File Explorer and auto-comments
+" Undo
 Plug 'mbbill/undotree'
+" File Explorer
 Plug 'kyazdani42/nvim-tree.lua'
+" Autocomment
 Plug 'preservim/nerdcommenter'
 
 " Telescope!
@@ -24,24 +31,30 @@ Plug 'lewis6991/gitsigns.nvim'
 
 " Parenthesis and such
 Plug 'windwp/nvim-autopairs'
+Plug 'windwp/nvim-ts-autotag'
 Plug 'tpope/vim-surround'
 Plug 'p00f/nvim-ts-rainbow'
-Plug 'windwp/nvim-ts-autotag'
 
 " Needed for other plugins
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 
-" MISC
 " Multi-Cursor
 Plug 'mg979/vim-visual-multi'
+" MD Preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+" f to char
 Plug 'unblevable/quick-scope'
+" Integrated terminal
 Plug 'akinsho/toggleterm.nvim'
+" Bottom menu
 Plug 'folke/which-key.nvim'
+" Follow editorconfig
 Plug 'editorconfig/editorconfig-vim'
+" Usually doesn't work
 Plug 'ThePrimeagen/refactoring.nvim'
+" Launch tests
 Plug 'vim-test/vim-test'
 " Handle camelCase and snek_case
 Plug 'chaoren/vim-wordmotion'
@@ -52,10 +65,9 @@ Plug 'antoinemadec/FixCursorHold.nvim'
 
 " --------------------------------LSP-STUFF--------------------------------"
 
-" TreeSitter for Highlight
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-" Completion
+" Completion and sources
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
@@ -65,6 +77,7 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'f3fora/cmp-spell'
 Plug 'hrsh7th/cmp-emoji'
+Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 
 " Snippets
 Plug 'L3MON4D3/LuaSnip'
@@ -104,6 +117,10 @@ lua << EOF
     require("plugins-config.autopairs")
     -- Null-ls
     require("plugins-config.null-ls")
+    -- Lualine
+    require("plugins-config.lualine")
+    -- Bufferline
+    require("plugins-config.bufferline")
 EOF
 
 " --------------------------------Plugins vimscript config--------------------------------"
@@ -111,27 +128,9 @@ EOF
 let g:gruvbox_contrast_dark = 'medium'
 colorscheme gruvbox
 set background=dark 
-au BufEnter *.css :ColorHighlight<CR>
-
-let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'readonly', 'filename', 'modified' ],
-			\ 						[ 'gitbranch'] ],
-			\
-			\ 	'right': [ [ 'lineinfo' ],
-      \              [ 'percent' ],
-      \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
-      \ },
-      \ }
+au BufEnter * :ColorHighlight<CR>
 
 let g:NERDToggleCheckAllLines = 1
-
-" SML REPL!
-let g:sml_smlnj_executable = '/usr/bin/smlnj'
 
 " markdown-preview concrete port
 let g:mkdp_port = '6969'
@@ -154,9 +153,3 @@ vmap { S}
 vmap ' S'
 vmap " S"
 vmap ` S`
-
-" SML REPL
-nnoremap <leader>s :SMLReplStop<CR>:SMLReplStart<CR>:wincmd l<cr>
-
-" Telescope
-nnoremap <Leader>sf <cmd>Telescope find_files<CR>
