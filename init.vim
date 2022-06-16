@@ -53,11 +53,10 @@ set expandtab
 set shiftwidth=4
 set smartindent
 
-set completeopt="menuone, noselect"
+set completeopt="menuone, preview"
 set pumheight=10
 set signcolumn=yes
 set numberwidth=4
-set conceallevel=0
 
 "Highlight references for word under cursor
 hi! LspReferenceText guibg=#504945

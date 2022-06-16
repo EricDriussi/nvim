@@ -47,11 +47,10 @@ set expandtab
 set shiftwidth=4
 set smartindent
 
-set completeopt="menuone, noselect"
+set completeopt="menuone, preview"
 set pumheight=10
 set signcolumn=yes
 set numberwidth=4
-set conceallevel=0
 
 " --------------------------------Keymap--------------------------------"
 "Kinda scrolling
@@ -103,12 +102,6 @@ vnoremap < <gv
 vnoremap > >gv
 nnoremap <a-h> <<
 nnoremap <a-l> >>
-
-"Move current line and selected lines
-noremap <a-j> :m .+1<cr>==
-noremap <a-k> :m .-2<cr>==
-vnoremap <a-j> :m '>+1<cr>gv=gv
-vnoremap <a-k> :m '<-2<cr>gv=gv
 
 "Save all 
 nnoremap <C-s> :wa <CR>
