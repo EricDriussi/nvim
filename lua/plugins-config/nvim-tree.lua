@@ -12,8 +12,8 @@ require'nvim-tree'.setup {
   },
   open_on_tab = false,
   hijack_cursor = false,
-  update_cwd = true,
-  respect_buf_cwd = true,
+  update_cwd = false,
+  respect_buf_cwd = false,
   update_to_buf_dir = {
     enable = true,
     auto_open = true,
@@ -45,6 +45,7 @@ require'nvim-tree'.setup {
     timeout = 500,
   },
   view = {
+    adaptive_size = true,
     width = 30,
     height = 30,
     hide_root_folder = true,
