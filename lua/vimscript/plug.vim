@@ -78,6 +78,8 @@ Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'f3fora/cmp-spell'
 Plug 'hrsh7th/cmp-emoji'
 Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
+Plug 'kdheepak/cmp-latex-symbols'
 
 " Snippets
 Plug 'L3MON4D3/LuaSnip'

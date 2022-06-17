@@ -108,13 +108,16 @@ cmp.setup {
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       vim_item.menu = ({
-        nvim_lsp = "[LSP]",
-        buffer = "[BUFF]",
-        path = "[PATH]",
-        spell = "[SPELL]",
-        luasnip = "[SNIP]",
-        emoji = "[💻]",
+        nvim_lsp = "[L]",
+        buffer = "[B]",
         cmp_tabnine = "[9]",
+        path = "[P]",
+        spell = "[S]",
+        luasnip = "[L]",
+        emoji = "[💻]",
+        cmdline = "[cmd]",
+        nvim_lsp_signature_help = "[H]",
+        latex_symbols = "[X]",
       })[entry.source.name]
       return vim_item
     end,
@@ -128,6 +131,9 @@ cmp.setup {
     { name = 'spell' },
     { name = 'emoji' },
     { name = "path" },
+    { name = "cmdline" },
+    { name = "nvim_lsp_signature_help" },
+    { name = "latex_symbols" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
