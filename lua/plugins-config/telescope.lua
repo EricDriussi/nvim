@@ -1,13 +1,37 @@
+local status_ok, telescope = pcall(require, "telescope")
+if not status_ok then
+  return
+end
 local actions = require "telescope.actions"
 
-require'telescope'.setup {
+telescope.setup {
   defaults = {
 
-    file_ignore_patterns = {"node_modules"},
-    layout_config = {width = 0.90},
+    file_ignore_patterns = { "node_modules" },
+    layout_config = { width = 0.90 },
     prompt_prefix = "⫸ ",
     selection_caret = " ⮚ ",
     path_display = { "shortest" },
+
+    pickers = {
+      spell_suggest = {
+        theme = "cursor",
+        layout_config = { width = 25 }
+      },
+      find_files = {
+        theme = "dropdown",
+        previewer = false
+      },
+      lsp_definitions = {
+        theme = "ivy"
+      },
+      lsp_implementations = {
+        theme = "ivy"
+      },
+      lsp_references = {
+        theme = "ivy"
+      }
+    },
 
     mappings = {
       i = {
@@ -58,37 +82,20 @@ require'telescope'.setup {
       },
     },
   },
-    pickers = {
-        spell_suggest = {
-            theme = "cursor",
-            layout_config = {width = 25}
-        },
-        find_files = {
-            theme = "dropdown",
-            previewer = false
-        },
-        lsp_definitions = {
-            theme = "ivy"
-        },
-        lsp_implementations = {
-            theme = "ivy"
-        },
-        lsp_references = {
-            theme = "ivy"
-        }
+
+  extensions = {
+    fzf = {
+      fuzzy = true,
+      override_generic_sorter = true,
+      override_file_sorter = true,
+      case_mode = "smart_case", -- or "ignore_case" or "respect_case"
     },
-    extensions = {
-        fzf = {
-            fuzzy = true,                    -- false will only do exact matching
-            override_generic_sorter = true,  -- override the generic sorter
-            override_file_sorter = true,     -- override the file sorter
-            case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
-        },
-        ['ui-select'] = {
-          layout_strategy = "cursor",
-          layout_config = {width = 55, height = 8}
-        }
-      }
+    ['ui-select'] = {
+      layout_strategy = "cursor",
+      layout_config = { width = 55, height = 8 }
+    }
+  }
 }
-require'telescope'.load_extension('fzf')
-require'telescope'.load_extension("ui-select")
+
+telescope.load_extension('fzf')
+telescope.load_extension("ui-select")
