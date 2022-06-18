@@ -5,5 +5,13 @@ require('bufferline').setup {
     diagnostics_indicator = function()
       return " ⚠️"
     end,
+    offsets = {
+      {
+        filetype = "NvimTree",
+        text = "File Explorer",
+        highlight = "Directory",
+        text_align = "left"
+      }
+    },
   }
 }
