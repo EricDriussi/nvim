@@ -1,23 +1,25 @@
-local tree_cb = require'nvim-tree.config'.nvim_tree_callback
+local status_ok, nvimTree = pcall(require, "nvim-tree")
+if not status_ok then
+  return
+end
+local tree_cb = require 'nvim-tree.config'.nvim_tree_callback
 
-require'nvim-tree'.setup {
-
+nvimTree.setup {
   disable_netrw = true,
   hijack_netrw = true,
-  open_on_setup = false,
   ignore_ft_on_setup = {
     "startify",
     "dashboard",
     "alpha",
   },
-  open_on_tab = false,
-  hijack_cursor = false,
+  -- Follow open file
   update_cwd = false,
   respect_buf_cwd = false,
   update_to_buf_dir = {
     enable = true,
     auto_open = true,
   },
+  -- Show errors in files
   diagnostics = {
     enable = true,
     icons = {
@@ -32,27 +34,18 @@ require'nvim-tree'.setup {
     update_cwd = true,
     ignore_list = {},
   },
-  system_open = {
-    cmd = nil,
-    args = {},
-  },
+  -- What to show (or not)
   filters = {
-    dotfiles = false,
+    custom = { '^\\.git' }
   },
-  git = {
-    enable = true,
-    ignore = true,
-    timeout = 500,
-  },
+  -- Location & Dimentions
   view = {
     adaptive_size = true,
     width = 30,
     height = 30,
     hide_root_folder = true,
     side = "left",
-    auto_resize = true,
     mappings = {
-      custom_only = false,
       list = {
         { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
         { key = "h", cb = tree_cb "close_node" },
@@ -62,32 +55,27 @@ require'nvim-tree'.setup {
         { key = "a", cb = tree_cb "create" },
         { key = "d", cb = tree_cb "remove" },
         { key = "D", cb = tree_cb "trash" },
-        { key = "r", cb = tree_cb "rename" },
+        { key = "rn", cb = tree_cb "rename" },
         { key = "<C-r>", cb = tree_cb "full_rename" },
         { key = "x", cb = tree_cb "cut" },
         { key = "y", cb = tree_cb "copy" },
         { key = "p", cb = tree_cb "paste" },
         { key = "yn", cb = tree_cb "copy_name" },
         { key = "yp", cb = tree_cb "copy_path" },
-        { key = "H", cb = tree_cb "toggle_ignored" },
         { key = "-", action = "" },
       },
     },
-    number = false,
-    relativenumber = false,
   },
-  trash = {
-    cmd = "trash",
-    require_confirm = true,
-  },
+  -- Behavior
   actions = {
     open_file = {
       quit_on_open = true,
-      window_picker ={
+      window_picker = {
         enable = true
       }
     }
   },
+  -- UI
   renderer = {
     root_folder_modifier = ":t",
     highlight_git = true,
@@ -102,6 +90,7 @@ require'nvim-tree'.setup {
   },
 }
 
+-- Icons
 vim.g.nvim_tree_icons = {
   default = "",
   symlink = "",
@@ -124,4 +113,5 @@ vim.g.nvim_tree_icons = {
 }
 
 -- Magic trick to make nvim-tree auto-close
-vim.api.nvim_exec([[ autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]], false)
+vim.api.nvim_exec([[ autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]]
+  , false)
