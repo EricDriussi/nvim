@@ -1,6 +1,5 @@
 local M = {}
 
--- TODO: backfill this to template
 M.setup = function()
   local signs = {
     { name = "DiagnosticSignError", text = "" },
@@ -14,9 +13,7 @@ M.setup = function()
   end
 
   local config = {
-    -- disable virtual text
     virtual_text = false,
-    -- show signs
     signs = {
       active = signs,
     },
@@ -62,6 +59,7 @@ local function lsp_highlight_document(client)
   end
 end
 
+-- Don't make me choose
 M.on_attach = function(client)
   if client.name == "pylsp" then
     client.resolved_capabilities.document_formatting = false
