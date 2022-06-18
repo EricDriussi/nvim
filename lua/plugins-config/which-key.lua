@@ -153,7 +153,6 @@ local opts_goto = {
 
 local mappings_goto = {
   ["d"] = { "<cmd>Telescope lsp_definitions<CR><Esc>", "Goto Definition" },
-  ["D"] = { "<cmd>Telescope lsp_declaration<CR><Esc>", "Goto Declaration" },
   ["i"] = { "<cmd>Telescope lsp_implementations<cr><Esc>", "Goto Implementation" },
   ["r"] = { "<cmd>Telescope lsp_references<cr><Esc>", "Goto References" },
   ["e"] = { "<cmd>lua vim.diagnostic.open_float(0, {scope='line'})<CR>", "Get Error" },
