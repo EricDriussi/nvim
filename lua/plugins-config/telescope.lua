@@ -6,17 +6,20 @@ local actions = require "telescope.actions"
 
 telescope.setup {
   defaults = {
-
     file_ignore_patterns = { "node_modules" },
-    layout_config = { width = 0.90 },
     prompt_prefix = "⫸ ",
     selection_caret = " ⮚ ",
     path_display = { "shortest" },
+    sorting_strategy = 'ascending',
+    layout_config = {
+      prompt_position = "top",
+      width = 0.90
+    },
 
     pickers = {
       spell_suggest = {
         theme = "cursor",
-        layout_config = { width = 25 }
+        layout_config = { width = 25 },
       },
       find_files = {
         theme = "dropdown",

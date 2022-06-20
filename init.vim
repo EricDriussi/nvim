@@ -9,7 +9,9 @@ source ~/.config/nvim/lua/vimscript/terminal.vim
 "Settings
 set ignorecase
 set smartcase
-set nospell
+set spell
+set spelllang=en_us,es_es
+set spellsuggest=fast
 set encoding=utf-8
 set fileencoding=utf-8
 set updatetime=200
