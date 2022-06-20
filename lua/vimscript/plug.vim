@@ -4,8 +4,9 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 " Status Line
 Plug 'nvim-lualine/lualine.nvim'
-" Color on hex codes
-Plug 'chrisbra/Colorizer'
+" Color on hex Codes
+" CAN HINDER PERFORMANCE, ACTIVATE ONLY IF NEEDED!
+" Plug 'chrisbra/Colorizer'
 " Intend Line
 Plug 'lukas-reineke/indent-blankline.nvim'
 " Theme
@@ -130,7 +131,10 @@ EOF
 let g:gruvbox_contrast_dark = 'medium'
 colorscheme gruvbox
 set background=dark 
-au BufEnter * :ColorHighlight<CR>
+
+" Colorizer
+"let g:colorizer_skip_comments = 1
+"au BufNewFile,BufRead * :ColorHighlight
 
 let g:NERDToggleCheckAllLines = 1
 
