@@ -1,60 +1,35 @@
 let mapleader = " "
 "Plug and generic Plugin settings
-source ~/.config/nvim/lua/vimscript/plug.vim
+source ~/.config/nvim/vimscript/plug.vim
 "Script to view a diff of different files given a vsplit
-source ~/.config/nvim/lua/vimscript/diffmode.vim
+source ~/.config/nvim/vimscript/diffmode.vim
 "Script to toggle an IDE like terminal
-source ~/.config/nvim/lua/vimscript/terminal.vim
+source ~/.config/nvim/vimscript/terminal.vim
+"Settings/Options
+source ~/.config/nvim/vimscript/setopts.vim
+"Basic Keymaps
+source ~/.config/nvim/vimscript/keymaps.vim
 
-"Settings
-set ignorecase
-set smartcase
-set spell
-set spelllang=en_us,es_es
-set spellsuggest=fast
-set encoding=utf-8
-set fileencoding=utf-8
-set updatetime=200
-set timeoutlen=500
-set noerrorbells
-set number relativenumber
-set mouse=a
-set hidden
-set termguicolors
-set wrap
-set incsearch
-set cursorline
-set splitright
-set splitbelow
-"Don't comment on CR
-set formatoptions-=cor
-"Lightline already shows mode
-set noshowmode
-"Breathing space
-set scrolloff=8
-set sidescrolloff=5
-"Avoid splitting words when wrapping lines
-set linebreak
-"Set title to current file instead of terminal emulator name
-set title
-"History
-set noswapfile
-set nobackup
-set undodir=~/.config/nvim/undodir
-set undofile
-"Tab be gud
-"set autoindent
-set softtabstop=2
-set expandtab
-set shiftwidth=2
-set smartindent
+"Always check if
+autocmd BufEnter * :call SetFiletypeNewBuffer()
+"Undefined buffer
+function! SetFiletypeNewBuffer()
+  if @% == ""
+    "And set filetype to none
+    :set filetype=none
+  endif
+endfunction
+"Enable spelling for commits and undefined buffers
+autocmd FileType gitcommit,none setlocal spell spelllang=es,en
 
-set completeopt="menuone, noselect, preview"
-set pumheight=10
-set signcolumn=yes
-set numberwidth=4
+"Don't bring comment to new line
+autocmd BufWinEnter * set formatoptions-=cro
 
-set laststatus=3
+" --------------------------------Plugins vimscript config--------------------------------"
+
+let g:gruvbox_contrast_dark = 'medium'
+colorscheme gruvbox
+set background=dark 
 
 "Highlight references for word under cursor
 hi! LspReferenceText guibg=#504945
@@ -65,92 +40,27 @@ hi! LspReferenceWrite guibg=#504945
 hi! link Keyword GruvboxAqua
 hi! link Include GruvboxRed
 
-" --------------------------------Keymap--------------------------------"
-"Kinda scrolling
-nnoremap <C-d> <C-d>zz
-nnoremap <C-u> <C-u>zz
+" Colorizer
+au BufNewFile,BufRead * :ColorizerAttachToBuffer
 
-"Sensible copy-pasting to and from system clipboard
-vnoremap <C-y> "+y <bar> :echom 'Copied to system clipboard!'<CR>
-nnoremap <C-y> "+yiw <bar> :echom 'Copied to system clipboard!'<CR>
-nnoremap <C-p> "+p <bar> :echom 'Pasted from system clipboard!'<CR>
-vnoremap <C-p> "+p <bar> :echom 'Pasted from system clipboard!'<CR>
-inoremap <C-p> <Esc>"+p <bar> :echom 'Pasted from system clipboard!'<CR>A
+let g:NERDToggleCheckAllLines = 1
 
-"Y like you V or C
-nnoremap Y y$
+" markdown-preview concrete port
+let g:mkdp_port = '6969'
 
-"Paste over selected text without screwing the reg
-vnoremap p "_dP
-vnoremap P "_dP
+" Quickscope only highlight on keys
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
-"Select all
-nnoremap <C-a> ggVG
+" Thing between editorconfig and fugitive
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
-"Increment number
-nnoremap <A-a> <C-a>
+" FixCursorHold
+let g:cursorhold_updatetime = 100
 
-"Esc+Esc to turn off search highlighting
-nnoremap <Esc> :noh<return><Esc>
-
-"Center search selection
-nnoremap n nzzzv
-nnoremap N Nzzzv
-
-"Search selected text
-vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
-
-"Dumb-replace word in Normal mode and selection in Visual mode
-nnoremap <silent> rp *``cgn
-vnoremap <silent> rp y/\V<C-R>=escape(@",'/\')<CR><CR>Ncgn
-"FUCKS UP REG
-
-"Close tab
-nnoremap <C-w> :q<CR>
-
-"Indent
-vnoremap <a-h> <gv
-vnoremap <a-l> >gv
-vnoremap < <gv
-vnoremap > >gv
-nnoremap <a-h> <<
-nnoremap <a-l> >>
-
-"Exit Vim meme here
-:command! WQ wq
-:command! Wq wq
-:command! W w
-:command! Q q
-
-"Move current line and selected lines
-noremap <a-j> :m .+1<cr>==
-noremap <a-k> :m .-2<cr>==
-vnoremap <a-j> :m '>+1<cr>gv=gv
-vnoremap <a-k> :m '<-2<cr>gv=gv
-
-"Save all 
-nnoremap <C-s> :wa <CR>
-
-"Split right
-nnoremap <c-a-O> <cmd>vsp %<cr>
-
-"Resize vertical splits
-nnoremap + :vertical resize +5<CR>
-nnoremap - :vertical resize -5<CR>
-
-"Navigate splits
-nnoremap <C-M-l> <cmd>wincmd l<cr>
-nnoremap <C-M-h> <cmd>wincmd h<cr>
-nnoremap <C-M-j> <cmd>wincmd j<cr>
-nnoremap <C-M-k> <cmd>wincmd k<cr>
-
-"Add Undo break points
-inoremap , ,<c-g>u
-inoremap . .<c-g>u
-inoremap ? ?<c-g>u
-
-"Add number and half page jumps to jumplist
-nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
-nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
-nnoremap <c-u> <c-u>m'
-nnoremap <c-d> <c-d>m'
+" Surround.vim
+vmap ( S)
+vmap [ S]
+vmap { S}
+vmap ' S'
+vmap " S"
+vmap ` S`

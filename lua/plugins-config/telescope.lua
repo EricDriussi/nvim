@@ -43,6 +43,7 @@ telescope.setup {
 
         ["<M-q>"] = actions.send_to_qflist + actions.open_qflist,
 
+        ["<esc>"] = actions.close,
         ["<C-w>"] = actions.close,
         ["<C-q>"] = actions.close,
 
@@ -60,28 +61,6 @@ telescope.setup {
         ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
         ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
         ["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
-      },
-
-      n = {
-        ["<C-i>"] = actions.cycle_history_next,
-        ["<C-o>"] = actions.cycle_history_prev,
-
-        ["<esc>"] = actions.close,
-        ["<C-w>"] = actions.close,
-        ["<C-q>"] = actions.close,
-
-        ["<CR>"] = actions.select_default,
-        ["<C-h>"] = actions.select_horizontal,
-        ["<C-v>"] = actions.select_vertical,
-        ["<C-t>"] = actions.select_tab,
-
-        ["<C-u>"] = actions.results_scrolling_up,
-        ["<C-d>"] = actions.results_scrolling_down,
-
-        ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-        ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-
-        ["?"] = actions.which_key,
       },
     },
   },

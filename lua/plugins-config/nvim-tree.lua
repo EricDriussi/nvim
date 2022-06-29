@@ -15,7 +15,7 @@ nvimTree.setup {
   -- Follow open file
   update_cwd = false,
   respect_buf_cwd = false,
-  update_to_buf_dir = {
+  hijack_directories = {
     enable = true,
     auto_open = true,
   },

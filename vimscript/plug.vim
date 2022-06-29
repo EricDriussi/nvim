@@ -1,12 +1,11 @@
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.config/nvim/.plugged')
 
 " Tabs
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 " Status Line
 Plug 'nvim-lualine/lualine.nvim'
 " Color on hex Codes
-" CAN HINDER PERFORMANCE, ACTIVATE ONLY IF NEEDED!
-" Plug 'chrisbra/Colorizer'
+Plug 'norcalli/nvim-colorizer.lua'
 " Intend Line
 Plug 'lukas-reineke/indent-blankline.nvim'
 " Theme
@@ -63,6 +62,8 @@ Plug 'chaoren/vim-wordmotion'
 Plug 'lewis6991/impatient.nvim'
 " Fix bug
 Plug 'antoinemadec/FixCursorHold.nvim'
+" Pretty QFList
+Plug 'https://gitlab.com/yorickpeterse/nvim-pqf.git'
 
 " --------------------------------LSP-STUFF--------------------------------"
 
@@ -76,7 +77,6 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-nvim-lua'
-Plug 'f3fora/cmp-spell'
 Plug 'hrsh7th/cmp-emoji'
 Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
@@ -97,65 +97,5 @@ Plug 'jose-elias-alvarez/null-ls.nvim'
 
 call plug#end()
 
-" --------------------------------Plugins lua config--------------------------------"
-
-lua << EOF
-    -- Completion
-    require("plugins-config.cmp")
-    -- LSP
-    require("plugins-config.lsp")
-    -- Telescopic
-    require("plugins-config.telescope")
-    -- Treesitter
-    require("plugins-config.treesitter")
-    -- Gitsigns
-    require("plugins-config.gitsigns")
-    -- ToggleTerm
-    require("plugins-config.toggleterm")
-    -- WhichKey
-    require("plugins-config.which-key")
-    -- NvimTree
-    require("plugins-config.nvim-tree")
-    -- Autopairs
-    require("plugins-config.autopairs")
-    -- Null-ls
-    require("plugins-config.null-ls")
-    -- Lualine
-    require("plugins-config.lualine")
-    -- Bufferline
-    require("plugins-config.bufferline")
-EOF
-
-" --------------------------------Plugins vimscript config--------------------------------"
-
-let g:gruvbox_contrast_dark = 'medium'
-colorscheme gruvbox
-set background=dark 
-
-" Colorizer
-"let g:colorizer_skip_comments = 1
-"au BufNewFile,BufRead * :ColorHighlight
-
-let g:NERDToggleCheckAllLines = 1
-
-" markdown-preview concrete port
-let g:mkdp_port = '6969'
-
-" Quickscope only highlight on keys
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-
-" Thing between editorconfig and fugitive
-let g:EditorConfig_exclude_patterns = ['fugitive://.*']
-
-" FixCursorHold
-let g:cursorhold_updatetime = 100
-
-" --------------------------------Plugins keymaps--------------------------------"
-
-" Surround.vim
-vmap ( S)
-vmap [ S]
-vmap { S}
-vmap ' S'
-vmap " S"
-vmap ` S`
+" Plugins lua config
+lua require('plugins-config')
