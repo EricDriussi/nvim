@@ -2,6 +2,8 @@
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 
+inoremap <A-CR> <cmd>lua vim.lsp.buf.code_action()<cr>
+
 "Sensible copy-pasting to and from system clipboard
 vnoremap <C-y> "+y <bar> :echom 'Copied to system clipboard!'<CR>
 nnoremap <C-y> "+yiw <bar> :echom 'Copied to system clipboard!'<CR>
@@ -47,6 +49,10 @@ vnoremap < <gv
 vnoremap > >gv
 nnoremap <a-h> <<
 nnoremap <a-l> >>
+nnoremap <Tab> >>_
+nnoremap <S-Tab> <<_
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
 
 "Exit Vim meme here
 :command! WQ wq
