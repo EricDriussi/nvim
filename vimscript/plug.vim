@@ -10,6 +10,8 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'lukas-reineke/indent-blankline.nvim'
 " Theme
 Plug 'gruvbox-community/gruvbox'
+" Pretty QFList
+Plug 'https://gitlab.com/yorickpeterse/nvim-pqf.git'
 
 " Undo
 Plug 'mbbill/undotree'
@@ -62,8 +64,6 @@ Plug 'chaoren/vim-wordmotion'
 Plug 'lewis6991/impatient.nvim'
 " Fix bug
 Plug 'antoinemadec/FixCursorHold.nvim'
-" Pretty QFList
-Plug 'https://gitlab.com/yorickpeterse/nvim-pqf.git'
 " Autocomment
 Plug 'preservim/nerdcommenter'
 

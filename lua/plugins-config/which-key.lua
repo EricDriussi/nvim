@@ -67,12 +67,13 @@ local mappings_base = {
   ["rn"] = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
   ["<A-CR>"] = { "<cmd>lua vim.lsp.buf.code_action()<cr><Esc>", "Code Actions" },
   --["<C-Space>"] = { "<cmd>Telescope spell_suggest<cr><Esc>", "Spelling" },
-  ["<C-Space>"] = { " <cmd>lua require'telescope.builtin'.spell_suggest({layout_strategy = 'cursor', layout_config = {width = 35, height = 0.4}})<CR>", "Spelling" },
+  ["<C-Space>"] = { " <cmd>lua require'telescope.builtin'.spell_suggest({layout_strategy = 'cursor', layout_config = {width = 35, height = 0.4}})<CR>",
+    "Spelling" },
   ["<a-b>"] = { "<cmd>call HorTermToggle()<CR>", "Horizontal Terminal" },
   ["<a-v>"] = { "<cmd>call VertTermToggle()<CR>", "Vertical Terminal" },
   ["<a-g>"] = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
   ["<a-n>"] = { "<cmd>lua _NODE_TOGGLE()<CR>", "Node REPL" },
-  ["<leader>sf"] = { "<cmd>Telescope find_files<CR>", "Super Find" },
+  ["<leader>sf"] = { "<cmd>Telescope find_files<CR>", "Super Find" }, --
 }
 
 local opts_leader = {
@@ -93,12 +94,24 @@ local mappings_leader = {
   ["F"] = { "<cmd>Telescope live_grep<cr>", "Find - Grep" },
   ["A"] = { "<cmd>Telescope commands<cr>", "Actions" },
   ["R"] = { "<cmd>Telescope registers<cr><esc>", "Registers" },
-  ["M"] = { "<cmd>Telescope marks<cr><esc>", "Marked Lines" },
+  ["M"] = { "<cmd>Telescope marks<cr><esc>", "Marked Lines" }, --
   ["d"] = { "<cmd>call DiffMe()<CR>", "Diff Mode" },
   ["l"] = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format" },
   ["/"] = { "<plug>NERDCommenterToggle<CR>k", "Comment" },
-  ["t"] = { "<cmd> :TestNearest<CR>", "Test nearest" },
-  ["r"] = { "<cmd> :TestLast<CR>", "Test re-run" },
+
+  r = {
+    name = 'Refactor',
+    r = { "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "List Refactors" },
+    f = { "<Esc><cmd>lua require('refactoring').refactor('Extract Function')<CR>", "Extract Function" },
+    v = { "<Esc><cmd>lua require('refactoring').refactor('Extract Variable')<CR>", "Extract Variable" },
+    i = { "<Esc><cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline Variable" },
+  },
+
+  t = {
+    name = 'Test',
+    n = { "<cmd> :TestNearest<CR>", "Test nearest" },
+    t = { "<cmd> :TestLast<CR>", "Test re-run" },
+  },
 
   g = {
     name = "Git",
