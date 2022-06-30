@@ -2,23 +2,13 @@ local status_ok, nvimTree = pcall(require, "nvim-tree")
 if not status_ok then
   return
 end
-local tree_cb = require 'nvim-tree.config'.nvim_tree_callback
+
+-- Use nvim-rooter to always show full project
+require'nvim-rooter'.setup()
 
 nvimTree.setup {
   disable_netrw = true,
-  hijack_netrw = true,
-  ignore_ft_on_setup = {
-    "startify",
-    "dashboard",
-    "alpha",
-  },
-  -- Follow open file
-  update_cwd = false,
-  respect_buf_cwd = false,
-  hijack_directories = {
-    enable = true,
-    auto_open = true,
-  },
+
   -- Show errors in files
   diagnostics = {
     enable = true,
@@ -29,15 +19,31 @@ nvimTree.setup {
       error = "",
     },
   },
+
+  -- Follow open file
+  sync_root_with_cwd = true,
+  respect_buf_cwd = true,
   update_focused_file = {
     enable = true,
-    update_cwd = true,
-    ignore_list = {},
+    update_root = true,
   },
+
   -- What to show (or not)
   filters = {
+    dotfiles = true,
     custom = { '^\\.git' }
   },
+
+  -- Behavior
+  actions = {
+    open_file = {
+      quit_on_open = false,
+      window_picker = {
+        enable = true
+      }
+    }
+  },
+
   -- Location & Dimentions
   view = {
     adaptive_size = true,
@@ -45,36 +51,33 @@ nvimTree.setup {
     height = 30,
     hide_root_folder = true,
     side = "left",
+
+    -- Mappings
     mappings = {
       list = {
-        { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
-        { key = "h", cb = tree_cb "close_node" },
-        { key = "<C-h>", cb = tree_cb "split" },
-        { key = "<C-v>", cb = tree_cb "vsplit" },
-        { key = "<C-t>", cb = tree_cb "tabnew" },
-        { key = "a", cb = tree_cb "create" },
-        { key = "d", cb = tree_cb "remove" },
-        { key = "D", cb = tree_cb "trash" },
-        { key = "rn", cb = tree_cb "rename" },
-        { key = "<C-r>", cb = tree_cb "full_rename" },
-        { key = "x", cb = tree_cb "cut" },
-        { key = "y", cb = tree_cb "copy" },
-        { key = "p", cb = tree_cb "paste" },
-        { key = "yn", cb = tree_cb "copy_name" },
-        { key = "yp", cb = tree_cb "copy_path" },
+        { key = { "l", "<CR>", "o" }, action = "edit" },
+        { key = "h", action = "close_node" },
+        { key = "<C-h>", action = "split" },
+        { key = "<C-v>", action = "vsplit" },
+        { key = "<C-t>", action = "tabnew" },
+        { key = "a", action = "create" },
+        { key = "d", action = "remove" },
+        { key = "D", action = "trash" },
+        { key = "r", action = "rename" },
+        { key = "R", action = "full_rename" },
+        { key = "x", action = "cut" },
+        { key = "p", action = "paste" },
+        { key = "yf", action = "copy" },
+        { key = "yn", action = "copy_name" },
+        { key = "yp", action = "copy_path" },
+        { key = "H", action = "toggle_dotfiles" },
+        { key = "?", action = "toggle_help" },
         { key = "-", action = "" },
+        { key = "y", action = "" },
       },
     },
   },
-  -- Behavior
-  actions = {
-    open_file = {
-      quit_on_open = true,
-      window_picker = {
-        enable = true
-      }
-    }
-  },
+
   -- UI
   renderer = {
     root_folder_modifier = ":t",
@@ -85,33 +88,36 @@ nvimTree.setup {
         folder = true,
         file = true,
         folder_arrow = true,
+      },
+
+      -- Icons
+      glyphs = {
+        default = "",
+        symlink = "",
+        git = {
+          unstaged = "",
+          staged = "S",
+          unmerged = "",
+          renamed = "➜",
+          deleted = "",
+          untracked = "U",
+          ignored = "◌",
+        },
+        folder = {
+          default = "",
+          open = "",
+          empty = "",
+          empty_open = "",
+          symlink = "",
+        },
       }
     }
   },
 }
 
--- Icons
-vim.g.nvim_tree_icons = {
-  default = "",
-  symlink = "",
-  git = {
-    unstaged = "",
-    staged = "S",
-    unmerged = "",
-    renamed = "➜",
-    deleted = "",
-    untracked = "U",
-    ignored = "◌",
-  },
-  folder = {
-    default = "",
-    open = "",
-    empty = "",
-    empty_open = "",
-    symlink = "",
-  },
-}
-
 -- Magic trick to make nvim-tree auto-close
-vim.api.nvim_exec([[ autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]]
-  , false)
+vim.api.nvim_exec(
+  [[
+    autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
+  ]]
+, false)

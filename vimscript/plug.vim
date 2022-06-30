@@ -15,8 +15,8 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'mbbill/undotree'
 " File Explorer
 Plug 'kyazdani42/nvim-tree.lua'
-" Autocomment
-Plug 'preservim/nerdcommenter'
+" Fix root dir for ⬆️
+Plug 'notjedi/nvim-rooter.lua'
 
 " Telescope!
 Plug 'nvim-telescope/telescope.nvim'
@@ -64,6 +64,8 @@ Plug 'lewis6991/impatient.nvim'
 Plug 'antoinemadec/FixCursorHold.nvim'
 " Pretty QFList
 Plug 'https://gitlab.com/yorickpeterse/nvim-pqf.git'
+" Autocomment
+Plug 'preservim/nerdcommenter'
 
 " --------------------------------LSP-STUFF--------------------------------"
 
