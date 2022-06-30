@@ -49,10 +49,6 @@ vnoremap < <gv
 vnoremap > >gv
 nnoremap <a-h> <<
 nnoremap <a-l> >>
-nnoremap <Tab> >>_
-nnoremap <S-Tab> <<_
-vnoremap <Tab> >gv
-vnoremap <S-Tab> <gv
 
 "Exit Vim meme here
 :command! WQ wq
