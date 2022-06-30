@@ -1,5 +1,7 @@
 call plug#begin('~/.config/nvim/.plugged')
 
+Plug 'ThePrimeagen/harpoon'
+
 " Tabs
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 " Status Line

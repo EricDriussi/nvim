@@ -98,6 +98,8 @@ local mappings_leader = {
   ["d"] = { "<cmd>call DiffMe()<CR>", "Diff Mode" },
   ["l"] = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format" },
   ["/"] = { "<plug>NERDCommenterToggle<CR>k", "Comment" },
+  ["a"] = { ":lua require('harpoon.mark').add_file()<CR>", "Add Harpoon" },
+  ["h"] = { ":lua require('harpoon.ui').toggle_quick_menu()<CR>", "Harpoons" },
 
   r = {
     name = 'Refactor',
