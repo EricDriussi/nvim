@@ -9,6 +9,8 @@ source ~/.config/nvim/vimscript/terminal.vim
 source ~/.config/nvim/vimscript/setopts.vim
 "Basic Keymaps
 source ~/.config/nvim/vimscript/keymaps.vim
+"Autosave Sessions
+source ~/.config/nvim/vimscript/sessions.vim
 
 "Always check if
 autocmd BufEnter * :call SetFiletypeNewBuffer()
