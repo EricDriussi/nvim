@@ -73,7 +73,6 @@ local mappings_base = {
   ["<a-v>"] = { "<cmd>call VertTermToggle()<CR>", "Vertical Terminal" },
   ["<a-g>"] = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
   ["<a-n>"] = { "<cmd>lua _NODE_TOGGLE()<CR>", "Node REPL" },
-  ["<leader>sf"] = { "<cmd>Telescope find_files<CR>", "Super Find" }, --
 }
 
 local opts_leader = {
@@ -100,6 +99,7 @@ local mappings_leader = {
   ["/"] = { "<plug>NERDCommenterToggle<CR>k", "Comment" },
   ["a"] = { ":lua require('harpoon.mark').add_file()<CR>", "Add Harpoon" },
   ["h"] = { ":lua require('harpoon.ui').toggle_quick_menu()<CR>", "Harpoons" },
+  ["s"] = { ":lua require('spectre').open_visual({select_word=true})<CR>", "Seek & Destroy" },
 
   r = {
     name = 'Refactor',
@@ -142,6 +142,7 @@ local opts_visual = {
 local mappings_visual = {
   ["/"] = { "<plug>NERDCommenterToggle<CR>k", "Comment" },
   ["F"] = { "<cmd>Telescope grep_string<cr><esc>", "Find - Grep" },
+  ["s"] = { "<esc><cmd>lua require('spectre').open_visual()<cr>", "Seek & Destroy" },
   r = {
     name = "Refactor",
     r = { "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "List Refactors" },

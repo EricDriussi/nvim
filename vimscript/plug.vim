@@ -1,7 +1,5 @@
 call plug#begin('~/.config/nvim/.plugged')
 
-Plug 'ThePrimeagen/harpoon'
-
 " Tabs
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 " Status Line
@@ -68,6 +66,10 @@ Plug 'lewis6991/impatient.nvim'
 Plug 'antoinemadec/FixCursorHold.nvim'
 " Autocomment
 Plug 'preservim/nerdcommenter'
+" Jump between files
+Plug 'ThePrimeagen/harpoon'
+" Seek & Destroy
+Plug 'windwp/nvim-spectre'
 
 " --------------------------------LSP-STUFF--------------------------------"
 
