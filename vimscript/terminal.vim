@@ -1,9 +1,9 @@
 " Built-in Terminal
-let g:term_buf = 0
-let g:term_win = 0
+let s:term_buf = 0
+let s:term_win = 0
 
 function! VertTermToggle()
-  if win_gotoid(g:term_win)
+  if win_gotoid(s:term_win)
     hide
   else
     wincmd l
@@ -11,35 +11,31 @@ function! VertTermToggle()
     vert new
     exec "vertical resize " . (&columns * 2/5)
     try
-      exec "buffer " . g:term_buf
+      exec "buffer " . s:term_buf
     catch
       call termopen($SHELL, {"detach": 0})
-      let g:term_buf = bufnr("")
-      set nonumber
-      set norelativenumber
-      set signcolumn=no
+      let s:term_buf = bufnr("")
+      set nonumber norelativenumber signcolumn=no
     endtry
     startinsert!
-    let g:term_win = win_getid()
+    let s:term_win = win_getid()
   endif
 endfunction
 
 function! HorTermToggle()
-  if win_gotoid(g:term_win)
+  if win_gotoid(s:term_win)
     hide
   else
     botright new
     exec "resize " . (winheight(0) * 2/3)
     try
-      exec "buffer " . g:term_buf
+      exec "buffer " . s:term_buf
     catch
       call termopen($SHELL, {"detach": 0})
-      let g:term_buf = bufnr("")
-      set nonumber
-      set norelativenumber
-      set signcolumn=no
+      let s:term_buf = bufnr("")
+      set nonumber norelativenumber signcolumn=no
     endtry
     startinsert!
-    let g:term_win = win_getid()
+    let s:term_win = win_getid()
   endif
 endfunction
