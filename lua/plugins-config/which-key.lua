@@ -65,9 +65,9 @@ local mappings_base = {
   ["K"] = { "<Cmd>lua vim.lsp.buf.hover()<CR>", "Hover" },
   ["<C-k>"] = { "<Cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature" },
   ["rn"] = { "<Cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
-  ["<C-b>"] = { "<Cmd>Telescope lsp_references<CR><Esc>", "Show References" },
-  ["<M-CR>"] = { "<Cmd>lua vim.lsp.buf.code_action()<CR><Esc>", "Code Actions" },
-  ["<C-Space>"] = { " <Cmd>lua require'telescope.builtin'.spell_suggest({layout_strategy = 'cursor', layout_config = {width = 35, height = 0.4}})<CR>",
+  ["<C-b>"] = { "<Cmd>Telescope lsp_references<CR>", "Show References" },
+  ["<M-CR>"] = { "<Cmd>lua vim.lsp.buf.code_action()<CR>", "Code Actions" },
+  ["<C-Space>"] = { "<Cmd>Telescope spell_suggest<CR>",
     "Spelling" },
   ["<M-b>"] = { "<Cmd>call HorTermToggle()<CR>", "Horizontal Terminal" },
   ["<M-v>"] = { "<Cmd>call VertTermToggle()<CR>", "Vertical Terminal" },
@@ -91,8 +91,9 @@ local mappings_leader = {
   ["m"] = { "<Cmd>MarkdownPreviewToggle<CR>", "Preview MD" },
   ["f"] = { "<Cmd>Telescope git_files<CR>", "Find - Git" },
   ["F"] = { "<Cmd>Telescope live_grep<CR>", "Find - Grep" },
+  ["p"] = { "<Cmd>Telescope find_files<CR>", "Find - Files" },
   ["A"] = { "<Cmd>Telescope commands<CR>", "Actions" },
-  ["R"] = { "<Cmd>Telescope registers<CR><Esc>", "Registers" },
+  ["R"] = { "<Cmd>Telescope registers<CR>", "Registers" },
   ["d"] = { "<Cmd>call ToggleDiffMode()<CR>", "Diff Mode" },
   ["l"] = { "<Cmd>lua vim.lsp.buf.formatting()<CR>", "Format" },
   ["/"] = { "<plug>NERDCommenterToggle<CR>k", "Comment" },
@@ -116,7 +117,7 @@ local mappings_leader = {
 
   g = {
     name = "Git",
-    r = { "<Cmd>Telescope git_branches<CR><Esc>", "Branches" },
+    r = { "<Cmd>Telescope git_branches<CR>", "Branches" },
     s = { "<Cmd>Gvdiffsplit<bar>windo set wrap<CR>", "Split" },
     b = { "<Cmd>Gitsigns reset_hunk<CR>", "Git Back Hunk" },
     a = { "<Cmd>Gitsigns toggle_current_line_blame<CR>", "Git Anotate Line" },
@@ -140,7 +141,7 @@ local opts_visual = {
 
 local mappings_visual = {
   ["/"] = { "<plug>NERDCommenterToggle<CR>k", "Comment" },
-  ["F"] = { "<Cmd>Telescope grep_string<CR><Esc>", "Find - Grep" },
+  ["F"] = { "<Cmd>Telescope grep_string<CR>", "Find - Grep" },
   ["s"] = { "<Esc><Cmd>lua require('spectre').open_visual()<CR>", "Seek & Destroy" },
   r = {
     name = "Refactor",
@@ -163,9 +164,9 @@ local opts_goto = {
 }
 
 local mappings_goto = {
-  ["d"] = { "<Cmd>Telescope lsp_definitions<CR><Esc>", "Goto Definition" },
-  ["i"] = { "<Cmd>Telescope lsp_implementations<CR><Esc>", "Goto Implementation" },
-  ["r"] = { "<Cmd>Telescope lsp_references<CR><Esc>", "Goto References" },
+  ["d"] = { "<Cmd>Telescope lsp_definitions<CR>", "Goto Definition" },
+  ["i"] = { "<Cmd>Telescope lsp_implementations<CR>", "Goto Implementation" },
+  ["r"] = { "<Cmd>Telescope lsp_references<CR>", "Goto References" },
   ["e"] = { "<Cmd>lua vim.diagnostic.open_float(0, {scope='line'})<CR>", "Get Error" },
   ["n"] = { "<Cmd>lua vim.diagnostic.goto_next({ border = 'rounded' })<CR>", "Goto Next Error" },
   ["p"] = { "<Cmd>lua vim.diagnostic.goto_prev({ border = 'rounded' })<CR>", "Goto Prev Error" },
