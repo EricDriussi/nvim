@@ -12,6 +12,7 @@ bufferline.setup {
     diagnostics_indicator = function()
       return " ⚠️"
     end,
+
     -- Offset file explorer
     offsets = {
       {

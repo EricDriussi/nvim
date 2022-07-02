@@ -43,11 +43,3 @@ function! HorTermToggle()
     let g:term_win = win_getid()
   endif
 endfunction
-
-" Toggle terminal on/off (neovim)
-tnoremap <a-b> <C-\><C-n><cmd>call HorTermToggle()<CR>
-tnoremap <a-v> <C-\><C-n><cmd>call VertTermToggle()<CR>
-
-" Terminal go back to normal mode
-tnoremap <Esc> <C-\><C-n>
-tnoremap :q! <C-\><C-n>:q!<CR>

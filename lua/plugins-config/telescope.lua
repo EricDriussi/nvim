@@ -43,7 +43,7 @@ telescope.setup {
 
         ["<M-q>"] = actions.send_to_qflist + actions.open_qflist,
 
-        ["<esc>"] = actions.close,
+        ["<Esc>"] = actions.close,
         ["<C-w>"] = actions.close,
         ["<C-q>"] = actions.close,
 

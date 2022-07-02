@@ -61,7 +61,7 @@ nvimTree.setup {
         { key = "<C-v>", action = "vsplit" },
         { key = "<C-t>", action = "tabnew" },
         { key = "a", action = "create" },
-        { key = "d", action = "remove" },
+        { key = "dd", action = "remove" },
         { key = "D", action = "trash" },
         { key = "r", action = "rename" },
         { key = "R", action = "full_rename" },

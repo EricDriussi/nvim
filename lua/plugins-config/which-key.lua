@@ -62,17 +62,17 @@ local opts_base = {
 }
 
 local mappings_base = {
-  ["K"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover" },
-  ["<C-k>"] = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature" },
-  ["rn"] = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
-  ["<A-CR>"] = { "<cmd>lua vim.lsp.buf.code_action()<cr><Esc>", "Code Actions" },
-  --["<C-Space>"] = { "<cmd>Telescope spell_suggest<cr><Esc>", "Spelling" },
-  ["<C-Space>"] = { " <cmd>lua require'telescope.builtin'.spell_suggest({layout_strategy = 'cursor', layout_config = {width = 35, height = 0.4}})<CR>",
+  ["K"] = { "<Cmd>lua vim.lsp.buf.hover()<CR>", "Hover" },
+  ["<C-k>"] = { "<Cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature" },
+  ["rn"] = { "<Cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
+  ["<C-b>"] = { "<Cmd>Telescope lsp_references<CR><Esc>", "Show References" },
+  ["<M-CR>"] = { "<Cmd>lua vim.lsp.buf.code_action()<CR><Esc>", "Code Actions" },
+  ["<C-Space>"] = { " <Cmd>lua require'telescope.builtin'.spell_suggest({layout_strategy = 'cursor', layout_config = {width = 35, height = 0.4}})<CR>",
     "Spelling" },
-  ["<a-b>"] = { "<cmd>call HorTermToggle()<CR>", "Horizontal Terminal" },
-  ["<a-v>"] = { "<cmd>call VertTermToggle()<CR>", "Vertical Terminal" },
-  ["<a-g>"] = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
-  ["<a-n>"] = { "<cmd>lua _NODE_TOGGLE()<CR>", "Node REPL" },
+  ["<M-b>"] = { "<Cmd>call HorTermToggle()<CR>", "Horizontal Terminal" },
+  ["<M-v>"] = { "<Cmd>call VertTermToggle()<CR>", "Vertical Terminal" },
+  ["<M-g>"] = { "<Cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
+  ["<M-n>"] = { "<Cmd>lua _NODE_TOGGLE()<CR>", "Node REPL" },
 }
 
 local opts_leader = {
@@ -86,44 +86,43 @@ local opts_leader = {
 }
 
 local mappings_leader = {
-  ["u"] = { "<cmd>UndotreeToggle<cr>", "Undo Tree" },
-  ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-  ["m"] = { "<cmd>MarkdownPreviewToggle<cr>", "Preview MD" },
-  ["f"] = { "<cmd>Telescope git_files<cr>", "Find - Git" },
-  ["F"] = { "<cmd>Telescope live_grep<cr>", "Find - Grep" },
-  ["A"] = { "<cmd>Telescope commands<cr>", "Actions" },
-  ["R"] = { "<cmd>Telescope registers<cr><esc>", "Registers" },
-  ["M"] = { "<cmd>Telescope marks<cr><esc>", "Marked Lines" }, --
-  ["d"] = { "<cmd>call ToggleDiffMode()<CR>", "Diff Mode" },
-  ["l"] = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format" },
+  ["u"] = { "<Cmd>UndotreeToggle<CR>", "Undo Tree" },
+  ["e"] = { "<Cmd>NvimTreeToggle<CR>", "Explorer" },
+  ["m"] = { "<Cmd>MarkdownPreviewToggle<CR>", "Preview MD" },
+  ["f"] = { "<Cmd>Telescope git_files<CR>", "Find - Git" },
+  ["F"] = { "<Cmd>Telescope live_grep<CR>", "Find - Grep" },
+  ["A"] = { "<Cmd>Telescope commands<CR>", "Actions" },
+  ["R"] = { "<Cmd>Telescope registers<CR><Esc>", "Registers" },
+  ["d"] = { "<Cmd>call ToggleDiffMode()<CR>", "Diff Mode" },
+  ["l"] = { "<Cmd>lua vim.lsp.buf.formatting()<CR>", "Format" },
   ["/"] = { "<plug>NERDCommenterToggle<CR>k", "Comment" },
-  ["a"] = { ":lua require('harpoon.mark').add_file()<CR>", "Add Harpoon" },
-  ["h"] = { ":lua require('harpoon.ui').toggle_quick_menu()<CR>", "Harpoons" },
-  ["s"] = { ":lua require('spectre').open_visual({select_word=true})<CR>", "Seek & Destroy" },
+  ["a"] = { "<Cmd>lua require('harpoon.mark').add_file()<CR>", "Add Harpoon" },
+  ["h"] = { "<Cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Harpoons" },
+  ["s"] = { "<Cmd>lua require('spectre').open_visual({select_word=true})<CR>", "Seek & Destroy" },
 
   r = {
     name = 'Refactor',
-    r = { "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "List Refactors" },
-    f = { "<Esc><cmd>lua require('refactoring').refactor('Extract Function')<CR>", "Extract Function" },
-    v = { "<Esc><cmd>lua require('refactoring').refactor('Extract Variable')<CR>", "Extract Variable" },
-    i = { "<Esc><cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline Variable" },
+    r = { "<Esc><Cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "List Refactors" },
+    f = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>", "Extract Function" },
+    v = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>", "Extract Variable" },
+    i = { "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline Variable" },
   },
 
   t = {
     name = 'Test',
-    n = { "<cmd> :TestNearest<CR>", "Test nearest" },
-    t = { "<cmd> :TestLast<CR>", "Test re-run" },
+    n = { "<Cmd>TestNearest<CR>", "Test nearest" },
+    t = { "<Cmd>TestLast<CR>", "Test re-run" },
   },
 
   g = {
     name = "Git",
-    r = { "<cmd>Telescope git_branches<cr><esc>", "Branches" },
-    s = { "<cmd>Gvdiffsplit<bar>windo set wrap<CR>", "Split" },
-    b = { "<cmd>Gitsigns reset_hunk<CR>", "Git Back Hunk" },
-    a = { "<cmd>Gitsigns toggle_current_line_blame<CR>", "Git Anotate Line" },
-    A = { "<cmd>Git blame<CR>", "Git Anotate File" },
-    l = { "<cmd>diffget //3<CR>", "Get From Incoming (Right)" },
-    h = { "<cmd>diffget //2<CR>", "Get From Current (Left)" },
+    r = { "<Cmd>Telescope git_branches<CR><Esc>", "Branches" },
+    s = { "<Cmd>Gvdiffsplit<bar>windo set wrap<CR>", "Split" },
+    b = { "<Cmd>Gitsigns reset_hunk<CR>", "Git Back Hunk" },
+    a = { "<Cmd>Gitsigns toggle_current_line_blame<CR>", "Git Anotate Line" },
+    A = { "<Cmd>Git blame<CR>", "Git Anotate File" },
+    l = { "<Cmd>diffget //3<CR>", "Get From Incoming (Right)" },
+    h = { "<Cmd>diffget //2<CR>", "Get From Current (Left)" },
     n = { "]c", "GoTo Next Conflict" },
     p = { "[c", "GoTo Prev Conflict" },
   },
@@ -141,15 +140,15 @@ local opts_visual = {
 
 local mappings_visual = {
   ["/"] = { "<plug>NERDCommenterToggle<CR>k", "Comment" },
-  ["F"] = { "<cmd>Telescope grep_string<cr><esc>", "Find - Grep" },
-  ["s"] = { "<esc><cmd>lua require('spectre').open_visual()<cr>", "Seek & Destroy" },
+  ["F"] = { "<Cmd>Telescope grep_string<CR><Esc>", "Find - Grep" },
+  ["s"] = { "<Esc><Cmd>lua require('spectre').open_visual()<CR>", "Seek & Destroy" },
   r = {
     name = "Refactor",
-    r = { "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "List Refactors" },
-    e = { "<Esc><cmd>lua require('refactoring').refactor('Extract Function')<CR>", "Extract Function" },
-    f = { "<Esc><cmd>lua require('refactoring').refactor('Extract Function To File')<CR>", "Extract To File" },
-    v = { "<Esc><cmd>lua require('refactoring').refactor('Extract Variable')<CR>", "Extract Variable" },
-    i = { "<Esc><cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline Variable" },
+    r = { "<Esc><Cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "List Refactors" },
+    e = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>", "Extract Function" },
+    f = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>", "Extract To File" },
+    v = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>", "Extract Variable" },
+    i = { "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline Variable" },
   }
 }
 
@@ -164,18 +163,34 @@ local opts_goto = {
 }
 
 local mappings_goto = {
-  ["d"] = { "<cmd>Telescope lsp_definitions<CR><Esc>", "Goto Definition" },
-  ["i"] = { "<cmd>Telescope lsp_implementations<cr><Esc>", "Goto Implementation" },
-  ["r"] = { "<cmd>Telescope lsp_references<cr><Esc>", "Goto References" },
-  ["e"] = { "<cmd>lua vim.diagnostic.open_float(0, {scope='line'})<CR>", "Get Error" },
-  ["n"] = { "<cmd>lua vim.diagnostic.goto_next({ border = 'rounded' })<CR>", "Goto Next Error" },
-  ["p"] = { "<cmd>lua vim.diagnostic.goto_prev({ border = 'rounded' })<CR>", "Goto Prev Error" },
-  ["q"] = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Diagnostics -> qf list" },
+  ["d"] = { "<Cmd>Telescope lsp_definitions<CR><Esc>", "Goto Definition" },
+  ["i"] = { "<Cmd>Telescope lsp_implementations<CR><Esc>", "Goto Implementation" },
+  ["r"] = { "<Cmd>Telescope lsp_references<CR><Esc>", "Goto References" },
+  ["e"] = { "<Cmd>lua vim.diagnostic.open_float(0, {scope='line'})<CR>", "Get Error" },
+  ["n"] = { "<Cmd>lua vim.diagnostic.goto_next({ border = 'rounded' })<CR>", "Goto Next Error" },
+  ["p"] = { "<Cmd>lua vim.diagnostic.goto_prev({ border = 'rounded' })<CR>", "Goto Prev Error" },
+  ["q"] = { "<Cmd>lua vim.diagnostic.setloclist()<CR>", "Diagnostics -> qf list" },
 }
 
+local opts_term_mode = {
+  mode = "t",
+  -- Buffer specific?
+  buffer = nil,
+  silent = true,
+  noremap = true,
+  nowait = true,
+}
+
+local mappings_term_mode = {
+-- tnoremap <Esc> <C-\><C-n>
+-- tnoremap :q! <C-\><C-n>:q!<CR>
+  ["<M-v>"] = { "<Cmd>call VertTermToggle()<CR>", "Toggle Vertical Terminal" },
+  ["<M-b>"] = { "<Cmd>call HorTermToggle()<CR>", "Toggle Horizontal Terminal" },
+}
 
 which_key.setup(setup)
 which_key.register(mappings_base, opts_base)
 which_key.register(mappings_leader, opts_leader)
 which_key.register(mappings_visual, opts_visual)
 which_key.register(mappings_goto, opts_goto)
+which_key.register(mappings_term_mode, opts_term_mode)
