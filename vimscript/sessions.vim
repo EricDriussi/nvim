@@ -1,11 +1,16 @@
 let g:sessionDir = $HOME . '/.cache/vimsessions/'
 let g:sessionSuffix = '.sess.vim'
+let g:ignoreFiles = ['man', 'gitignore']
+
+function! CurrentFileIsAllowed()
+  return index(g:ignoreFiles, &filetype) == -1
+endfunction
 
 function! LoadSession()
   let cwd = fnamemodify(getcwd(), ':t')
   let sessionName = g:sessionDir . cwd . g:sessionSuffix
 
-  if filereadable(sessionName) && argc() == 0
+  if CurrentFileIsAllowed() && filereadable(sessionName) && argc() == 0
     execute 'source ' . sessionName
 
     if bufexists(1)
@@ -19,7 +24,7 @@ function! LoadSession()
 endfunction
 
 function! SaveSession()
-  if v:exiting == 0 || !&diff
+  if CurrentFileIsAllowed() && (v:exiting == 0 || !&diff)
     let cwd = fnamemodify(getcwd(), ':t')
 
     if !isdirectory(g:sessionDir)
