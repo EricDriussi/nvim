@@ -1,9 +1,11 @@
 let g:sessionDir = $HOME . '/.cache/vimsessions/'
 let g:sessionSuffix = '.sess.vim'
 let g:ignoreFiles = ['man', 'gitignore']
+let s:root_dir = execute(':RootDir')
 
 function! CurrentFileIsAllowed()
-  return index(g:ignoreFiles, &filetype) == -1
+  let hasRootDir = s:root_dir != ''
+  return index(g:ignoreFiles, &filetype) == -1 && hasRootDir
 endfunction
 
 function! LoadSession()
@@ -25,7 +27,8 @@ endfunction
 
 function! SaveSession()
   if CurrentFileIsAllowed() && (v:exiting == 0 || !&diff)
-    let cwd = fnamemodify(getcwd(), ':t')
+    "let cwd = fnamemodify(getcwd(), ':t')
+    let cwd = s:root_dir
 
     if !isdirectory(g:sessionDir)
       call mkdir(g:sessionDir, "p")
