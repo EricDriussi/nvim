@@ -113,7 +113,7 @@ cmp.setup {
         buffer = "[B]",
         cmp_tabnine = "[9]",
         path = "[P]",
-        luasnip = "[L]",
+        luasnip = "[✂️]",
         emoji = "[💻]",
         cmdline = "[cmd]",
         nvim_lsp_signature_help = "[H]",
@@ -125,7 +125,6 @@ cmp.setup {
 
   sources = {
     { name = "nvim_lsp" },
-    { name = "nvim_lua" },
     { name = "cmp_tabnine" },
     { name = "luasnip" },
     { name = "buffer" },
