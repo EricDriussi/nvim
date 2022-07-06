@@ -95,8 +95,8 @@ Plug 'rafamadriz/friendly-snippets'
 Plug 'neovim/nvim-lspconfig'
 " Install servers easily
 Plug 'williamboman/nvim-lsp-installer'
-" Settings made easy
-Plug 'tamago324/nlsp-settings.nvim'
+" Jsonls stuff
+Plug 'b0o/SchemaStore.nvim'
 " Formatting and LSP like stuff for non-lsp langs
 Plug 'jose-elias-alvarez/null-ls.nvim'
 
