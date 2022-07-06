@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 -- Use nvim-rooter to always show full project
-require'nvim-rooter'.setup()
+require 'nvim-rooter'.setup()
 
 nvimTree.setup {
   disable_netrw = true,
@@ -120,4 +120,4 @@ vim.api.nvim_exec(
   [[
     autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
   ]]
-, false)
+  , false)

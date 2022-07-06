@@ -30,7 +30,7 @@ require("harpoon").setup({
     width = vim.api.nvim_win_get_width(0) - 70,
   }
 })
-
+-- Search and Replace
 require("spectre").setup({
   line_sep_start = '',
   result_padding = '│  ',

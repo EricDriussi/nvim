@@ -17,7 +17,7 @@ Plug 'https://gitlab.com/yorickpeterse/nvim-pqf.git'
 Plug 'mbbill/undotree'
 " File Explorer
 Plug 'kyazdani42/nvim-tree.lua'
-" Fix root dir for ⬆️
+" Fix root dir for ⬆️ (also used in sessions.vim)
 Plug 'notjedi/nvim-rooter.lua'
 
 " Telescope!
@@ -87,8 +87,9 @@ Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 Plug 'kdheepak/cmp-latex-symbols'
 
-" Snippets
+" Snippets in cmp
 Plug 'L3MON4D3/LuaSnip'
+" Generic snippets
 Plug 'rafamadriz/friendly-snippets'
 
 " LSP
