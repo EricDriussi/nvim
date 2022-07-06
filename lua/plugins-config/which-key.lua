@@ -96,6 +96,7 @@ local mappings_leader = {
   ["R"] = { "<Cmd>Telescope registers<CR>", "Registers" },
   ["d"] = { "<Cmd>call ToggleDiffMode()<CR>", "Diff Mode" },
   ["l"] = { "<Cmd>lua vim.lsp.buf.formatting()<CR>", "Format" },
+  ["L"] = { "<Cmd>lua ToggleFormatOnSave()<CR>", "Toggle FOS" },
   ["/"] = { "<plug>NERDCommenterToggle<CR>k", "Comment" },
   ["a"] = { "<Cmd>lua require('harpoon.mark').add_file()<CR>", "Add Harpoon" },
   ["h"] = { "<Cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Harpoons" },

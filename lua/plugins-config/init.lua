@@ -34,7 +34,7 @@ require("harpoon").setup({
 require("spectre").setup({
   line_sep_start = '',
   result_padding = '│  ',
-  line_sep       = '',
+  line_sep = '',
   default = {
     find = {
       cmd = 'rg',
@@ -42,3 +42,21 @@ require("spectre").setup({
     }
   }
 })
+
+Command_to_toggle = {
+  event = 'BufWritePre', opts = {
+    pattern = '*',
+    command = 'lua vim.lsp.buf.formatting_sync()'
+  }
+}
+
+Format_on_save_cmd_id = vim.api.nvim_create_autocmd(Command_to_toggle.event, Command_to_toggle.opts)
+
+function ToggleFormatOnSave()
+  if Format_on_save_cmd_id ~= 0 then
+    vim.api.nvim_del_autocmd(Format_on_save_cmd_id)
+    Format_on_save_cmd_id = 0
+  else
+    Format_on_save_cmd_id = vim.api.nvim_create_autocmd(Command_to_toggle.event, Command_to_toggle.opts)
+  end
+end
