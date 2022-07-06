@@ -1,10 +1,11 @@
 let g:sessionDir = $HOME . '/.cache/vimsessions/'
 let g:sessionSuffix = '.sess.vim'
 let g:ignoreFiles = ['man', 'gitignore']
-let s:root_dir = execute(':RootDir')
+let s:root_dir = execute('lua print(require "nvim-rooter".get_root())')
+let s:cwd = split(s:root_dir, '[/]')[-1]
 
 function! CurrentFileIsAllowed()
-  let hasRootDir = s:root_dir != ''
+  let hasRootDir = s:cwd != v:null
   return index(g:ignoreFiles, &filetype) == -1 && hasRootDir
 endfunction
 
@@ -27,14 +28,12 @@ endfunction
 
 function! SaveSession()
   if CurrentFileIsAllowed() && (v:exiting == 0 || !&diff)
-    "let cwd = fnamemodify(getcwd(), ':t')
-    let cwd = s:root_dir
 
     if !isdirectory(g:sessionDir)
       call mkdir(g:sessionDir, "p")
     endif
 
-    execute 'mksession! ' . g:sessionDir . cwd . g:sessionSuffix
+    execute 'mksession! ' . g:sessionDir . s:cwd . g:sessionSuffix
   endif
 endfunction
 
