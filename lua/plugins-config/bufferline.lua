@@ -13,6 +13,8 @@ bufferline.setup {
       return " ⚠️"
     end,
 
+    indicator_icon = '',
+
     -- Offset file explorer
     offsets = {
       {

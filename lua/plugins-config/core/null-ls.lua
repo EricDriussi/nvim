@@ -26,6 +26,8 @@ null_ls.setup({
     diagnostics.shellcheck,
     actions.shellcheck,
 
-    formatting.black,
+    formatting.autopep8.with({
+      extra_args = { "-a" }
+    }),
   },
 })
