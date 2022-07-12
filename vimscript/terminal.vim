@@ -15,7 +15,7 @@ function! VertTermToggle()
     catch
       call termopen($SHELL, {"detach": 0})
       let s:term_buf = bufnr("")
-      set nonumber norelativenumber signcolumn=no
+      set nospell nonumber norelativenumber signcolumn=no
     endtry
     startinsert!
     let s:term_win = win_getid()
@@ -33,7 +33,7 @@ function! HorTermToggle()
     catch
       call termopen($SHELL, {"detach": 0})
       let s:term_buf = bufnr("")
-      set nonumber norelativenumber signcolumn=no
+      set nospell nonumber norelativenumber signcolumn=no
     endtry
     startinsert!
     let s:term_win = win_getid()
