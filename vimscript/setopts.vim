@@ -14,8 +14,6 @@ set incsearch
 set cursorline
 set splitright
 set splitbelow
-"Lightline already shows mode
-set noshowmode
 "Breathing space
 set scrolloff=8
 set sidescrolloff=5
