@@ -30,18 +30,14 @@ autocmd BufWinEnter * set formatoptions-=cro
 
 " --------------------------------Plugins vimscript config--------------------------------"
 
-let g:gruvbox_contrast_dark = 'medium'
-colorscheme gruvbox
-set background=dark 
+colorscheme base16-gruvbox-dark-medium
 
 "Highlight references for word under cursor
-hi! LspReferenceText guibg=#504945
-hi! LspReferenceRead guibg=#504945
-hi! LspReferenceWrite guibg=#504945
-
+hi! LspReferenceText guibg=#504945 gui=bold
+hi! LspReferenceRead guibg=#504945 gui=bold
+hi! LspReferenceWrite guibg=#504945 gui=bold
 "Too much red...
-hi! link Keyword GruvboxAqua
-hi! link Include GruvboxRed
+hi! TSVariable guifg=#8ec07c
 
 " Colorizer
 au BufNewFile,BufRead * :ColorizerAttachToBuffer
