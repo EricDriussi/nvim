@@ -23,7 +23,7 @@ function! SetFiletypeNewBuffer()
 endfunction
 "Enable spelling for commits and undefined buffers
 autocmd FileType gitcommit,none setlocal spell spelllang=es,en
-autocmd FileType man,harpoon setlocal nospell
+autocmd FileType man,harpoon,TelescopePrompt setlocal nospell
 
 "Don't bring comment to new line
 autocmd BufWinEnter * set formatoptions-=cro
