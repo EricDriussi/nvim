@@ -5,14 +5,14 @@ source ~/.config/nvim/vimscript/plug.vim
 source ~/.config/nvim/vimscript/diffmode.vim
 "Script to toggle an IDE like terminal
 source ~/.config/nvim/vimscript/terminal.vim
-"Basic Keymaps
-source ~/.config/nvim/vimscript/keymaps.vim
 "Autosave Sessions (DEPENDS ON notjedi/nvim-rooter.lua)
 source ~/.config/nvim/vimscript/sessions.vim
 "Toggle Format on save
 lua require('format-toggle')
 "Settings/Options
 lua require('setopts')
+"Basic Keymap
+lua require('keymap')
 
 "Always check if
 autocmd BufEnter * :call SetFiletypeNewBuffer()
@@ -29,3 +29,9 @@ autocmd FileType man,harpoon,TelescopePrompt setlocal nospell
 
 "Don't bring comment to new line
 autocmd BufWinEnter * set formatoptions-=cro
+
+"Exit Vim meme here
+:command! WQ wq
+:command! Wq wq
+:command! W w
+:command! Q q
