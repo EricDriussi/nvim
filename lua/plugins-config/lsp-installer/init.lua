@@ -5,30 +5,30 @@ end
 
 lsp_installer.on_server_ready(function(server)
   local opts = {
-    on_attach = require("plugins-config.lsp.handlers").on_attach,
-    capabilities = require("plugins-config.lsp.handlers").capabilities,
+    on_attach = require("plugins-config.core.lsp").on_attach,
+    capabilities = require("plugins-config.core.lsp").capabilities,
   }
 
   -- Only add settings here if settings file is needed.
   -- Defaults don't require the following setup
   if server.name == "jsonls" then
-    local jsonls_opts = require("plugins-config.lsp.lang-settings.jsonls")
+    local jsonls_opts = require("plugins-config.lsp-installer.lang-settings.jsonls")
     opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
   end
 
   if server.name == "sumneko_lua" then
-    local sumneko_opts = require("plugins-config.lsp.lang-settings.sumneko-lua")
+    local sumneko_opts = require("plugins-config.lsp-installer.lang-settings.sumneko-lua")
     opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
   end
 
   if server.name == "eslint" then
-    local eslint_opts = require("plugins-config.lsp.lang-settings.eslint")
+    local eslint_opts = require("plugins-config.lsp-installer.lang-settings.eslint")
     opts = vim.tbl_deep_extend("force", eslint_opts, opts)
   end
 
   -- just a sample for how to change root dir
   if server.name == "zk" then
-    local zk_opts = require("plugins-config.lsp.lang-settings.zk")
+    local zk_opts = require("plugins-config.lsp-installer.lang-settings.zk")
     opts = vim.tbl_deep_extend("force", zk_opts, opts)
   end
 
