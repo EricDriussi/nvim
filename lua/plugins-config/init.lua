@@ -1,7 +1,14 @@
 -- Completion
 require("plugins-config.core.cmp")
+-- Plugins config
+-- Format on save toggle script
+require("plugins-config.format-toggle")
+-- Misc config
+require("plugins-config.misc")
 -- LSP
 require("plugins-config.lsp")
+-- Colorscheme
+require("plugins-config.colorscheme")
 -- Telescopic
 require("plugins-config.telescope")
 -- Treesitter
@@ -24,9 +31,9 @@ require("plugins-config.lualine")
 require("plugins-config.bufferline")
 -- Search and Replace
 require("plugins-config.spectre")
--- Format on save toggle script
-require("plugins-config.format-toggle")
 -- Harpoon
 require("harpoon").setup({ menu = { width = vim.api.nvim_win_get_width(0) - 70 } })
 -- Pretty QFList
-require('pqf').setup()
+require("pqf").setup()
+-- Color hex codes
+require("colorizer").setup()

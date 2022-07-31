@@ -27,39 +27,3 @@ autocmd FileType man,harpoon,TelescopePrompt setlocal nospell
 
 "Don't bring comment to new line
 autocmd BufWinEnter * set formatoptions-=cro
-
-" --------------------------------Plugins vimscript config--------------------------------"
-
-colorscheme base16-gruvbox-dark-medium
-
-"Highlight references for word under cursor
-hi! LspReferenceText guibg=#504945 gui=bold
-hi! LspReferenceRead guibg=#504945 gui=bold
-hi! LspReferenceWrite guibg=#504945 gui=bold
-"Too much red...
-hi! TSVariable guifg=#8ec07c
-
-" Colorizer
-au BufNewFile,BufRead * :ColorizerAttachToBuffer
-
-let g:NERDToggleCheckAllLines = 1
-
-" markdown-preview concrete port
-let g:mkdp_port = '6969'
-
-" Quickscope only highlight on keys
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-
-" Thing between editorconfig and fugitive
-let g:EditorConfig_exclude_patterns = ['fugitive://.*']
-
-" FixCursorHold
-let g:cursorhold_updatetime = 100
-
-" Surround.vim
-vmap ( S)
-vmap [ S]
-vmap { S}
-vmap ' S'
-vmap " S"
-vmap ` S`
