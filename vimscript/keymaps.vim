@@ -2,8 +2,6 @@
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 
-inoremap <M-CR> <Cmd>lua vim.lsp.buf.code_action()<CR>
-
 "Sensible copy-pasting to and from system clipboard
 vnoremap <C-y> "+y <bar> <Cmd>echom 'Copied to system clipboard!'<CR>
 nnoremap <C-y> "+yiw <bar> <Cmd>echom 'Copied to system clipboard!'<CR>
@@ -37,7 +35,7 @@ vnoremap <silent> rp y/\V<C-R>=escape(@",'/\')<CR><CR>Ncgn
 "FUCKS UP REG
 
 "Close tab
-nnoremap <C-w> <Cmd>q<CR>
+nnoremap <C-w> <Cmd>q!<CR>
 
 "Save all 
 nnoremap <C-s> <Cmd>wa <CR>
