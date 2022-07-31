@@ -1,4 +1,4 @@
--- Core config
+-- =============================== CORE ===============================
 -- Completion
 require("plugins-config.core.cmp")
 -- Treesitter
@@ -8,7 +8,7 @@ require("plugins-config.core.null-ls")
 -- LSP
 require("plugins-config.core.lsp").setup()
 
--- Plugins config
+-- ============================= PLUGINS =============================
 -- Misc config
 require("plugins-config.misc")
 -- LSP
@@ -33,10 +33,10 @@ require("plugins-config.lualine")
 require("plugins-config.bufferline")
 -- Search and Replace
 require("plugins-config.spectre")
-
--- No config
 -- Harpoon
 require("harpoon").setup({ menu = { width = vim.api.nvim_win_get_width(0) - 70 } })
+
+-- ============================= DEFAULT =============================
 -- Pretty QFList
 require("pqf").setup()
 -- Color hex codes
