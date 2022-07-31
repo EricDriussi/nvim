@@ -9,8 +9,6 @@ require("plugins-config.core.null-ls")
 require("plugins-config.core.lsp").setup()
 
 -- Plugins config
--- Format on save toggle script
-require("plugins-config.format-toggle")
 -- Misc config
 require("plugins-config.misc")
 -- LSP

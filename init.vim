@@ -11,6 +11,8 @@ source ~/.config/nvim/vimscript/setopts.vim
 source ~/.config/nvim/vimscript/keymaps.vim
 "Autosave Sessions (DEPENDS ON notjedi/nvim-rooter.lua)
 source ~/.config/nvim/vimscript/sessions.vim
+"Toggle Format on save
+lua require('format-toggle')
 
 "Always check if
 autocmd BufEnter * :call SetFiletypeNewBuffer()
