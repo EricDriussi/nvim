@@ -1,7 +1,7 @@
 "Settings/Options
-source ~/.config/nvim/lua/vimscript/setopts.vim
+source ~/.config/nvim/vimscript/setopts.vim
 "Basic Keymaps
-source ~/.config/nvim/lua/vimscript/keymaps.vim
+source ~/.config/nvim/vimscript/keymaps.vim
 
 "Always check if
 autocmd BufEnter * :call SetFiletypeNewBuffer()
