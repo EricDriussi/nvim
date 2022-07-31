@@ -48,6 +48,8 @@ telescope.setup {
         ["<C-u>"] = actions.results_scrolling_up,
         ["<C-d>"] = actions.results_scrolling_down,
 
+        ["<Tab>"] = actions.move_selection_next,
+        ["<S-Tab>"] = actions.move_selection_previous,
         ["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
       },
       n = {

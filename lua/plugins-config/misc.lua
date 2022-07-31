@@ -6,6 +6,9 @@ g.qs_highlight_on_keys = { 'f', 'F', 't', 'T' }
 -- Thing between editorconfig and fugitive
 g.EditorConfig_exclude_patterns = { 'fugitive://.*' }
 
+-- Better comment toggle for code blocks
+g.NERDToggleCheckAllLines = 1
+
 -- FixCursorHold
 g.cursorhold_updatetime = 100
 
