@@ -17,14 +17,18 @@ null_ls.setup({
     diagnostics.yamllint,
 
     -- CSS
-    formatting.stylelint,
     diagnostics.stylelint,
+    formatting.stylelint,
 
     -- LSP for shell sucks a bit
-    --formatting.shellharden,
-    formatting.shfmt,
-    diagnostics.shellcheck,
     actions.shellcheck,
+    diagnostics.shellcheck,
+    formatting.shfmt,
+
+    diagnostics.zsh,
+    formatting.beautysh.with({
+      filetypes = { "zsh" }
+    }),
 
     formatting.autopep8.with({
       extra_args = { "-a" }
