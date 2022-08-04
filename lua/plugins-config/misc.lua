@@ -19,3 +19,6 @@ map("v", "{", "S}", {})
 map("v", "'", "S'", {})
 map("v", '"', 'S"', {})
 map("v", "`", "S`", {})
+
+-- MultiCursor behave like intelliJ
+vim.api.nvim_exec([[ let g:VM_custom_remaps = {'N': 'Q'} ]], false)
