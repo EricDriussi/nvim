@@ -100,6 +100,7 @@ local mappings_leader = {
   ["a"] = { "<Cmd>lua require('harpoon.mark').add_file()<CR>", "Add Harpoon" },
   ["h"] = { "<Cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Harpoons" },
   ["s"] = { "<Cmd>lua require('spectre').open_visual({select_word=true})<CR>", "Seek & Destroy" },
+  ["?"] = { "<Cmd>Mason<CR>", "LSP" },
 
   r = {
     name = 'Refactor',

@@ -11,8 +11,8 @@ require("plugins-config.core.lsp").setup()
 -- ============================= PLUGINS =============================
 -- Misc config
 require("plugins-config.misc")
--- LSP
-require("plugins-config.lsp-installer")
+-- LSP & friends
+require("plugins-config.mason")
 -- Colorscheme
 require("plugins-config.colorscheme")
 -- Telescopic

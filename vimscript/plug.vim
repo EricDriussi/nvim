@@ -94,8 +94,11 @@ Plug 'rafamadriz/friendly-snippets'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
-" Install servers easily
-Plug 'williamboman/nvim-lsp-installer'
+
+" Install LSP tools easily
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'williamboman/mason.nvim'
+
 " Jsonls stuff
 Plug 'b0o/SchemaStore.nvim'
 " Formatting and LSP like stuff for non-lsp langs
