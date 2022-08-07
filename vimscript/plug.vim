@@ -98,6 +98,7 @@ Plug 'neovim/nvim-lspconfig'
 " Install LSP tools easily
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'williamboman/mason.nvim'
+Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
 
 " Jsonls stuff
 Plug 'b0o/SchemaStore.nvim'

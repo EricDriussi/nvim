@@ -25,34 +25,43 @@ mason.setup({
   }
 })
 
-mason_lspconfig.setup {
+require 'mason-tool-installer'.setup {
   ensure_installed = {
-    "cssls",
-    "emmet_ls",
-    "html",
-    "jsonls",
-    "sumneko_lua",
-    "tsserver",
-    "pyright",
-    "yamlls",
-    "bashls",
-    "sumneko_lua"
+    "css-lsp",
+    "emmet-ls",
+    "html-lsp",
+    "typescript-language-server",
+    "eslint_d",
+
+    "yaml-language-server",
+    "yamllint",
+
+    "bash-language-server",
+    "shellcheck",
+    "shfmt",
+
+    "ltex-ls",
+    "markdownlint",
+    "marksman",
+
+    "json-lsp",
+    "lua-language-server",
+    "python-lsp-server",
   },
+}
+mason_lspconfig.setup {
   automatic_installation = true,
 }
 
-local function get_custom_settings(server_name)
-  if server_name == "sumneko_lua" then
+local function get_custom_settings(lspconfig_server_name)
+  if lspconfig_server_name == "sumneko_lua" then
     return require("plugins-config.lang-settings.sumneko-lua")
 
-  elseif server_name == "jsonls" then
+  elseif lspconfig_server_name == "jsonls" then
     return require("plugins-config.lang-settings.jsonls")
 
-  elseif server_name == "eslint" then
+  elseif lspconfig_server_name == "eslint" then
     return require("plugins-config.lang-settings.eslint")
-
-  elseif server_name == "zk" then
-    return require("plugins-config.lang-settings.zk")
 
   else
     return {}

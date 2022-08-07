@@ -9,18 +9,16 @@ local actions = null_ls.builtins.code_actions
 null_ls.setup({
   debug = false,
   sources = {
-    formatting.eslint.with({
+    formatting.eslint_d.with({
       timeout = 10000,
     }),
 
-    --diagnostics.eslint,
     diagnostics.yamllint,
+    diagnostics.markdownlint.with({
+      extra_args = { "--disable", "MD029", "MD013", "MD041" }
+    }),
+    formatting.markdownlint,
 
-    -- CSS
-    diagnostics.stylelint,
-    formatting.stylelint,
-
-    -- LSP for shell sucks a bit
     actions.shellcheck,
     diagnostics.shellcheck,
     formatting.shfmt,
