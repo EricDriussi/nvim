@@ -71,7 +71,6 @@ local mappings_base = {
   ["<M-b>"] = { "<Cmd>call HorTermToggle()<CR>", "Horizontal Terminal" },
   ["<M-v>"] = { "<Cmd>call VertTermToggle()<CR>", "Vertical Terminal" },
   ["<M-g>"] = { "<Cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
-  ["<M-n>"] = { "<Cmd>lua _NODE_TOGGLE()<CR>", "Node REPL" },
 }
 
 local opts_leader = {
