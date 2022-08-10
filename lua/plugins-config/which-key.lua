@@ -150,7 +150,14 @@ local mappings_visual = {
     f = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>", "Extract To File" },
     v = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>", "Extract Variable" },
     i = { "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline Variable" },
-  }
+  },
+  g = {
+    name = "Git",
+    l = { "<Cmd>diffget //3<CR>", "Get From Incoming (Right)" },
+    h = { "<Cmd>diffget //2<CR>", "Get From Current (Left)" },
+    n = { "]c", "GoTo Next Conflict" },
+    p = { "[c", "GoTo Prev Conflict" },
+  },
 }
 
 local opts_goto = {
