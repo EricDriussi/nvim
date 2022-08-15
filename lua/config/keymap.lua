@@ -1,7 +1,13 @@
-local helper = require("config.keymap-helper")
-local n = helper.nmap
-local v = helper.vmap
-local i = helper.imap
+local n = function(lhs, rhs)
+  vim.keymap.set("n", lhs, rhs)
+end
+local v = function(lhs, rhs)
+  vim.keymap.set("v", lhs, rhs)
+end
+
+local i = function(lhs, rhs)
+  vim.keymap.set("i", lhs, rhs)
+end
 
 -- Kinda scrolling
 n("<C-d>", "<C-d>zz")
