@@ -1,12 +1,4 @@
-local status_ok, nvimTree = pcall(require, "nvim-tree")
-if not status_ok then
-  return
-end
-
--- Use nvim-rooter to always show full project
-require 'nvim-rooter'.setup()
-
-nvimTree.setup {
+require("nvim-tree").setup {
   disable_netrw = true,
 
   -- Show errors in files
@@ -114,10 +106,3 @@ nvimTree.setup {
     }
   },
 }
-
--- Magic trick to make nvim-tree auto-close
-vim.api.nvim_exec(
-  [[
-    autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
-  ]]
-  , false)

@@ -32,3 +32,5 @@ require("harpoon").setup({ menu = { width = vim.api.nvim_win_get_width(0) - 70 }
 require("pqf").setup()
 -- Color hex codes
 require("colorizer").setup()
+-- Use nvim-rooter to always show full project
+require("nvim-rooter").setup()

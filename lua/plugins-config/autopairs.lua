@@ -1,9 +1,6 @@
-local status_ok, npairs = pcall(require, "nvim-autopairs")
-if not status_ok then
-  return
-end
+local autopairs = require("nvim-autopairs")
 
-npairs.setup {
+autopairs.setup {
   -- Use TreeSitter
   check_ts = true,
   ts_config = {
@@ -15,19 +12,10 @@ npairs.setup {
   enable_check_bracket_line = false
 }
 
--- Help cmp out!
-local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-local cmp_status_ok, cmp = pcall(require, "cmp")
-if not cmp_status_ok then
-  return
-end
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
-
--- Custome Rules!!
+-- Custom Rules
 local custom_rule = require('nvim-autopairs.rule')
 local except = require('nvim-autopairs.conds')
-
-npairs.add_rules({
+autopairs.add_rules({
   -- MD bold and italics
   custom_rule("*", "*", { "md", "markdown" })
       :with_pair(except.not_after_regex("[%w%.]"))
@@ -77,5 +65,9 @@ npairs.add_rules({
       :set_end_pair_length(0)
       :with_move(except.none())
       :with_del(except.none())
-}
-)
+})
+
+-- Help cmp out
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+local cmp = require("cmp")
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })

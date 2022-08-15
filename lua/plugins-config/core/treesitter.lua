@@ -1,9 +1,4 @@
-local status_ok, treesitter = pcall(require, "nvim-treesitter.configs")
-if not status_ok then
-  return
-end
-
-treesitter.setup {
+require("nvim-treesitter.configs").setup {
   ensure_installed = "all",
   sync_install = false,
   highlight = {
@@ -14,11 +9,8 @@ treesitter.setup {
   -- Plugins!
   rainbow = {
     enable = true,
-    -- disable = { "jsx", "cpp" }
     extended_mode = true,
     max_file_lines = 1500, -- Do not enable for files with more than n lines, int
-    -- colors = {}, -- table of hex strings
-    -- termcolors = {} -- table of colour name strings
   },
   autopairs = {
     enable = true,
