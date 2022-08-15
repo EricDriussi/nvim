@@ -1,18 +1,9 @@
 -- =============================== CORE ===============================
--- Completion
-require("plugins-config.core.cmp")
--- Treesitter
-require("plugins-config.core.treesitter")
--- Null-ls
-require("plugins-config.core.null-ls")
--- LSP
-require("plugins-config.core.lsp").setup()
+require("plugins-config.core")
 
 -- ============================= PLUGINS =============================
 -- Misc config
 require("plugins-config.misc")
--- LSP & friends
-require("plugins-config.mason")
 -- Colorscheme
 require("plugins-config.colorscheme")
 -- Telescopic
@@ -41,19 +32,3 @@ require("harpoon").setup({ menu = { width = vim.api.nvim_win_get_width(0) - 70 }
 require("pqf").setup()
 -- Color hex codes
 require("colorizer").setup()
-
-
-local augroup = vim.api.nvim_create_augroup
-local autocmd = vim.api.nvim_create_autocmd
-local yank_group = augroup('HighlightYank', {})
-
-autocmd('TextYankPost', {
-  group = yank_group,
-  pattern = '*',
-  callback = function()
-    vim.highlight.on_yank({
-      higroup = 'TermCursor',
-      timeout = 40,
-    })
-  end,
-})

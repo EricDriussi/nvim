@@ -1,9 +1,7 @@
 "Settings/Options
-" source ~/.config/nvim/vimscript/setopts.vim
-lua require('setopts')
+lua require('config.setopts')
 "Basic Keymaps
-" source ~/.config/nvim/vimscript/keymaps.vim
-lua require('keymap')
+lua require('config.keymap')
 
 set nocursorline
 set nocursorcolumn

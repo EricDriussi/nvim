@@ -7,12 +7,8 @@ source ~/.config/nvim/vimscript/diffmode.vim
 source ~/.config/nvim/vimscript/terminal.vim
 "Autosave Sessions (DEPENDS ON notjedi/nvim-rooter.lua)
 source ~/.config/nvim/vimscript/sessions.vim
-"Toggle Format on save
-lua require('format-toggle')
-"Settings/Options
-lua require('setopts')
-"Basic Keymap
-lua require('keymap')
+
+lua require('config')
 
 "Always check if
 autocmd BufEnter * :call SetFiletypeNewBuffer()

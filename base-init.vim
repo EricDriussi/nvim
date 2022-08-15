@@ -1,9 +1,4 @@
-"Settings/Options
-" source ~/.config/nvim/vimscript/setopts.vim
-lua require('setopts')
-"Basic Keymaps
-" source ~/.config/nvim/vimscript/keymaps.vim
-lua require('keymap')
+lua require('config')
 
 "Always check if
 autocmd BufEnter * :call SetFiletypeNewBuffer()
@@ -21,3 +16,8 @@ autocmd FileType man setlocal nospell
 "Don't bring comment to new line
 autocmd BufWinEnter * set formatoptions-=cro
 
+"Exit Vim meme here
+:command! WQ wq
+:command! Wq wq
+:command! W w
+:command! Q q

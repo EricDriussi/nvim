@@ -1,4 +1,4 @@
-local helper = require("keymap-helper")
+local helper = require("config.keymap-helper")
 local n = helper.nmap
 local v = helper.vmap
 local i = helper.imap
