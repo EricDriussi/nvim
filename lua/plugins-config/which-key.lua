@@ -98,6 +98,7 @@ local mappings_leader = {
   ["/"] = { "<plug>NERDCommenterToggle<CR>k", "Comment" },
   ["a"] = { "<Cmd>lua require('harpoon.mark').add_file()<CR>", "Add Harpoon" },
   ["h"] = { "<Cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Harpoons" },
+  ["H"] = { "<Cmd>Telescope help_tags<CR>", "Help" },
   ["s"] = { "<Cmd>lua require('spectre').open_visual({select_word=true})<CR>", "Seek & Destroy" },
   ["?"] = { "<Cmd>Mason<CR>", "LSP" },
 
