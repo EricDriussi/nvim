@@ -1,5 +1,8 @@
-local yank_group = vim.api.nvim_create_augroup('HighlightYank', {})
-vim.api.nvim_create_autocmd('TextYankPost', {
+local new_au_cmd = vim.api.nvim_create_autocmd
+local new_au_grp = vim.api.nvim_create_augroup
+
+local yank_group = new_au_grp('HighlightYank', {})
+new_au_cmd('TextYankPost', {
   group = yank_group,
   pattern = '*',
   callback = function()
@@ -12,14 +15,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 Module = {}
 function Module.activate_lsp_highlight()
-  local lsp_highlight_group = vim.api.nvim_create_augroup('LspHighlight', {})
-  vim.api.nvim_create_autocmd('CursorHold, CursorHoldI', {
+  local lsp_highlight_group = new_au_grp('LspHighlight', {})
+  new_au_cmd('CursorHold, CursorHoldI', {
     group = lsp_highlight_group,
     callback = function()
       vim.lsp.buf.document_highlight()
     end,
   })
-  vim.api.nvim_create_autocmd('CursorMoved, CursorMovedI', {
+  new_au_cmd('CursorMoved, CursorMovedI', {
     group = lsp_highlight_group,
     callback = function()
       vim.lsp.buf.clear_references()
@@ -28,7 +31,7 @@ function Module.activate_lsp_highlight()
 end
 
 function Module.create_format_on_save_cmd()
-  return vim.api.nvim_create_autocmd('BufWritePre', {
+  return new_au_cmd('BufWritePre', {
     pattern = '*',
     callback = function()
       vim.lsp.buf.formatting_sync()
