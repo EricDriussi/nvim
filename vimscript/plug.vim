@@ -13,8 +13,6 @@ Plug 'RRethy/nvim-base16'
 " Pretty QFList
 Plug 'https://gitlab.com/yorickpeterse/nvim-pqf.git'
 
-" Undo
-Plug 'mbbill/undotree'
 " File Explorer
 Plug 'kyazdani42/nvim-tree.lua'
 " Fix root dir for ⬆️ (also used in sessions.vim)
@@ -54,10 +52,6 @@ Plug 'akinsho/toggleterm.nvim'
 Plug 'folke/which-key.nvim'
 " Follow editorconfig
 Plug 'editorconfig/editorconfig-vim'
-" Usually doesn't work
-Plug 'ThePrimeagen/refactoring.nvim'
-" Launch tests
-Plug 'vim-test/vim-test'
 " Handle camelCase and snek_case
 Plug 'chaoren/vim-wordmotion'
 " Improve speed
