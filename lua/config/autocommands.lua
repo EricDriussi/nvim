@@ -12,6 +12,15 @@ new_au_cmd('TextYankPost', {
   end,
 })
 
+local help_group = new_au_grp('HelpNav', {})
+new_au_cmd('FileType', {
+  group = help_group,
+  pattern = 'help',
+  callback = function()
+    vim.keymap.set("n", "gd", "<C-]>")
+  end,
+})
+
 local lsp_highlight_group = new_au_grp('LspHighlight', {})
 Module = {}
 function Module.activate_lsp_highlight()
