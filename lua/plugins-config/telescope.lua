@@ -1,7 +1,18 @@
-local telescope = require "telescope"
-local actions = require "telescope.actions"
+local telescope = require("telescope")
+local actions = require("telescope.actions")
+local config = require("telescope.config")
 
-local my_ivy_config = {
+local find_files_command = { "rg", "--hidden", "--files", "--glob", "!.git" }
+local find_strings_command = { "rg", "--hidden", "--glob", "!.git/*" }
+
+local default_vimgrep_args = { unpack(config.values.vimgrep_arguments) }
+local updated_vimgrep_args = vim.tbl_deep_extend(
+  'force',
+  default_vimgrep_args,
+  find_strings_command
+)
+
+local custom_ivy = {
   theme = "ivy",
   layout_config = { height = 0.35 },
   on_complete = {
@@ -14,7 +25,7 @@ local my_ivy_config = {
 telescope.setup {
   defaults = {
     file_ignore_patterns = { "node_modules" },
-    prompt_prefix = "⫸ ",
+    prompt_prefix = "🔎 ",
     selection_caret = " ⮚ ",
     path_display = { "shortest" },
     sorting_strategy = 'ascending',
@@ -22,6 +33,7 @@ telescope.setup {
       prompt_position = "top",
       width = 0.90
     },
+    vimgrep_arguments = updated_vimgrep_args,
 
     mappings = {
       i = {
@@ -84,9 +96,10 @@ telescope.setup {
         end
       }
     },
-    lsp_definitions = my_ivy_config,
-    lsp_implementations = my_ivy_config,
-    lsp_references = my_ivy_config
+    find_files = { find_command = find_files_command },
+    lsp_definitions = custom_ivy,
+    lsp_implementations = custom_ivy,
+    lsp_references = custom_ivy
   },
 
   extensions = {
