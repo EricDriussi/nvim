@@ -68,6 +68,7 @@ Plug 'windwp/nvim-spectre'
 " --------------------------------LSP-STUFF--------------------------------"
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 " Completion and sources
 Plug 'hrsh7th/nvim-cmp'
