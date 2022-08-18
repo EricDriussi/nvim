@@ -31,6 +31,9 @@ option.expandtab = true
 option.shiftwidth = 2
 option.smartindent = true
 option.softtabstop = 2
+option.tabstop = 2
+option.breakindent = true
+option.autoindent = true
 
 -- Misc
 option.completeopt = "menuone,noselect,preview"
