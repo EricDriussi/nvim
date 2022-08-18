@@ -84,9 +84,8 @@ local mappings_leader = {
   ["u"] = { "<Cmd>UndotreeToggle<CR>", "Undo Tree" },
   ["e"] = { "<Cmd>NvimTreeToggle<CR>", "Explorer" },
   ["m"] = { "<Cmd>MarkdownPreviewToggle<CR>", "Preview MD" },
-  ["f"] = { "<Cmd>Telescope git_files<CR>", "Find - Git" },
-  ["F"] = { "<Cmd>Telescope live_grep<CR>", "Find - Grep" },
-  ["p"] = { "<Cmd>Telescope find_files<CR>", "Find - Files" },
+  ["f"] = { "<Cmd>Telescope find_files<CR>", "Find File" },
+  ["F"] = { "<Cmd>Telescope live_grep<CR>", "Find String" },
   ["A"] = { "<Cmd>Telescope commands<CR>", "Actions" },
   ["R"] = { "<Cmd>Telescope registers<CR>", "Registers" },
   ["d"] = { "<Cmd>call ToggleDiffMode()<CR>", "Diff Mode" },
@@ -122,8 +121,8 @@ local mappings_leader = {
     A = { "<Cmd>Git blame<CR>", "Git Anotate File" },
     l = { "<Cmd>diffget //3<CR>", "Get From Incoming (Right)" },
     h = { "<Cmd>diffget //2<CR>", "Get From Current (Left)" },
-    n = { "]c", "GoTo Next Conflict" },
-    p = { "[c", "GoTo Prev Conflict" },
+    n = { "<Cmd>Gitsigns next_hunk<CR>", "Next Hunk/Conflict" },
+    p = { "<Cmd>Gitsigns prev_hunk<CR>", "Prev Hunk/Conflict" },
   },
 }
 
@@ -139,7 +138,7 @@ local opts_visual = {
 
 local mappings_visual = {
   ["/"] = { "<plug>NERDCommenterToggle<CR>k", "Comment" },
-  ["F"] = { "<Cmd>Telescope grep_string<CR>", "Find - Grep" },
+  ["F"] = { "<Cmd>Telescope grep_string<CR>", "Find String" },
   ["s"] = { "<Esc><Cmd>lua require('spectre').open_visual()<CR>", "Seek & Destroy" },
   r = {
     name = "Refactor",
@@ -151,10 +150,9 @@ local mappings_visual = {
   },
   g = {
     name = "Git",
-    l = { "<Cmd>diffget //3<CR>", "Get From Incoming (Right)" },
-    h = { "<Cmd>diffget //2<CR>", "Get From Current (Left)" },
-    n = { "]c", "GoTo Next Conflict" },
-    p = { "[c", "GoTo Prev Conflict" },
+    l = { "<Cmd>'<,'>diffget //3<CR>", "Get From Incoming (Right)" },
+    h = { "<Cmd>'<,'>diffget //2<CR>", "Get From Current (Left)" },
+    b = { "<Cmd>Gitsigns reset_hunk<CR>", "Git Back Hunk" },
   },
 }
 

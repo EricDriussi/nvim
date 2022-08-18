@@ -84,10 +84,6 @@ telescope.setup {
         end
       }
     },
-    find_files = {
-      theme = "dropdown",
-      previewer = false
-    },
     lsp_definitions = my_ivy_config,
     lsp_implementations = my_ivy_config,
     lsp_references = my_ivy_config
