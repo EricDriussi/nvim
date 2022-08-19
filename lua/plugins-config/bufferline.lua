@@ -5,7 +5,7 @@ require("bufferline").setup {
     -- Show errors on tabs
     diagnostics = "nvim_lsp",
     diagnostics_indicator = function()
-      return " ⚠️"
+      return " "
     end,
 
     indicator_icon = '',
