@@ -36,7 +36,7 @@ option.breakindent = true
 option.autoindent = true
 
 -- Misc
-option.completeopt = "menuone,noselect,preview"
+option.completeopt = { "menu", "menuone", "noselect", "preview" }
 option.encoding = "utf-8"
 option.errorbells = false
 option.fileencoding = "utf-8"
