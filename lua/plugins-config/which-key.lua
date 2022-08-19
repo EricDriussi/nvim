@@ -96,6 +96,7 @@ local mappings_leader = {
   ["l"] = { "<Cmd>lua vim.lsp.buf.formatting()<CR>", "Format" },
   ["m"] = { "<Cmd>MarkdownPreviewToggle<CR>", "Preview MD" },
   ["s"] = { "<Cmd>lua require('spectre').open_visual({select_word=true})<CR>", "Seek & Destroy" },
+  ["S"] = { "<Cmd>vsplit<CR>", "Split Right" },
   ["u"] = { "<Cmd>UndotreeToggle<CR>", "Undo Tree" },
 
   r = {
