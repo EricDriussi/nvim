@@ -14,9 +14,9 @@ require("bufferline").setup {
     offsets = {
       {
         filetype = "NvimTree",
-        text = "File Explorer",
+        text = "Explorer", -- Consider exposing root dir and displaying it here
         highlight = "Directory",
-        text_align = "left"
+        text_align = "center"
       }
     },
   }
