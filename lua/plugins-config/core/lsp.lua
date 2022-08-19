@@ -30,12 +30,12 @@ lspconfig.util.default_config = vim.tbl_deep_extend(
 )
 
 -- Let mason-lspconfig handle servers handlers based on installed ones
-local langs = require("plugins-config.core.lang-settings")
+local custom_settings = require("plugins-config.core.lang-settings")
 require('mason-lspconfig').setup_handlers({
   function(server_name)
     local lspconfig_and_custom_settings = vim.tbl_deep_extend("force",
       -- Add custom language settings to lspconfig
-      langs.get_settings_for(server_name),
+      custom_settings.get_settings_for(server_name),
       lsp_settings
     )
     -- Ensure all installed servers are available on startup
