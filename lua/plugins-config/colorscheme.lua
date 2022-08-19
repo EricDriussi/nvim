@@ -11,3 +11,6 @@ vim.api.nvim_set_hl(0, 'LspReferenceWrite', { bg = "#504945", bold = true })
 vim.api.nvim_set_hl(0, 'DiagnosticWarn', { fg = "#fabd2f" })
 vim.cmd('hi DiagnosticUnderlineWarning guisp=#fabd2f')
 vim.cmd('hi DiagnosticUnderlineWarn guisp=#fabd2f')
+
+-- hl-search scream less
+vim.api.nvim_set_hl(0, 'Search', { bg = "#a67c00", bold = true })
