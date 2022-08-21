@@ -28,5 +28,8 @@ null_ls.setup({
     formatting.autopep8.with({
       extra_args = { "-a" }
     }),
+    diagnostics.mypy.with({
+      extra_args = { "--strict" }
+    }),
   },
 })

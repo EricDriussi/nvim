@@ -4,6 +4,11 @@ return {
       diagnostics = {
         globals = { "vim" },
       },
+      format = {
+        defaultConfig = {
+          quote_style = "double",
+        },
+      },
       workspace = {
         library = {
           [vim.fn.expand("$VIMRUNTIME/lua")] = true,
