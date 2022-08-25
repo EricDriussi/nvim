@@ -11,27 +11,28 @@ local lsp_settings = {
     end
     -- Avoid errors if lsp-highlighting is not available
     if client.resolved_capabilities.document_highlight then
+      -- TODO.refactor
       require("config.autocommands").activate_lsp_highlight()
     end
   end,
 
   -- Add LSP capabilities to cmp
-  capabilities = require('cmp_nvim_lsp').update_capabilities(
+  capabilities = require("cmp_nvim_lsp").update_capabilities(
     vim.lsp.protocol.make_client_capabilities()
   )
 }
 
 -- Add custom LSP settings to default ones
-local lspconfig = require('lspconfig')
+local lspconfig = require("lspconfig")
 lspconfig.util.default_config = vim.tbl_deep_extend(
-  'force',
+  "force",
   lspconfig.util.default_config,
   lsp_settings
 )
 
 -- Let mason-lspconfig handle servers handlers based on installed ones
 local custom_settings = require("plugins-config.core.lang-settings")
-require('mason-lspconfig').setup_handlers({
+require("mason-lspconfig").setup_handlers({
   function(server_name)
     local lspconfig_and_custom_settings = vim.tbl_deep_extend("force",
       -- Add custom language settings to lspconfig

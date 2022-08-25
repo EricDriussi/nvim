@@ -1,11 +1,11 @@
--- Toggle Format on save
-require('config.format-toggle')
 -- Settings/Options
-require('config.setopts')
--- Basic Keymap
-require('config.keymap')
+require("config.setopts")
 -- Autocmds
-require('config.autocommands')
+require("config.autocommands")
+-- Basic Keymap
+require("config.keymap")
+-- Toggle Format on save
+require("config.format-toggle")
 
 -- Make floating windows pretty
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
@@ -15,6 +15,7 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
   border = "rounded",
 })
 
+-- TODO.refactor
 local signs = {
   { name = "DiagnosticSignError", text = "" },
   { name = "DiagnosticSignWarn", text = "" },
