@@ -97,21 +97,6 @@ local mappings_leader = {
   ["m"] = { "<Cmd>MarkdownPreviewToggle<CR>", "Preview MD" },
   ["s"] = { "<Cmd>lua require('spectre').open_visual({select_word=true})<CR>", "Seek & Destroy" },
   ["S"] = { "<Cmd>vsplit<CR>", "Split Right" },
-  ["u"] = { "<Cmd>UndotreeToggle<CR>", "Undo Tree" },
-
-  r = {
-    name = 'Refactor',
-    f = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>", "Extract Function" },
-    i = { "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline Variable" },
-    r = { "<Esc><Cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "List Refactors" },
-    v = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>", "Extract Variable" },
-  },
-
-  t = {
-    name = 'Test',
-    n = { "<Cmd>TestNearest<CR>", "Test nearest" },
-    t = { "<Cmd>TestLast<CR>", "Test re-run" },
-  },
 
   g = {
     name = "Git",
@@ -141,14 +126,7 @@ local mappings_visual = {
   ["/"] = { "<plug>NERDCommenterToggle<CR>k", "Comment" },
   ["F"] = { "<Cmd>Telescope grep_string<CR>", "Find String" },
   ["s"] = { "<Esc><Cmd>lua require('spectre').open_visual()<CR>", "Seek & Destroy" },
-  r = {
-    name = "Refactor",
-    e = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>", "Extract Function" },
-    f = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>", "Extract To File" },
-    i = { "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline Variable" },
-    r = { "<Esc><Cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "List Refactors" },
-    v = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>", "Extract Variable" },
-  },
+
   g = {
     name = "Git",
     b = { "<Cmd>Gitsigns reset_hunk<CR>", "Git Back Hunk" },
