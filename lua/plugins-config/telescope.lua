@@ -6,7 +6,7 @@ local custom_ivy = {
   layout_config = { height = 0.35 },
   on_complete = {
     function()
-      vim.cmd('stopinsert')
+      vim.cmd("stopinsert")
     end
   }
 }
@@ -17,14 +17,14 @@ telescope.setup {
     prompt_prefix = "🔎 ",
     selection_caret = " ⮚ ",
     path_display = { "shortest" },
-    sorting_strategy = 'ascending',
+    sorting_strategy = "ascending",
     layout_config = {
       prompt_position = "top",
       width = 0.90
     },
 
     -- Extend default grep args!
-    vimgrep_arguments = vim.tbl_deep_extend('force',
+    vimgrep_arguments = vim.tbl_deep_extend("force",
       { unpack(require("telescope.config").values.vimgrep_arguments) },
       { "rg", "--hidden", "--glob", "!.git/*" }
     ),
@@ -39,6 +39,7 @@ telescope.setup {
         ["<C-h>"] = actions.select_horizontal,
         ["<Tab>"] = actions.move_selection_next,
         ["<S-Tab>"] = actions.move_selection_previous,
+        ["<M-q>"] = actions.send_to_qflist + actions.open_qflist,
       },
 
       n = {
@@ -47,6 +48,7 @@ telescope.setup {
         ["<C-h>"] = actions.select_horizontal,
         ["<Tab>"] = actions.move_selection_next,
         ["<S-Tab>"] = actions.move_selection_previous,
+        ["<M-q>"] = actions.send_to_qflist + actions.open_qflist,
       },
     },
   },
@@ -57,7 +59,7 @@ telescope.setup {
       layout_config = { width = 0.25 },
       on_complete = {
         function()
-          vim.cmd('stopinsert')
+          vim.cmd("stopinsert")
         end
       }
     },
@@ -74,17 +76,17 @@ telescope.setup {
       override_file_sorter = true,
       case_mode = "smart_case", -- or "ignore_case" or "respect_case"
     },
-    ['ui-select'] = {
+    ["ui-select"] = {
       layout_strategy = "cursor",
       layout_config = { width = 0.4, height = 0.3 },
       on_complete = {
         function()
-          vim.cmd('stopinsert')
+          vim.cmd("stopinsert")
         end
       }
     }
   }
 }
 
-telescope.load_extension('fzf')
+telescope.load_extension("fzf")
 telescope.load_extension("ui-select")

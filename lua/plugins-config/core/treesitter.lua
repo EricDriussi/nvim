@@ -19,23 +19,24 @@ require("nvim-treesitter.configs").setup {
     enable = true,
   },
 
+  -- Add [M]ethod as vim text object
   textobjects = {
     select = {
       enable = true,
       lookahead = true,
       keymaps = {
-        ['am'] = '@function.outer',
-        ['im'] = '@function.inner',
+        ["am"] = "@function.outer",
+        ["im"] = "@function.inner",
       },
     },
     move = {
       enable = true,
       set_jumps = true, -- register in jump list
       goto_next_start = {
-        ['m'] = '@function.outer',
+        ["m"] = "@function.outer",
       },
       goto_previous_start = {
-        ['M'] = '@function.outer',
+        ["M"] = "@function.outer",
       },
     },
   },

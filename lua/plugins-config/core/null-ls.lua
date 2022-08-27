@@ -29,7 +29,7 @@ null_ls.setup({
       extra_args = { "-a" }
     }),
     diagnostics.mypy.with({
-      extra_args = { "--strict" }
+      extra_args = { "--config-file", vim.fn.getcwd() .. "/setup.cfg" }
     }),
   },
 })

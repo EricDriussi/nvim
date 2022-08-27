@@ -1,5 +1,5 @@
 -- Completion
-require("plugins-config.core.cmp")
+require("plugins-config.core.completion")
 -- Treesitter
 require("plugins-config.core.treesitter")
 -- Null-ls
