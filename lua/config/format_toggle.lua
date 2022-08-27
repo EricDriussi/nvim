@@ -1,6 +1,7 @@
-local first_aucmd
+local aucmds = {}
 
--- assumes there is only one aucmd in given augroup
+-- assumes the aucmds already exist
+-- TODO.accept callbacks in aucmd
 -- TODO.refactor
 vim.api.nvim_create_user_command(
   "ToggleFormatOnSave",
@@ -10,18 +11,23 @@ vim.api.nvim_create_user_command(
 
     -- no aucmds found in group
     if next(aucmds_in_group) == nil then
-      vim.api.nvim_create_autocmd(first_aucmd.event, {
-        desc = first_aucmd.desc,
-        group = first_aucmd.group_name,
-        command = first_aucmd.command
-      })
-      print(first_aucmd.desc .. " turned ON")
+      for _, cmd in pairs(aucmds) do
+        vim.api.nvim_create_autocmd(cmd.event, {
+          desc = cmd.desc,
+          group = cmd.group_name,
+          command = cmd.command
+        })
+        print(cmd.desc .. " turned ON")
+      end
+      aucmds = {}
 
       -- aucmd founds
     else
-      first_aucmd = aucmds_in_group[1]
-      vim.api.nvim_del_autocmd(first_aucmd.id)
-      print(first_aucmd.desc .. " turned OFF")
+      for _, cmd in pairs(aucmds_in_group) do
+        table.insert(aucmds, cmd)
+        vim.api.nvim_del_autocmd(cmd.id)
+        print(cmd.desc .. " turned OFF")
+      end
     end
   end,
   {
