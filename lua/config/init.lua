@@ -5,7 +5,7 @@ require("config.autocommands")
 -- Basic Keymap
 require("config.keymap")
 -- Toggle Format on save
-require("config.format-toggle")
+require("config.format_toggle")
 
 -- Make floating windows pretty
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {

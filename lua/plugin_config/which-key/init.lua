@@ -61,7 +61,7 @@ local function default_opts_with(mode, prefix)
   }
 end
 
-local mappings = require("plugins-config.which-key.mappings")
+local mappings = require("plugin_config.which-key.mappings")
 which_key.register(mappings.base, default_opts_with("n"))
 which_key.register(mappings.leader, default_opts_with("n", "<leader>"))
 which_key.register(mappings.visual, default_opts_with("v", "<leader>"))

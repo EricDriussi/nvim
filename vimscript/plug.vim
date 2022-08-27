@@ -101,4 +101,4 @@ Plug 'jose-elias-alvarez/null-ls.nvim'
 call plug#end()
 
 " Plugins lua config
-lua require('plugins-config')
+lua require('plugin_config')
