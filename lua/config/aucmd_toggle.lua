@@ -1,10 +1,10 @@
 local aucmds = {}
 
 -- assumes the aucmds already exist
--- TODO.accept callbacks in aucmd
+-- TODO.accept callbacks in aucmd, nvim_get_autocmds only handles commands
 -- TODO.refactor
 vim.api.nvim_create_user_command(
-  "ToggleFormatOnSave",
+  "ToggleAucmdsByGroup",
   function(input)
     local augroup_to_toggle = input.args
     local aucmds_in_group = vim.api.nvim_get_autocmds({ group = augroup_to_toggle })
