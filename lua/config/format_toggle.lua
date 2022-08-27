@@ -1,7 +1,7 @@
 local augroup_to_toggle = "FormatOnSaveGroup"
 local first_aucmd
 
-local toggle_augroup = function()
+local function toggle_augroup()
   local aucmds_in_group = vim.api.nvim_get_autocmds({ group = augroup_to_toggle })
 
   -- no aucmds found in group

@@ -1,11 +1,12 @@
-local n = function(lhs, rhs)
+local function n(lhs, rhs)
   vim.keymap.set("n", lhs, rhs)
 end
-local v = function(lhs, rhs)
+
+local function v(lhs, rhs)
   vim.keymap.set("v", lhs, rhs)
 end
 
-local i = function(lhs, rhs)
+local function i(lhs, rhs)
   vim.keymap.set("i", lhs, rhs)
 end
 
