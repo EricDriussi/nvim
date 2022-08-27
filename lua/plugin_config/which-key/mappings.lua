@@ -17,7 +17,7 @@ return {
     ["A"] = { "<Cmd>Telescope commands<CR>", "Actions" },
     ["F"] = { "<Cmd>Telescope live_grep<CR>", "Find String" },
     ["H"] = { "<Cmd>Telescope help_tags<CR>", "Help" },
-    ["L"] = { "<Cmd>ToggleFormatOnSave<CR>", "Toggle FOS" },
+    ["L"] = { "<Cmd>ToggleFormatOnSave FormatOnSaveGroup<CR>", "Toggle FOS" },
     ["R"] = { "<Cmd>Telescope registers<CR>", "Registers" },
     ["a"] = { "<Cmd>lua require('harpoon.mark').add_file()<CR>", "Add Harpoon" },
     ["d"] = { "<Cmd>call ToggleDiffMode()<CR>", "Diff Mode" },
