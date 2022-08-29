@@ -8,7 +8,9 @@ require("bufferline").setup {
       return " "
     end,
 
-    indicator_icon = '',
+    indicator = {
+      style = "none"
+    },
 
     -- Offset file explorer
     offsets = {

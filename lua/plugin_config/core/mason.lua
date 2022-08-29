@@ -38,5 +38,6 @@ require("mason-tool-installer").setup {
     "json-lsp",
     "lua-language-server",
     "python-lsp-server",
+    "autopep8",
   },
 }
