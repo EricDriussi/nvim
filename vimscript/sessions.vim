@@ -1,6 +1,6 @@
 let g:sessionDir = $HOME . '/.cache/vimsessions/'
 let g:sessionSuffix = '.sess.vim'
-let g:ignoreFiles = ['man', 'gitignore']
+let g:ignoreFiles = ['man', 'gitignore', 'gitcommit']
 let s:root_dir = execute('lua print(require "nvim-rooter".get_root())')
 let s:cwd = split(s:root_dir, '[/]')[-1]
 
