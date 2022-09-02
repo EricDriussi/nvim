@@ -43,7 +43,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 " Multi-Cursor
 Plug 'mg979/vim-visual-multi'
 " MD Preview
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
 " f to char
 Plug 'unblevable/quick-scope'
 " Integrated terminal
@@ -69,6 +69,7 @@ Plug 'windwp/nvim-spectre'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'nvim-treesitter/nvim-treesitter-context'
 
 " Completion and sources
 Plug 'hrsh7th/nvim-cmp'
