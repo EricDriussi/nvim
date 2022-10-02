@@ -96,6 +96,9 @@ Plug 'b0o/SchemaStore.nvim'
 " Formatting and LSP like stuff for non-lsp langs
 Plug 'jose-elias-alvarez/null-ls.nvim'
 
+" Highlight elements
+Plug 'RRethy/vim-illuminate'
+
 call plug#end()
 
 " Plugins lua config
