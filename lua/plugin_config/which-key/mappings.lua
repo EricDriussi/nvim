@@ -24,7 +24,7 @@ return {
     ["e"] = { "<Cmd>NvimTreeToggle<CR>", "Explorer" },
     ["f"] = { "<Cmd>Telescope find_files<CR>", "Find File" },
     ["h"] = { "<Cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Harpoons" },
-    ["l"] = { "<Cmd>lua vim.lsp.buf.formatting()<CR>", "Format" },
+    ["l"] = { "<Cmd>lua vim.lsp.buf.format({ async = true })<CR>", "Format" },
     ["m"] = { "<Cmd>MarkdownPreviewToggle<CR>", "Preview MD" },
     ["s"] = { "<Cmd>lua require('spectre').open_visual({select_word=true})<CR>", "Seek & Destroy" },
     ["S"] = { "<Cmd>vsplit<CR>", "Split Right" },

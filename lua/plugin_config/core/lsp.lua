@@ -3,14 +3,14 @@ local lsp_settings = {
   on_attach = function(client)
     -- Use null-ls for formatting
     if client.name == "pylsp" then
-      client.resolved_capabilities.document_formatting = false
+      client.server_capabilities.document_formatting = false
     end
     -- Use null-ls for formatting
     if client.name == "tsserver" then
-      client.resolved_capabilities.document_formatting = false
+      client.server_capabilities.document_formatting = false
     end
     -- Avoid errors if lsp-highlighting is not available
-    if client.resolved_capabilities.document_highlight then
+    if client.server_capabilities.document_highlight then
       -- TODO.refactor
       require("config.autocommands").activate_lsp_highlight()
     end

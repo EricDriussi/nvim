@@ -60,7 +60,7 @@ new_au_cmd("BufWritePre", {
   desc = "Format on save",
   group = new_au_grp("FormatOnSaveGroup", {}),
   -- writing this in lua fks up the toggle
-  command = 'lua vim.lsp.buf.formatting_sync()'
+  command = "lua vim.lsp.buf.format({ async = false })"
 })
 
 Module = {}
