@@ -7,6 +7,7 @@ option.splitbelow = true
 option.splitright = true
 option.termguicolors = true
 option.title = true -- Title to current file instead of terminal emulator name
+option.cmdheight = 2
 
 -- Line and offests
 option.cursorline = true

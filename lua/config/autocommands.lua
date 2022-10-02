@@ -50,7 +50,7 @@ new_au_cmd("FileType", {
 new_au_cmd("FileType", {
   desc = "GoTo navigation for help files",
   group = ftp_group,
-  pattern = "help",
+  pattern = { "help", "man" },
   callback = function()
     vim.keymap.set("n", "gd", "<C-]>")
   end,
