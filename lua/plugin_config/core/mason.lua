@@ -33,7 +33,7 @@ require("mason-tool-installer").setup {
 
     "ltex-ls",
     "markdownlint",
-    "marksman",
+    --"marksman",
 
     "json-lsp",
     "lua-language-server",
