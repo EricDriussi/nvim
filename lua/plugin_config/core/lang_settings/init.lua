@@ -10,6 +10,9 @@ function Module.get_settings_for(lspconfig_server_name)
   elseif lspconfig_server_name == "eslint" then
     return require("plugin_config.core.lang_settings.eslint")
 
+  elseif lspconfig_server_name == "ansiblels" then
+    return require("plugin_config.core.lang_settings.ansiblels")
+
   else
     return {}
   end

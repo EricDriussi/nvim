@@ -10,7 +10,7 @@ null_ls.setup({
       timeout = 10000,
     }),
 
-    diagnostics.yamllint,
+    --diagnostics.yamllint,
     diagnostics.markdownlint.with({
       extra_args = { "--disable", "MD029", "MD013", "MD041" }
     }),
