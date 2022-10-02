@@ -10,6 +10,8 @@ source ~/.config/nvim/vimscript/terminal.vim
 "Autosave Sessions (DEPENDS ON notjedi/nvim-rooter.lua)
 "TODO.vim->lua && refactor
 source ~/.config/nvim/vimscript/sessions.vim
+"Mouse Popup Menu
+source ~/.config/nvim/vimscript/popup.vim
 
 lua require('config')
 
