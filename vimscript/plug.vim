@@ -56,8 +56,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'chaoren/vim-wordmotion'
 " Improve speed
 Plug 'lewis6991/impatient.nvim'
-" Fix bug
-Plug 'antoinemadec/FixCursorHold.nvim'
 " Autocomment
 Plug 'preservim/nerdcommenter'
 " Jump between files
