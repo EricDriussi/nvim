@@ -2,11 +2,12 @@ return {
   base = {
     ["<C-Space>"] = { "<Cmd>Telescope spell_suggest<CR>", "Spelling" },
     ["<C-b>"] = { "<Cmd>Telescope lsp_references<CR>", "Show References" },
+    ["<C-g>"] = { "<Cmd>lua require\"nvim-git-link\".get_remote_link{ copy = true }<CR>", "Rename" },
+    ["<C-k>"] = { "<Cmd>lua vim.lsp.buf.hover()<CR>", "Hover" },
     ["<M-CR>"] = { "<Cmd>lua vim.lsp.buf.code_action()<CR>", "Code Actions" },
     ["<M-b>"] = { "<Cmd>call HorTermToggle()<CR>", "Horizontal Terminal" },
     ["<M-g>"] = { "<Cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
     ["<M-v>"] = { "<Cmd>call VertTermToggle()<CR>", "Vertical Terminal" },
-    ["C-k"] = { "<Cmd>lua vim.lsp.buf.hover()<CR>", "Hover" },
     ["rn"] = { "<Cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
   },
 

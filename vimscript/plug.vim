@@ -62,6 +62,8 @@ Plug 'preservim/nerdcommenter'
 Plug 'ThePrimeagen/harpoon'
 " Seek & Destroy
 Plug 'windwp/nvim-spectre'
+" Get git-remote link
+Plug 'jltwheeler/nvim-git-link'
 
 " --------------------------------LSP-STUFF--------------------------------"
 
