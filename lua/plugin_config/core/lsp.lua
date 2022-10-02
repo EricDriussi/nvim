@@ -9,11 +9,6 @@ local lsp_settings = {
     if client.name == "tsserver" then
       client.server_capabilities.document_formatting = false
     end
-    -- Avoid errors if lsp-highlighting is not available
-    if client.server_capabilities.document_highlight then
-      -- TODO.refactor
-      require("config.autocommands").activate_lsp_highlight()
-    end
   end,
 
   -- Add LSP capabilities to cmp

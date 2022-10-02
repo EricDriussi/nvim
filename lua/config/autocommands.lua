@@ -62,25 +62,3 @@ new_au_cmd("BufWritePre", {
   -- writing this in lua fks up the toggle
   command = "lua vim.lsp.buf.format({ async = false })"
 })
-
-Module = {}
-local lsp_highlight_group = new_au_grp("LspHighlight", {})
-function Module.activate_lsp_highlight()
-  new_au_cmd("CursorHold, CursorHoldI", {
-    group = lsp_highlight_group,
-    pattern = "<buffer>",
-    callback = function()
-      vim.lsp.buf.document_highlight()
-    end,
-  })
-
-  new_au_cmd("CursorMoved, CursorMovedI", {
-    group = lsp_highlight_group,
-    pattern = "<buffer>",
-    callback = function()
-      vim.lsp.buf.clear_references()
-    end,
-  })
-end
-
-return Module
