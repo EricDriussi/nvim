@@ -1,16 +1,19 @@
 local g = vim.g
 local map = vim.api.nvim_set_keymap
 -- Quickscope only highlight on keys
-g.qs_highlight_on_keys = { 'f', 'F', 't', 'T' }
+g.qs_highlight_on_keys = { "f", "F", "t", "T" }
 
 -- Thing between editorconfig and fugitive
-g.EditorConfig_exclude_patterns = { 'fugitive://.*' }
+g.EditorConfig_exclude_patterns = { "fugitive://.*" }
 
 -- Better comment toggle for code blocks
 g.NERDToggleCheckAllLines = 1
 
 -- FixCursorHold
 g.cursorhold_updatetime = 100
+
+-- MD preview port
+g.mkdp_port = "6969"
 
 -- Surround.vim
 map("v", "(", "S)", {})
