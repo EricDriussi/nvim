@@ -27,6 +27,7 @@ require("plugin_config.spectre")
 -- Harpoon
 require("harpoon").setup({ menu = { width = vim.api.nvim_win_get_width(0) - 70 } })
 require("illuminate").configure({ max_file_lines = 5000, filetypes_denylist = { "NvimTree", "Telescope" } })
+require("autolist").setup({ lists = { filetypes = { generic = { "none", "markdown", "text" } } } })
 
 -- ============================= DEFAULT =============================
 -- Pretty QFList
