@@ -1,5 +1,3 @@
 .undodir
 .plugged
 .gitlab-ci.yml
-
-lua/plugins-config/lsp/settings/eslint.lua
