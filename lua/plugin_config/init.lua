@@ -24,6 +24,8 @@ require("plugin_config.lualine")
 require("plugin_config.bufferline")
 -- Search and Replace
 require("plugin_config.spectre")
+-- Winbar
+require("plugin_config.winbar")
 -- Harpoon
 require("harpoon").setup({ menu = { width = vim.api.nvim_win_get_width(0) - 70 } })
 require("illuminate").configure({ max_file_lines = 5000, filetypes_denylist = { "NvimTree", "Telescope" } })

@@ -66,6 +66,8 @@ Plug 'windwp/nvim-spectre'
 Plug 'jltwheeler/nvim-git-link'
 " Autolist
 Plug 'gaoDean/autolist.nvim'
+" Winbar
+Plug 'fgheng/winbar.nvim'
 
 " --------------------------------LSP-STUFF--------------------------------"
 
