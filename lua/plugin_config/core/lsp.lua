@@ -19,8 +19,7 @@ local lsp_settings = {
 
 -- Add custom LSP settings to default ones
 local lspconfig = require("lspconfig")
-lspconfig.util.default_config = vim.tbl_deep_extend(
-  "force",
+lspconfig.util.default_config = vim.tbl_deep_extend("force",
   lspconfig.util.default_config,
   lsp_settings
 )
