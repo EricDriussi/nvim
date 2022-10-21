@@ -9,7 +9,8 @@ Plug 'norcalli/nvim-colorizer.lua'
 " Intend Line
 Plug 'lukas-reineke/indent-blankline.nvim'
 " Theme
-Plug 'RRethy/nvim-base16'
+"Plug 'RRethy/nvim-base16'
+Plug 'catppuccin/nvim'
 " Pretty QFList
 Plug 'https://gitlab.com/yorickpeterse/nvim-pqf.git'
 
