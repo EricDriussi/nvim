@@ -3,11 +3,11 @@ local lsp_settings = {
   on_attach = function(client)
     -- Use null-ls for formatting
     if client.name == "pylsp" then
-      client.server_capabilities.document_formatting = false
+      client.server_capabilities.documentFormattingProvider = false
     end
     -- Use null-ls for formatting
     if client.name == "tsserver" then
-      client.server_capabilities.document_formatting = false
+      client.server_capabilities.documentFormattingProvider = false
     end
   end,
 

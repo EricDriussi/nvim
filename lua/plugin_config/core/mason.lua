@@ -23,6 +23,7 @@ require("mason-tool-installer").setup {
     "html-lsp",
     "typescript-language-server",
     "eslint-lsp",
+    "eslint_d",
 
     "yaml-language-server",
     "yamllint",
