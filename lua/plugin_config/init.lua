@@ -20,8 +20,6 @@ require("plugin_config.nvim-tree")
 require("plugin_config.autopairs")
 -- Lualine
 require("plugin_config.lualine")
--- Bufferline
---require("plugin_config.bufferline")
 -- Search and Replace
 require("plugin_config.spectre")
 -- Winbar
