@@ -1,3 +1,5 @@
+"Autosave Sessions (DEPENDS ON notjedi/nvim-rooter.lua)
+"TODO.vim->lua && refactor
 let g:sessionDir = $HOME . '/.cache/vimsessions/'
 let g:sessionSuffix = '.sess.vim'
 let g:ignoreFiles = ['man', 'gitignore', 'gitcommit']
@@ -9,7 +11,7 @@ function! CurrentFileIsAllowed()
   return index(g:ignoreFiles, &filetype) == -1 && hasRootDir
 endfunction
 
-function! LoadSession()
+function! sessions#Load()
   let cwd = fnamemodify(getcwd(), ':t')
   let sessionName = g:sessionDir . cwd . g:sessionSuffix
 
@@ -26,7 +28,7 @@ function! LoadSession()
   endif
 endfunction
 
-function! SaveSession()
+function! sessions#Save()
   if CurrentFileIsAllowed() && (v:exiting == 0 || !&diff)
 
     if !isdirectory(g:sessionDir)
@@ -36,6 +38,3 @@ function! SaveSession()
     execute 'mksession! ' . g:sessionDir . s:cwd . g:sessionSuffix
   endif
 endfunction
-
-autocmd VimLeavePre * call SaveSession()
-autocmd VimEnter * nested call LoadSession()

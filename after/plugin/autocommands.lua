@@ -62,3 +62,16 @@ new_au_cmd("BufWritePre", {
   -- writing this in lua fks up the toggle
   command = "lua vim.lsp.buf.format({ async = false })"
 })
+
+local sessions_group = new_au_grp("SessionsGroup", {})
+new_au_cmd("VimEnter", {
+  desc = "Load Session",
+  group = sessions_group,
+  command = "call sessions#Load()",
+  nested = true
+})
+new_au_cmd("VimLeavePre", {
+  desc = "Load Session",
+  group = sessions_group,
+  command = "call sessions#Save()"
+})
