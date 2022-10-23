@@ -28,9 +28,12 @@ option.undodir = { vim.env.HOME .. "/.config/nvim/.undodir//" }
 option.undofile = true
 
 -- Tab be gud
-option.expandtab = true
+option.copyindent = true
+option.preserveindent = true
+option.expandtab = false
 option.shiftwidth = 2
 option.smartindent = true
+option.smarttab = true
 option.softtabstop = 2
 option.tabstop = 2
 option.breakindent = true
