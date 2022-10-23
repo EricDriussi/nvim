@@ -5,9 +5,9 @@ return {
     ["<C-g>"] = { "<Cmd>lua require\"nvim-git-link\".get_remote_link{ copy = true }<CR>", "Rename" },
     ["<C-k>"] = { "<Cmd>lua vim.lsp.buf.hover()<CR>", "Hover" },
     ["<M-CR>"] = { "<Cmd>lua vim.lsp.buf.code_action()<CR>", "Code Actions" },
-    ["<M-b>"] = { "<Cmd>call HorTermToggle()<CR>", "Horizontal Terminal" },
+    ["<M-b>"] = { "<Cmd>call terminal#ToggleHorizontal()<CR>", "Horizontal Terminal" },
     ["<M-g>"] = { "<Cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
-    ["<M-v>"] = { "<Cmd>call VertTermToggle()<CR>", "Vertical Terminal" },
+    ["<M-v>"] = { "<Cmd>call terminal#ToggleVertical()<CR>", "Vertical Terminal" },
     ["rn"] = { "<Cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
   },
 
@@ -66,7 +66,7 @@ return {
   },
 
   term = {
-    ["<M-v>"] = { "<Cmd>call VertTermToggle()<CR>", "Toggle Vertical Terminal" },
-    ["<M-b>"] = { "<Cmd>call HorTermToggle()<CR>", "Toggle Horizontal Terminal" },
+    ["<M-v>"] = { "<Cmd>call terminal#ToggleVertical()<CR>", "Toggle Vertical Terminal" },
+    ["<M-b>"] = { "<Cmd>call terminal#ToggleHorizontal()<CR>", "Toggle Horizontal Terminal" },
   }
 }

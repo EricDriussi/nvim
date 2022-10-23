@@ -1,8 +1,9 @@
+"TODO.rm?
 " Built-in Terminal
 let s:term_buf = 0
 let s:term_win = 0
 
-function! VertTermToggle()
+function! terminal#ToggleVertical()
   if win_gotoid(s:term_win)
     hide
   else
@@ -22,7 +23,7 @@ function! VertTermToggle()
   endif
 endfunction
 
-function! HorTermToggle()
+function! terminal#ToggleHorizontal()
   if win_gotoid(s:term_win)
     hide
   else
