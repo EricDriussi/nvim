@@ -1,8 +1,3 @@
-"Settings/Options
-lua require('config.setopts')
-"Basic Keymaps
-lua require('config.keymap')
-
 set nocursorline
 set nocursorcolumn
 set norelativenumber
@@ -10,3 +5,9 @@ set signcolumn=no
 
 syntax sync minlines=200
 syntax sync maxlines=500
+
+"Exit Vim meme here
+:command! WQ wq
+:command! Wq wq
+:command! W w
+:command! Q q
