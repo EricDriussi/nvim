@@ -20,7 +20,7 @@ return {
     ["L"] = { "<Cmd>ToggleAucmdsByGroup FormatOnSaveGroup<CR>", "Toggle FOS" },
     ["R"] = { "<Cmd>Telescope registers<CR>", "Registers" },
     ["a"] = { "<Cmd>lua require('harpoon.mark').add_file()<CR>", "Add Harpoon" },
-    ["d"] = { "<Cmd>call ToggleDiffMode()<CR>", "Diff Mode" },
+    ["d"] = { "<Cmd>call diffmode#Toggle()<CR>", "Diff Mode" },
     ["e"] = { "<Cmd>NvimTreeToggle<CR>", "Explorer" },
     ["f"] = { "<Cmd>Telescope find_files<CR>", "Find File" },
     ["h"] = { "<Cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Harpoons" },

@@ -1,6 +1,7 @@
+"TODO.vim->lua
 let s:is_not_in_diff_mode = 1
 
-function! ToggleDiffMode()
+function! diffmode#Toggle()
   if s:is_not_in_diff_mode
     call ToogleOn()
   else
