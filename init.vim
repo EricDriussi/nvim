@@ -13,8 +13,6 @@ source ~/.config/nvim/vimscript/sessions.vim
 "Mouse Popup Menu
 source ~/.config/nvim/vimscript/popup.vim
 
-lua require('config')
-
 "Exit Vim meme here
 :command! WQ wq
 :command! Wq wq
