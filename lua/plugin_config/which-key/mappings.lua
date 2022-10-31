@@ -2,7 +2,8 @@ return {
   base = {
     ["<C-Space>"] = { "<Cmd>Telescope spell_suggest<CR>", "Spelling" },
     ["<C-b>"] = { "<Cmd>Telescope lsp_references<CR>", "Show References" },
-    ["<C-g>"] = { "<Cmd>lua require\"nvim-git-link\".get_remote_link{ copy = true }<CR>", "Rename" },
+    ["<C-g>"] = { "<Cmd>lua require\"nvim-git-link\".get_remote_link{ copy = true }<CR><Cmd>echo 'Copied GH link to system clipboard!'<CR>",
+      "Copy GH link" },
     ["<C-k>"] = { "<Cmd>lua vim.lsp.buf.hover()<CR>", "Hover" },
     ["<M-CR>"] = { "<Cmd>lua vim.lsp.buf.code_action()<CR>", "Code Actions" },
     ["<M-b>"] = { "<Cmd>call terminal#ToggleHorizontal()<CR>", "Horizontal Terminal" },
