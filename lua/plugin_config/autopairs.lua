@@ -12,9 +12,18 @@ autopairs.setup {
   enable_check_bracket_line = false
 }
 
+local except = require("nvim-autopairs.conds")
+
+-- Modify Rules
+autopairs.get_rule('"')[1]
+    :with_pair(except.not_after_regex("[%w%.%{%$]"))
+    :with_pair(except.not_before_regex("[%w%}]"))
+autopairs.get_rule("'")[1]
+    :with_pair(except.not_after_regex("[%w%.%{%$]"))
+    :with_pair(except.not_before_regex("[%w%}]"))
+
 -- Custom Rules
-local custom_rule = require('nvim-autopairs.rule')
-local except = require('nvim-autopairs.conds')
+local custom_rule = require("nvim-autopairs.rule")
 autopairs.add_rules({
   -- MD bold and italics
   custom_rule("*", "*", { "md", "markdown" })
@@ -33,16 +42,16 @@ autopairs.add_rules({
       :with_pair(except.not_before_regex("[%w%.]")),
 
   -- js arrow function
-  custom_rule('%(.*%)%s*%=>$', ' {  }', { 'typescript', 'typescriptreact', 'javascript' })
+  custom_rule("%(.*%)%s*%=>$", " {  }", { "typescript", "typescriptreact", "javascript" })
       :use_regex(true)
       :set_end_pair_length(2),
 
   -- spacing for = sign
-  custom_rule('=', '', { '-vim', '-zsh', '-env' })
+  custom_rule("=", "", { "-vim", "-zsh", "-env", "-sh", "-bash" })
       :with_pair(except.not_inside_quote())
       :with_pair(function(opts)
         local last_char = opts.line:sub(opts.col - 1, opts.col - 1)
-        if last_char:match('[%w%=%s]') then
+        if last_char:match("[%w%=%s]") then
           return true
         end
         return false
@@ -50,17 +59,17 @@ autopairs.add_rules({
       :replace_endpair(function(opts)
         local prev_2char = opts.line:sub(opts.col - 2, opts.col - 1)
         local next_char = opts.line:sub(opts.col, opts.col)
-        next_char = next_char == ' ' and '' or ' '
-        if prev_2char:match('%w$') then
-          return '<bs> =' .. next_char
+        next_char = next_char == " " and "" or " "
+        if prev_2char:match("%w$") then
+          return "<bs> =" .. next_char
         end
-        if prev_2char:match('%=$') then
+        if prev_2char:match("%=$") then
           return next_char
         end
-        if prev_2char:match('=') then
-          return '<bs><bs>=' .. next_char
+        if prev_2char:match("=") then
+          return "<bs><bs>=" .. next_char
         end
-        return ''
+        return ""
       end)
       :set_end_pair_length(0)
       :with_move(except.none())
