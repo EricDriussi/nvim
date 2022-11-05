@@ -17,8 +17,8 @@ n("<C-u>", "<C-u>zz")
 -- Sensible copy-pasting to and from system clipboard
 v("<C-y>", "\"+y <bar> <Cmd>echom 'Copied to system clipboard!'<CR>")
 n("<C-y>", "\"+yiw <bar> <Cmd>echom 'Copied to system clipboard!'<CR>")
-n("<C-p>", "\"+P <bar> <Cmd>echom 'Pasted from system clipboard!'<CR>")
-v("<C-p>", "\"+P <bar> <Cmd>echom 'Pasted from system clipboard!'<CR>")
+n("<C-p>", "\"+p <bar> <Cmd>echom 'Pasted from system clipboard!'<CR>")
+v("<C-p>", "\"+p <bar> <Cmd>echom 'Pasted from system clipboard!'<CR>")
 i("<C-p>", "<Esc>\"+p <bar> <Cmd>echom 'Pasted from system clipboard!'<CR>A")
 
 -- Y like you C
@@ -32,7 +32,7 @@ v("P", "\"_dP")
 n("<C-a>", "ggVG")
 
 -- Esc+Esc to turn off search highlighting
-n("<Esc>", "<Cmd>noh<return><Esc>")
+n("<Esc>", "<Cmd>noh<CR>")
 
 -- Center search selection
 n("n", "nzzzv")
@@ -60,9 +60,10 @@ v(">", ">gv")
 n("<M-h>", "<<")
 n("<M-l>", ">>")
 
--- Move current line and selected lines
+-- Move current line
 n("<M-j>", "<Cmd>m .+1<CR>==")
 n("<M-k>", "<Cmd>m .-2<CR>==")
+-- And selected lines
 v("<M-j>", "<Cmd>m '>+1<CR>gv=gv")
 v("<M-k>", "<Cmd>m '<-2<CR>gv=gv")
 
