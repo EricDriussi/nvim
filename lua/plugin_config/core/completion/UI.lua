@@ -9,7 +9,6 @@ Module.entries = {
     item.menu = ({
       nvim_lsp = "[L]",
       buffer = "[B]",
-      cmp_tabnine = "[9]",
       path = "[P]",
       luasnip = "[S]",
       emoji = "[E]",
