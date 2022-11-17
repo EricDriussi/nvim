@@ -1,7 +1,6 @@
 call plug#begin('~/.config/nvim/.plugged')
 
 " Tabs
-"Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 " Status Line
 Plug 'nvim-lualine/lualine.nvim'
 " Color on hex Codes
