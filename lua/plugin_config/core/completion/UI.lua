@@ -19,7 +19,6 @@ Module.entries = {
 
 Module.windows = {
   completion = {
-    border = "shadow",
     winhighlight = "",
     col_offset = -3,
   },

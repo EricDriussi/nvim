@@ -10,7 +10,7 @@ cmp.setup {
   },
 
   confirm_opts = {
-    behavior = cmp.ConfirmBehavior.Replace,
+    behavior = cmp.ConfirmBehavior.Insert,
     select = false,
   },
 
