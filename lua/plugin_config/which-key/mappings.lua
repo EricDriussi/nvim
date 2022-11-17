@@ -42,17 +42,30 @@ return {
       r = { "<Cmd>Telescope git_branches<CR>", "Branches" },
       s = { "<Cmd>Gvdiffsplit<bar>windo set wrap<CR>", "Split" },
     },
+
+    p = {
+      name = "Pretty",
+      j = { "<Cmd>%!jq<CR>", "Json" },
+      c = { "<Cmd>%!column -t<CR>", "Columns" },
+    },
   },
 
   visual = {
     ["/"] = { "<plug>NERDCommenterToggle<CR>k", "Comment" },
     ["F"] = { "<Cmd>Telescope grep_string<CR>", "Find String" },
     ["s"] = { "<Esc><Cmd>lua require('spectre').open_visual()<CR>", "Seek & Destroy" },
+
     g = {
       name = "Git",
       b = { "<Cmd>Gitsigns reset_hunk<CR>", "Git Back Hunk" },
       h = { "<Cmd>'<,'>diffget //2<CR>", "Get From Current (Left)" },
       l = { "<Cmd>'<,'>diffget //3<CR>", "Get From Incoming (Right)" },
+    },
+
+    p = {
+      name = "Pretty",
+      j = { "<Cmd>'<,'>!jq<CR>", "Json" },
+      c = { "<Cmd>'<,'>!column -t<CR>", "Columns" },
     },
   },
 
