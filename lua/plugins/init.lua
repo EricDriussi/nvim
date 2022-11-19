@@ -1,29 +1,29 @@
 -- =============================== CORE ===============================
-require("plugin_config.core")
+require("plugins.core")
 
 -- ============================= PLUGINS =============================
 -- Misc config
-require("plugin_config.misc")
+require("plugins.misc")
 -- Colorscheme
-require("plugin_config.colorscheme")
+require("plugins.colorscheme")
 -- Telescopic
-require("plugin_config.telescope")
+require("plugins.telescope")
 -- Gitsigns
-require("plugin_config.gitsigns")
+require("plugins.gitsigns")
 -- ToggleTerm
-require("plugin_config.toggleterm")
+require("plugins.toggleterm")
 -- WhichKey
-require("plugin_config.which-key")
+require("plugins.which-key")
 -- NvimTree
-require("plugin_config.nvim-tree")
+require("plugins.nvim-tree")
 -- Autopairs
-require("plugin_config.autopairs")
+require("plugins.autopairs")
 -- Lualine
-require("plugin_config.lualine")
+require("plugins.lualine")
 -- Search and Replace
-require("plugin_config.spectre")
+require("plugins.spectre")
 -- Winbar
-require("plugin_config.winbar")
+require("plugins.winbar")
 -- Harpoon
 require("harpoon").setup({ menu = { width = vim.api.nvim_win_get_width(0) - 70 } })
 -- Highlights

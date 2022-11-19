@@ -4,7 +4,7 @@ Module.entries = {
   fields = { "kind", "abbr", "menu" },
   format = function(entry, item)
     -- Icons
-    item.kind = string.format("%s", require("plugin_config.core.completion.icons")[item.kind])
+    item.kind = string.format("%s", require("plugins.core.completion.icons")[item.kind])
     -- Sources Labels
     item.menu = ({
       nvim_lsp = "[L]",
