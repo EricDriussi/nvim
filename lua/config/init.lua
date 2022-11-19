@@ -1,0 +1,6 @@
+require("config.aucmd_toggle")
+require("config.autocommands")
+require("config.diagnostics")
+require("config.keymap")
+require("config.pretty_help_windows")
+require("config.setopts")
