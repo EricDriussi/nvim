@@ -1,7 +1,9 @@
--- =============================== CORE ===============================
-require("plugins.core")
-
--- ============================= PLUGINS =============================
+-- Null-ls config
+require("plugins.null-ls")
+-- Treesitter config
+require("plugins.treesitter")
+-- Cmp config
+require("plugins.completion")
 -- Misc config
 require("plugins.misc")
 -- Colorscheme
@@ -31,7 +33,7 @@ require("illuminate").configure({ max_file_lines = 5000, filetypes_denylist = { 
 -- Autolist
 require("autolist").setup({ lists = { filetypes = { generic = { "none", "markdown", "text" } } } })
 
--- ============================= DEFAULT =============================
+-- ============================= DEFAULT SETUPS =============================
 -- Pretty QFList
 require("pqf").setup()
 -- Color hex codes

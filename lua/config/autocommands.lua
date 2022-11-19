@@ -63,6 +63,7 @@ new_au_cmd("BufWritePre", {
   command = "lua vim.lsp.buf.format({ async = false })"
 })
 
+-- TODO.only load if session.vim is present?
 local sessions_group = new_au_grp("SessionsGroup", {})
 new_au_cmd("VimEnter", {
   desc = "Load Session",

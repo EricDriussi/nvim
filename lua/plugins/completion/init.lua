@@ -14,9 +14,9 @@ cmp.setup {
     select = false,
   },
 
-  mapping = require("plugins.core.completion.mappings"),
-  sources = require("plugins.core.completion.sources"),
-  formatting = require("plugins.core.completion.UI").entries,
-  window = require("plugins.core.completion.UI").windows,
+  mapping = require("plugins.completion.mappings"),
+  sources = require("plugins.completion.sources"),
+  formatting = require("plugins.completion.UI").entries,
+  window = require("plugins.completion.UI").windows,
 
 }
