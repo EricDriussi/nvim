@@ -24,6 +24,7 @@ option.relativenumber = true
 option.signcolumn = "yes"
 
 -- History
+option.history = 1000
 option.swapfile = false
 option.undodir = { vim.env.HOME .. "/.config/nvim/.undodir//" }
 option.undofile = true

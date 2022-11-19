@@ -1,15 +1,31 @@
--- CATPPUCCIN
-vim.g.catppuccin_flavour = "mocha"
-vim.api.nvim_command "colorscheme catppuccin"
+-- needed here due to vim runtime
+-- TODO.refactor dir structure
+-- .
+--├──  lua
+--│  ├──  core
+--│  │  ├── autocmds.lua
+--│  │  ├── colors.lua
+--│  │  ├── keymaps.lua
+--│  │  ├── options.lua
+--│  │  └── ...
+--│  ├──  lsp
+--│  │  ├── lspconfig.lua
+--│  │  └── mason.lua
+--│  ├──  plugins
+--│  │  ├── nvim-cmp.lua
+--│  │  ├── nvim-tree.lua
+--│  │  ├── nvim-treesitter.lua
+--│  │  └── ...
+--│  └── plug.vim
+--├──  autoload
+--└── init.vim lua?
 
--- Highlight references for word under cursor
-local cp = require("catppuccin.palettes").get_palette("mocha")
-vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = cp.surface0, bold = true })
-vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = cp.surface0, bold = true })
-vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = cp.surface0, bold = true })
+vim.opt.termguicolors = true
+vim.opt.background = "dark"
 
--- Make visual selections more visible
-vim.api.nvim_set_hl(0, "Visual", { bg = cp.surface2, bold = true })
-
--- hl-search scream less
-vim.api.nvim_set_hl(0, "CurSearch", { bg = cp.mauve, bold = true })
+vim.g.gruvbox_material_background = "hard"
+vim.g.gruvbox_material_foreground = "mix"
+vim.g.gruvbox_material_better_performance = 1
+vim.g.gruvbox_material_enable_italic = 1
+vim.g.gruvbox_material_current_word = "bold,italic"
+vim.api.nvim_command "colorscheme gruvbox-material"
