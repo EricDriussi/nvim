@@ -1,6 +1,5 @@
 let mapleader = " "
-"Plug and generic Plugin settings
-source ~/.config/nvim/vimscript/plug.vim
+source ~/.config/nvim/lua/plug.vim
 
 "Exit Vim meme here
 :command! WQ wq
