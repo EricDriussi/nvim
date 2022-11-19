@@ -105,6 +105,3 @@ Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'RRethy/vim-illuminate'
 
 call plug#end()
-
-" Plugins lua config
-lua require('plugin_config')
