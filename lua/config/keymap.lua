@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 local function n(lhs, rhs)
   vim.keymap.set("n", lhs, rhs)
 end

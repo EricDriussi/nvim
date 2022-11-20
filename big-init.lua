@@ -1,10 +1,5 @@
 require("config")
 
-vim.api.nvim_command("command! WQ wq")
-vim.api.nvim_command("command! Wq wq")
-vim.api.nvim_command("command! W w")
-vim.api.nvim_command("command! Q q")
-
 -- Perf settings
 local option = vim.opt
 option.cursorline = false
