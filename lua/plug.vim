@@ -8,7 +8,7 @@ Plug 'norcalli/nvim-colorizer.lua'
 " Intend Line
 Plug 'lukas-reineke/indent-blankline.nvim'
 " Theme
-Plug 'sainnhe/gruvbox-material'
+Plug 'sainnhe/gruvbox-material', {'commit': '421ccc28df2b5c8aef06b40160d539684fd1e771'}
 " Pretty QFList
 Plug 'https://gitlab.com/yorickpeterse/nvim-pqf.git'
 
