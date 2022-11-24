@@ -4,6 +4,7 @@ require("config.diagnostics")
 require("config.keymap")
 require("config.pretty_help_windows")
 require("config.setopts")
+require("config.scripts")
 
 vim.api.nvim_command("command! WQ wq")
 vim.api.nvim_command("command! Wq wq")

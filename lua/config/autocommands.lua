@@ -27,6 +27,7 @@ new_au_cmd("FileType", {
   end,
 })
 
+-- TODO.unnecessary?
 new_au_cmd("BufEnter", {
   desc = "Set filetype to none",
   group = ftp_group,
@@ -63,16 +64,21 @@ new_au_cmd("BufWritePre", {
   command = "lua vim.lsp.buf.format({ async = false })"
 })
 
--- TODO.only load if session.vim is present?
-local sessions_group = new_au_grp("SessionsGroup", {})
-new_au_cmd("VimEnter", {
-  desc = "Load Session",
-  group = sessions_group,
-  command = "call sessions#Load()",
-  nested = true
-})
-new_au_cmd("VimLeavePre", {
-  desc = "Load Session",
-  group = sessions_group,
-  command = "call sessions#Save()"
-})
+local status_ok, session = pcall(require, "config.scripts.sessions")
+-- Only create aucmds if session script is available and error free
+if status_ok and type(session) == "table" then
+
+  local sessions_group = new_au_grp("SessionsGroup", {})
+  new_au_cmd("VimEnter", {
+    desc = "Load Session",
+    group = sessions_group,
+    callback = session.load,
+    nested = true
+  })
+
+  new_au_cmd("VimLeavePre", {
+    desc = "Load Session",
+    group = sessions_group,
+    callback = session.save,
+  })
+end
