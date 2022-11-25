@@ -27,7 +27,6 @@ new_au_cmd("FileType", {
   end,
 })
 
--- TODO.unnecessary?
 new_au_cmd("BufEnter", {
   desc = "Set filetype to none",
   group = ftp_group,
@@ -60,8 +59,9 @@ new_au_cmd("FileType", {
 new_au_cmd("BufWritePre", {
   desc = "Format on save",
   group = new_au_grp("FormatOnSaveGroup", {}),
-  -- writing this in lua fks up the toggle
-  command = "lua vim.lsp.buf.format({ async = false })"
+  callback = function()
+    vim.lsp.buf.format({ async = false })
+  end
 })
 
 local status_ok, session = pcall(require, "config.scripts.sessions")

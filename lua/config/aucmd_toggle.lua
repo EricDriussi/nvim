@@ -1,5 +1,4 @@
 -- assumes the aucmds already exist
--- TODO.accept callbacks in aucmd, nvim_get_autocmds only handles commands
 -- TODO.refactor?
 
 local aucmds_in_group = {}
@@ -17,7 +16,7 @@ vim.api.nvim_create_user_command(
         vim.api.nvim_create_autocmd(cmd.event, {
           desc = cmd.desc,
           group = cmd.group_name,
-          command = cmd.command
+          callback = cmd.callback
         })
         print(cmd.desc .. " turned ON")
       end
@@ -53,7 +52,7 @@ vim.api.nvim_create_user_command(
         vim.api.nvim_create_autocmd(cmd.event, {
           desc = cmd.desc,
           group = cmd.group_name,
-          command = cmd.command
+          callback = cmd.callback
         })
         print(cmd.desc .. " turned ON")
       end
