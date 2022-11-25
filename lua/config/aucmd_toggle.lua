@@ -1,33 +1,41 @@
 -- assumes the aucmds already exist
 -- TODO.refactor?
 
-local aucmds_in_group = {}
+local aucmds_by_selection = {}
+local function turn_off(selection, aucmds_to_toggle)
+  for _, cmd in pairs(aucmds_to_toggle) do
+    table.insert(aucmds_by_selection[selection], cmd)
+    vim.api.nvim_del_autocmd(cmd.id)
+    print(cmd.desc .. " turned OFF")
+  end
+end
+
+local function turn_on_by(selection)
+  for _, cmd in pairs(aucmds_by_selection[selection]) do
+    vim.api.nvim_create_autocmd(cmd.event, {
+      desc = cmd.desc,
+      group = cmd.group_name,
+      callback = cmd.callback
+    })
+    print(cmd.desc .. " turned ON")
+  end
+  aucmds_by_selection[selection] = {}
+end
+
 vim.api.nvim_create_user_command(
   "ToggleAucmdsByGroup",
   function(input)
-    local given_group = input.args
-    local existing_aucmds = vim.api.nvim_get_autocmds({ group = given_group })
-    if aucmds_in_group[given_group] == nil then
-      aucmds_in_group[given_group] = {}
+    local augroup = input.args
+    if aucmds_by_selection[augroup] == nil then
+      aucmds_by_selection[augroup] = {}
     end
 
-    if next(existing_aucmds) == nil then
-      for _, cmd in pairs(aucmds_in_group[given_group]) do
-        vim.api.nvim_create_autocmd(cmd.event, {
-          desc = cmd.desc,
-          group = cmd.group_name,
-          callback = cmd.callback
-        })
-        print(cmd.desc .. " turned ON")
-      end
-      aucmds_in_group[given_group] = {}
-
+    local aucmds_to_toggle = vim.api.nvim_get_autocmds({ group = augroup })
+    local cmds_are_set = next(aucmds_to_toggle) ~= nil
+    if cmds_are_set then
+      turn_off(augroup, aucmds_to_toggle)
     else
-      for _, cmd in pairs(existing_aucmds) do
-        table.insert(aucmds_in_group[given_group], cmd)
-        vim.api.nvim_del_autocmd(cmd.id)
-        print(cmd.desc .. " turned OFF")
-      end
+      turn_on_by(augroup)
     end
 
   end,
