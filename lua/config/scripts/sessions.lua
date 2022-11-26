@@ -25,7 +25,6 @@ end
 
 local function is_valid_session_env()
   return is_git_project() and is_valid_filetype()
-
 end
 
 local function save()
