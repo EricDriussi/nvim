@@ -1,3 +1,5 @@
+-- TODO.remove rooter dependency (only need root dir or git dir)
+-- TODO.turn to plugin
 local status_ok, rooter = pcall(require, "nvim-rooter")
 if not status_ok then
   return

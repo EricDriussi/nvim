@@ -67,6 +67,7 @@ Plug 'jltwheeler/nvim-git-link'
 Plug 'gaoDean/autolist.nvim'
 " Winbar
 Plug 'fgheng/winbar.nvim'
+Plug 'xorid/swap-split.nvim'
 
 " --------------------------------LSP-STUFF--------------------------------"
 

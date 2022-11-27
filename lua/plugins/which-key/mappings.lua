@@ -27,8 +27,14 @@ return {
     ["h"] = { "<Cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Harpoons" },
     ["l"] = { "<Cmd>lua vim.lsp.buf.format({ async = true })<CR>", "Format" },
     ["m"] = { "<Cmd>MarkdownPreviewToggle<CR>", "Preview MD" },
-    ["s"] = { "<Cmd>lua require('spectre').open_visual({select_word=true})<CR>", "Seek & Destroy" },
-    ["S"] = { "<Cmd>vsplit<CR>", "Split Right" },
+    ["S"] = { "<Cmd>lua require('spectre').open_visual({select_word=true})<CR>", "Seek & Destroy" },
+
+    s = {
+      name = "Split",
+      v = { "<Cmd>vsplit<CR>", "Split Right" },
+      h = { "<Cmd>split<CR>", "Split Down" },
+      s = { "<Cmd>SwapSplit<CR>", "Swap" },
+    },
 
     g = {
       name = "Git",
