@@ -1,6 +1,14 @@
+" Auto install
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.config/nvim/.plugged')
 
-" Tabs
+" Winbar
+Plug 'fgheng/winbar.nvim'
 " Status Line
 Plug 'nvim-lualine/lualine.nvim'
 " Color on hex Codes
@@ -11,6 +19,8 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'sainnhe/gruvbox-material', {'commit': '421ccc28df2b5c8aef06b40160d539684fd1e771'}
 " Pretty QFList
 Plug 'https://gitlab.com/yorickpeterse/nvim-pqf.git'
+" Highlight elements
+Plug 'RRethy/vim-illuminate'
 
 " File Explorer
 Plug 'kyazdani42/nvim-tree.lua'
@@ -41,36 +51,29 @@ Plug 'kyazdani42/nvim-web-devicons'
 
 " Multi-Cursor
 Plug 'mg979/vim-visual-multi'
-" MD Preview
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
 " f to char
 Plug 'unblevable/quick-scope'
-" Integrated terminal
-Plug 'akinsho/toggleterm.nvim'
-" Bottom menu
-Plug 'folke/which-key.nvim'
-" Follow editorconfig
-Plug 'editorconfig/editorconfig-vim'
 " Handle camelCase and snek_case
 Plug 'chaoren/vim-wordmotion'
 " Improve speed
 Plug 'lewis6991/impatient.nvim'
-" Autocomment
-Plug 'preservim/nerdcommenter'
 " Jump between files
 Plug 'ThePrimeagen/harpoon'
 " Seek & Destroy
 Plug 'windwp/nvim-spectre'
-" Get git-remote link
+" Misc
 Plug 'jltwheeler/nvim-git-link'
-" Autolist
 Plug 'gaoDean/autolist.nvim'
-" Winbar
-Plug 'fgheng/winbar.nvim'
 Plug 'xorid/swap-split.nvim'
+Plug 'preservim/nerdcommenter'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
+Plug 'akinsho/toggleterm.nvim'
+Plug 'folke/which-key.nvim'
+Plug 'editorconfig/editorconfig-vim'
 
 " --------------------------------LSP-STUFF--------------------------------"
 
+Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'nvim-treesitter/nvim-treesitter-context'
@@ -84,13 +87,9 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-emoji'
 Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 
-" Snippets in cmp
+" Snippets
 Plug 'L3MON4D3/LuaSnip'
-" Generic snippets
 Plug 'rafamadriz/friendly-snippets'
-
-" LSP
-Plug 'neovim/nvim-lspconfig'
 
 " Install LSP tools easily
 Plug 'williamboman/mason-lspconfig.nvim'
@@ -101,8 +100,5 @@ Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
 Plug 'b0o/SchemaStore.nvim'
 " Formatting and LSP like stuff for non-lsp langs
 Plug 'jose-elias-alvarez/null-ls.nvim'
-
-" Highlight elements
-Plug 'RRethy/vim-illuminate'
 
 call plug#end()
