@@ -1,4 +1,3 @@
-require("config.aucmd_toggle")
 require("config.autocommands")
 require("config.diagnostics")
 require("config.keymap")

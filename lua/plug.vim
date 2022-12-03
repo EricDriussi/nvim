@@ -7,6 +7,8 @@ endif
 
 call plug#begin('~/.config/nvim/.plugged')
 
+Plug 'EricDriussi/aucmd-toggle.nvim'
+
 " Winbar
 Plug 'fgheng/winbar.nvim'
 " Status Line
