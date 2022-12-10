@@ -7,7 +7,9 @@ endif
 
 call plug#begin('~/.config/nvim/.plugged')
 
+
 Plug 'EricDriussi/aucmd-toggle.nvim'
+Plug 'EricDriussi/remember-me.nvim'
 
 " Winbar
 Plug 'fgheng/winbar.nvim'
@@ -26,7 +28,7 @@ Plug 'RRethy/vim-illuminate'
 
 " File Explorer
 Plug 'kyazdani42/nvim-tree.lua'
-" Fix root dir for ⬆️ (also used in sessions.vim)
+" Fix root dir for ⬆️ and telescope
 Plug 'notjedi/nvim-rooter.lua'
 
 " Telescope!

@@ -63,22 +63,3 @@ new_au_cmd("BufWritePre", {
     vim.lsp.buf.format({ async = false })
   end
 })
-
-local status_ok, session = pcall(require, "config.scripts.sessions")
--- Only create aucmds if session script is available and error free
-if status_ok and type(session) == "table" then
-
-  local sessions_group = new_au_grp("SessionsGroup", {})
-  new_au_cmd("VimEnter", {
-    desc = "Load Session",
-    group = sessions_group,
-    callback = session.load,
-    nested = true
-  })
-
-  new_au_cmd("VimLeavePre", {
-    desc = "Load Session",
-    group = sessions_group,
-    callback = session.save,
-  })
-end

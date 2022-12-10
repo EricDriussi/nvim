@@ -40,3 +40,4 @@ require("pqf").setup()
 require("colorizer").setup()
 -- Use nvim-rooter to always show full project
 require("nvim-rooter").setup()
+require("remember_me").setup()
