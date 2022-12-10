@@ -63,3 +63,12 @@ new_au_cmd("BufWritePre", {
     vim.lsp.buf.format({ async = false })
   end
 })
+
+new_au_cmd("FileType", {
+  desc = "Close Diffview",
+  group = new_au_grp("DiffviewClose", {}),
+  pattern = { "DiffviewFileHistory", "DiffviewFiles" },
+  callback = function()
+    vim.keymap.set("n", "<C-w>", "<Cmd>tabclose<CR>", { buffer = true })
+  end,
+})

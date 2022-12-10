@@ -41,12 +41,14 @@ return {
       A = { "<Cmd>Git blame<CR>", "Git Anotate File" },
       a = { "<Cmd>Gitsigns toggle_current_line_blame<CR>", "Git Anotate Line" },
       b = { "<Cmd>Gitsigns reset_hunk<CR>", "Git Back Hunk" },
-      h = { "<Cmd>diffget //2<CR>", "Get From Current (Left)" },
-      l = { "<Cmd>diffget //3<CR>", "Get From Incoming (Right)" },
+      --h = { "<Cmd>diffget //2<CR>", "Get From Current (Left)" },
+      --l = { "<Cmd>diffget //3<CR>", "Get From Incoming (Right)" },
       n = { "<Cmd>Gitsigns next_hunk<CR>", "Next Hunk/Conflict" },
       p = { "<Cmd>Gitsigns prev_hunk<CR>", "Prev Hunk/Conflict" },
       r = { "<Cmd>Telescope git_branches<CR>", "Branches" },
       s = { "<Cmd>Gvdiffsplit<bar>windo set wrap<CR>", "Split" },
+      c = { "<Cmd>DiffviewOpen<CR>", "Pre-Commit Diff" },
+      h = { "<Cmd>DiffviewFileHistory %<CR>", "File History" },
     },
 
     p = {

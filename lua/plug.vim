@@ -41,6 +41,7 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 " GIT
 Plug 'tpope/vim-fugitive'
 Plug 'lewis6991/gitsigns.nvim'
+Plug 'sindrets/diffview.nvim'
 
 " Parenthesis and such
 Plug 'windwp/nvim-autopairs'
