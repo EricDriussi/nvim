@@ -25,3 +25,6 @@ map("v", "`", "S`", {})
 
 -- MultiCursor behave like intelliJ
 vim.api.nvim_exec([[ let g:VM_custom_remaps = {'N': 'Q'} ]], false)
+
+-- Remove <C-a> map
+vim.g.ai_no_mappings = 1

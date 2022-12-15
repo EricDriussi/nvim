@@ -54,6 +54,8 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 
+" ChatGPT
+Plug 'aduros/ai.vim'
 " Multi-Cursor
 Plug 'mg979/vim-visual-multi'
 " f to char
