@@ -43,10 +43,8 @@ n("N", "Nzzzv")
 -- Search selected text
 v("//", "y/\\V<C-R>=escape(@\",'/\')<CR><CR>")
 
--- Dumb-replace word in Normal mode and selection in Visual mode
-n("<silent> rp", "*``cgn")
-v("<silent> rp", "y/\\V<C-R>=escape(@\",'/\\')<CR><CR>Ncgn")
--- FUCKS UP REG
+-- Dumb-replace word in Normal
+n("rp", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Close tab
 n("<C-w>", "<Cmd>q!<CR>")

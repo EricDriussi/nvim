@@ -7,7 +7,7 @@ option.splitbelow = true
 option.splitright = true
 option.termguicolors = true
 option.title = true -- Title to current file instead of terminal emulator name
-option.cmdheight = 2
+option.cmdheight = 1
 option.showmode = false
 
 -- Line and offests
@@ -19,7 +19,7 @@ option.wrap = true
 
 -- Number-Sign column
 option.number = true
-option.numberwidth = 4
+option.numberwidth = 3
 option.relativenumber = true
 option.signcolumn = "yes"
 
