@@ -1,5 +1,16 @@
-vim.api.nvim_command("source ~/.config/nvim/lua/plug.vim")
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "--single-branch",
+    "https://github.com/folke/lazy.nvim.git",
+    lazypath,
+  })
+end
+vim.opt.runtimepath:prepend(lazypath)
 
 require("config")
+require("plug")
 require("lsp")
-require("plugins")

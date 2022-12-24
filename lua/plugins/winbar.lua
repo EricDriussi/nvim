@@ -1,4 +1,4 @@
-require("winbar").setup({
+return {
   enabled = true,
 
   show_file_path = true,
@@ -31,4 +31,4 @@ require("winbar").setup({
     "qf",
     "none",
   }
-})
+}

@@ -1,4 +1,4 @@
-require("lualine").setup {
+return {
   options = {
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },

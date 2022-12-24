@@ -1,4 +1,4 @@
-require("nvim-tree").setup {
+return {
   disable_netrw = true,
 
   -- Show errors in files
@@ -11,7 +11,7 @@ require("nvim-tree").setup {
     update_root = true,
   },
 
-  filters = { custom = { '^\\.git' } },
+  filters = { custom = { "^\\.git" } },
 
   view = {
     -- Adapt size to names being shown
