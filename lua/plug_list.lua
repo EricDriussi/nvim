@@ -9,7 +9,7 @@ return {
         require("illuminate").configure({ max_file_lines = 5000, filetypes_denylist = { "NvimTree", "Telescope" } })
       end },
     -- Pretty QFList
-    { url = "https://gitlab.com/yorickmiscse/nvim-pqf.git", config = true },
+    { url = "https://gitlab.com/yorickpeterse/nvim-pqf.git", config = true },
     { "norcalli/nvim-colorizer.lua", config = { "css", "html", "javascript", "typescript", "typescriptreact" } },
     -- Theme
     { "sainnhe/gruvbox-material",
