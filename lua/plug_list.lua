@@ -10,7 +10,7 @@ return {
       end },
     -- Pretty QFList
     { url = "https://gitlab.com/yorickpeterse/nvim-pqf.git", config = true },
-    { "norcalli/nvim-colorizer.lua", config = { "css", "html", "javascript", "typescript", "typescriptreact" } },
+    { "norcalli/nvim-colorizer.lua", config = { "css", "scss", "html", "javascript", "typescript", "typescriptreact" } },
     -- Theme
     { "sainnhe/gruvbox-material",
       init = require("plugins.misc").colorscheme,
@@ -63,8 +63,6 @@ return {
     -- Seek & Destroy
     { "windwp/nvim-spectre", config = require("plugins.spectre") },
     { "jltwheeler/nvim-git-link" },
-    { "gaoDean/autolist.nvim",
-      config = { lists = { filetypes = { generic = { "none", "markdown", "text" } } } } },
     { "xorid/swap-split.nvim", cmd = "SwapSplit" },
     { "preservim/nerdcommenter", init = require("plugins.misc").nerd_toggle },
     { "iamcco/markdown-preview.nvim",
