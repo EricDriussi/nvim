@@ -27,7 +27,6 @@ return {
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     { "nvim-telescope/telescope-ui-select.nvim" },
     { "nvim-telescope/telescope.nvim",
-      cmd = "Telescope",
       config = function() require("plugins.telescope") end,
       dependencies = { "notjedi/nvim-rooter.lua", config = true } },
     { "ThePrimeagen/harpoon",
