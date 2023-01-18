@@ -24,13 +24,15 @@ return {
       cmd = "NvimTreeToggle",
       config = require("plugins.nvim-tree"),
       dependencies = { "notjedi/nvim-rooter.lua", config = true } },
-    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-    { "nvim-telescope/telescope-ui-select.nvim" },
+    { "ThePrimeagen/harpoon",
+      config = { menu = { width = vim.api.nvim_win_get_width(0) - 70 } } },
+    -- Telescope
     { "nvim-telescope/telescope.nvim",
       config = function() require("plugins.telescope") end,
       dependencies = { "notjedi/nvim-rooter.lua", config = true } },
-    { "ThePrimeagen/harpoon",
-      config = { menu = { width = vim.api.nvim_win_get_width(0) - 70 } } },
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    { "nvim-telescope/telescope-ui-select.nvim" },
+    { "danielfalk/smart-open.nvim", dependencies = "kkharji/sqlite.lua" },
   },
 
   git = {
