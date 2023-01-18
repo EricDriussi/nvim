@@ -41,6 +41,7 @@ return {
       cmd = { "DiffviewOpen", "DiffviewFileHistory" },
       config = function() require("plugins.diffview") end
     },
+    { "jltwheeler/nvim-git-link", lazy = true },
   },
 
   parens = {
@@ -62,8 +63,7 @@ return {
     -- Handle camelCase and snek_case
     { "chaoren/vim-wordmotion" },
     -- Seek & Destroy
-    { "windwp/nvim-spectre", config = require("plugins.spectre") },
-    { "jltwheeler/nvim-git-link" },
+    { "windwp/nvim-spectre", config = require("plugins.spectre"), lazy = true },
     { "xorid/swap-split.nvim", cmd = "SwapSplit" },
     { "preservim/nerdcommenter", init = require("plugins.misc").nerd_toggle },
     { "iamcco/markdown-preview.nvim",
@@ -80,8 +80,7 @@ return {
     { "williamboman/mason-lspconfig.nvim" },
     { "williamboman/mason.nvim" },
     { "WhoIsSethDaniel/mason-tool-installer.nvim" },
-    -- Needed for Jsonls
-    { "b0o/SchemaStore.nvim" },
+    { "b0o/SchemaStore.nvim" }, -- Needed for Jsonls
     { "nvim-treesitter/nvim-treesitter-textobjects" },
     { "nvim-treesitter/nvim-treesitter-context" },
     { "nvim-treesitter/nvim-treesitter",
@@ -92,17 +91,14 @@ return {
   },
 
   cmp = {
-    { "hrsh7th/nvim-cmp", config = function() require("plugins.completion") end,
-      dependencies = {
-        { "hrsh7th/cmp-nvim-lsp" },
-        { "hrsh7th/cmp-buffer" },
-        { "hrsh7th/cmp-path" },
-        { "saadparwaiz1/cmp_luasnip" },
-        { "hrsh7th/cmp-emoji" },
-        { "hrsh7th/cmp-nvim-lsp-signature-help" },
-        { "L3MON4D3/LuaSnip" },
-        { "rafamadriz/friendly-snippets" },
-      },
-    },
+    { "hrsh7th/nvim-cmp", config = function() require("plugins.completion") end, lazy = true },
+    { "hrsh7th/cmp-nvim-lsp" },
+    { "hrsh7th/cmp-buffer" },
+    { "hrsh7th/cmp-path" },
+    { "saadparwaiz1/cmp_luasnip" },
+    { "hrsh7th/cmp-emoji" },
+    { "hrsh7th/cmp-nvim-lsp-signature-help" },
+    { "L3MON4D3/LuaSnip" },
+    { "rafamadriz/friendly-snippets" },
   }
 }

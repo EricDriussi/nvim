@@ -38,8 +38,6 @@ option.smartindent = true
 option.smarttab = true
 option.softtabstop = 2
 option.tabstop = 2
-option.breakindent = true
-option.autoindent = true
 
 -- Misc
 option.completeopt = { "menu", "menuone", "noselect", "preview" }
