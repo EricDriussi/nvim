@@ -68,6 +68,8 @@ return {
     { "windwp/nvim-spectre", config = require("plugins.spectre"), lazy = true },
     { "xorid/swap-split.nvim", cmd = "SwapSplit" },
     { "preservim/nerdcommenter", init = require("plugins.misc").nerd_toggle },
+    -- Bold, Italics, Links in MD
+    { "antonk52/markdowny.nvim" },
     { "iamcco/markdown-preview.nvim",
       cmd = "MarkdownPreviewToggle",
       init = require("plugins.misc").mkdp,

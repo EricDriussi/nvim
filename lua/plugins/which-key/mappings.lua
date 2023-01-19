@@ -27,8 +27,15 @@ return {
     ["f"] = { "<Cmd>lua require('telescope').extensions.smart_open.smart_open({cwd_only = true}) <CR>", "Find File" },
     ["h"] = { "<Cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Harpoons" },
     ["l"] = { "<Cmd>lua vim.lsp.buf.format({ async = true })<CR>", "Format" },
-    ["m"] = { "<Cmd>MarkdownPreviewToggle<CR>", "Preview MD" },
     ["S"] = { "<Cmd>lua require('spectre').open_visual({select_word=true})<CR>", "Seek & Destroy" },
+
+    m = {
+      name = "MarkDown",
+      m = { "<Cmd>MarkdownPreviewToggle<CR>", "Preview MD" },
+      b = { "viw:lua require('markdowny').bold()<CR>", "Make bold" },
+      i = { "viw:lua require('markdowny').italics()<CR>", "Make italics" },
+      l = { "viw:lua require('markdowny').link()<CR>", "Make link" },
+    },
 
     s = {
       name = "Split",

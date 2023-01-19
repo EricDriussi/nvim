@@ -43,7 +43,7 @@ new_au_cmd("FileType", {
   pattern = { "gitcommit", "none" },
   callback = function()
     vim.opt_local.spell = true
-    vim.opt_local.spelllang = { "es", "en" }
+    vim.opt_local.spelllang = { "es", "en_us", "en_gb" }
   end,
 })
 
