@@ -80,8 +80,8 @@ return {
   },
 
   lsp = {
-    { "neovim/nvim-lspconfig" },
-    { "williamboman/mason-lspconfig.nvim" },
+    { "neovim/nvim-lspconfig", dependencies = "williamboman/mason-lspconfig.nvim" },
+    { "williamboman/mason-lspconfig.nvim", dependencies = "williamboman/mason.nvim" },
     { "williamboman/mason.nvim" },
     { "WhoIsSethDaniel/mason-tool-installer.nvim" },
     { "b0o/SchemaStore.nvim" }, -- Needed for Jsonls
@@ -102,7 +102,7 @@ return {
     { "saadparwaiz1/cmp_luasnip" },
     { "hrsh7th/cmp-emoji" },
     { "hrsh7th/cmp-nvim-lsp-signature-help" },
-    { "L3MON4D3/LuaSnip" },
+    { "L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets" } },
     { "rafamadriz/friendly-snippets" },
   }
 }
