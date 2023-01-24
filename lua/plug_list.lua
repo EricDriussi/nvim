@@ -90,6 +90,7 @@ return {
   },
 
   treesitter = {
+    { "ThePrimeagen/refactoring.nvim", config = true },
     { "nvim-treesitter/nvim-treesitter-textobjects" },
     { "nvim-treesitter/nvim-treesitter-context" },
     { "ckolkey/ts-node-action",

@@ -6,6 +6,9 @@ local actions = null_ls.builtins.code_actions
 null_ls.setup({
   debug = false,
   sources = {
+
+    actions.refactoring,
+
     formatting.eslint_d.with({
       timeout = 10000,
     }),
