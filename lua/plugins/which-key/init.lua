@@ -68,5 +68,10 @@ which_key.register(mappings.visual, default_opts_with("v", "<leader>"))
 which_key.register(mappings.go_to, default_opts_with("n", "g"))
 which_key.register(mappings.term, default_opts_with("t"))
 which_key.register({
+  ["<M-C-S-T>"] = {
+    "<Cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "Code Actions"
+  }
+}, default_opts_with("v"))
+which_key.register({
   ["<M-CR>"] = { "<Cmd>lua vim.lsp.buf.code_action()<CR>", "Code Actions" }
 }, default_opts_with("v"))

@@ -10,6 +10,7 @@ return {
     ["<M-g>"] = { "<Cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
     ["<M-v>"] = { "<Cmd>call terminal#ToggleVertical()<CR>", "Vertical Terminal" },
     ["rn"] = { "<Cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
+    ["<M-C-S-T>"] = { "<Cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "Rename" },
   },
 
   leader = {

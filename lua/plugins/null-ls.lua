@@ -7,8 +7,6 @@ null_ls.setup({
   debug = false,
   sources = {
 
-    actions.refactoring,
-
     formatting.eslint_d.with({
       timeout = 10000,
     }),
