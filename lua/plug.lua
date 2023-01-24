@@ -16,6 +16,7 @@ local plugins = {
   list.parens,
   list.misc,
   list.lsp,
+  list.treesitter,
   list.cmp,
   { "EricDriussi/aucmd-toggle.nvim" },
   { "EricDriussi/remember-me.nvim", config = true },

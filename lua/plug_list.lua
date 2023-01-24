@@ -85,13 +85,18 @@ return {
     { "williamboman/mason.nvim" },
     { "WhoIsSethDaniel/mason-tool-installer.nvim" },
     { "b0o/SchemaStore.nvim" }, -- Needed for Jsonls
+    -- Formatting and LSP like stuff for non-lsp langs
+    { "jose-elias-alvarez/null-ls.nvim", config = function() require("plugins.null-ls") end, },
+  },
+
+  treesitter = {
     { "nvim-treesitter/nvim-treesitter-textobjects" },
     { "nvim-treesitter/nvim-treesitter-context" },
+    { "ckolkey/ts-node-action",
+      dependencies = { "nvim-treesitter" }, },
     { "nvim-treesitter/nvim-treesitter",
       config = function() require("plugins.treesitter") end,
       build = ":TSUpdate" },
-    -- Formatting and LSP like stuff for non-lsp langs
-    { "jose-elias-alvarez/null-ls.nvim", config = function() require("plugins.null-ls") end, },
   },
 
   cmp = {
