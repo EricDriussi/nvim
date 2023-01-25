@@ -6,9 +6,7 @@ return {
       "Copy GH link" },
     ["<C-k>"] = { "<Cmd>lua vim.lsp.buf.hover()<CR>", "Hover" },
     ["<M-CR>"] = { "<Cmd>lua vim.lsp.buf.code_action()<CR>", "Code Actions" },
-    ["<M-b>"] = { "<Cmd>call terminal#ToggleHorizontal()<CR>", "Horizontal Terminal" },
     ["<M-g>"] = { "<Cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
-    ["<M-v>"] = { "<Cmd>call terminal#ToggleVertical()<CR>", "Vertical Terminal" },
     ["rn"] = { "<Cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
     ["<M-C-S-T>"] = { "<Cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "Rename" },
   },
@@ -22,9 +20,8 @@ return {
     ["L"] = { "<Cmd>ToggleAucmdsByGroup FormatOnSaveGroup<CR>", "Toggle FOS" },
     ["R"] = { "<Cmd>Telescope registers<CR>", "Registers" },
     ["a"] = { "<Cmd>lua require('harpoon.mark').add_file()<CR>", "Add Harpoon" },
-    ["d"] = { "<Cmd>call diffmode#Toggle()<CR>", "Diff Mode" },
+    ["d"] = { "<Cmd>:DiffToggle<CR>", "Diff Mode" },
     ["e"] = { "<Cmd>NvimTreeToggle<CR>", "Explorer" },
-    --["f"] = { "<Cmd>Telescope find_files<CR>", "Find File" },
     ["f"] = { "<Cmd>lua require('telescope').extensions.smart_open.smart_open({cwd_only = true}) <CR>", "Find File" },
     ["h"] = { "<Cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Harpoons" },
     ["l"] = { "<Cmd>lua vim.lsp.buf.format({ async = true })<CR>", "Format" },
@@ -95,9 +92,4 @@ return {
     ["q"] = { "<Cmd>lua vim.diagnostic.setloclist()<CR>", "Diagnostics -> qf list" },
     ["r"] = { "<Cmd>Telescope lsp_references<CR>", "Goto References" },
   },
-
-  term = {
-    ["<M-v>"] = { "<Cmd>call terminal#ToggleVertical()<CR>", "Toggle Vertical Terminal" },
-    ["<M-b>"] = { "<Cmd>call terminal#ToggleHorizontal()<CR>", "Toggle Horizontal Terminal" },
-  }
 }
