@@ -71,7 +71,6 @@ return {
     -- Bold, Italics, Links in MD
     { "antonk52/markdowny.nvim" },
     { "iamcco/markdown-preview.nvim",
-      cmd = "MarkdownPreviewToggle",
       init = require("plugins.misc").mkdp,
       build = "cd app && npm install" },
     { "akinsho/toggleterm.nvim", config = function() require("plugins.toggleterm") end },

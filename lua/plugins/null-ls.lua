@@ -12,7 +12,7 @@ null_ls.setup({
     }),
 
     diagnostics.markdownlint.with({
-      extra_args = { "--disable", "MD029", "MD013", "MD041", "MD024", "MD025" }
+      extra_args = { "--disable", "MD029", "MD013", "MD041", "MD024", "MD025", "MD047" }
     }),
     formatting.markdownlint,
 
