@@ -3,6 +3,8 @@ local option = vim.opt
 -- UI
 option.laststatus = 3
 option.pumheight = 10
+option.pumblend = 5
+option.winblend = 5
 option.splitbelow = true
 option.splitright = true
 option.termguicolors = true
@@ -10,9 +12,12 @@ option.title = true -- Title to current file instead of terminal emulator name
 option.cmdheight = 1
 option.showmode = false
 
+option.shortmess:append("Wc")
+
 -- Line and offests
 option.cursorline = true
 option.linebreak = true -- Avoid splitting words when wrapping lines
+option.breakindent = true
 option.scrolloff = 8 -- Breathing space
 option.sidescrolloff = 5
 option.wrap = true
@@ -47,5 +52,6 @@ option.fileencoding = "utf-8"
 option.ignorecase = true
 option.mouse = "a"
 option.smartcase = true
+option.infercase = true
 option.timeoutlen = 500
 option.updatetime = 200
