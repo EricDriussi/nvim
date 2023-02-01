@@ -23,7 +23,7 @@ Module.windows = {
     col_offset = -3,
   },
   documentation = {
-    border = "shadow",
+    border = "single",
   },
 }
 
