@@ -8,6 +8,7 @@ Module.entries = {
     -- Sources Labels
     item.menu = ({
       nvim_lsp = "[L]",
+      codeium = "IA",
       buffer = "[B]",
       path = "[P]",
       luasnip = "[S]",

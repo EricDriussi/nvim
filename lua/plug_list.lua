@@ -109,5 +109,8 @@ return {
     { "hrsh7th/cmp-nvim-lsp-signature-help" },
     { "L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets" } },
     { "rafamadriz/friendly-snippets" },
+    { "jcdickinson/codeium.nvim",
+      dependencies = { "MunifTanjim/nui.nvim", },
+      config = true },
   }
 }
