@@ -81,6 +81,13 @@ return {
       j = { "<Cmd>'<,'>!jq<CR>", "Json" },
       c = { "<Cmd>'<,'>!column -t<CR>", "Columns" },
     },
+
+    m = {
+      name = "MarkDown",
+      b = { ":lua require('markdowny').bold()<CR>", "Make bold" },
+      i = { ":lua require('markdowny').italics()<CR>", "Make italics" },
+      l = { ":lua require('markdowny').link()<CR>", "Make link" },
+    },
   },
 
   go_to = {
