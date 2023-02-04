@@ -33,6 +33,7 @@ return {
       b = { "viw:lua require('markdowny').bold()<CR>", "Make bold" },
       i = { "viw:lua require('markdowny').italics()<CR>", "Make italics" },
       l = { "viw:lua require('markdowny').link()<CR>", "Make link" },
+      c = { "viw:lua require('markdowny').inline_code()<CR>", "Make inline code" },
     },
 
     s = {
@@ -87,6 +88,7 @@ return {
       b = { ":lua require('markdowny').bold()<CR>", "Make bold" },
       i = { ":lua require('markdowny').italics()<CR>", "Make italics" },
       l = { ":lua require('markdowny').link()<CR>", "Make link" },
+      c = { ":lua require('markdowny').inline_code()<CR>", "Make inline code" },
     },
   },
 
