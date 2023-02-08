@@ -6,15 +6,19 @@ local signs = {
 }
 
 for _, sign in ipairs(signs) do
-  vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+  vim.fn.sign_define(sign.name, { texthl = sign.name, text = "", numhl = sign.name })
 end
 
+
 vim.diagnostic.config({
-  virtual_text = false,
+  virtual_text = {
+    severity = { min = vim.diagnostic.severity.ERROR },
+    spacing = 12,
+  },
   signs = {
     active = signs,
   },
-  update_in_insert = true,
+  update_in_insert = false,
   underline = true,
   severity_sort = true,
   float = {
@@ -26,3 +30,6 @@ vim.diagnostic.config({
     prefix = "",
   },
 })
+
+vim.api.nvim_set_hl(0, "LspDiagnosticsVirtualTextError",
+  { sp = "Green", ctermfg = "Blue", ctermbg = "Yellow", fg = "Blue", bold = true })
