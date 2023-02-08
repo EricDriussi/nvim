@@ -8,6 +8,7 @@ M.colorscheme = function()
   g.gruvbox_material_better_performance = 1
   g.gruvbox_material_enable_italic = 1
   g.gruvbox_material_current_word = "bold,italic"
+  g.gruvbox_material_diagnostic_virtual_text = "colored"
   vim.opt.background = "dark"
   vim.api.nvim_command "colorscheme gruvbox-material"
 end
