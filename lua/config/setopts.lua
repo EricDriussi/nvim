@@ -37,10 +37,10 @@ option.undofile = true
 -- Tab be gud
 option.copyindent = true
 option.preserveindent = true
-option.expandtab = true
-option.shiftwidth = 2
 option.smartindent = true
 option.smarttab = true
+option.expandtab = true
+option.shiftwidth = 2
 option.softtabstop = 2
 option.tabstop = 2
 

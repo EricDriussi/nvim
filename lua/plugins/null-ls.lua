@@ -7,6 +7,8 @@ null_ls.setup({
   debug = false,
   sources = {
 
+	formatting.stylua,
+
     formatting.eslint_d.with({
       timeout = 10000,
     }),

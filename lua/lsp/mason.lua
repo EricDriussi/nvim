@@ -36,9 +36,15 @@ require("mason-tool-installer").setup {
     "markdownlint",
     --"marksman",
 
-    "json-lsp",
     "lua-language-server",
+    "stylua",
+
     "python-lsp-server",
     "autopep8",
+
+	"gopls",
+	"gofumpt",
+
+    "json-lsp",
   },
 }
