@@ -1,3 +1,3 @@
 return {
-  filetypes = { "yaml", "yml" }
+	filetypes = { "yaml", "yml" },
 }

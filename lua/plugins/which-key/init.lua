@@ -1,64 +1,63 @@
 local which_key = require("which-key")
 which_key.setup({
 
-  plugins = {
-    marks = false,
-    registers = false,
-    spelling = {
-      enabled = true,
-      suggestions = 20,
-    },
+	plugins = {
+		marks = false,
+		registers = false,
+		spelling = {
+			enabled = true,
+			suggestions = 20,
+		},
 
-    -- Help for vim stuff
-    presets = {
-      operators = false,
-      motions = false,
-      text_objects = false,
-      windows = false,
-      nav = false,
-      z = true,
-      g = false,
-    },
+		-- Help for vim stuff
+		presets = {
+			operators = false,
+			motions = false,
+			text_objects = false,
+			windows = false,
+			nav = false,
+			z = true,
+			g = false,
+		},
+	},
+	icons = {
+		breadcrumb = "»",
+		separator = "➜",
+		group = "+",
+	},
 
-  },
-  icons = {
-    breadcrumb = "»",
-    separator = "➜",
-    group = "+",
-  },
+	window = {
+		border = "rounded",
+		position = "bottom",
+		margin = { 1, 0, 1, 0 },
+		padding = { 2, 2, 2, 2 },
+		winblend = 0,
+	},
 
-  window = {
-    border = "rounded",
-    position = "bottom",
-    margin = { 1, 0, 1, 0 },
-    padding = { 2, 2, 2, 2 },
-    winblend = 0,
-  },
+	layout = {
+		height = { min = 4, max = 25 },
+		width = { min = 20, max = 80 },
+		spacing = 5,
+		align = "left",
+	},
 
-  layout = {
-    height = { min = 4, max = 25 },
-    width = { min = 20, max = 80 },
-    spacing = 5,
-    align = "left",
-  },
-
-  -- Ignore keymaps with no label
-  ignore_missing = true,
-  hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " },
-  show_help = true,
-  triggers = "auto",
+	-- Ignore keymaps with no label
+	ignore_missing = true,
+	hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " },
+	show_help = true,
+	triggers = "auto",
 })
 
 local function default_opts_with(mode, prefix)
-  return {
-    mode = mode,
-    prefix = prefix or "",
-    -- Buffer specific?
-    buffer = nil,
-    silent = true,
-    noremap = true,
-    nowait = true,
-  }
+	return {
+		mode = mode,
+		prefix = prefix or "",
+		-- Buffer specific?
+		buffer = nil,
+		silent = true,
+		noremap = true,
+		nowait = true,
+	}
 end
 
 local mappings = require("plugins.which-key.mappings")
@@ -68,10 +67,11 @@ which_key.register(mappings.visual, default_opts_with("v", "<leader>"))
 which_key.register(mappings.go_to, default_opts_with("n", "g"))
 which_key.register(mappings.term, default_opts_with("t"))
 which_key.register({
-  ["<M-C-S-T>"] = {
-    "<Cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "Code Actions"
-  }
+	["<M-C-S-T>"] = {
+		"<Cmd>lua require('telescope').extensions.refactoring.refactors()<CR>",
+		"Code Actions",
+	},
 }, default_opts_with("v"))
 which_key.register({
-  ["<M-CR>"] = { "<Cmd>lua vim.lsp.buf.code_action()<CR>", "Code Actions" }
+	["<M-CR>"] = { "<Cmd>lua vim.lsp.buf.code_action()<CR>", "Code Actions" },
 }, default_opts_with("v"))

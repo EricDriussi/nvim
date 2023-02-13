@@ -1,15 +1,15 @@
 vim.g.mapleader = " "
 
 local function n(lhs, rhs)
-  vim.keymap.set("n", lhs, rhs)
+	vim.keymap.set("n", lhs, rhs)
 end
 
 local function v(lhs, rhs)
-  vim.keymap.set("v", lhs, rhs)
+	vim.keymap.set("v", lhs, rhs)
 end
 
 local function i(lhs, rhs)
-  vim.keymap.set("i", lhs, rhs)
+	vim.keymap.set("i", lhs, rhs)
 end
 
 -- Kinda scrolling
@@ -27,8 +27,8 @@ i("<C-p>", "<Esc>\"+p <bar> <Cmd>echom 'Pasted from system clipboard!'<CR>A")
 n("Y", "y$")
 
 -- Paste over selected text without screwing the reg
-v("p", "\"_dP")
-v("P", "\"_dP")
+v("p", '"_dP')
+v("P", '"_dP')
 
 -- Select all
 n("<C-a>", "ggVG")
@@ -41,7 +41,7 @@ n("n", "nzzzv")
 n("N", "Nzzzv")
 
 -- Search selected text
-v("//", "y/\\V<C-R>=escape(@\",'/\')<CR><CR>")
+v("//", "y/\\V<C-R>=escape(@\",'/')<CR><CR>")
 
 -- Dumb-replace word in Normal
 n("rp", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
@@ -90,8 +90,8 @@ i(".", ".<C-g>u")
 i("?", "?<C-g>u")
 
 -- Add number and half page jumps to jumplist
-n("<expr> k", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'k'")
-n("<expr> j", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'j'")
+n("<expr> k", '(v:count > 5 ? "m\'" . v:count : "") . \'k\'')
+n("<expr> j", '(v:count > 5 ? "m\'" . v:count : "") . \'j\'')
 n("<C-u>", "<C-u>m'")
 n("<C-d>", "<C-d>m'")
 
