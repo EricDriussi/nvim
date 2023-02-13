@@ -40,9 +40,10 @@ option.preserveindent = true
 option.smartindent = true
 option.smarttab = true
 option.expandtab = true
-option.shiftwidth = 2
-option.softtabstop = 2
-option.tabstop = 2
+local tabsize = 2
+option.shiftwidth = tabsize
+option.softtabstop = tabsize
+option.tabstop = tabsize
 
 -- Misc
 option.completeopt = { "menu", "menuone", "noselect", "preview" }
