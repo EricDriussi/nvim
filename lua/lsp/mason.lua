@@ -26,7 +26,6 @@ require("mason-tool-installer").setup({
 		"eslint_d",
 
 		"yaml-language-server",
-		"yamllint",
 
 		"bash-language-server",
 		"shellcheck",
@@ -34,7 +33,6 @@ require("mason-tool-installer").setup({
 
 		"ltex-ls",
 		"markdownlint",
-		--"marksman",
 
 		"lua-language-server",
 		"stylua",

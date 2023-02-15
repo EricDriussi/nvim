@@ -4,8 +4,7 @@ require("nvim-treesitter.configs").setup({
 	highlight = {
 		enable = true,
 	},
-	indent = { enable = true, disable = { "yaml" } },
-
+	indent = { enable = true },
 	-- Plugins!
 	rainbow = {
 		enable = true,
@@ -18,7 +17,6 @@ require("nvim-treesitter.configs").setup({
 	autotag = {
 		enable = true,
 	},
-
 	-- Add [M]ethod as vim text object
 	textobjects = {
 		select = {
