@@ -10,7 +10,7 @@ return {
 		["<M-CR>"] = { "<Cmd>lua vim.lsp.buf.code_action()<CR>", "Code Actions" },
 		["<M-g>"] = { "<Cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
 		["rn"] = { "<Cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
-		["<M-C-S-T>"] = { "<Cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "Rename" },
+		["<M-C-S-T>"] = { "viW<Esc><Cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "Refactors" },
 	},
 
 	leader = {
@@ -74,6 +74,7 @@ return {
 		["/"] = { "<plug>NERDCommenterToggle<CR>k", "Comment" },
 		["F"] = { "<Cmd>Telescope grep_string<CR>", "Find String" },
 		["s"] = { "<Esc><Cmd>lua require('spectre').open_visual()<CR>", "Seek & Destroy" },
+		["<M-C-S-T>"] = { "<Esc><Cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "Refactors" },
 
 		g = {
 			name = "Git",
