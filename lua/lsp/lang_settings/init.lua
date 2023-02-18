@@ -1,7 +1,7 @@
 local Module = {}
 -- Fetch custom server config if present
 function Module.get_settings_for(lspconfig_server_name)
-	if lspconfig_server_name == "sumneko_lua" then
+	if lspconfig_server_name == "lua_ls" then
 		return require("lsp.lang_settings.sumneko-lua")
 	elseif lspconfig_server_name == "jsonls" then
 		return require("lsp.lang_settings.jsonls")

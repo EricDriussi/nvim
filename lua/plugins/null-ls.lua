@@ -8,23 +8,15 @@ null_ls.setup({
 	sources = {
 
 		formatting.stylua,
-
+		formatting.gofumpt,
+		formatting.yamlfmt,
 		formatting.eslint_d.with({
 			timeout = 10000,
 		}),
 
+		formatting.markdownlint,
 		diagnostics.markdownlint.with({
 			extra_args = { "--disable", "MD029", "MD013", "MD041", "MD024", "MD025", "MD047" },
-		}),
-		formatting.markdownlint,
-
-		actions.shellcheck,
-		diagnostics.shellcheck,
-		formatting.shfmt,
-
-		diagnostics.zsh,
-		formatting.beautysh.with({
-			filetypes = { "zsh" },
 		}),
 
 		formatting.autopep8.with({
@@ -34,7 +26,14 @@ null_ls.setup({
 			extra_args = { "--config-file", vim.fn.getcwd() .. "/setup.cfg" },
 		}),
 
-		formatting.gofumpt,
+		actions.shellcheck,
+		diagnostics.shellcheck,
+		formatting.shfmt,
+
+		diagnostics.zsh,
+		formatting.beautysh.with({
+			filetypes = { "zsh" },
+		}),
 	},
 })
 
