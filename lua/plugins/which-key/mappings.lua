@@ -12,7 +12,6 @@ return {
 		["rn"] = { "<Cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
 		["<M-C-S-T>"] = { "viW<Esc><Cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "Refactors" },
 	},
-
 	leader = {
 		["/"] = { "<plug>NERDCommenterToggle<CR>k", "Comment" },
 		["?"] = { "<Cmd>Mason<CR>", "LSP" },
@@ -38,7 +37,7 @@ return {
 			b = { "viw:lua require('markdowny').bold()<CR>", "Make bold" },
 			i = { "viw:lua require('markdowny').italics()<CR>", "Make italics" },
 			l = { "viw:lua require('markdowny').link()<CR>", "Make link" },
-			c = { "viw:lua require('markdowny').inline_code()<CR>", "Make inline code" },
+			c = { "viw:lua require('markdowny').code()<CR>", "Make inline code" },
 		},
 
 		s = {
@@ -69,7 +68,6 @@ return {
 			c = { "<Cmd>%!column -t<CR>", "Columns" },
 		},
 	},
-
 	visual = {
 		["/"] = { "<plug>NERDCommenterToggle<CR>k", "Comment" },
 		["F"] = { "<Cmd>Telescope grep_string<CR>", "Find String" },
@@ -94,10 +92,9 @@ return {
 			b = { ":lua require('markdowny').bold()<CR>", "Make bold" },
 			i = { ":lua require('markdowny').italics()<CR>", "Make italics" },
 			l = { ":lua require('markdowny').link()<CR>", "Make link" },
-			c = { ":lua require('markdowny').inline_code()<CR>", "Make inline code" },
+			c = { ":lua require('markdowny').code()<CR>", "Make inline code" },
 		},
 	},
-
 	go_to = {
 		["d"] = { "<Cmd>Telescope lsp_definitions<CR>", "Goto Definition" },
 		["e"] = { "<Cmd>lua vim.diagnostic.open_float(0, {scope='line'})<CR>", "Get Error" },
