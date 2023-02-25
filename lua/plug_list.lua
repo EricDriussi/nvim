@@ -152,6 +152,7 @@ return {
 		{ "saadparwaiz1/cmp_luasnip" },
 		{ "hrsh7th/cmp-emoji" },
 		{ "hrsh7th/cmp-nvim-lsp-signature-help" },
+		{ "hrsh7th/cmp-cmdline" },
 		{ "L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets" } },
 		{ "rafamadriz/friendly-snippets" },
 		{ "jcdickinson/codeium.nvim", dependencies = { "MunifTanjim/nui.nvim" }, config = true },
