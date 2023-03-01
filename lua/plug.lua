@@ -25,9 +25,9 @@ local plugins = {
 		init = function()
 			vim.g.firenvim_config = {
 				localSettings = {
-					[".*excalidraw.*"] = { takeover = "never" },
-					[".*notion.*"] = { takeover = "never" },
-					[".*docs.google.*"] = { takeover = "never" },
+					[".*"] = { takeover = "never" },
+					[".*github.*"] = { takeover = "always" },
+					[".*gitlab.*"] = { takeover = "always" },
 				},
 			}
 		end,
