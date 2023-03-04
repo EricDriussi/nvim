@@ -76,23 +76,10 @@ return {
 	misc = {
 		-- ChatGPT
 		{ "aduros/ai.vim",           init = require("plugins.misc").ai,         cmd = "AI" },
-		-- Multi-Cursor
-		{ "mg979/vim-visual-multi",  init = require("plugins.misc").multi },
-		-- f to char
-		{ "unblevable/quick-scope",  init = require("plugins.misc").quick_scope },
-		-- Handle camelCase and snek_case
-		{ "chaoren/vim-wordmotion" },
 		-- Seek & Destroy
 		{ "windwp/nvim-spectre",     config = require("plugins.spectre"),       lazy = true },
 		{ "xorid/swap-split.nvim",   cmd = "SwapSplit" },
 		{ "preservim/nerdcommenter", init = require("plugins.misc").nerd_toggle },
-		-- Bold, Italics, Links in MD
-		{ "antonk52/markdowny.nvim" },
-		{
-			"iamcco/markdown-preview.nvim",
-			init = require("plugins.misc").mkdp,
-			build = "cd app && npm install",
-		},
 		{
 			"akinsho/toggleterm.nvim",
 			config = function()
@@ -106,6 +93,23 @@ return {
 			end,
 		},
 		{ "editorconfig/editorconfig-vim", init = require("plugins.misc").editorconfig },
+	},
+	nav = {
+		-- Multi-Cursor
+		{ "mg979/vim-visual-multi", init = require("plugins.misc").multi },
+		-- f to char
+		{ "unblevable/quick-scope", init = require("plugins.misc").quick_scope },
+		-- Handle camelCase and snek_case
+		{ "chaoren/vim-wordmotion" },
+	},
+	md = {
+		-- Bold, Italics, Links in MD
+		{ "antonk52/markdowny.nvim" },
+		{
+			"iamcco/markdown-preview.nvim",
+			init = require("plugins.misc").mkdp,
+			build = "cd app && npm install",
+		},
 	},
 	lsp = {
 		{ "neovim/nvim-lspconfig",                    dependencies = "williamboman/mason-lspconfig.nvim" },

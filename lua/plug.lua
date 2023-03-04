@@ -1,17 +1,19 @@
-local list = require("plug_list")
+local plug = require("plug_list")
 local plugins = {
 	-- Needed for other plugins
 	{ "nvim-lua/popup.nvim",          priority = 1000 },
 	{ "nvim-lua/plenary.nvim",        priority = 1000 },
 	{ "kyazdani42/nvim-web-devicons", priority = 1000 },
-	list.UI,
-	list.file_viewers,
-	list.git,
-	list.parens,
-	list.misc,
-	list.lsp,
-	list.treesitter,
-	list.cmp,
+	plug.UI,
+	plug.file_viewers,
+	plug.git,
+	plug.parens,
+	plug.misc,
+	plug.nav,
+	plug.md,
+	plug.lsp,
+	plug.treesitter,
+	plug.cmp,
 	{ "EricDriussi/aucmd-toggle.nvim" },
 	{ "EricDriussi/remember-me.nvim", config = true },
 
