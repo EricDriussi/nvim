@@ -11,6 +11,7 @@ local plugins = {
 	plug.misc,
 	plug.nav,
 	plug.md,
+	plug.folds,
 	plug.lsp,
 	plug.treesitter,
 	plug.cmp,

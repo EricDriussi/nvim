@@ -111,6 +111,15 @@ return {
 			build = "cd app && npm install",
 		},
 	},
+	folds = {
+		{
+			"kevinhwang91/nvim-ufo",
+			config = function()
+				require("plugins.ufo")
+			end,
+			dependencies = { "kevinhwang91/promise-async" },
+		},
+	},
 	lsp = {
 		{ "neovim/nvim-lspconfig",                    dependencies = "williamboman/mason-lspconfig.nvim" },
 		{ "williamboman/mason-lspconfig.nvim",        dependencies = "williamboman/mason.nvim" },
