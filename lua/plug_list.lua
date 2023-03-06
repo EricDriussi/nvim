@@ -69,9 +69,9 @@ return {
 				require("plugins.autopairs")
 			end,
 		},
-		{ "tpope/vim-surround",    init = require("plugins.misc").surround },
+		{ "tpope/vim-surround",      init = require("plugins.misc").surround },
 		{ "windwp/nvim-ts-autotag" },
-		{ "p00f/nvim-ts-rainbow" },
+		{ "HiPhish/nvim-ts-rainbow2" },
 	},
 	misc = {
 		-- ChatGPT

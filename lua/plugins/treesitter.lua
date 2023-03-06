@@ -8,8 +8,6 @@ require("nvim-treesitter.configs").setup({
 	-- Plugins!
 	rainbow = {
 		enable = true,
-		extended_mode = true,
-		max_file_lines = 1500, -- Do not enable for files with more than n lines, int
 	},
 	autopairs = {
 		enable = true,
