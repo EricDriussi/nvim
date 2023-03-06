@@ -11,6 +11,10 @@ return {
 		["<M-g>"] = { "<Cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
 		["rn"] = { "<Cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
 		["<M-C-S-T>"] = { "viW<Esc><Cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "Refactors" },
+		["zO"] = { require("ufo").openAllFolds, "Open all folds" },
+		["zC"] = { require("ufo").closeAllFolds, "Close all folds" },
+		["zR"] = { require("ufo").openAllFolds, "Open all folds" },
+		["zM"] = { require("ufo").closeAllFolds, "Close all folds" },
 	},
 	leader = {
 		["/"] = { "<plug>NERDCommenterToggle<CR>k", "Comment" },

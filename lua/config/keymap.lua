@@ -97,7 +97,3 @@ n("<C-d>", "<C-d>m'")
 
 -- Increment number
 n("<M-a>", "<C-a>")
-
--- Folds
-n("zC", "zM")
-n("zO", "zR")
