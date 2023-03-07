@@ -10,8 +10,8 @@ null_ls.setup({
 		formatting.stylua,
 		formatting.gofumpt,
 		formatting.yamlfmt,
-		formatting.eslint_d.with({
-			timeout = 10000,
+		formatting.prettierd.with({
+			filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
 		}),
 
 		formatting.markdownlint,
