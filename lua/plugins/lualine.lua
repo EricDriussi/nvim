@@ -15,7 +15,7 @@ return {
 	sections = {
 		lualine_a = { "mode" },
 		lualine_b = { "branch" },
-		lualine_c = { "diagnostics" },
+		lualine_c = { "diagnostics", "filename" },
 		lualine_x = { "fileformat", readingTime, "filetype" },
 		lualine_y = { "progress" },
 		lualine_z = { "location" },
