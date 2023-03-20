@@ -120,6 +120,19 @@ return {
 			dependencies = { "kevinhwang91/promise-async" },
 		},
 	},
+	testing = {
+		{
+			"nvim-neotest/neotest",
+			config = require("plugins.neotest"),
+			dependencies = {
+				"nvim-treesitter/nvim-treesitter",
+				"nvim-neotest/neotest-go",
+				"nvim-neotest/neotest-plenary",
+				"nvim-neotest/neotest-python",
+				"haydenmeade/neotest-jest",
+			},
+		},
+	},
 	lsp = {
 		{ "neovim/nvim-lspconfig",                    dependencies = "williamboman/mason-lspconfig.nvim" },
 		{ "williamboman/mason-lspconfig.nvim",        dependencies = "williamboman/mason.nvim" },

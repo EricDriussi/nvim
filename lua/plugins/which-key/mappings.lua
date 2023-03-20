@@ -69,6 +69,18 @@ return {
 			j = { "<Cmd>%!jq<CR>", "Json" },
 			c = { "<Cmd>%!column -t<CR>", "Columns" },
 		},
+
+		t = {
+			name = "Test",
+			r = { "<Cmd>lua require('neotest').run.run() require('neotest').output_panel.toggle()<CR>", "Run closest" },
+			R = {
+				"<Cmd>lua require('neotest').run.run(vim.fn.expand('%')) require('neotest').summary.open()<CR>",
+				"Run file",
+			},
+			o = { "<Cmd>lua require('neotest').output_panel.toggle()<CR>", "Output toggle" },
+			s = { "<Cmd>lua require('neotest').summary.toggle()<CR>", "Summary toggle" },
+			S = { "<Cmd>lua require('neotest').run.stop()<CR>", "Stop test" },
+		},
 	},
 	visual = {
 		["/"] = { "<plug>NERDCommenterToggle<CR>k", "Comment" },
