@@ -26,7 +26,7 @@ return {
 		-- Theme
 		{
 			"sainnhe/gruvbox-material",
-			config = require("plugins.misc").colorscheme,
+			config = require("plugins.colorscheme"),
 			priority = 1000,
 		},
 	},
