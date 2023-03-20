@@ -27,6 +27,7 @@ return {
 		{
 			"sainnhe/gruvbox-material",
 			config = require("plugins.colorscheme"),
+			commit = "421ccc28df2b5c8aef06b40160d539684fd1e771",
 			priority = 1000,
 		},
 	},
