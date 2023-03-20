@@ -52,4 +52,11 @@ M.quick_scope = function()
 	g.qs_highlight_on_keys = { "f", "F", "t", "T" }
 end
 
+M.illuminate = function()
+	require("illuminate").configure({
+		max_file_lines = 5000,
+		filetypes_denylist = { "NvimTree", "Telescope" },
+	})
+end
+
 return M
