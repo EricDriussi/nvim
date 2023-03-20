@@ -46,16 +46,21 @@ return {
 		{
 			"nvim-telescope/telescope.nvim",
 			config = require("plugins.telescope"),
-			dependencies = { "notjedi/nvim-rooter.lua", config = true },
-		},
-		{ "nvim-telescope/telescope-ui-select.nvim" },
-		{
-			"nvim-telescope/telescope-fzf-native.nvim",
-			build = "make",
-		},
-		{
-			"danielfalk/smart-open.nvim",
-			dependencies = "kkharji/sqlite.lua",
+			dependencies = {
+				{ "nvim-telescope/telescope-ui-select.nvim" },
+				{
+					"notjedi/nvim-rooter.lua",
+					config = true,
+				},
+				{
+					"nvim-telescope/telescope-fzf-native.nvim",
+					build = "make",
+				},
+				{
+					"danielfalk/smart-open.nvim",
+					dependencies = "kkharji/sqlite.lua",
+				},
+			},
 		},
 	},
 	git = {
@@ -73,7 +78,6 @@ return {
 	},
 	parens = {
 		{ "windwp/nvim-ts-autotag" },
-		{ "HiPhish/nvim-ts-rainbow2" },
 		{
 			"windwp/nvim-autopairs",
 			config = require("plugins.autopairs"),
@@ -115,6 +119,10 @@ return {
 		{
 			"editorconfig/editorconfig-vim",
 			config = require("plugins.misc").editorconfig,
+		},
+		{
+			"ThePrimeagen/refactoring.nvim",
+			config = true,
 		},
 	},
 	nav = {
@@ -164,27 +172,20 @@ return {
 	lsp = {
 		{
 			"neovim/nvim-lspconfig",
-			dependencies = "williamboman/mason-lspconfig.nvim",
+			dependencies = {
+				"williamboman/mason-lspconfig.nvim",
+				dependencies = "williamboman/mason.nvim",
+			},
 		},
-		{
-			"williamboman/mason-lspconfig.nvim",
-			dependencies = "williamboman/mason.nvim",
-		},
-		{ "williamboman/mason.nvim" },
 		{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
-		{ "b0o/SchemaStore.nvim" }, -- Needed for Jsonls
 		-- Formatting and LSP like stuff for non-lsp langs
 		{
 			"jose-elias-alvarez/null-ls.nvim",
 			config = require("plugins.null-ls"),
 		},
+		{ "b0o/SchemaStore.nvim" }, -- Needed for Jsonls
 	},
 	treesitter = {
-		{
-			"ThePrimeagen/refactoring.nvim",
-			config = true,
-		},
-		{ "nvim-treesitter/nvim-treesitter-textobjects" },
 		{ "nvim-treesitter/nvim-treesitter-context" },
 		{
 			"ckolkey/ts-node-action",
@@ -194,6 +195,10 @@ return {
 			"nvim-treesitter/nvim-treesitter",
 			config = require("plugins.treesitter"),
 			build = ":TSUpdate",
+			dependencies = {
+				"HiPhish/nvim-ts-rainbow2",
+				"nvim-treesitter/nvim-treesitter-textobjects",
+			},
 		},
 	},
 	cmp = {
@@ -201,23 +206,26 @@ return {
 			"hrsh7th/nvim-cmp",
 			config = require("plugins.completion"),
 			lazy = true,
-		},
-		{ "hrsh7th/cmp-nvim-lsp" },
-		{ "hrsh7th/cmp-buffer" },
-		{ "hrsh7th/cmp-path" },
-		{ "saadparwaiz1/cmp_luasnip" },
-		{ "hrsh7th/cmp-cmdline" },
-		{ "hrsh7th/cmp-emoji" },
-		{ "hrsh7th/cmp-nvim-lsp-signature-help" },
-		{ "rafamadriz/friendly-snippets" },
-		{
-			"L3MON4D3/LuaSnip",
-			dependencies = { "rafamadriz/friendly-snippets" },
-		},
-		{
-			"jcdickinson/codeium.nvim",
-			dependencies = { "MunifTanjim/nui.nvim" },
-			config = true,
+			dependencies = {
+				{ "hrsh7th/cmp-nvim-lsp" },
+				{ "hrsh7th/cmp-buffer" },
+				{ "hrsh7th/cmp-path" },
+				{ "hrsh7th/cmp-cmdline" },
+				{ "hrsh7th/cmp-emoji" },
+				{ "hrsh7th/cmp-nvim-lsp-signature-help" },
+				{
+					"saadparwaiz1/cmp_luasnip",
+					dependencies = {
+						"L3MON4D3/LuaSnip",
+						dependencies = { "rafamadriz/friendly-snippets" },
+					},
+				},
+				{
+					"jcdickinson/codeium.nvim",
+					dependencies = { "MunifTanjim/nui.nvim" },
+					config = true,
+				},
+			},
 		},
 	},
 }
