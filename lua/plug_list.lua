@@ -41,6 +41,7 @@ return {
 		{
 			"ThePrimeagen/harpoon",
 			config = { menu = { width = vim.api.nvim_win_get_width(0) - 70 } },
+			lazy = true,
 		},
 		-- Telescope
 		{
@@ -123,6 +124,7 @@ return {
 		{
 			"ThePrimeagen/refactoring.nvim",
 			config = true,
+			lazy = true,
 		},
 	},
 	nav = {
