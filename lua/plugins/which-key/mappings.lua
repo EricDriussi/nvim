@@ -117,5 +117,6 @@ return {
 		["p"] = { "<Cmd>lua vim.diagnostic.goto_prev({ border = 'rounded' })<CR>", "Goto Prev Error" },
 		["q"] = { "<Cmd>lua vim.diagnostic.setloclist()<CR>", "Diagnostics -> qf list" },
 		["r"] = { "<Cmd>Telescope lsp_references<CR>", "Goto References" },
+		["x"] = { "Open in Browser" },
 	},
 }

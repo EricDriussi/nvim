@@ -140,6 +140,12 @@ return {
 			"unblevable/quick-scope",
 			init = require("plugins.misc").quick_scope,
 		},
+		-- Open in browser
+		{
+			"chrishrb/gx.nvim",
+			keys = { "gx" },
+			config = true,
+		},
 	},
 	md = {
 		-- Bold, Italics, Links in MD
