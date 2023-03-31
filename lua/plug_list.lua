@@ -233,6 +233,14 @@ return {
 					dependencies = { "MunifTanjim/nui.nvim" },
 					config = true,
 				},
+				{
+					"zbirenbaum/copilot-cmp",
+					dependencies = { "zbirenbaum/copilot.lua", config = true },
+					config = {
+						suggestion = { enabled = false },
+						panel = { enabled = false },
+					},
+				},
 			},
 		},
 	},

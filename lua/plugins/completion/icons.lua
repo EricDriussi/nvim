@@ -25,4 +25,5 @@ return {
 	Operator = "",
 	TypeParameter = "ナ",
 	Codeium = "❈",
+	Copilot = "",
 }
