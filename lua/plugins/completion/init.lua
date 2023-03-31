@@ -9,10 +9,7 @@ return function()
 				luasnip.lsp_expand(args.body)
 			end,
 		},
-		confirm_opts = {
-			behavior = cmp.ConfirmBehavior.Insert,
-			select = false,
-		},
+		preselect = cmp.PreselectMode.Item,
 		mapping = require("plugins.completion.mappings"),
 		sources = require("plugins.completion.sources"),
 		formatting = require("plugins.completion.UI").entries,

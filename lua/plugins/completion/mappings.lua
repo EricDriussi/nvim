@@ -10,7 +10,7 @@ return {
 	-- trigger completion
 	["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 	-- accept currently selected item. If none selected, `select = true` first item.
-	["<CR>"] = cmp.mapping.confirm({ select = true }),
+	["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
 	-- abort completion (doesn't behave as expected with <esc>)
 	["<C-q>"] = cmp.mapping(cmp.mapping.abort()),
 	-- scroll completions
