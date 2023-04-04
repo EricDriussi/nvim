@@ -26,7 +26,7 @@ Module.entries = {
 		-- Sources Labels
 		item.menu = ({
 				nvim_lsp = "[L]",
-				--codeium = "IA",
+				codeium = "IA",
 				copilot = "IA",
 				buffer = "[B]",
 				path = "[P]",

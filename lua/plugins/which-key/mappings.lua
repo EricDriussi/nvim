@@ -37,7 +37,7 @@ return {
 			name = "MarkDown",
 			m = { "<Cmd>MarkdownPreviewToggle<CR>", "Preview MD" },
 			b = { "viw:lua require('markdowny').bold()<CR>", "Make bold" },
-			i = { "viw:lua require('markdowny').italics()<CR>", "Make italics" },
+			i = { "viw:lua require('markdowny').italic()<CR>", "Make italics" },
 			l = { "viw:lua require('markdowny').link()<CR>", "Make link" },
 			c = { "viw:lua require('markdowny').code()<CR>", "Make inline code" },
 		},
