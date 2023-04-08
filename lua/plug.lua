@@ -29,6 +29,10 @@ local UI = {
 		commit = "421ccc28df2b5c8aef06b40160d539684fd1e771",
 		priority = 1000,
 	},
+	{
+		"luukvbaal/statuscol.nvim",
+		config = require("plugins.misc").statuscol,
+	},
 }
 
 local file_viewers = {
@@ -119,10 +123,6 @@ local misc = {
 	{
 		"folke/which-key.nvim",
 		config = require("plugins.which-key"),
-	},
-	{
-		"editorconfig/editorconfig-vim",
-		config = require("plugins.misc").editorconfig,
 	},
 	{
 		"ThePrimeagen/refactoring.nvim",
@@ -261,8 +261,8 @@ local cmp = {
 
 local plugin_list = {
 	-- Needed for other plugins
-	{ "nvim-lua/popup.nvim",          priority = 1000 },
-	{ "nvim-lua/plenary.nvim",        priority = 1000 },
+	{ "nvim-lua/popup.nvim", priority = 1000 },
+	{ "nvim-lua/plenary.nvim", priority = 1000 },
 	{ "kyazdani42/nvim-web-devicons", priority = 1000 },
 
 	UI,

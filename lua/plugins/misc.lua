@@ -48,4 +48,16 @@ M.illuminate = function()
 	})
 end
 
+M.statuscol = function()
+	local builtin = require("statuscol.builtin")
+	require("statuscol").setup({
+		relculright = true,
+		segments = {
+			{ text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
+			{ text = { builtin.foldfunc },      click = "v:lua.ScFa" },
+			{ sign = { name = { "GitSigns" } }, click = "v:lua.ScSa" },
+		},
+	})
+end
+
 return M
