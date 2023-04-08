@@ -1,6 +1,7 @@
 -- Define custom LSP settings
 local lsp_settings = {
 	on_attach = function(client)
+		client.server_capabilities.semanticTokensProvider = false
 		-- Use null-ls for formatting
 		if client.name == "pylsp" then
 			client.server_capabilities.documentFormattingProvider = false
@@ -10,9 +11,8 @@ local lsp_settings = {
 			client.server_capabilities.documentFormattingProvider = false
 		end
 	end,
-
 	-- Add LSP capabilities to cmp
-	capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+	capabilities = require("cmp_nvim_lsp").default_capabilities(),
 }
 
 -- Add custom LSP settings to default ones

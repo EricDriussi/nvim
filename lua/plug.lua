@@ -2,11 +2,11 @@ local UI = {
 	{ "lukas-reineke/indent-blankline.nvim" },
 	{
 		"fgheng/winbar.nvim",
-		config = require("plugins.winbar"),
+		opts = require("plugins.winbar"),
 	},
 	{
 		"nvim-lualine/lualine.nvim",
-		config = require("plugins.lualine"),
+		opts = require("plugins.lualine"),
 	},
 	-- Highlight tokens
 	{
@@ -20,7 +20,7 @@ local UI = {
 	},
 	{
 		"norcalli/nvim-colorizer.lua",
-		config = { "css", "scss", "html", "javascript", "typescript", "typescriptreact" },
+		opts = { "css", "scss", "html", "javascript", "typescript", "typescriptreact" },
 	},
 	-- Theme
 	{
@@ -35,12 +35,12 @@ local file_viewers = {
 	{
 		"kyazdani42/nvim-tree.lua",
 		cmd = "NvimTreeToggle",
-		config = require("plugins.nvim-tree"),
+		opts = require("plugins.nvim-tree"),
 		dependencies = { "notjedi/nvim-rooter.lua", config = true },
 	},
 	{
 		"ThePrimeagen/harpoon",
-		config = { menu = { width = vim.api.nvim_win_get_width(0) - 70 } },
+		opts = { menu = { width = vim.api.nvim_win_get_width(0) - 70 } },
 		lazy = true,
 	},
 	-- Telescope
@@ -69,7 +69,7 @@ local git = {
 	{ "tpope/vim-fugitive" },
 	{
 		"lewis6991/gitsigns.nvim",
-		config = require("plugins.gitsigns"),
+		opts = require("plugins.gitsigns"),
 	},
 	{
 		"sindrets/diffview.nvim",
@@ -101,7 +101,7 @@ local misc = {
 	-- Seek & Destroy
 	{
 		"windwp/nvim-spectre",
-		config = require("plugins.spectre"),
+		opts = require("plugins.spectre"),
 		lazy = true,
 	},
 	{
@@ -190,7 +190,7 @@ local lsp = {
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"williamboman/mason-lspconfig.nvim",
-			dependencies = "williamboman/mason.nvim",
+			dependencies = { "williamboman/mason.nvim", build = ":MasonUpdate" },
 		},
 	},
 	{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
@@ -240,17 +240,17 @@ local cmp = {
 			},
 		},
 	},
-	{
-		"jcdickinson/codeium.nvim",
-		config = true,
-	},
+	--{
+	--"jcdickinson/codeium.nvim",
+	--config = true,
+	--},
 	{
 		"zbirenbaum/copilot-cmp",
 		config = true,
 		dependencies = {
 			{
 				"zbirenbaum/copilot.lua",
-				config = {
+				opts = {
 					suggestion = { enabled = false },
 					panel = { enabled = false },
 				},
