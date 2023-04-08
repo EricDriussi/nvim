@@ -279,24 +279,6 @@ local plugin_list = {
 	cmp,
 	{ "EricDriussi/aucmd-toggle.nvim" },
 	{ "EricDriussi/remember-me.nvim", config = true },
-
-	{
-		"glacambre/firenvim", -- from https://github.com/glacambre/firenvim#installing
-		cond = not not vim.g.started_by_firenvim,
-		build = function()
-			require("lazy").load({ plugins = "firenvim", wait = true })
-			vim.fn["firenvim#install"](0)
-		end,
-		init = function()
-			vim.g.firenvim_config = {
-				localSettings = {
-					[".*"] = { takeover = "never" },
-					[".*github.*"] = { takeover = "always" },
-					[".*gitlab.*"] = { takeover = "always" },
-				},
-			}
-		end,
-	},
 }
 
 local setup = {
