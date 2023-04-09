@@ -11,9 +11,13 @@ return function()
 		},
 		preselect = cmp.PreselectMode.Item,
 		mapping = require("plugins.completion.mappings"),
-		sources = require("plugins.completion.sources"),
+		sources = require("plugins.completion.sources").allSources,
 		formatting = require("plugins.completion.UI").entries,
 		window = require("plugins.completion.UI").windows,
+		cmp.setup.filetype({ "markdown", "none", "gitcommit" }, {
+			-- No snippets or AI
+			sources = require("plugins.completion.sources").genericSources,
+		}),
 		cmp.setup.cmdline({ "/", "?" }, {
 			mapping = cmp.mapping.preset.cmdline(),
 			sources = {

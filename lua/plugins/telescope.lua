@@ -24,13 +24,6 @@ return function()
 				width = 0.90,
 			},
 
-			-- Extend default grep args!
-			vimgrep_arguments = vim.tbl_deep_extend(
-				"force",
-				{ unpack(require("telescope.config").values.vimgrep_arguments) },
-				{ "rg", "--hidden", "--glob", "!.git/*" }
-			),
-
 			mappings = {
 				i = {
 					["<C-i>"] = actions.cycle_history_next,

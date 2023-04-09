@@ -1,7 +1,6 @@
 -- Define custom LSP settings
 local lsp_settings = {
 	on_attach = function(client)
-		client.server_capabilities.semanticTokensProvider = false
 		-- Use null-ls for formatting
 		if client.name == "pylsp" then
 			client.server_capabilities.documentFormattingProvider = false
@@ -9,6 +8,10 @@ local lsp_settings = {
 		-- Use null-ls for formatting
 		if client.name == "tsserver" then
 			client.server_capabilities.documentFormattingProvider = false
+		end
+
+		if client.server_capabilities.semanticTokensProvider then
+			client.server_capabilities.semanticTokensProvider = nil
 		end
 	end,
 	-- Add LSP capabilities to cmp
