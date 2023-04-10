@@ -39,11 +39,13 @@ Module.entries = {
 
 Module.windows = {
 	completion = {
-		winhighlight = "",
-		col_offset = -3,
+		col_offset = 2,
+		border = "rounded",
+		winhighlight = "NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
 	},
 	documentation = {
-		border = "single",
+		border = "rounded",
+		winhighlight = "NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
 	},
 }
 

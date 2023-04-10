@@ -3,7 +3,6 @@ local option = vim.opt
 -- UI
 option.laststatus = 3
 option.pumheight = 10
-option.pumblend = 5
 option.winblend = 5
 option.splitbelow = true
 option.splitright = true
