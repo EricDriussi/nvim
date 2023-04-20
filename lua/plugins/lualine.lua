@@ -1,7 +1,10 @@
 local function readingTime()
 	local isMarkdown = vim.bo.filetype == "markdown"
 	if isMarkdown then
-		return string.format("%s 🕐", math.ceil(vim.fn.wordcount().words / 250))
+		local wordsInBuff = vim.fn.wordcount().words
+		local avgReadingSpeed = 250
+		local readingTime = math.ceil(wordsInBuff / avgReadingSpeed)
+		return string.format("%s 🕐", readingTime)
 	end
 	return ""
 end
