@@ -10,7 +10,7 @@ local lsp_settings = {
 			client.server_capabilities.documentFormattingProvider = false
 		end
 
-		if client.server_capabilities.semanticTokensProvider then
+		if client.server_capabilities.semanticTokensProvider ~= nil then
 			client.server_capabilities.semanticTokensProvider = nil
 		end
 	end,

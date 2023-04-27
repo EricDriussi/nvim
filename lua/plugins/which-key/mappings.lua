@@ -18,7 +18,7 @@ return {
 		["/"] = { "<plug>NERDCommenterToggle<CR>k", "Comment" },
 		["?"] = { "<Cmd>Mason<CR>", "LSP" },
 		["A"] = { "<Cmd>Telescope commands<CR>", "Actions" },
-		["F"] = { "<Cmd>Telescope live_grep<CR>", "Find String" },
+		["F"] = { "<Cmd>Telescope live_grep<CR>", "Find in files" },
 		["H"] = { "<Cmd>Telescope help_tags<CR>", "Help" },
 		["L"] = { "<Cmd>ToggleAucmdsByGroup FormatOnSaveGroup<CR>", "Toggle FOS" },
 		["R"] = { "<Cmd>Telescope registers<CR>", "Registers" },
@@ -84,7 +84,7 @@ return {
 	},
 	visual = {
 		["/"] = { "<plug>NERDCommenterToggle<CR>k", "Comment" },
-		["F"] = { "<Cmd>Telescope grep_string<CR>", "Find String" },
+		["F"] = { '"zy:Telescope live_grep default_text=<C-r>z<cr>', "Find Selected Text" },
 		["s"] = { "<Esc><Cmd>lua require('spectre').open_visual()<CR>", "Seek & Destroy" },
 		["<M-C-S-T>"] = { "<Esc><Cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "Refactors" },
 
