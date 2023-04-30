@@ -261,8 +261,8 @@ local cmp = {
 
 local plugin_list = {
 	-- Needed for other plugins
-	{ "nvim-lua/popup.nvim", priority = 1000 },
-	{ "nvim-lua/plenary.nvim", priority = 1000 },
+	{ "nvim-lua/popup.nvim",          priority = 1000 },
+	{ "nvim-lua/plenary.nvim",        priority = 1000 },
 	{ "kyazdani42/nvim-web-devicons", priority = 1000 },
 
 	UI,
@@ -288,7 +288,6 @@ local setup = {
 				"gzip",
 				"matchit",
 				"matchparen",
-				"netrwPlugin",
 				"tarPlugin",
 				"tohtml",
 				"tutor",
