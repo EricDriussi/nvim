@@ -16,7 +16,6 @@ return function()
 		autotag = {
 			enable = true,
 		},
-		-- Add [M]ethod as vim text object
 		textobjects = {
 			select = {
 				enable = true,
@@ -24,6 +23,14 @@ return function()
 				keymaps = {
 					["am"] = "@function.outer",
 					["im"] = "@function.inner",
+					["aa"] = "@parameter.outer",
+					["ia"] = "@parameter.inner",
+					["ac"] = "@call.outer",
+					["ic"] = "@call.inner",
+					["al"] = "@loop.outer",
+					["il"] = "@loop.inner",
+					["ai"] = "@conditional.outer",
+					["ii"] = "@conditional.inner",
 				},
 			},
 			move = {

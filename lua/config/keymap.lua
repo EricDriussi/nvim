@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 
-local function n(lhs, rhs)
-	vim.keymap.set("n", lhs, rhs)
+local function n(lhs, rhs, opts)
+	vim.keymap.set("n", lhs, rhs, opts or {})
 end
 
 local function v(lhs, rhs)
@@ -52,18 +52,18 @@ n("<C-w>", "<Cmd>q!<CR>")
 -- Save all
 n("<C-s>", "<Cmd>wa <CR>")
 
--- Indent
+-- Move lines
+-- Left & Right
+n("<M-h>", "<<")
+n("<M-l>", ">>")
 v("<M-h>", "<gv")
 v("<M-l>", ">gv")
 v("<", "<gv")
 v(">", ">gv")
-n("<M-h>", "<<")
-n("<M-l>", ">>")
 
--- Move current line
+-- Up & Down
 n("<M-j>", "<Cmd>m .+1<CR>==")
 n("<M-k>", "<Cmd>m .-2<CR>==")
--- And selected lines
 v("<M-j>", "<Cmd>m '>+1<CR>gv=gv")
 v("<M-k>", "<Cmd>m '<-2<CR>gv=gv")
 
@@ -97,3 +97,23 @@ n("<C-d>", "<C-d>m'")
 
 -- Increment number
 n("<M-a>", "<C-a>")
+
+-- Fancy text objects
+-- https://thevaluable.dev/vim-create-text-objects/
+local chars = { "_", ".", ":", ",", ";", "|", "/", "\\", "*", "+", "%", "`", "?", "!" }
+for _, char in ipairs(chars) do
+	for _, mode in ipairs({ "x", "o" }) do
+		vim.keymap.set(
+			mode,
+			"i" .. char,
+			string.format(":<C-u>silent! normal! f%sF%slvt%s<CR>", char, char, char),
+			{ noremap = true, silent = true }
+		)
+		vim.keymap.set(
+			mode,
+			"a" .. char,
+			string.format(":<C-u>silent! normal! f%sF%svf%s<CR>", char, char, char),
+			{ noremap = true, silent = true }
+		)
+	end
+end
