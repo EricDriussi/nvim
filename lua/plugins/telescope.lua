@@ -17,7 +17,7 @@ return function()
 			file_ignore_patterns = { "node_modules" },
 			prompt_prefix = "🔎 ",
 			selection_caret = " ⮚ ",
-			path_display = { "shortest" },
+			path_display = { "smart" },
 			sorting_strategy = "ascending",
 			layout_config = {
 				prompt_position = "top",

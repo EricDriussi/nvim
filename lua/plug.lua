@@ -15,7 +15,7 @@ local UI = {
 	},
 	-- Pretty QFList
 	{
-		url = "https://gitlab.com/yorickpeterse/nvim-pqf.git",
+		url = "yorickpeterse/nvim-pqf",
 		config = true,
 	},
 	{
