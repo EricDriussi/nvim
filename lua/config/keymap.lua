@@ -3,25 +3,23 @@ vim.g.mapleader = " "
 local function n(lhs, rhs, opts)
 	vim.keymap.set("n", lhs, rhs, opts or {})
 end
-
 local function v(lhs, rhs)
 	vim.keymap.set("v", lhs, rhs)
 end
-
 local function i(lhs, rhs)
 	vim.keymap.set("i", lhs, rhs)
 end
 
--- Kinda scrolling
-n("<C-d>", "<C-d>zz")
-n("<C-u>", "<C-u>zz")
+-- Center half-page jumps and add them to jumplist
+n("<C-d>", "<C-d>zzm'")
+n("<C-u>", "<C-u>zzm'")
 
 -- Sensible copy-pasting to and from system clipboard
-v("<C-y>", "\"+y <bar> <Cmd>echom 'Copied to system clipboard!'<CR>")
-n("<C-y>", "\"+yiw <bar> <Cmd>echom 'Copied to system clipboard!'<CR>")
-n("<C-p>", "\"+p <bar> <Cmd>echom 'Pasted from system clipboard!'<CR>")
-v("<C-p>", "\"+p <bar> <Cmd>echom 'Pasted from system clipboard!'<CR>")
-i("<C-p>", "<Esc>\"+p <bar> <Cmd>echom 'Pasted from system clipboard!'<CR>A")
+v("<leader>y", "\"+y <bar> <Cmd>echom 'Copied to system clipboard!'<CR>")
+n("<leader>y", "\"+yiw <bar> <Cmd>echom 'Copied to system clipboard!'<CR>")
+n("<leader>p", "\"+p <bar> <Cmd>echom 'Pasted from system clipboard!'<CR>")
+v("<leader>p", "\"+p <bar> <Cmd>echom 'Pasted from system clipboard!'<CR>")
+i("<leader>p", "<Esc>\"+p <bar> <Cmd>echom 'Pasted from system clipboard!'<CR>A")
 
 -- Y like you C
 n("Y", "y$")
@@ -60,15 +58,11 @@ v("<M-h>", "<gv")
 v("<M-l>", ">gv")
 v("<", "<gv")
 v(">", ">gv")
-
 -- Up & Down
 n("<M-j>", "<Cmd>m .+1<CR>==")
 n("<M-k>", "<Cmd>m .-2<CR>==")
 v("<M-j>", "<Cmd>m '>+1<CR>gv=gv")
 v("<M-k>", "<Cmd>m '<-2<CR>gv=gv")
-
--- Split right
-n("<C-M-O>", "<Cmd>vsp %<CR>")
 
 -- Resize vertical splits
 n("+", "<Cmd>vertical resize +5<CR>")
@@ -89,11 +83,9 @@ i(",", ",<C-g>u")
 i(".", ".<C-g>u")
 i("?", "?<C-g>u")
 
--- Add number and half page jumps to jumplist
+-- Add number jumps to jumplist
 n("<expr> k", '(v:count > 5 ? "m\'" . v:count : "") . \'k\'')
 n("<expr> j", '(v:count > 5 ? "m\'" . v:count : "") . \'j\'')
-n("<C-u>", "<C-u>m'")
-n("<C-d>", "<C-d>m'")
 
 -- Increment number
 n("<M-a>", "<C-a>")

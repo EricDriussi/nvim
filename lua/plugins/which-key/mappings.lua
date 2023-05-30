@@ -64,7 +64,7 @@ return {
 			H = { "<Cmd>DiffviewFileHistory %<CR>", "File History" },
 		},
 
-		p = {
+		P = {
 			name = "Pretty",
 			j = { "<Cmd>%!jq<CR>", "Json" },
 			c = { "<Cmd>%!column -t<CR>", "Columns" },
@@ -95,7 +95,7 @@ return {
 			l = { "<Cmd>'<,'>diffget REMOTE<CR>", "Get From Incoming (Remote)" },
 		},
 
-		p = {
+		P = {
 			name = "Pretty",
 			j = { "<Cmd>'<,'>!jq<CR>", "Json" },
 			c = { "<Cmd>'<,'>!column -t<CR>", "Columns" },
