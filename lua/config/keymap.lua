@@ -15,11 +15,11 @@ n("<C-d>", "<C-d>zzm'")
 n("<C-u>", "<C-u>zzm'")
 
 -- Sensible copy-pasting to and from system clipboard
-v("<leader>y", "\"+y <bar> <Cmd>echom 'Copied to system clipboard!'<CR>")
-n("<leader>y", "\"+yiw <bar> <Cmd>echom 'Copied to system clipboard!'<CR>")
-n("<leader>p", "\"+p <bar> <Cmd>echom 'Pasted from system clipboard!'<CR>")
-v("<leader>p", "\"+p <bar> <Cmd>echom 'Pasted from system clipboard!'<CR>")
-i("<leader>p", "<Esc>\"+p <bar> <Cmd>echom 'Pasted from system clipboard!'<CR>A")
+v("<C-y>", "\"+y <bar> <Cmd>echom 'Copied to system clipboard!'<CR>")
+n("<C-y>", "\"+yiw <bar> <Cmd>echom 'Copied to system clipboard!'<CR>")
+n("<C-p>", "\"+p <bar> <Cmd>echom 'Pasted from system clipboard!'<CR>")
+v("<C-p>", "\"+p <bar> <Cmd>echom 'Pasted from system clipboard!'<CR>")
+i("<C-p>", "<Esc>\"+p <bar> <Cmd>echom 'Pasted from system clipboard!'<CR>A")
 
 -- Y like you C
 n("Y", "y$")
