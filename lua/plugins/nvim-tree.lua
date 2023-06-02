@@ -13,8 +13,6 @@ return {
 	view = {
 		-- Adapt size to names being shown
 		adaptive_size = true,
-		hide_root_folder = true,
-
 		mappings = {
 			list = {
 				{ key = { "l", "<CR>", "o", "e" }, action = "edit" },
@@ -29,5 +27,8 @@ return {
 				{ key = "y",                       action = "" },
 			},
 		},
+	},
+	renderer = {
+		root_folder_label = false,
 	},
 }
