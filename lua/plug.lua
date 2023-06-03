@@ -15,7 +15,7 @@ local UI = {
 	},
 	-- Pretty QFList
 	{
-		url = "yorickpeterse/nvim-pqf",
+		"yorickpeterse/nvim-pqf",
 		config = true,
 	},
 	{
@@ -37,10 +37,12 @@ local UI = {
 
 local file_viewers = {
 	{
-		"kyazdani42/nvim-tree.lua",
-		cmd = "NvimTreeToggle",
-		opts = require("plugins.nvim-tree"),
-		dependencies = { "notjedi/nvim-rooter.lua", config = true },
+		"nvim-neo-tree/neo-tree.nvim",
+		cmd = "Neotree",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+		},
+		config = require("plugins.neotree"),
 	},
 	{
 		"ThePrimeagen/harpoon",
@@ -261,9 +263,11 @@ local cmp = {
 
 local plugin_list = {
 	-- Needed for other plugins
-	{ "nvim-lua/popup.nvim",          priority = 1000 },
-	{ "nvim-lua/plenary.nvim",        priority = 1000 },
-	{ "kyazdani42/nvim-web-devicons", priority = 1000 },
+	{ "nvim-lua/popup.nvim",   priority = 1000 },
+	{ "nvim-lua/plenary.nvim", priority = 1000 },
+	{ "kyazdani42/nvim-web-devicons", priority = 1000, config = {
+		default = true,
+	} },
 
 	UI,
 	file_viewers,
