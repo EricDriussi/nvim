@@ -10,7 +10,7 @@ return {
 		["<M-CR>"] = { "<Cmd>lua vim.lsp.buf.code_action()<CR>", "Code Actions" },
 		["<M-g>"] = { "<Cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
 		["rn"] = { "<Cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
-		["<M-C-F>"] = { "viW<Esc><Cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "Refactors" },
+		["<M-C-f>"] = { "viW<Esc><Cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "Refactors" },
 		["zO"] = { require("ufo").openAllFolds, "Open all folds" },
 		["zC"] = { require("ufo").closeAllFolds, "Close all folds" },
 	},
@@ -86,7 +86,7 @@ return {
 		["/"] = { "<plug>NERDCommenterToggle<CR>k", "Comment" },
 		["F"] = { '"zy:Telescope live_grep default_text=<C-r>z<cr>', "Find Selected Text" },
 		["s"] = { "<Esc><Cmd>lua require('spectre').open_visual()<CR>", "Seek & Destroy" },
-		["<M-C-F>"] = { "<Esc><Cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "Refactors" },
+		["<M-C-f>"] = { "<Esc><Cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "Refactors" },
 
 		g = {
 			name = "Git",

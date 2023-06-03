@@ -10,6 +10,8 @@ option.termguicolors = true
 option.title = true -- Title to current file instead of terminal emulator name
 option.cmdheight = 1
 option.showmode = false
+option.confirm = true
+option.hidden = true
 
 option.shortmess:append("Wc")
 

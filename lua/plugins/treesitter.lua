@@ -1,5 +1,13 @@
 return function()
 	require("nvim-treesitter.configs").setup({
+		incremental_selection = {
+			enable = true,
+			keymaps = {
+				init_selection = "<Enter>",
+				node_incremental = "<Enter>",
+				node_decremental = "<BS>",
+			},
+		},
 		ensure_installed = "all",
 		sync_install = false,
 		highlight = {

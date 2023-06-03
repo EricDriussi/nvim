@@ -10,12 +10,15 @@ local function i(lhs, rhs)
 	vim.keymap.set("i", lhs, rhs)
 end
 
+n("L", "$")
+n("H", "^")
+
 -- Center half-page jumps and add them to jumplist
 n("<C-d>", "<C-d>zzm'")
 n("<C-u>", "<C-u>zzm'")
 
 -- Sensible copy-pasting to and from system clipboard
-v("<C-y>", "\"+y <bar> <Cmd>echom 'Copied to system clipboard!'<CR>")
+v("<C-y>", "\"+ygv<ESC> <bar> <Cmd>echom 'Copied to system clipboard!'<CR>")
 n("<C-y>", "\"+yiw <bar> <Cmd>echom 'Copied to system clipboard!'<CR>")
 n("<C-p>", "\"+p <bar> <Cmd>echom 'Pasted from system clipboard!'<CR>")
 v("<C-p>", "\"+p <bar> <Cmd>echom 'Pasted from system clipboard!'<CR>")
@@ -23,6 +26,9 @@ i("<C-p>", "<Esc>\"+p <bar> <Cmd>echom 'Pasted from system clipboard!'<CR>A")
 
 -- Y like you C
 n("Y", "y$")
+
+-- Prevent cursor from jumping back
+v("y", "ygv<ESC>")
 
 -- Paste over selected text without screwing the reg
 v("p", '"_dP')
@@ -48,7 +54,7 @@ n("rp", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 n("<C-w>", "<Cmd>q!<CR>")
 
 -- Save all
-n("<C-s>", "<Cmd>wa <CR>")
+n("<C-s>", "<Cmd>silent wa <CR>")
 
 -- Move lines
 -- Left & Right
