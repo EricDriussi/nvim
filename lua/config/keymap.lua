@@ -12,6 +12,8 @@ end
 
 n("L", "$")
 n("H", "^")
+v("L", "$")
+v("H", "^")
 
 -- Center half-page jumps and add them to jumplist
 n("<C-d>", "<C-d>zzm'")
