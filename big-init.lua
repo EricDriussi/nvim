@@ -8,7 +8,7 @@ option.relativenumber = false
 option.signcolumn = "no"
 option.hidden = false
 option.syntax = "off"
-option.lazyretraw = true
+option.lazyredraw = true
 
 -- Disable builtin plugins
 local disabled_built_ins = {

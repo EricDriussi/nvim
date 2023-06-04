@@ -104,7 +104,7 @@ return {
 		m = {
 			name = "MarkDown",
 			b = { ":lua require('markdowny').bold()<CR>", "Make bold" },
-			i = { ":lua require('markdowny').italics()<CR>", "Make italics" },
+			i = { ":lua require('markdowny').italic()<CR>", "Make italics" },
 			l = { ":lua require('markdowny').link()<CR>", "Make link" },
 			c = { ":lua require('markdowny').code()<CR>", "Make inline code" },
 		},
