@@ -40,7 +40,15 @@ local file_viewers = {
 		"nvim-neo-tree/neo-tree.nvim",
 		cmd = "Neotree",
 		dependencies = {
-			"MunifTanjim/nui.nvim",
+			{ "MunifTanjim/nui.nvim" },
+			{
+				"s1n7ax/nvim-window-picker",
+				tag = "v1.5",
+				config = {
+					show_prompt = false,
+					selection_chars = "ABCDEFGHIJKL",
+				},
+			},
 		},
 		config = require("plugins.neotree"),
 	},
