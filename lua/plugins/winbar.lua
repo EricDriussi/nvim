@@ -17,6 +17,7 @@ return {
 		"dashboard",
 		"packer",
 		"neogitstatus",
+		"neo-tree",
 		"Trouble",
 		"alpha",
 		"lir",
