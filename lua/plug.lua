@@ -123,8 +123,9 @@ local misc = {
 		cmd = "SwapSplit",
 	},
 	{
-		"preservim/nerdcommenter",
-		config = require("plugins.misc").nerd_toggle,
+		"terrortylor/nvim-comment",
+		cmd = "CommentToggle",
+		config = require("plugins.misc").comment_toggle,
 	},
 	{
 		"akinsho/toggleterm.nvim",

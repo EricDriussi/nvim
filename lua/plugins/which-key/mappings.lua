@@ -15,7 +15,7 @@ return {
 		["zC"] = { require("ufo").closeAllFolds, "Close all folds" },
 	},
 	leader = {
-		["/"] = { "<plug>NERDCommenterToggle<CR>k", "Comment" },
+		["/"] = { "<Cmd>CommentToggle<CR>", "Comment" },
 		["?"] = { "<Cmd>Mason<CR>", "LSP" },
 		["A"] = { "<Cmd>Telescope commands<CR>", "Actions" },
 		["F"] = { "<Cmd>Telescope live_grep<CR>", "Find in files" },
@@ -83,7 +83,7 @@ return {
 		},
 	},
 	visual = {
-		["/"] = { "<plug>NERDCommenterToggle<CR>k", "Comment" },
+		["/"] = { ":'<,'>CommentToggle<CR>", "Comment" },
 		["F"] = { '"zy:Telescope live_grep default_text=<C-r>z<cr>', "Find Selected Text" },
 		["s"] = { "<Esc><Cmd>lua require('spectre').open_visual()<CR>", "Seek & Destroy" },
 		["<M-C-f>"] = { "<Esc><Cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "Refactors" },
@@ -91,14 +91,14 @@ return {
 		g = {
 			name = "Git",
 			b = { "<Cmd>Gitsigns reset_hunk<CR>", "Git Back Hunk" },
-			h = { "<Cmd>'<,'>diffget LOCAL<CR>", "Get From Current (Local)" },
-			l = { "<Cmd>'<,'>diffget REMOTE<CR>", "Get From Incoming (Remote)" },
+			h = { ":'<,'>diffget LOCAL<CR>", "Get From Current (Local)" },
+			l = { ":'<,'>diffget REMOTE<CR>", "Get From Incoming (Remote)" },
 		},
 
 		P = {
 			name = "Pretty",
-			j = { "<Cmd>'<,'>!jq<CR>", "Json" },
-			c = { "<Cmd>'<,'>!column -t<CR>", "Columns" },
+			j = { ":'<,'>!jq<CR>", "Json" },
+			c = { ":'<,'>!column -t<CR>", "Columns" },
 		},
 
 		m = {

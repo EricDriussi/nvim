@@ -7,11 +7,6 @@ M.editorconfig = function()
 	g.EditorConfig_exclude_patterns = { "fugitive://.*" }
 end
 
-M.nerd_toggle = function()
-	-- Better comment toggle for code blocks
-	g.NERDToggleCheckAllLines = 1
-end
-
 M.mkdp = function()
 	-- MD preview port
 	g.mkdp_port = "6969"
@@ -57,6 +52,13 @@ M.statuscol = function()
 			{ text = { builtin.foldfunc },      click = "v:lua.ScFa" },
 			{ sign = { name = { "GitSigns" } }, click = "v:lua.ScSa" },
 		},
+	})
+end
+
+M.comment_toggle = function()
+	require("nvim_comment").setup({
+		create_mappings = false,
+		comment_empty = false,
 	})
 end
 
