@@ -78,6 +78,9 @@ return function()
 					end,
 				},
 			},
+			smart_open = {
+				match_algorithm = "fzf",
+			},
 		},
 	})
 

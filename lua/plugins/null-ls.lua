@@ -28,7 +28,6 @@ return function()
 			}),
 
 			actions.shellcheck,
-			diagnostics.shellcheck,
 			formatting.shfmt,
 
 			diagnostics.zsh,
