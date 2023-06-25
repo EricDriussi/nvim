@@ -24,7 +24,23 @@ return function()
 				extra_args = { "-a" },
 			}),
 			diagnostics.mypy.with({
-				extra_args = { "--config-file", vim.fn.getcwd() .. "/setup.cfg" },
+				extra_args = function()
+					local virtual = os.getenv("VIRTUAL_ENV") or "/usr"
+					local flags = {
+						"--python-executable",
+						virtual .. "/bin/python3",
+					}
+
+					local local_cfg = vim.fn.getcwd() .. "/setup.cfg"
+					local file = io.open(local_cfg, "r")
+					if file ~= nil then
+						io.close(file)
+						table.insert(flags, 1, "--config-file")
+						table.insert(flags, 2, local_cfg)
+						return flags
+					end
+					return flags
+				end,
 			}),
 
 			actions.shellcheck,
