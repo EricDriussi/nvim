@@ -11,8 +11,9 @@ M.allSources = {
 	{ name = "nvim_lsp_signature_help" },
 }
 
-M.genericSources = {
+M.AILessSources = {
 	{ name = "nvim_lsp" },
+	{ name = "luasnip",                max_item_count = 3 },
 	{ name = "buffer",                 keyword_length = 5, max_item_count = 3 },
 	{ name = "emoji" },
 	{ name = "path" },
