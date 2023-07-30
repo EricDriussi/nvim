@@ -1,6 +1,13 @@
 local UI = {
 	{ "lukas-reineke/indent-blankline.nvim" },
 	{
+		"echasnovski/mini.indentscope",
+		opts = {
+			symbol = "│",
+			options = { try_as_border = true },
+		},
+	},
+	{
 		"fgheng/winbar.nvim",
 		opts = require("plugins.winbar"),
 	},
@@ -27,7 +34,6 @@ local UI = {
 		"sainnhe/gruvbox-material",
 		config = require("plugins.colorscheme"),
 		commit = "421ccc28df2b5c8aef06b40160d539684fd1e771",
-		priority = 1000,
 	},
 	{
 		"luukvbaal/statuscol.nvim",
@@ -200,8 +206,13 @@ local lsp = {
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			"williamboman/mason-lspconfig.nvim",
-			dependencies = { "williamboman/mason.nvim", build = ":MasonUpdate" },
+			{
+				"williamboman/mason-lspconfig.nvim",
+				dependencies = {
+					{ "williamboman/mason.nvim", build = ":MasonUpdate" },
+					{ "hrsh7th/cmp-nvim-lsp" },
+				},
+			},
 		},
 	},
 	{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
@@ -224,7 +235,7 @@ local treesitter = {
 		config = require("plugins.treesitter"),
 		build = ":TSUpdate",
 		dependencies = {
-			"HiPhish/nvim-ts-rainbow2",
+			"https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
 			"nvim-treesitter/nvim-treesitter-textobjects",
 		},
 	},
@@ -234,27 +245,34 @@ local cmp = {
 	{
 		"hrsh7th/nvim-cmp",
 		config = require("plugins.completion"),
-		priority = 1000,
-	},
-	{ "hrsh7th/cmp-nvim-lsp" },
-	{ "hrsh7th/cmp-buffer" },
-	{ "hrsh7th/cmp-path" },
-	{ "hrsh7th/cmp-cmdline" },
-	{ "hrsh7th/cmp-emoji" },
-	{ "hrsh7th/cmp-nvim-lsp-signature-help" },
-	{
-		"saadparwaiz1/cmp_luasnip",
 		dependencies = {
+			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "hrsh7th/cmp-buffer" },
+			{ "hrsh7th/cmp-path" },
+			{ "saadparwaiz1/cmp_luasnip" },
+			{ "hrsh7th/cmp-cmdline" },
+			{ "hrsh7th/cmp-emoji" },
+			{ "hrsh7th/cmp-nvim-lsp-signature-help" },
 			{
-				"L3MON4D3/LuaSnip",
-				dependencies = { "rafamadriz/friendly-snippets" },
+				"saadparwaiz1/cmp_luasnip",
+				dependencies = {
+					{
+						"L3MON4D3/LuaSnip",
+						dependencies = {
+							"rafamadriz/friendly-snippets",
+							config = function()
+								require("luasnip.loaders.from_vscode").lazy_load()
+							end,
+						},
+					},
+				},
 			},
 		},
 	},
-	--{
-	--"jcdickinson/codeium.nvim",
-	--config = true,
-	--},
+	{
+		"jcdickinson/codeium.nvim",
+		config = true,
+	},
 	{
 		"zbirenbaum/copilot-cmp",
 		config = true,
@@ -274,9 +292,13 @@ local plugin_list = {
 	-- Needed for other plugins
 	{ "nvim-lua/popup.nvim",   priority = 1000 },
 	{ "nvim-lua/plenary.nvim", priority = 1000 },
-	{ "kyazdani42/nvim-web-devicons", priority = 1000, config = {
-		default = true,
-	} },
+	{
+		"kyazdani42/nvim-web-devicons",
+		priority = 1000,
+		config = {
+			default = true,
+		},
+	},
 
 	UI,
 	file_viewers,
