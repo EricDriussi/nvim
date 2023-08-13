@@ -15,6 +15,9 @@ return function()
 		},
 		indent = { enable = true },
 		-- Plugins!
+		tree_setter = {
+			enable = true,
+		},
 		rainbow = {
 			enable = true,
 		},

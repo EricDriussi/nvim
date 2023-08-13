@@ -225,6 +225,7 @@ local lsp = {
 }
 
 local treesitter = {
+	{ "filNaj/tree-setter" },
 	{ "nvim-treesitter/nvim-treesitter-context" },
 	{
 		"ckolkey/ts-node-action",
