@@ -13,4 +13,3 @@ vim.opt.runtimepath:prepend(lazypath)
 
 require("config")
 require("plug")
-require("lsp")

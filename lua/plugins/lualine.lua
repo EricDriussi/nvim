@@ -10,17 +10,21 @@ local function readingTime()
 end
 
 return {
-	options = {
-		component_separators = { left = "|", right = "|" },
-		section_separators = { left = "", right = "" },
-		theme = "gruvbox-material",
-	},
-	sections = {
-		lualine_a = { "mode" },
-		lualine_b = { "branch" },
-		lualine_c = { "diagnostics", "filename" },
-		lualine_x = { "fileformat", readingTime, "filetype" },
-		lualine_y = { "progress" },
-		lualine_z = { "location" },
+	"nvim-lualine/lualine.nvim",
+	dependencies = { "nvim-tree/nvim-web-devicons" },
+	opts = {
+		options = {
+			component_separators = { left = "|", right = "|" },
+			section_separators = { left = "", right = "" },
+			theme = "gruvbox-material",
+		},
+		sections = {
+			lualine_a = { "mode" },
+			lualine_b = { "branch" },
+			lualine_c = { "diagnostics", "filename" },
+			lualine_x = { "fileformat", readingTime, "filetype" },
+			lualine_y = { "progress" },
+			lualine_z = { "location" },
+		},
 	},
 }

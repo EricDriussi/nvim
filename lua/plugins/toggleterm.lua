@@ -1,5 +1,7 @@
-return function()
-	require("toggleterm").setup({
+return {
+	"akinsho/toggleterm.nvim",
+	lazy = true,
+	opts = {
 		size = 20,
 		open_mapping = [[<M-t>]],
 		hide_numbers = true,
@@ -20,19 +22,5 @@ return function()
 				background = "Normal",
 			},
 		},
-	})
-
-	function _G.set_terminal_keymaps()
-		local opts = { noremap = true }
-		vim.api.nvim_buf_set_keymap(0, "t", "<esc>", [[<C-\><C-n>]], opts)
-	end
-
-	vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
-
-	local Terminal = require("toggleterm.terminal").Terminal
-
-	function _LAZYGIT_TOGGLE()
-		local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
-		lazygit:toggle()
-	end
-end
+	},
+}

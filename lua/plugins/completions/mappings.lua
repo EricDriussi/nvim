@@ -17,7 +17,7 @@ return {
 	["<Up>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
 	["<Down>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
 	-- scroll docs
-	["<C-k>"] = cmp.mapping(cmp.mapping.scroll_docs( -1), { "i", "c" }),
+	["<C-k>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
 	["<C-j>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
 	-- Super tab!!
 	["<Tab>"] = cmp.mapping(function(fallback)
@@ -34,8 +34,8 @@ return {
 	["<S-Tab>"] = cmp.mapping(function(fallback)
 		if cmp.visible() then
 			cmp.select_prev_item()
-		elseif luasnip.jumpable( -1) then
-			luasnip.jump( -1)
+		elseif luasnip.jumpable(-1) then
+			luasnip.jump(-1)
 		else
 			fallback()
 		end

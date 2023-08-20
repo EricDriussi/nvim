@@ -1,16 +1,35 @@
-return function()
-	local project_name_as_root_dir = function()
-		-- https://github.com/nvim-neo-tree/neo-tree.nvim/discussions/681#discussioncomment-5429393
-		return function(config, node, state)
-			local result = require("neo-tree.sources.filesystem.components").name(config, node, state)
-			if node:get_depth() == 1 and node.type ~= "message" then
-				result.text = vim.fn.fnamemodify(node.path, ":t")
-			end
-			return result
+local project_name_as_root_dir = function()
+	-- https://github.com/nvim-neo-tree/neo-tree.nvim/discussions/681#discussioncomment-5429393
+	return function(config, node, state)
+		local result = require("neo-tree.sources.filesystem.components").name(config, node, state)
+		if node:get_depth() == 1 and node.type ~= "message" then
+			result.text = vim.fn.fnamemodify(node.path, ":t")
 		end
+		return result
 	end
+end
 
-	require("neo-tree").setup({
+return {
+	"nvim-neo-tree/neo-tree.nvim",
+	cmd = "Neotree",
+	branch = "v3.x",
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"nvim-tree/nvim-web-devicons",
+		"MunifTanjim/nui.nvim",
+		{
+			-- Needed to ctrl+v / ctrl+h
+			"s1n7ax/nvim-window-picker",
+			event = "VeryLazy",
+			version = "2.*",
+			opts = {
+				show_prompt = false,
+				selection_chars = "ABCDEFGHIJKL",
+			},
+		},
+	},
+
+	opts = {
 		close_if_last_window = true,
 		default_component_configs = {
 			diagnostics = {
@@ -37,6 +56,17 @@ return function()
 				},
 			},
 		},
+
+		event_handlers = {
+			{
+				event = "after_render",
+				handler = function()
+					vim.api.nvim_set_hl(0, "NeoTreeNormal", vim.api.nvim_get_hl_by_name("Normal", true))
+					vim.api.nvim_set_hl(0, "NeoTreeEndOfBuffer", vim.api.nvim_get_hl_by_name("Normal", true))
+				end,
+			},
+		},
+
 		filesystem = {
 			filtered_items = {
 				hide_dotfiles = false,
@@ -47,8 +77,9 @@ return function()
 				name = project_name_as_root_dir(),
 			},
 		},
+
 		window = {
-			width = 25,
+			width = 30,
 			mappings = {
 				["<space>"] = "",
 				["<c-t>"] = "open_tabnew",
@@ -74,5 +105,5 @@ return function()
 				end,
 			},
 		},
-	})
-end
+	},
+}

@@ -39,8 +39,8 @@ v("P", '"_dP')
 -- Select all
 n("<C-a>", "ggVG")
 
--- Esc+Esc to turn off search highlighting
-n("<Esc>", "<Cmd>noh<CR>")
+-- Esc+Esc to turn off search highlighting and error messages
+n("<Esc>", "<Cmd>noh<bar>echo<CR>")
 
 -- Center search selection
 n("n", "nzzzv")
@@ -49,14 +49,14 @@ n("N", "Nzzzv")
 -- Search selected text
 v("//", "y/\\V<C-R>=escape(@\",'/')<CR><CR>")
 
--- Dumb-replace word in Normal
+-- Dumb-replace word
 n("rp", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Close tab
 n("<C-w>", "<Cmd>q!<CR>")
 
 -- Save all
-n("<C-s>", "<Cmd>silent wa <CR>")
+n("<C-s>", "<Cmd>silent wa<CR>")
 
 -- Move lines
 -- Left & Right
@@ -64,8 +64,6 @@ n("<M-h>", "<<")
 n("<M-l>", ">>")
 v("<M-h>", "<gv")
 v("<M-l>", ">gv")
-v("<", "<gv")
-v(">", ">gv")
 -- Up & Down
 n("<M-j>", "<Cmd>m .+1<CR>==")
 n("<M-k>", "<Cmd>m .-2<CR>==")

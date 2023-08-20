@@ -22,31 +22,19 @@ Module.entries = {
 	fields = { "kind", "abbr", "menu" },
 	format = function(entry, item)
 		-- Icons
-		item.kind = string.format("%s", require("plugins.completion.icons")[item.kind])
+		item.kind = string.format("%s", require("plugins.completions.icons")[item.kind])
 		-- Sources Labels
 		item.menu = ({
-				nvim_lsp = "[L]",
-				codeium = "IA",
-				copilot = "IA",
-				buffer = "[B]",
-				path = "[P]",
-				luasnip = "[S]",
-				emoji = "[E]",
-			})[entry.source.name]
+			nvim_lsp = "[L]",
+			codeium = "IA",
+			copilot = "IA",
+			buffer = "[B]",
+			path = "[P]",
+			luasnip = "[S]",
+			emoji = "[E]",
+		})[entry.source.name]
 		return fixed_width(item)
 	end,
-}
-
-Module.windows = {
-	completion = {
-		col_offset = 2,
-		border = "rounded",
-		winhighlight = "NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
-	},
-	documentation = {
-		border = "rounded",
-		winhighlight = "NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
-	},
 }
 
 return Module

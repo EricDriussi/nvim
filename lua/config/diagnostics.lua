@@ -1,8 +1,8 @@
 local signs = {
 	{ name = "DiagnosticSignError", text = "" },
-	{ name = "DiagnosticSignWarn",  text = "" },
-	{ name = "DiagnosticSignHint",  text = "" },
-	{ name = "DiagnosticSignInfo",  text = "" },
+	{ name = "DiagnosticSignWarn", text = "" },
+	{ name = "DiagnosticSignHint", text = "" },
+	{ name = "DiagnosticSignInfo", text = "" },
 }
 
 for _, sign in ipairs(signs) do
@@ -18,8 +18,6 @@ vim.diagnostic.config({
 	signs = {
 		active = signs,
 	},
-	update_in_insert = false,
-	underline = true,
 	severity_sort = true,
 	float = {
 		focusable = false,
@@ -30,9 +28,3 @@ vim.diagnostic.config({
 		prefix = "",
 	},
 })
-
-vim.api.nvim_set_hl(
-	0,
-	"LspDiagnosticsVirtualTextError",
-	{ sp = "Green", ctermfg = "Blue", ctermbg = "Yellow", fg = "Blue", bold = true }
-)

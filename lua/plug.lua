@@ -1,318 +1,72 @@
-local UI = {
+local col_line_bar = {
+	require("plugins.misc").statuscol,
+	require("plugins.lualine"),
+	require("plugins.winbar"),
+	require("plugins.folds"),
+}
+
+local indent = {
+	require("plugins.misc").indentscope,
 	{ "lukas-reineke/indent-blankline.nvim" },
-	{
-		"echasnovski/mini.indentscope",
-		opts = {
-			symbol = "│",
-			options = { try_as_border = true },
-		},
-	},
-	{
-		"fgheng/winbar.nvim",
-		opts = require("plugins.winbar"),
-	},
-	{
-		"nvim-lualine/lualine.nvim",
-		opts = require("plugins.lualine"),
-	},
-	-- Highlight tokens
-	{
-		"RRethy/vim-illuminate",
-		config = require("plugins.misc").illuminate,
-	},
-	-- Pretty QFList
-	{
-		"yorickpeterse/nvim-pqf",
-		config = true,
-	},
-	{
-		"norcalli/nvim-colorizer.lua",
-		opts = { "css", "scss", "html", "javascript", "typescript", "typescriptreact" },
-	},
-	-- Theme
-	{
-		"sainnhe/gruvbox-material",
-		config = require("plugins.colorscheme"),
-		commit = "421ccc28df2b5c8aef06b40160d539684fd1e771",
-	},
-	{
-		"luukvbaal/statuscol.nvim",
-		config = require("plugins.misc").statuscol,
-	},
 }
 
-local file_viewers = {
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		cmd = "Neotree",
-		dependencies = {
-			{ "MunifTanjim/nui.nvim" },
-			{
-				"s1n7ax/nvim-window-picker",
-				tag = "v1.5",
-				config = {
-					show_prompt = false,
-					selection_chars = "ABCDEFGHIJKL",
-				},
-			},
-		},
-		config = require("plugins.neotree"),
-	},
-	{
-		"ThePrimeagen/harpoon",
-		opts = { menu = { width = vim.api.nvim_win_get_width(0) - 70 } },
-		lazy = true,
-	},
-	-- Telescope
-	{
-		"nvim-telescope/telescope.nvim",
-		config = require("plugins.telescope"),
-		dependencies = {
-			{ "nvim-telescope/telescope-ui-select.nvim" },
-			{
-				"notjedi/nvim-rooter.lua",
-				config = true,
-			},
-			{
-				"nvim-telescope/telescope-fzf-native.nvim",
-				build = "make",
-			},
-			{
-				"danielfalk/smart-open.nvim",
-				dependencies = "kkharji/sqlite.lua",
-			},
-		},
-	},
-}
-
-local git = {
-	{ "tpope/vim-fugitive" },
-	{
-		"lewis6991/gitsigns.nvim",
-		opts = require("plugins.gitsigns"),
-	},
-	{
-		"sindrets/diffview.nvim",
-		cmd = { "DiffviewOpen", "DiffviewFileHistory" },
-		config = require("plugins.diffview"),
-	},
-	{ "jltwheeler/nvim-git-link", lazy = true },
-}
-
-local parens = {
-	{ "windwp/nvim-ts-autotag" },
-	{
-		"windwp/nvim-autopairs",
-		config = require("plugins.autopairs"),
-	},
-	{
-		"tpope/vim-surround",
-		config = require("plugins.misc").surround,
-	},
+local UI = {
+	indent,
+	col_line_bar,
+	require("plugins.misc").illuminate,
+	{ "yorickpeterse/nvim-pqf", config = true }, -- Pretty QFList
+	require("plugins.misc").colorizer,
+	require("plugins.parens"),
+	require("plugins.colorscheme"),
 }
 
 local misc = {
-	-- ChatGPT
-	{
-		"aduros/ai.vim",
-		config = require("plugins.misc").ai,
-		cmd = "AI",
-	},
-	-- Seek & Destroy
-	{
-		"windwp/nvim-spectre",
-		opts = require("plugins.spectre"),
-		lazy = true,
-	},
-	{
-		"xorid/swap-split.nvim",
-		cmd = "SwapSplit",
-	},
-	{
-		"terrortylor/nvim-comment",
-		cmd = "CommentToggle",
-		config = require("plugins.misc").comment_toggle,
-	},
-	{
-		"akinsho/toggleterm.nvim",
-		config = require("plugins.toggleterm"),
-	},
-	{
-		"folke/which-key.nvim",
-		config = require("plugins.which-key"),
-	},
-	{
-		"ThePrimeagen/refactoring.nvim",
-		config = true,
-		lazy = true,
-	},
+	require("plugins.spectre"), -- Seek & Destroy
+	require("plugins.misc").swap,
+	require("plugins.misc").comment,
+	require("plugins.toggleterm"),
+	require("plugins.whichkey"),
+	require("plugins.ia"),
+}
+
+local file_viewers = {
+	require("plugins.neo-tree"),
+	require("plugins.misc").harpoon,
+	require("plugins.telescope"),
+}
+
+local git = {
+	{ "tpope/vim-fugitive",       cmd = { "Git" } },
+	require("plugins.gitsigns"),
+	require("plugins.diffview"),
+	{ "jltwheeler/nvim-git-link", lazy = true },
 }
 
 local nav = {
-	-- Handle camelCase and snek_case
-	{ "chaoren/vim-wordmotion" },
-	-- Multi-Cursor
-	{
-		"mg979/vim-visual-multi",
-		config = require("plugins.misc").multi,
-	},
-	-- f to char
-	{
-		"unblevable/quick-scope",
-		init = require("plugins.misc").quick_scope,
-	},
-	-- Open in browser
-	{
-		"chrishrb/gx.nvim",
-		keys = { "gx" },
-		config = true,
-	},
+	{ "chaoren/vim-wordmotion" },     -- Handle camelCase and snek_case
+	require("plugins.misc").multicursor,
+	require("plugins.misc").quick_scope, -- f to char
+	require("plugins.misc").open_links,
 }
 
 local md = {
-	-- Bold, Italics, Links in MD
-	{ "antonk52/markdowny.nvim" },
-	{
-		"iamcco/markdown-preview.nvim",
-		config = require("plugins.misc").mkdp,
-		build = "cd app && npm install",
-	},
-}
-
-local folds = {
-	{
-		"kevinhwang91/nvim-ufo",
-		config = require("plugins.ufo"),
-		dependencies = { "kevinhwang91/promise-async" },
-	},
-}
-
-local testing = {
-	{
-		"nvim-neotest/neotest",
-		config = require("plugins.neotest"),
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-			"nvim-neotest/neotest-go",
-			"nvim-neotest/neotest-plenary",
-			"nvim-neotest/neotest-python",
-			"haydenmeade/neotest-jest",
-		},
-		lazy = true,
-	},
-}
-
-local lsp = {
-	{
-		"neovim/nvim-lspconfig",
-		dependencies = {
-			{
-				"williamboman/mason-lspconfig.nvim",
-				dependencies = {
-					{ "williamboman/mason.nvim", build = ":MasonUpdate" },
-					{ "hrsh7th/cmp-nvim-lsp" },
-				},
-			},
-		},
-	},
-	{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
-	-- Formatting and LSP like stuff for non-lsp langs
-	{
-		"jose-elias-alvarez/null-ls.nvim",
-		config = require("plugins.null-ls"),
-	},
-	{ "b0o/SchemaStore.nvim" }, -- Needed for Jsonls
-}
-
-local treesitter = {
-	{ "filNaj/tree-setter" },
-	{ "nvim-treesitter/nvim-treesitter-context" },
-	{
-		"ckolkey/ts-node-action",
-		dependencies = { "nvim-treesitter" },
-	},
-	{
-		"nvim-treesitter/nvim-treesitter",
-		config = require("plugins.treesitter"),
-		build = ":TSUpdate",
-		dependencies = {
-			"https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
-			"nvim-treesitter/nvim-treesitter-textobjects",
-		},
-	},
-}
-
-local cmp = {
-	{
-		"hrsh7th/nvim-cmp",
-		config = require("plugins.completion"),
-		dependencies = {
-			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "hrsh7th/cmp-buffer" },
-			{ "hrsh7th/cmp-path" },
-			{ "saadparwaiz1/cmp_luasnip" },
-			{ "hrsh7th/cmp-cmdline" },
-			{ "hrsh7th/cmp-emoji" },
-			{ "hrsh7th/cmp-nvim-lsp-signature-help" },
-			{
-				"saadparwaiz1/cmp_luasnip",
-				dependencies = {
-					{
-						"L3MON4D3/LuaSnip",
-						dependencies = {
-							"rafamadriz/friendly-snippets",
-							config = function()
-								require("luasnip.loaders.from_vscode").lazy_load()
-							end,
-						},
-					},
-				},
-			},
-		},
-	},
-	{
-		"jcdickinson/codeium.nvim",
-		config = true,
-	},
-	{
-		"zbirenbaum/copilot-cmp",
-		config = true,
-		dependencies = {
-			{
-				"zbirenbaum/copilot.lua",
-				opts = {
-					suggestion = { enabled = false },
-					panel = { enabled = false },
-				},
-			},
-		},
-	},
+	{ "antonk52/markdowny.nvim", ft = "markdown" }, -- Bold, Italics, Links, Code
+	require("plugins.misc").md_preview,
 }
 
 local plugin_list = {
-	-- Needed for other plugins
-	{ "nvim-lua/popup.nvim",   priority = 1000 },
-	{ "nvim-lua/plenary.nvim", priority = 1000 },
-	{
-		"kyazdani42/nvim-web-devicons",
-		priority = 1000,
-		config = {
-			default = true,
-		},
-	},
+	require("plugins.completions"),
+	require("plugins.treesitter"),
+	require("plugins.testing"),
+	require("plugins.lsp"),
 
 	UI,
+	misc,
 	file_viewers,
 	git,
-	parens,
-	misc,
 	nav,
 	md,
-	folds,
-	testing,
-	lsp,
-	treesitter,
-	cmp,
+
 	{ "EricDriussi/aucmd-toggle.nvim" },
 	{ "EricDriussi/remember-me.nvim", config = true },
 }
@@ -334,3 +88,4 @@ local setup = {
 }
 
 require("lazy").setup(plugin_list, setup)
+require("plugins.whichkey.register")
