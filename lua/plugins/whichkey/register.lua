@@ -115,7 +115,7 @@ local mappings = {
 
 	go_to = {
 		["d"] = { "<cmd>Telescope lsp_definitions<cr>", "Goto Definition" },
-		["e"] = { "<cmd>lua vim.diagnostic.open_float(2, {scope='line'})<cr>", "Get Error" },
+		["e"] = { "<cmd>lua vim.diagnostic.open_float({scope='line'})<cr>", "Get Error" },
 		["i"] = { "<cmd>Telescope lsp_implementations<cr>", "Goto Implementation" },
 		["n"] = { "<cmd>lua vim.diagnostic.goto_next({ border = 'rounded' })<cr>", "Goto Next Error" },
 		["p"] = { "<cmd>lua vim.diagnostic.goto_prev({ border = 'rounded' })<cr>", "Goto Prev Error" },

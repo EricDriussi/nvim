@@ -3,12 +3,12 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		event = { "BufReadPost", "BufNewFile" },
 		dependencies = {
-			{ "filNaj/tree-setter",                                 dependencies = { "nvim-treesitter" } },
-			{ "https://gitlab.com/HiPhish/rainbow-delimiters.nvim", dependencies = { "nvim-treesitter" } },
-			{ "nvim-treesitter/nvim-treesitter-context",            dependencies = { "nvim-treesitter" } },
-			{ "ckolkey/ts-node-action",                             dependencies = { "nvim-treesitter" } },
-			{ "windwp/nvim-ts-autotag",                             dependencies = { "nvim-treesitter" } },
-			{ "nvim-treesitter/nvim-treesitter-textobjects",        dependencies = { "nvim-treesitter" } },
+			-- { "filNaj/tree-setter" },
+			{ "https://gitlab.com/HiPhish/rainbow-delimiters.nvim" },
+			{ "nvim-treesitter/nvim-treesitter-context" },
+			{ "ckolkey/ts-node-action" },
+			{ "windwp/nvim-ts-autotag" },
+			{ "nvim-treesitter/nvim-treesitter-textobjects" },
 		},
 		build = ":TSUpdate",
 		config = function()
