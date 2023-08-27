@@ -18,13 +18,35 @@ return {
 				})
 			end,
 
-			-- Overrides for lua_ls
+			-- Override for lua_ls, turn off semanticTokens
 			["lua_ls"] = function()
 				require("lspconfig").lua_ls.setup({
 					capabilities = require("cmp_nvim_lsp").default_capabilities(),
 					settings = require("plugins.lsp.lang_settings")["lua_ls"],
 					on_attach = function(client)
 						client.server_capabilities.semanticTokensProvider = nil
+					end,
+				})
+			end,
+
+			-- Override for tsserver, format with null-ls
+			["tsserver"] = function()
+				require("lspconfig").tsserver.setup({
+					capabilities = require("cmp_nvim_lsp").default_capabilities(),
+					settings = require("plugins.lsp.lang_settings")["tsserver"],
+					on_attach = function(client)
+						client.server_capabilities.documentFormattingProvider = false
+					end,
+				})
+			end,
+
+			-- Override for pylsp, format with null-ls
+			["pylsp"] = function()
+				require("lspconfig").pylsp.setup({
+					capabilities = require("cmp_nvim_lsp").default_capabilities(),
+					settings = require("plugins.lsp.lang_settings")["pylsp"],
+					on_attach = function(client)
+						client.server_capabilities.documentFormattingProvider = false
 					end,
 				})
 			end,

@@ -60,6 +60,7 @@ local plugin_list = {
 	require("plugins.treesitter"),
 	require("plugins.testing"),
 	require("plugins.lsp"),
+	require("plugins.null"),
 
 	UI,
 	misc,
