@@ -31,7 +31,7 @@ local misc = {
 }
 
 local file_viewers = {
-	require("plugins.neo-tree"),
+	require("plugins.neotree"),
 	require("plugins.misc").harpoon,
 	require("plugins.telescope"),
 }
