@@ -100,4 +100,11 @@ M.md_preview = {
 	end
 }
 
+M.rooter = {
+	-- Root for explorer and tabs
+	"notjedi/nvim-rooter.lua",
+	priority = 1000,
+	config = true
+}
+
 return M
