@@ -34,8 +34,8 @@ M.statuscol = {
 			relculright = true,
 			segments = {
 				{ text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
-				{ text = { builtin.foldfunc },      click = "v:lua.ScFa" },
-				{ sign = { name = { "GitSigns" } }, click = "v:lua.ScSa" },
+				{ text = { builtin.foldfunc }, click = "v:lua.ScFa" },
+				{ sign = { namespace = { "gitsigns" } }, click = "v:lua.ScSa" },
 			},
 		})
 	end,
@@ -73,7 +73,7 @@ M.multicursor = {
 	config = function()
 		-- MultiCursor behave like intelliJ
 		vim.api.nvim_exec([[ let g:VM_custom_remaps = {'N': 'Q'} ]], false)
-	end
+	end,
 }
 
 M.quick_scope = {
@@ -81,7 +81,7 @@ M.quick_scope = {
 	init = function()
 		-- Quickscope only highlight on keys
 		vim.g.qs_highlight_on_keys = { "f", "F", "t", "T" }
-	end
+	end,
 }
 
 M.open_links = {
@@ -97,14 +97,14 @@ M.md_preview = {
 	build = "cd app && npm install",
 	config = function()
 		vim.g.mkdp_port = "6969"
-	end
+	end,
 }
 
 M.rooter = {
 	-- Root for explorer and tabs
 	"notjedi/nvim-rooter.lua",
 	priority = 1000,
-	config = true
+	config = true,
 }
 
 return M
