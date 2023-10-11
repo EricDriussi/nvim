@@ -1,5 +1,5 @@
 return {
-	"jose-elias-alvarez/null-ls.nvim",
+	"nvimtools/none-ls.nvim",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = { "ckolkey/ts-node-action" },
 	config = function()
@@ -65,5 +65,5 @@ return {
 				fn = require("ts-node-action").available_actions,
 			},
 		})
-	end
+	end,
 }
