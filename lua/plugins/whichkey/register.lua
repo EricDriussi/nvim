@@ -62,7 +62,6 @@ local mappings = {
 			n = { "<cmd>Gitsigns next_hunk<cr>", "Next Hunk/Conflict" },
 			p = { "<cmd>Gitsigns prev_hunk<cr>", "Prev Hunk/Conflict" },
 			r = { "<cmd>Telescope git_branches<cr>", "Branches" },
-			s = { "<cmd>Gvdiffsplit<bar>windo set wrap<cr>", "Split with HEAD" },
 			c = { "<cmd>DiffviewOpen<cr>", "Pre-Commit Diff" },
 			H = { "<cmd>DiffviewFileHistory %<cr>", "File History" },
 		},

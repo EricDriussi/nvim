@@ -13,7 +13,7 @@ return {
 		open_fold_hl_timeout = 0,
 		fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
 			-- black magic from https://github.com/kevinhwang91/nvim-ufo#customize-fold-text
-			local fold_virt_text = " ...  %d "
+			local fold_virt_text = " ... ↙ %d "
 			local suffix = (fold_virt_text):format(endLnum - lnum)
 			local sufWidth = vim.fn.strdisplaywidth(suffix)
 			local targetWidth = width - sufWidth
