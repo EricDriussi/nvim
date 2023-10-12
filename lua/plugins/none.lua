@@ -20,9 +20,7 @@ return {
 				}),
 
 				formatting.markdownlint,
-				diagnostics.markdownlint.with({
-					extra_args = { "--disable", "MD029", "MD013", "MD041", "MD024", "MD025", "MD047" },
-				}),
+				diagnostics.markdownlint,
 
 				formatting.autopep8.with({
 					extra_args = { "-a" },
