@@ -18,6 +18,7 @@ local UI = {
 	require("plugins.misc").colorizer,
 	require("plugins.parens"),
 	require("plugins.colorscheme"),
+	require("plugins.misc").tabline,
 }
 
 local misc = {

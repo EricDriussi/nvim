@@ -107,4 +107,15 @@ M.rooter = {
 	config = true,
 }
 
+M.tabline = {
+	"seblj/nvim-tabline",
+	config = {
+		modified_icon = "●",
+		close_icon = "✗",
+		separator = "▎",
+		padding = 1,
+		show_icon = false,
+	},
+}
+
 return M
