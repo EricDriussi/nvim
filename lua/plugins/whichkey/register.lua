@@ -3,7 +3,7 @@ local mappings = {
 		["<C-Space>"] = { "<cmd>Telescope spell_suggest<cr>", "Spelling" },
 		["<C-b>"] = { "<cmd>Telescope lsp_references<cr>", "Show References" },
 		["<C-g>"] = {
-			"<cmd>lua require\"nvim-git-link\".get_remote_link{ copy = true }<Bar>echo 'Copied GH link to system clipboard!'<cr>",
+			"<cmd>lua require\"nvim-git-link\".get_remote_link{ copy = true } print('Copied GH link to system clipboard!')<cr>",
 			"Copy GH link",
 		},
 		["<C-k>"] = { vim.lsp.buf.hover, "Hover" },
