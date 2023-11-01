@@ -9,17 +9,12 @@ return {
 		},
 	},
 	{
-		"zbirenbaum/copilot-cmp",
-		config = true,
+		"zbirenbaum/copilot.lua",
 		event = "InsertEnter",
-		dependencies = {
-			"hrsh7th/nvim-cmp",
-			{
-				"zbirenbaum/copilot.lua",
-				opts = {
-					suggestion = { enabled = false },
-					panel = { enabled = false },
-				},
+		opts = {
+			panel = { enalbed = false },
+			suggestion = {
+				auto_trigger = true,
 			},
 		},
 	},

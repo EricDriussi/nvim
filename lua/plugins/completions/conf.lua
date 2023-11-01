@@ -9,7 +9,7 @@ return function()
 			end,
 		},
 		preselect = cmp.PreselectMode.Item,
-		mapping = require("plugins.completions.mappings"),
+		mapping = require("plugins.completions.mappings")(cmp),
 		formatting = require("plugins.completions.UI").entries,
 		window = require("plugins.completions.UI").windows,
 		sources = require("plugins.completions.sources").withAIs,
@@ -28,4 +28,12 @@ return function()
 
 	-- Autopairs
 	cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
+
+	-- Copilot
+	cmp.event:on("menu_opened", function()
+		vim.b.copilot_suggestion_hidden = true
+	end)
+	cmp.event:on("menu_closed", function()
+		vim.b.copilot_suggestion_hidden = false
+	end)
 end

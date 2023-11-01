@@ -122,6 +122,39 @@ local mappings = {
 		["r"] = { "<cmd>Telescope lsp_references<cr>", "Goto References" },
 		["x"] = { "Open in Browser" },
 	},
+
+	super_tab = {
+		["<Tab>"] = {
+			function()
+				if require("cmp").visible() then
+					require("cmp").select_next_item()
+				elseif require("luasnip").expand_or_locally_jumpable() then
+					require("luasnip").expand_or_jump()
+				elseif require("copilot.suggestion").is_visible() then
+					require("copilot.suggestion").accept()
+				else
+					-- use default Tab behavior
+					vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, true, true), "n", true)
+				end
+			end,
+			"Super Tab",
+		},
+		["<S-Tab>"] = {
+			function()
+				if require("cmp").visible() then
+					require("cmp").select_prev_item()
+				elseif require("luasnip").jumpable(-1) then
+					require("luasnip").jump(-1)
+				elseif require("copilot.suggestion").is_visible() then
+					require("copilot.suggestion").next()
+				else
+					-- use default S-Tab behavior
+					vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<BS>", true, true, true), "n", true)
+				end
+			end,
+			"Super Shift Tab",
+		},
+	},
 }
 
 local function default_opts_with(mode, prefix)
@@ -138,4 +171,5 @@ return function()
 	which_key.register(mappings.leader, default_opts_with("n", "<leader>"))
 	which_key.register(mappings.visual, default_opts_with("v", "<leader>"))
 	which_key.register(mappings.go_to, default_opts_with("n", "g"))
+	which_key.register(mappings.super_tab, default_opts_with("i"))
 end
