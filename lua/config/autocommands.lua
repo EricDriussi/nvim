@@ -17,6 +17,14 @@ new_au_cmd("TextYankPost", {
 	end,
 })
 
+new_au_cmd("BufWritePre", {
+	desc = "Format on save",
+	group = new_au_grp("FormatOnSaveGroup", {}),
+	callback = function()
+		vim.lsp.buf.format({ async = false })
+	end,
+})
+
 local ftp_group = new_au_grp("FileTypeSettings", {})
 new_au_cmd("FileType", {
 	desc = "Disable spellcheck for certain buffers",
@@ -53,13 +61,5 @@ new_au_cmd("FileType", {
 	pattern = { "help", "man" },
 	callback = function()
 		vim.keymap.set("n", "gd", "<C-]>")
-	end,
-})
-
-new_au_cmd("BufWritePre", {
-	desc = "Format on save",
-	group = new_au_grp("FormatOnSaveGroup", {}),
-	callback = function()
-		vim.lsp.buf.format({ async = false })
 	end,
 })
