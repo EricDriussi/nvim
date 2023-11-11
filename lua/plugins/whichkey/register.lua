@@ -36,15 +36,6 @@ local mappings = {
 		["l"] = { "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format" },
 		["S"] = { "<cmd>lua require('spectre').open_visual({ select_word=true })<cr>", "Seek & Destroy" },
 
-		m = {
-			name = "MarkDown",
-			m = { "<cmd>MarkdownPreviewToggle<cr>", "Preview MD" },
-			b = { "viw:lua require('markdowny').bold()<cr>", "Make bold" },
-			i = { "viw:lua require('markdowny').italic()<cr>", "Make italics" },
-			l = { "viw:lua require('markdowny').link()<cr>", "Make link" },
-			c = { "viw:lua require('markdowny').code()<cr>", "Make inline code" },
-		},
-
 		s = {
 			name = "Split",
 			v = { "<cmd>vsplit<cr>", "Split Right" },
@@ -101,14 +92,6 @@ local mappings = {
 			name = "Pretty",
 			j = { ":'<,'>!jq<cr>", "Json" },
 			c = { ":'<,'>!column -t<cr>", "Columns" },
-		},
-
-		m = {
-			name = "MarkDown",
-			b = { "<cmd>lua require('markdowny').bold()<cr>", "Make bold" },
-			i = { "<cmd>lua require('markdowny').italic()<cr>", "Make italics" },
-			l = { "<cmd>lua require('markdowny').link()<cr>", "Make link" },
-			c = { "<cmd>lua require('markdowny').code()<cr>", "Make inline code" },
 		},
 	},
 
