@@ -45,7 +45,6 @@ option.tabstop = tabsize
 option.completeopt = { "menu", "menuone", "preview" }
 option.mouse = "a"
 option.timeoutlen = 500
-option.updatetime = 200
 option.ignorecase = true
 option.smartcase = true
 option.infercase = true

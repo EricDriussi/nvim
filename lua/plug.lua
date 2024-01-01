@@ -29,6 +29,7 @@ local misc = {
 	require("plugins.toggleterm"),
 	require("plugins.whichkey"),
 	require("plugins.ia"),
+	require("plugins.misc").cursorHold, -- Decouple updatetime from CursorHold
 }
 
 local file_viewers = {

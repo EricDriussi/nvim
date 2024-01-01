@@ -33,8 +33,8 @@ M.statuscol = {
 		require("statuscol").setup({
 			relculright = true,
 			segments = {
-				{ text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
-				{ text = { builtin.foldfunc }, click = "v:lua.ScFa" },
+				{ text = { builtin.lnumfunc, " " },      click = "v:lua.ScLa" },
+				{ text = { builtin.foldfunc },           click = "v:lua.ScFa" },
 				{ sign = { namespace = { "gitsigns" } }, click = "v:lua.ScSa" },
 			},
 		})
@@ -116,6 +116,13 @@ M.tabline = {
 		padding = 1,
 		show_icon = false,
 	},
+}
+
+M.cursorHold = {
+	"antoinemadec/FixCursorHold.nvim",
+	config = function()
+		vim.g.cursorhold_updatetime = 100
+	end,
 }
 
 return M
