@@ -1,11 +1,16 @@
 local M = {}
 
-M.indentscope = {
-	"echasnovski/mini.indentscope",
-	opts = {
-		symbol = "│",
-		options = { try_as_border = true },
-	},
+M.indent_scope = {
+	"lukas-reineke/indent-blankline.nvim",
+	main = "ibl",
+	config = function()
+		local hooks = require("ibl.hooks")
+		-- Skip first indent level
+		hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_tab_indent_level)
+		hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
+		require("ibl").setup()
+		vim.cmd.highlight("clear @ibl.scope.underline.1") -- Remove underline for scope start
+	end,
 }
 
 M.illuminate = {
@@ -33,8 +38,8 @@ M.statuscol = {
 		require("statuscol").setup({
 			relculright = true,
 			segments = {
-				{ text = { builtin.lnumfunc, " " },      click = "v:lua.ScLa" },
-				{ text = { builtin.foldfunc },           click = "v:lua.ScFa" },
+				{ text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
+				{ text = { builtin.foldfunc }, click = "v:lua.ScFa" },
 				{ sign = { namespace = { "gitsigns" } }, click = "v:lua.ScSa" },
 			},
 		})

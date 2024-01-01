@@ -5,14 +5,9 @@ local col_line_bar = {
 	require("plugins.folds"),
 }
 
-local indent = {
-	require("plugins.misc").indentscope,
-	{ "lukas-reineke/indent-blankline.nvim" },
-}
-
 local UI = {
-	indent,
 	col_line_bar,
+	require("plugins.misc").indent_scope,
 	require("plugins.misc").illuminate,
 	{ "yorickpeterse/nvim-pqf", config = true }, -- Pretty QFList
 	require("plugins.misc").colorizer,
@@ -39,14 +34,14 @@ local file_viewers = {
 }
 
 local git = {
-	{ "tpope/vim-fugitive",       cmd = { "Git" } },
+	{ "tpope/vim-fugitive", cmd = { "Git" } },
 	require("plugins.gitsigns"),
 	require("plugins.diffview"),
 	{ "jltwheeler/nvim-git-link", lazy = true },
 }
 
 local nav = {
-	{ "chaoren/vim-wordmotion" },     -- Handle camelCase and snek_case
+	{ "chaoren/vim-wordmotion" }, -- Handle camelCase and snek_case
 	require("plugins.misc").multicursor,
 	require("plugins.misc").quick_scope, -- f to char
 	require("plugins.misc").open_links,
