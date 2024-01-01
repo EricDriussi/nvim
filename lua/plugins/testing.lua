@@ -3,10 +3,12 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-treesitter/nvim-treesitter",
+		"antoinemadec/FixCursorHold.nvim",
 		"nvim-neotest/neotest-go",
 		"nvim-neotest/neotest-plenary",
 		"nvim-neotest/neotest-python",
 		"haydenmeade/neotest-jest",
+		"rouge8/neotest-rust",
 	},
 	lazy = true,
 	config = function()
@@ -22,6 +24,7 @@ return {
 				require("neotest-plenary"),
 				require("neotest-python"),
 				require("neotest-jest"),
+				require("neotest-rust"),
 			},
 		})
 	end,

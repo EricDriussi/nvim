@@ -65,14 +65,16 @@ local mappings = {
 
 		t = {
 			name = "Test",
-			r = { "<cmd>lua require('neotest').run.run() require('neotest').output_panel.toggle()<cr>", "Run closest" },
+			r = {
+				"<cmd>lua require('neotest').run.run() require('neotest').summary.open()<cr>",
+				"Run closest",
+			},
 			R = {
 				"<cmd>lua require('neotest').run.run(vim.fn.expand('%')) require('neotest').summary.open()<cr>",
 				"Run file",
 			},
-			o = { "<cmd> lua require('neotest').output_panel.toggle<cr>", "Output toggle" },
-			s = { "<cmd> lua require('neotest').summary.toggle<cr>", "Summary toggle" },
-			S = { "<cmd> lua require('neotest').run.stop<cr>", "Stop test" },
+			t = { "<cmd> lua require('neotest').summary.toggle()<cr>", "Output toggle" },
+			s = { "<cmd> lua require('neotest').run.stop()<cr>", "Stop test" },
 		},
 	},
 
