@@ -50,7 +50,7 @@ return {
 					end,
 				})
 			end,
-		}
+		},
 	},
 
 	installer = {

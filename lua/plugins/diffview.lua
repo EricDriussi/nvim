@@ -49,5 +49,5 @@ return {
 				vim.keymap.set("n", "<C-w>", "<Cmd>tabclose<CR>", { buffer = true })
 			end,
 		})
-	end
+	end,
 }

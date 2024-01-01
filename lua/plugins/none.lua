@@ -1,7 +1,10 @@
 return {
 	"nvimtools/none-ls.nvim",
 	event = { "BufReadPre", "BufNewFile" },
-	dependencies = { "ckolkey/ts-node-action" },
+	dependencies = {
+		"ckolkey/ts-node-action",
+		dependencies = { "nvim-treesitter" },
+	},
 	config = function()
 		local null_ls = require("null-ls")
 		local formatting = null_ls.builtins.formatting

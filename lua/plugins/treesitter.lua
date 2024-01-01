@@ -3,10 +3,8 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		event = { "BufReadPost", "BufNewFile" },
 		dependencies = {
-			-- { "filNaj/tree-setter" },
 			{ "https://gitlab.com/HiPhish/rainbow-delimiters.nvim" },
 			{ "nvim-treesitter/nvim-treesitter-context" },
-			{ "ckolkey/ts-node-action" },
 			{ "windwp/nvim-ts-autotag" },
 			{ "nvim-treesitter/nvim-treesitter-textobjects" },
 		},
