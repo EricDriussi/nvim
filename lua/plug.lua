@@ -9,7 +9,7 @@ local UI = {
 	col_line_bar,
 	require("plugins.misc").indent_scope,
 	require("plugins.misc").illuminate,
-	{ "yorickpeterse/nvim-pqf", config = true }, -- Pretty QFList
+	require("plugins.misc").quickfix,
 	require("plugins.misc").colorizer,
 	require("plugins.parens"),
 	require("plugins.colorscheme"),
@@ -88,4 +88,3 @@ local setup = {
 }
 
 require("lazy").setup(plugin_list, setup)
-require("plugins.whichkey.register")

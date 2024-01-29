@@ -56,15 +56,28 @@ M.swap = {
 	},
 }
 
+M.quickfix = {
+	"kevinhwang91/nvim-bqf",
+	opts = {
+		preview = {
+			winblend = 5,
+			show_scroll_bar = false,
+		},
+	},
+}
+
 M.comment = {
-	"terrortylor/nvim-comment",
-	cmd = "CommentToggle",
-	config = function()
-		require("nvim_comment").setup({
-			create_mappings = false,
-			comment_empty = false,
-		})
-	end,
+	{
+		"terrortylor/nvim-comment",
+		cmd = "CommentToggle",
+		config = function()
+			require("nvim_comment").setup({
+				create_mappings = false,
+				comment_empty = false,
+			})
+		end,
+	},
+	"JoosepAlviste/nvim-ts-context-commentstring",
 }
 
 M.harpoon = {
