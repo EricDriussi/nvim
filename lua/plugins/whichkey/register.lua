@@ -111,10 +111,8 @@ local mappings = {
 	super_tab = {
 		["<Tab>"] = {
 			function()
-				if require("cmp").visible() then
-					require("cmp").select_next_item()
-				elseif require("luasnip").expand_or_locally_jumpable() then
-					require("luasnip").expand_or_jump()
+				if require("luasnip").jumpable(1) then
+					require("luasnip").jump(1)
 				elseif require("copilot.suggestion").is_visible() then
 					require("copilot.suggestion").accept()
 				else
@@ -126,9 +124,7 @@ local mappings = {
 		},
 		["<S-Tab>"] = {
 			function()
-				if require("cmp").visible() then
-					require("cmp").select_prev_item()
-				elseif require("luasnip").jumpable(-1) then
+				if require("luasnip").jumpable(-1) then
 					require("luasnip").jump(-1)
 				elseif require("copilot.suggestion").is_visible() then
 					require("copilot.suggestion").next()
