@@ -34,10 +34,15 @@ local file_viewers = {
 }
 
 local git = {
-	{ "tpope/vim-fugitive", cmd = { "Git" } },
+	{
+		"tpope/vim-fugitive",
+		dependencies = {
+			"tpope/vim-rhubarb",
+			"shumphrey/fugitive-gitlab.vim",
+		},
+	},
 	require("plugins.gitsigns"),
 	require("plugins.diffview"),
-	{ "jltwheeler/nvim-git-link", lazy = true },
 }
 
 local nav = {

@@ -2,10 +2,7 @@ local mappings = {
 	base = {
 		["<C-Space>"] = { "<cmd>Telescope spell_suggest<cr>", "Spelling" },
 		["<C-b>"] = { "<cmd>Telescope lsp_references<cr>", "Show References" },
-		["<C-g>"] = {
-			"<cmd>lua require\"nvim-git-link\".get_remote_link{ copy = true } print('Copied GH link to system clipboard!')<cr>",
-			"Copy GH link",
-		},
+		["<C-g>"] = { "<cmd>.,.GBrowse!<cr>", "Copy remote repo link" },
 		["<C-k>"] = { vim.lsp.buf.hover, "Hover" },
 		["<M-cr>"] = { vim.lsp.buf.code_action, "Code Actions" },
 		["<M-g>"] = {
@@ -151,6 +148,7 @@ return function()
 	which_key.register(mappings.base, default_opts_with("n"))
 	which_key.register(mappings.leader, default_opts_with("n", "<leader>"))
 	which_key.register(mappings.visual, default_opts_with("v", "<leader>"))
+	which_key.register({ ["<C-g>"] = { ":'<,'>GBrowse!<cr>", "Copy remote repo link" } }, default_opts_with("v"))
 	which_key.register(mappings.go_to, default_opts_with("n", "g"))
 	which_key.register(mappings.super_tab, default_opts_with("i"))
 end
