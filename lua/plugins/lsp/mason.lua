@@ -33,7 +33,6 @@ return {
 			["tsserver"] = function()
 				require("lspconfig").tsserver.setup({
 					capabilities = require("cmp_nvim_lsp").default_capabilities(),
-					settings = require("plugins.lsp.lang_settings")["tsserver"],
 					on_attach = function(client)
 						client.server_capabilities.documentFormattingProvider = false
 					end,
@@ -44,7 +43,6 @@ return {
 			["pylsp"] = function()
 				require("lspconfig").pylsp.setup({
 					capabilities = require("cmp_nvim_lsp").default_capabilities(),
-					settings = require("plugins.lsp.lang_settings")["pylsp"],
 					on_attach = function(client)
 						client.server_capabilities.documentFormattingProvider = false
 					end,
@@ -74,7 +72,6 @@ return {
 			"mypy",
 			"python-lsp-server",
 			"rust-analyzer",
-			"rustfmt",
 			"shellcheck",
 			"shfmt",
 			"stylua",

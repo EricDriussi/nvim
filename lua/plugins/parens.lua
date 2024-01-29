@@ -17,7 +17,7 @@ return {
 
 	{
 		"windwp/nvim-autopairs",
-		event = { "BufReadPost", "BufNewFile" }, -- Removing this loads tree-sitter too soon
+		event = "InsertEnter",
 		dependencies = { "nvim-treesitter" },
 		config = function()
 			local autopairs = require("nvim-autopairs")
