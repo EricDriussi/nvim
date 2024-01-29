@@ -31,16 +31,6 @@ option.swapfile = false
 option.undodir = { vim.env.HOME .. "/.config/nvim/.undodir//" }
 option.undofile = true
 
--- Tab be gud
-option.copyindent = true
-option.preserveindent = true
-option.smartindent = true
-option.expandtab = true
-local tabsize = 2
-option.shiftwidth = tabsize
-option.softtabstop = tabsize
-option.tabstop = tabsize
-
 -- Misc
 option.completeopt = { "menu", "menuone", "preview" }
 option.mouse = "a"

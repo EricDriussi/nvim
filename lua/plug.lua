@@ -68,6 +68,7 @@ local plugin_list = {
 
 	{ "EricDriussi/aucmd-toggle.nvim" },
 	{ "EricDriussi/remember-me.nvim", config = true },
+	{ "tpope/vim-sleuth" },
 }
 
 local setup = {
