@@ -17,9 +17,15 @@ return {
 
 				formatting.stylua,
 				formatting.gofumpt,
-				formatting.yamlfmt,
 				formatting.prettierd.with({
 					filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+				}),
+
+				formatting.yamlfmt.with({
+					extra_args = { "-formatter", "retain_line_breaks=true" },
+				}),
+				diagnostics.ansiblelint.with({
+					filetypes = { "yaml", "yml" },
 				}),
 
 				formatting.markdownlint,
