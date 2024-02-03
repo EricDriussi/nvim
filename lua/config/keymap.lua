@@ -96,6 +96,16 @@ n("<expr> j", '(v:count > 5 ? "m\'" . v:count : "") . \'j\'')
 -- Increment number
 n("<M-a>", "<C-a>")
 
+-- Only yank deleted lines if not empty
+local function fancy_dd()
+	if vim.api.nvim_get_current_line():match("^%s*$") then
+		return '"_dd'
+	else
+		return "dd"
+	end
+end
+n("dd", fancy_dd())
+
 -- Fancy text objects
 -- https://thevaluable.dev/vim-create-text-objects/
 local chars = { "_", ".", ":", ",", ";", "|", "/", "\\", "*", "+", "%", "`", "?", "!" }
