@@ -105,8 +105,12 @@ M.quick_scope = {
 M.open_links = {
 	"chrishrb/gx.nvim",
 	dependencies = { "nvim-lua/plenary.nvim" },
-	keys = { "gx" },
-	config = true,
+	cmd = { "Browse" },
+	opts = {
+		handler_options = {
+			search_engine = "duckduckgo",
+		},
+	},
 }
 
 M.md_preview = {

@@ -102,7 +102,7 @@ local mappings = {
 		["p"] = { "<cmd>lua vim.diagnostic.goto_prev({ border = 'rounded' })<cr>", "Goto Prev Error" },
 		["q"] = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Diagnostics -> qf list" },
 		["r"] = { "<cmd>Telescope lsp_references<cr>", "Goto References" },
-		["x"] = { "Open in Browser" },
+		["x"] = { "<cmd>Browse<cr>", "Open in Browser" },
 	},
 
 	super_tab = {
