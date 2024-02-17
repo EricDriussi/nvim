@@ -71,6 +71,7 @@ return {
 			"marksman",
 			"mypy",
 			"python-lsp-server",
+			"prettierd",
 			"rust-analyzer",
 			"shellcheck",
 			"shfmt",
