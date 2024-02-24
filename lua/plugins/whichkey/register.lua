@@ -20,7 +20,16 @@ local mappings = {
 		["A"] = { "<cmd>Telescope commands<cr>", "Actions" },
 		["F"] = { "<cmd>Telescope live_grep<cr>", "Find in files" },
 		["H"] = { "<cmd>Telescope help_tags<cr>", "Help" },
-		["L"] = { "<cmd>ToggleAucmdsByGroup FormatOnSaveGroup<cr>", "Toggle FOS" },
+		["L"] = {
+			function()
+				vim.g.no_fos = not vim.g.no_fos
+				if vim.g.no_fos then
+					print("Format on save OFF")
+				else
+					print("Format on save ON")
+				end
+			end
+			, "Toggle FOS" },
 		["R"] = { "<cmd>Telescope registers<cr>", "Registers" },
 		["a"] = { "<Cmd>lua require('harpoon.mark').add_file()<CR>", "Add Harpoon" },
 		["d"] = { "<cmd>DiffToggle<cr>", "Diff Mode" },
@@ -30,7 +39,7 @@ local mappings = {
 			"Find File",
 		},
 		["h"] = { "<Cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Harpoons" },
-		["l"] = { "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format" },
+		["l"] = { "<cmd>lua require('conform').format({ async = true, lsp_fallback = true })<cr>", "Format" },
 		["S"] = { "<cmd>lua require('spectre').open_visual({ select_word=true })<cr>", "Seek & Destroy" },
 
 		s = {

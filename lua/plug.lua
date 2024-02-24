@@ -62,7 +62,9 @@ local plugin_list = {
 	require("plugins.treesitter"),
 	require("plugins.testing"),
 	require("plugins.lsp"),
-	require("plugins.none"),
+	-- require("plugins.none"),
+	require("plugins.format"),
+	require("plugins.lint"),
 
 	UI,
 	misc,
@@ -71,7 +73,6 @@ local plugin_list = {
 	nav,
 	md,
 
-	{ "EricDriussi/aucmd-toggle.nvim" },
 	{ "EricDriussi/remember-me.nvim", config = true },
 	{ "tpope/vim-sleuth" },
 }
