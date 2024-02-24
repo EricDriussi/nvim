@@ -28,8 +28,9 @@ local mappings = {
 				else
 					print("Format on save ON")
 				end
-			end
-			, "Toggle FOS" },
+			end,
+			"Toggle FOS",
+		},
 		["R"] = { "<cmd>Telescope registers<cr>", "Registers" },
 		["a"] = { "<Cmd>lua require('harpoon.mark').add_file()<CR>", "Add Harpoon" },
 		["d"] = { "<cmd>DiffToggle<cr>", "Diff Mode" },
@@ -117,10 +118,11 @@ local mappings = {
 	super_tab = {
 		["<Tab>"] = {
 			function()
+				local copilot_ok, copilot_suggestion = pcall(require, "copilot.suggestion")
 				if require("luasnip").jumpable(1) then
 					require("luasnip").jump(1)
-				elseif require("copilot.suggestion").is_visible() then
-					require("copilot.suggestion").accept()
+				elseif copilot_ok and copilot_suggestion.is_visible() then
+					copilot_suggestion.accept()
 				else
 					-- use default Tab behavior
 					vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, true, true), "n", true)
@@ -130,10 +132,11 @@ local mappings = {
 		},
 		["<S-Tab>"] = {
 			function()
+				local copilot_ok, copilot_suggestion = pcall(require, "copilot.suggestion")
 				if require("luasnip").jumpable(-1) then
 					require("luasnip").jump(-1)
-				elseif require("copilot.suggestion").is_visible() then
-					require("copilot.suggestion").next()
+				elseif copilot_ok and copilot_suggestion.is_visible() then
+					copilot_suggestion.next()
 				else
 					-- use default S-Tab behavior
 					vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<BS>", true, true, true), "n", true)

@@ -12,10 +12,7 @@ return function()
 		mapping = require("plugins.completions.mappings")(cmp),
 		formatting = require("plugins.completions.UI").entries,
 		window = require("plugins.completions.UI").windows,
-		sources = require("plugins.completions.sources").withAIs,
-		cmp.setup.filetype({ "markdown", "none", "gitcommit" }, {
-			sources = require("plugins.completions.sources").basicSources,
-		}),
+		sources = require("plugins.completions.sources"),
 		cmp.setup.cmdline({ "/", "?" }, {
 			mapping = cmp.mapping.preset.cmdline(),
 			sources = { { name = "buffer" } },

@@ -140,6 +140,17 @@ M.tabline = {
 	},
 }
 
+M.ia = {
+	"zbirenbaum/copilot.lua",
+	event = "InsertEnter",
+	opts = {
+		panel = { enalbed = false },
+		suggestion = {
+			auto_trigger = true,
+		},
+	},
+}
+
 M.cursorHold = {
 	"antoinemadec/FixCursorHold.nvim",
 	config = function()

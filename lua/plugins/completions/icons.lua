@@ -24,5 +24,4 @@ return {
 	Event = "",
 	Operator = "󰆕",
 	TypeParameter = "",
-	Codeium = "❈",
 }

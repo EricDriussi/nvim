@@ -23,7 +23,7 @@ local misc = {
 	require("plugins.misc").comment,
 	require("plugins.toggleterm"),
 	require("plugins.whichkey"),
-	require("plugins.ia"),
+	require("plugins.misc").ia,
 	require("plugins.misc").cursorHold, -- Decouple updatetime from CursorHold
 }
 
@@ -62,7 +62,6 @@ local plugin_list = {
 	require("plugins.treesitter"),
 	require("plugins.testing"),
 	require("plugins.lsp"),
-	-- require("plugins.none"),
 	require("plugins.format"),
 	require("plugins.lint"),
 
