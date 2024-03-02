@@ -5,7 +5,7 @@ local function es_spellcheck(bufnr)
 	if first_line == latex_es_comment then
 		vim.api.nvim_buf_set_lines(bufnr, 0, 1, false, {})
 	else
-		vim.api.nvim_buf_set_lines(bufnr, 0, 1, false, { latex_es_comment, "" })
+		vim.api.nvim_buf_set_lines(bufnr, 0, 1, false, { latex_es_comment, first_line })
 	end
 end
 
