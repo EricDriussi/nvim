@@ -10,6 +10,7 @@ option.title = true -- Title to current file instead of terminal emulator name
 option.showmode = false
 option.confirm = true
 option.shortmess:append("Wc")
+option.completeopt = { "menu", "menuone", "preview" }
 
 -- Line and offests
 option.cursorline = true
@@ -31,10 +32,12 @@ option.swapfile = false
 option.undodir = { vim.env.HOME .. "/.config/nvim/.undodir//" }
 option.undofile = true
 
--- Misc
-option.completeopt = { "menu", "menuone", "preview" }
-option.mouse = "a"
-option.timeoutlen = 500
+-- Case
 option.ignorecase = true
 option.smartcase = true
 option.infercase = true
+
+-- Misc
+option.mouse = "a"
+option.updatetime = 250
+option.timeoutlen = 300

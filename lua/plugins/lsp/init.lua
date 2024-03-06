@@ -11,15 +11,13 @@ return {
 				},
 				"b0o/SchemaStore.nvim",
 				"hrsh7th/cmp-nvim-lsp",
+				{
+					-- Handle all mason tools, not only lsp clients
+					"WhoIsSethDaniel/mason-tool-installer.nvim",
+					opts = require("plugins.lsp.mason").installer,
+				},
 			},
 			opts = require("plugins.lsp.mason").lspmason,
 		},
-	},
-	{
-		-- Handle all mason tools, not only lsp clients
-		"WhoIsSethDaniel/mason-tool-installer.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		dependencies = { "williamboman/mason.nvim" },
-		opts = require("plugins.lsp.mason").installer,
 	},
 }

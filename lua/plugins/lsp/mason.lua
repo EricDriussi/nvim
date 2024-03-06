@@ -57,6 +57,7 @@ return {
 			"ansible-language-server",
 			"autopep8",
 			"bash-language-server",
+			"beautysh",
 			"css-lsp",
 			"emmet-ls",
 			"eslint-lsp",

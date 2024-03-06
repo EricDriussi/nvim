@@ -13,7 +13,8 @@ return {
 			require("nvim-treesitter.configs").setup({
 
 				-- Internal modules
-				ensure_installed = "all",
+				ensure_installed = { "lua", "vim", "vimdoc", "markdown" },
+				auto_install = true,
 				highlight = { enable = true },
 				indent = { enable = true },
 				incremental_selection = {
