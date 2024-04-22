@@ -59,6 +59,8 @@ return {
 			"bash-language-server",
 			"beautysh",
 			"css-lsp",
+			"docker-compose-language-service",
+			"dockerfile-language-server",
 			"emmet-ls",
 			"eslint-lsp",
 			"eslint_d",
