@@ -93,8 +93,9 @@ i("?", "?<C-g>u")
 n("<expr> k", '(v:count > 5 ? "m\'" . v:count : "") . \'k\'')
 n("<expr> j", '(v:count > 5 ? "m\'" . v:count : "") . \'j\'')
 
--- Increment number
+-- Increment/Decrement number
 n("<M-a>", "<C-a>")
+n("<M-x>", "<C-x>")
 
 -- Only yank deleted lines if not empty
 n("dd", function()

@@ -15,6 +15,8 @@ return {
 			yaml = { "yamlfmt" },
 			yml = { "yamlfmt" },
 
+			astro = { { "prettierd", "prettier" } },
+
 			javascript = { { "prettierd", "prettier" } },
 			typescript = { { "prettierd", "prettier" } },
 			javascriptreact = { { "prettierd", "prettier" } },
