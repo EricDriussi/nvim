@@ -25,10 +25,10 @@ return {
 
 		formatters = {
 			autopep8 = {
-				args = { "-a" },
+				args = { "-a", "$FILENAME" },
 			},
 			yamlfmt = {
-				args = { "-formatter", "retain_line_breaks=true" },
+				args = { "-formatter", "retain_line_breaks=true", "$FILENAME" },
 			},
 		},
 
