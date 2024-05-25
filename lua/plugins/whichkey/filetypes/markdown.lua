@@ -11,7 +11,7 @@ end
 
 return function(wk)
 	local bufnr = vim.api.nvim_get_current_buf()
-	local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
+	local filetype = vim.bo.filetype
 	if filetype ~= "markdown" then
 		return
 	end

@@ -90,7 +90,7 @@ M.multicursor = {
 	"mg979/vim-visual-multi",
 	config = function()
 		-- MultiCursor behave like intelliJ
-		vim.api.nvim_exec([[ let g:VM_custom_remaps = {'N': 'Q'} ]], false)
+		vim.api.nvim_exec2([[ let g:VM_custom_remaps = {'N': 'Q'} ]], {})
 	end,
 }
 

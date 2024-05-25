@@ -11,6 +11,7 @@ option.showmode = false
 option.confirm = true
 option.shortmess:append("Wc")
 option.completeopt = { "menu", "menuone", "preview" }
+option.inccommand = "split"
 
 -- Line and offests
 option.cursorline = true

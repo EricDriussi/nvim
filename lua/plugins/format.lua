@@ -9,8 +9,8 @@ return {
 			markdown = { "markdownlint" },
 			python = { "autopep8" },
 
-			sh = { "shfmt", "shellharden", "beautysh" },
-			zsh = { "beautysh" },
+			sh = { "shfmt", "shellharden" },
+			zsh = { "shfmt", "shellharden" },
 
 			yaml = { "yamlfmt" },
 			yml = { "yamlfmt" },
