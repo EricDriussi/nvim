@@ -4,6 +4,7 @@ return {
 		config = require("plugins.completions.conf"),
 		event = "InsertEnter",
 		dependencies = {
+			{ "onsails/lspkind.nvim" },
 			{ "hrsh7th/cmp-nvim-lsp" },
 			{ "hrsh7th/cmp-buffer" },
 			{ "hrsh7th/cmp-path" },
