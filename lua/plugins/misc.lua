@@ -80,17 +80,11 @@ M.comment = {
 	"JoosepAlviste/nvim-ts-context-commentstring",
 }
 
-M.harpoon = {
-	"ThePrimeagen/harpoon",
-	opts = { menu = { width = vim.api.nvim_win_get_width(0) - 70 } },
-	lazy = true,
-}
-
 M.multicursor = {
 	"mg979/vim-visual-multi",
 	config = function()
 		-- MultiCursor behave like intelliJ
-		vim.api.nvim_exec2([[ let g:VM_custom_remaps = {'N': 'Q'} ]], {})
+		vim.g.VM_custom_remaps = { N = "Q" }
 	end,
 }
 

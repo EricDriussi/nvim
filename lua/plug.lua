@@ -1,5 +1,6 @@
 local col_line_bar = {
 	require("plugins.misc").statuscol,
+	require("plugins.misc").tabline,
 	require("plugins.lualine"),
 	require("plugins.winbar"),
 	require("plugins.folds"),
@@ -13,7 +14,7 @@ local UI = {
 	require("plugins.misc").colorizer,
 	require("plugins.parens"),
 	require("plugins.colorscheme"),
-	require("plugins.misc").tabline,
+	{ "tpope/vim-sleuth" },
 }
 
 local misc = {
@@ -21,7 +22,6 @@ local misc = {
 	require("plugins.spectre"), -- Seek & Destroy
 	require("plugins.misc").swap,
 	require("plugins.misc").comment,
-	require("plugins.toggleterm"),
 	require("plugins.whichkey"),
 	require("plugins.misc").ia,
 	require("plugins.misc").cursorHold, -- Decouple updatetime from CursorHold
@@ -30,7 +30,6 @@ local misc = {
 
 local file_viewers = {
 	require("plugins.neotree"),
-	require("plugins.misc").harpoon,
 	require("plugins.telescope"),
 }
 
@@ -74,7 +73,6 @@ local plugin_list = {
 	md,
 
 	{ "EricDriussi/remember-me.nvim", config = true },
-	{ "tpope/vim-sleuth" },
 }
 
 local setup = {
