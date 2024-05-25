@@ -21,6 +21,12 @@ return function()
 			mapping = cmp.mapping.preset.cmdline(),
 			sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
 		}),
+		cmp.setup.filetype({ "sql", "mysql", "psql" }, {
+			sources = {
+				{ name = "vim-dadbod-completion" },
+				{ name = "buffer" },
+			},
+		}),
 	})
 
 	-- Autopairs

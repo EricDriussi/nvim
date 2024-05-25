@@ -25,6 +25,7 @@ local misc = {
 	require("plugins.whichkey"),
 	require("plugins.misc").ia,
 	require("plugins.misc").cursorHold, -- Decouple updatetime from CursorHold
+	require("plugins.misc").db,
 }
 
 local file_viewers = {
