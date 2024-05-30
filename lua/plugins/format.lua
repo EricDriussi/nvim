@@ -13,7 +13,6 @@ return {
 			zsh = { "shfmt", "shellharden" },
 
 			yaml = { "yamlfmt" },
-			yml = { "yamlfmt" },
 
 			astro = { { "prettierd", "prettier" } },
 
@@ -25,10 +24,10 @@ return {
 
 		formatters = {
 			autopep8 = {
-				args = { "-a", "$FILENAME" },
+				prepend_args = { "-a" },
 			},
 			yamlfmt = {
-				args = { "-formatter", "retain_line_breaks=true", "$FILENAME" },
+				prepend_args = { "-formatter", "retain_line_breaks=true,scan_folded_as_literal=true" },
 			},
 		},
 

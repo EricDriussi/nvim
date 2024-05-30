@@ -5,10 +5,6 @@ local mappings = {
 		["<C-g>"] = { "<cmd>.,.GBrowse!<cr>", "Copy remote repo link" },
 		["<C-k>"] = { vim.lsp.buf.hover, "Hover" },
 		["<M-cr>"] = { vim.lsp.buf.code_action, "Code Actions" },
-		["<M-g>"] = {
-			"<cmd>lua require('toggleterm.terminal').Terminal:new({ cmd = 'lazygit', hidden = true }):toggle()<cr>",
-			"Lazygit",
-		},
 		["rn"] = { vim.lsp.buf.rename, "Rename" },
 		["zO"] = { require("ufo").openAllFolds, "Open all folds" },
 		["zC"] = { require("ufo").closeAllFolds, "Close all folds" },
