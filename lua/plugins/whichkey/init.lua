@@ -31,6 +31,5 @@ return {
 			ignore_missing = true,
 		})
 		require("plugins.whichkey.register")()
-		require("plugins.whichkey.filetypes.markdown")(which_key)
 	end,
 }
