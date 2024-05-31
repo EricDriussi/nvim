@@ -53,7 +53,7 @@ return {
 					:set_end_pair_length(2),
 
 				-- spacing for = sign
-				custom_rule("=", "", { "-vim", "-zsh", "-env", "-sh", "-bash" })
+				custom_rule("=", "", { "-vim", "-zsh", "-env", "-sh", "-bash", "-yaml", "-yml" })
 					:with_pair(except.not_inside_quote())
 					:with_pair(function(opts)
 						local last_char = opts.line:sub(opts.col - 1, opts.col - 1)
