@@ -5,6 +5,7 @@ option.laststatus = 3
 option.pumheight = 10
 option.splitbelow = true
 option.splitright = true
+option.termguicolors = true
 option.title = true -- Title to current file instead of terminal emulator name
 option.showmode = false
 option.confirm = true
