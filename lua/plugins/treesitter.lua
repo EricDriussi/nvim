@@ -3,9 +3,6 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		event = { "BufReadPost", "BufNewFile" },
 		dependencies = {
-			{ "https://gitlab.com/HiPhish/rainbow-delimiters.nvim" },
-			{ "nvim-treesitter/nvim-treesitter-context" },
-			{ "windwp/nvim-ts-autotag" },
 			{ "nvim-treesitter/nvim-treesitter-textobjects" },
 		},
 		build = ":TSUpdate",
@@ -28,10 +25,6 @@ return {
 				},
 
 				-- External plugins
-				tree_setter = { enable = true },
-				rainbow = { enable = true },
-				autopairs = { enable = true },
-				autotag = { enable = true },
 				textobjects = {
 					select = {
 						enable = true,

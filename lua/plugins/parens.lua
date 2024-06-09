@@ -15,6 +15,15 @@ return {
 		end,
 	},
 
+	{ "windwp/nvim-ts-autotag", config = true },
+
+	{
+		"https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
+		config = function()
+			require("rainbow-delimiters.setup").setup({})
+		end,
+	},
+
 	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",

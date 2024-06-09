@@ -1,19 +1,10 @@
-local col_line_bar = {
-	require("plugins.misc").statuscol,
-	require("plugins.misc").tabline,
+local UI = {
+	require("plugins.UI"),
+	require("plugins.parens"),
+	require("plugins.colorscheme"),
 	require("plugins.lualine"),
 	require("plugins.winbar"),
 	require("plugins.folds"),
-}
-
-local UI = {
-	col_line_bar,
-	require("plugins.misc").indent_scope,
-	require("plugins.misc").illuminate,
-	require("plugins.misc").quickfix,
-	require("plugins.misc").colorizer,
-	require("plugins.parens"),
-	require("plugins.colorscheme"),
 	{ "tpope/vim-sleuth" },
 }
 
