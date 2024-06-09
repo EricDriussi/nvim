@@ -51,6 +51,7 @@ local mappings = {
 			A = { "<cmd>Git blame<cr>", "Git Anotate File" },
 			a = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Git Anotate Line" },
 			b = { "<cmd>Gitsigns reset_hunk<cr>", "Git Back Hunk" },
+			B = { "<cmd>Gitsigns reset_buffer<cr>", "Git Back File" },
 			h = { "<cmd>diffget LOCAL<cr>", "Get From Current (Local)" },
 			l = { "<cmd>diffget REMOTE<cr>", "Get From Incoming (Remote)" },
 			n = { "<cmd>Gitsigns next_hunk<cr>", "Next Hunk/Conflict" },
@@ -88,7 +89,12 @@ local mappings = {
 
 		g = {
 			name = "Git",
-			b = { "<cmd>Gitsigns reset_hunk<cr>", "Git Back Hunk" },
+			b = {
+				function()
+					require("gitsigns").reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+				end,
+				"Git Back Hunk",
+			},
 			h = { ":'<,'>diffget LOCAL<cr>", "Get From Current (Local)" },
 			l = { ":'<,'>diffget REMOTE<cr>", "Get From Incoming (Remote)" },
 		},
