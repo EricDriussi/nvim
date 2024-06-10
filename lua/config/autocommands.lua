@@ -2,8 +2,8 @@ local new_au_cmd = vim.api.nvim_create_autocmd
 local new_au_grp = vim.api.nvim_create_augroup
 
 new_au_cmd("BufWinEnter", {
-	desc = "Avoid autocomment on enter in commented line",
-	command = "set formatoptions-=cro",
+	desc = "Avoid autocomment on 'o' in commented line",
+	command = "set formatoptions-=o",
 })
 
 new_au_cmd("TextYankPost", {
@@ -55,3 +55,11 @@ new_au_cmd("FileType", {
 		vim.keymap.set("n", "gd", "<C-]>")
 	end,
 })
+
+new_au_cmd("BufWritePost", {
+	desc = "Compile spell file bin",
+	group = new_au_grp("CompileSpellFile", {}),
+	pattern = "*spell.utf-8.add",
+	command = "mkspell %",
+})
+

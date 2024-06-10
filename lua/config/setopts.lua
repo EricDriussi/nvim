@@ -30,13 +30,19 @@ option.signcolumn = "yes"
 -- History
 option.history = 1000
 option.swapfile = false
-option.undodir = { vim.env.HOME .. "/.config/nvim/.undodir//" }
+option.undodir = vim.env.HOME .. "/.config/nvim/.undodir/"
 option.undofile = true
 
 -- Case
 option.ignorecase = true
 option.smartcase = true
 option.infercase = true
+
+-- Spelling
+option.spell = true
+option.spelllang = { "en_us", "en_gb" }
+option.spelloptions = "camel"
+option.spellfile = vim.env.HOME .. "/.config/nvim/spell.utf-8.add"
 
 -- Misc
 option.mouse = "a"

@@ -103,4 +103,15 @@ M.db = {
 	end,
 }
 
+M.spelling = {
+	"ravibrock/spellwarn.nvim",
+	event = "VeryLazy",
+	opts = {
+		event = {
+			"InsertLeave",
+		},
+		prefix = "Spelling: ",
+	},
+}
+
 return M
