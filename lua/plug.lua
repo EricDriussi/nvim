@@ -3,7 +3,6 @@ local UI = {
 	require("plugins.parens"),
 	require("plugins.colorscheme"),
 	require("plugins.lualine"),
-	require("plugins.winbar"),
 	require("plugins.folds"),
 	{ "tpope/vim-sleuth" },
 }
