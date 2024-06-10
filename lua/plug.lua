@@ -8,7 +8,6 @@ local UI = {
 }
 
 local misc = {
-	require("plugins.misc").rooter,
 	require("plugins.spectre"), -- Seek & Destroy
 	require("plugins.misc").swap,
 	require("plugins.misc").comment,

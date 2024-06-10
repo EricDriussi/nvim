@@ -63,3 +63,13 @@ new_au_cmd("BufWritePost", {
 	command = "mkspell %",
 })
 
+new_au_cmd("VimEnter", {
+	desc = "Set root dir",
+	group = new_au_grp("SetRootOnVimEnter", {}),
+	callback = function(ctx)
+		local root = vim.fs.root(ctx.buf, { ".git" })
+		if root then
+			vim.uv.chdir(root)
+		end
+	end,
+})
