@@ -107,4 +107,13 @@ M.spelling = {
 	},
 }
 
+M.curl = {
+	"oysandvik94/curl.nvim",
+	cmd = { "CurlOpen" },
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+	},
+	config = true,
+}
+
 return M

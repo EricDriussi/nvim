@@ -16,6 +16,7 @@ local misc = {
 	require("plugins.misc").cursorHold, -- Decouple updatetime from CursorHold
 	require("plugins.misc").db,
 	require("plugins.misc").spelling,
+	require("plugins.misc").curl,
 }
 
 local file_viewers = {
