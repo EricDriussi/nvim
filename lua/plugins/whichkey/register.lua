@@ -51,14 +51,12 @@ local mappings = {
 			"Toggle FOS",
 		},
 		["R"] = { "<cmd>Telescope registers<cr>", "Registers" },
-		["a"] = { "<Cmd>lua require('harpoon.mark').add_file()<CR>", "Add Harpoon" },
 		["d"] = { "<cmd>DiffToggle<cr>", "Diff Mode" },
 		["e"] = { "<cmd>Neotree toggle reveal<cr>", "Explorer" },
 		["f"] = {
 			"<cmd>lua require('telescope').extensions.smart_open.smart_open({ cwd_only = true, })<cr>",
 			"Find File",
 		},
-		["h"] = { "<Cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Harpoons" },
 		["l"] = { "<cmd>lua require('conform').format({ async = true, lsp_fallback = true })<cr>", "Format" },
 		["S"] = { "<cmd>lua require('spectre').open_visual({ select_word=true })<cr>", "Seek & Destroy" },
 

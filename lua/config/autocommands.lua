@@ -21,7 +21,7 @@ local ftp_group = new_au_grp("FileTypeSettings", {})
 new_au_cmd("FileType", {
 	desc = "Disable spellcheck for certain buffers",
 	group = ftp_group,
-	pattern = { "man", "harpoon", "TelescopePrompt" },
+	pattern = { "man", "TelescopePrompt" },
 	callback = function()
 		vim.opt_local.spell = false
 	end,
