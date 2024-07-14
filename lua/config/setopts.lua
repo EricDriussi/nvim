@@ -42,7 +42,6 @@ option.infercase = true
 option.spell = true
 option.spelllang = { "en_us", "en_gb" }
 option.spelloptions = "camel"
-option.spellfile = vim.env.HOME .. "/.config/nvim/spell.utf-8.add"
 
 -- Misc
 option.mouse = "a"
