@@ -8,6 +8,29 @@ local mappings = {
 		["rn"] = { vim.lsp.buf.rename, "Rename" },
 		["zO"] = { require("ufo").openAllFolds, "Open all folds" },
 		["zC"] = { require("ufo").closeAllFolds, "Close all folds" },
+		["yd"] = {
+			function()
+				local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+				local diagnostics_in_line = vim.diagnostic.get(0, { lnum = row - 1 })
+
+				if not diagnostics_in_line or next(diagnostics_in_line) == 0 then
+					return
+				end
+
+				local diganostics_under_cursor = vim.tbl_filter(function(diagnostic)
+					return diagnostic.col == col
+				end, diagnostics_in_line)
+
+				vim.fn.setreg(
+					"+",
+					vim.tbl_map(function(diagnostic)
+						return diagnostic.message
+					end, diganostics_under_cursor)
+				)
+				print("Yanked diagnostics to system")
+			end,
+			"Yank Diagnostics",
+		},
 	},
 
 	leader = {
