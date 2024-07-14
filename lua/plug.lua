@@ -35,13 +35,6 @@ local git = {
 	require("plugins.diffview"),
 }
 
-local nav = {
-	{ "chaoren/vim-wordmotion" }, -- Handle camelCase and snek_case
-	require("plugins.misc").multicursor,
-	require("plugins.misc").quick_scope, -- f to char
-	require("plugins.misc").open_links,
-}
-
 local md = {
 	{ "antonk52/markdowny.nvim", ft = "markdown" }, -- Bold, Italics, Links, Code
 	require("plugins.misc").md_preview,
@@ -54,6 +47,7 @@ local plugin_list = {
 	require("plugins.lsp"),
 	require("plugins.format"),
 	require("plugins.lint"),
+	require("plugins.nav"),
 
 	UI,
 	misc,

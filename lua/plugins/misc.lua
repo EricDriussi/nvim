@@ -24,33 +24,6 @@ M.comment = {
 	"JoosepAlviste/nvim-ts-context-commentstring",
 }
 
-M.multicursor = {
-	"mg979/vim-visual-multi",
-	config = function()
-		-- MultiCursor behave like intelliJ
-		vim.g.VM_custom_remaps = { N = "Q" }
-	end,
-}
-
-M.quick_scope = {
-	"unblevable/quick-scope",
-	init = function()
-		-- Quickscope only highlight on keys
-		vim.g.qs_highlight_on_keys = { "f", "F", "t", "T" }
-	end,
-}
-
-M.open_links = {
-	"chrishrb/gx.nvim",
-	dependencies = { "nvim-lua/plenary.nvim" },
-	cmd = { "Browse" },
-	opts = {
-		handler_options = {
-			search_engine = "duckduckgo",
-		},
-	},
-}
-
 M.md_preview = {
 	"iamcco/markdown-preview.nvim",
 	ft = "markdown",
