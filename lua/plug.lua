@@ -24,20 +24,8 @@ local file_viewers = {
 }
 
 local git = {
-	{
-		"tpope/vim-fugitive",
-		dependencies = {
-			"tpope/vim-rhubarb",
-			"shumphrey/fugitive-gitlab.vim",
-		},
-	},
-	require("plugins.gitsigns"),
+	require("plugins.misc").git,
 	require("plugins.diffview"),
-}
-
-local md = {
-	{ "antonk52/markdowny.nvim", ft = "markdown" }, -- Bold, Italics, Links, Code
-	require("plugins.misc").md_preview,
 }
 
 local plugin_list = {
@@ -48,13 +36,12 @@ local plugin_list = {
 	require("plugins.format"),
 	require("plugins.lint"),
 	require("plugins.nav"),
+	require("plugins.misc").md,
 
 	UI,
 	misc,
 	file_viewers,
 	git,
-	nav,
-	md,
 
 	{ "EricDriussi/remember-me.nvim", config = true },
 }

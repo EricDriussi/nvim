@@ -24,13 +24,16 @@ M.comment = {
 	"JoosepAlviste/nvim-ts-context-commentstring",
 }
 
-M.md_preview = {
-	"iamcco/markdown-preview.nvim",
-	ft = "markdown",
-	build = "cd app && npm install",
-	config = function()
-		vim.g.mkdp_port = "6969"
-	end,
+M.md = {
+	{ "antonk52/markdowny.nvim", ft = "markdown" }, -- Bold, Italics, Links, Code
+	{
+		"iamcco/markdown-preview.nvim",
+		ft = "markdown",
+		build = "cd app && npm install",
+		config = function()
+			vim.g.mkdp_port = "6969"
+		end,
+	},
 }
 
 M.ia = {
@@ -76,6 +79,29 @@ M.curl = {
 		"nvim-lua/plenary.nvim",
 	},
 	config = true,
+}
+
+M.git = {
+	{
+		"tpope/vim-fugitive",
+		dependencies = {
+			"tpope/vim-rhubarb",
+			"shumphrey/fugitive-gitlab.vim",
+		},
+	},
+	{
+		"lewis6991/gitsigns.nvim",
+		opts = {
+			signs = {
+				add = { text = " ▎" },
+				change = { text = " ▎" },
+				delete = { text = " ▎" },
+				topdelete = { text = " ▎" },
+				changedelete = { text = " ▎" },
+				untracked = { text = " ┆" },
+			},
+		},
+	},
 }
 
 return M
