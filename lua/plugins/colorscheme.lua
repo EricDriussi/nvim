@@ -11,9 +11,12 @@ return {
 		vim.g.gruvbox_material_diagnostic_virtual_text = "colored"
 
 		vim.api.nvim_command("colorscheme gruvbox-material")
-		vim.api.nvim_set_hl(0, "WhichKeyBorder", { fg = "#928374" })
+		local border_color = "#928374"
+		vim.api.nvim_set_hl(0, "WhichKeyBorder", { fg = border_color })
 		vim.api.nvim_set_hl(0, "WhichKeyFloat", vim.api.nvim_get_hl_by_name("Normal", true))
-		vim.api.nvim_set_hl(0, "BqfPreviewBorder", { fg = "#928374", ctermfg = 71 })
-		vim.api.nvim_set_hl(0, "BqfPreviewTitle", { fg = "#928374", ctermfg = 71 })
+		vim.api.nvim_set_hl(0, "BqfPreviewBorder", { fg = border_color, ctermfg = 71 })
+		vim.api.nvim_set_hl(0, "BqfPreviewTitle", { fg = border_color, ctermfg = 71 })
+		vim.api.nvim_set_hl(0, "SpellCap", vim.api.nvim_get_hl_by_name("DiagnosticUnderlineInfo", true))
+		vim.api.nvim_set_hl(0, "SpellBad", vim.api.nvim_get_hl_by_name("DiagnosticUnderlineInfo", true))
 	end,
 }
