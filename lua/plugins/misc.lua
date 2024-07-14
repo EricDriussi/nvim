@@ -96,17 +96,6 @@ M.db = {
 	end,
 }
 
-M.spelling = {
-	"ravibrock/spellwarn.nvim",
-	event = "VeryLazy",
-	opts = {
-		event = {
-			"InsertLeave",
-		},
-		prefix = "Spelling: ",
-	},
-}
-
 M.curl = {
 	"oysandvik94/curl.nvim",
 	cmd = { "CurlOpen" },

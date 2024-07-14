@@ -15,7 +15,6 @@ local misc = {
 	require("plugins.misc").ia,
 	require("plugins.misc").cursorHold, -- Decouple updatetime from CursorHold
 	require("plugins.misc").db,
-	require("plugins.misc").spelling,
 	require("plugins.misc").curl,
 }
 
