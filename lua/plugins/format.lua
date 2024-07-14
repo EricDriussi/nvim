@@ -35,7 +35,7 @@ return {
 			if vim.g.no_fos then
 				return
 			end
-			return { lsp_fallback = true }
+			return { lsp_format = "fallback" }
 		end,
 	},
 }
