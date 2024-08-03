@@ -5,6 +5,7 @@ return {
       defaults = {
         keymaps = false,
       },
+      colorscheme = "gruvbox-material",
     },
   },
 }
