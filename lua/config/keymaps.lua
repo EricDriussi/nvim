@@ -53,24 +53,8 @@ map("n", "<leader>gL", function()
   LazyVim.lazygit({ args = { "log" } })
 end, { desc = "Lazygit Log (cwd)" })
 
--- TODO: review buffers
--- map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
--- map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
--- map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
--- map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
--- map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
--- map("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
--- map("n", "<leader>bd", LazyVim.ui.bufremove, { desc = "Delete Buffer" })
--- map("n", "<leader>bD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
-
--- TODO: review tabs
--- map("n", "<leader><tab>l", "<cmd>tablast<cr>", { desc = "Last Tab" })
--- map("n", "<leader><tab>o", "<cmd>tabonly<cr>", { desc = "Close Other Tabs" })
--- map("n", "<leader><tab>f", "<cmd>tabfirst<cr>", { desc = "First Tab" })
--- map("n", "<leader><tab><tab>", "<cmd>tabnew<cr>", { desc = "New Tab" })
--- map("n", "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "Next Tab" })
--- map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
--- map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+-- TODO: map this to ctrl+w
+map("n", "<leader>bd", LazyVim.ui.bufremove, { desc = "Delete Buffer" })
 
 -- Mine
 
@@ -135,6 +119,12 @@ n("<C-w>", "<cmd>q!<cr>")
 
 -- Save all
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>silent wa<cr><esc>", { desc = "Save Files" })
+
+-- Move Lines
+n("<M-h>", "<<")
+n("<M-l>", ">>")
+v("<M-h>", "<gv")
+v("<M-l>", ">gv")
 
 -- Resize vertical splits
 n("+", "<cmd>vertical resize +5<cr>")
