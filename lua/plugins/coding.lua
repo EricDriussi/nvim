@@ -11,7 +11,8 @@ return {
   {
     "terrortylor/nvim-comment",
     keys = {
-      { "<leader>/", mode = { "n", "x" }, "<cmd>CommentToggle<cr><esc>", desc = "Toggle Comment" },
+      { "<leader>/", mode = { "n" }, "<cmd>CommentToggle<cr>", desc = "Toggle Comment" },
+      { "<leader>/", mode = { "x" }, ":'<,'>CommentToggle<cr>", silent = true, desc = "Toggle Comment" },
     },
     cmd = "CommentToggle",
     dependencies = {
