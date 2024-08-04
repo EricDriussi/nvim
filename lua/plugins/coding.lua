@@ -1,9 +1,47 @@
 return {
   {
     "hrsh7th/nvim-cmp",
-    dependencies = { "hrsh7th/cmp-emoji" },
+    dependencies = { "hrsh7th/cmp-emoji", "kristijanhusak/vim-dadbod-completion" },
     opts = function(_, opts)
       table.insert(opts.sources, { name = "emoji" })
+      opts.experimental = { ghost_text = false }
+      local cmp = require("cmp")
+      opts.mapping = vim.tbl_extend("force", opts.mapping, {
+        cmp.setup.filetype({ "sql", "mysql", "psql" }, {
+          sources = {
+            { name = "vim-dadbod-completion" },
+            { name = "buffer" },
+          },
+        }),
+      })
+      opts.formatting = {
+        format = function(entry, item)
+          local icons = LazyVim.config.icons.kinds
+          if icons[item.kind] then
+            item.kind = icons[item.kind]
+          end
+
+          item.menu = ({
+            nvim_lsp = "[L]",
+            path = "[P]",
+            buffer = "[B]",
+            emoji = "[E]",
+            snippets = "[S]",
+          })[entry.source.name]
+
+          local widths = {
+            abbr = vim.g.cmp_widths and vim.g.cmp_widths.abbr or 40,
+            menu = vim.g.cmp_widths and vim.g.cmp_widths.menu or 30,
+          }
+
+          for key, width in pairs(widths) do
+            if item[key] and vim.fn.strdisplaywidth(item[key]) > width then
+              item[key] = vim.fn.strcharpart(item[key], 0, width - 1) .. "…"
+            end
+          end
+          return item
+        end,
+      }
     end,
   },
 
