@@ -1,3 +1,4 @@
+-- TODO: try out fzf
 vim.g.lazyvim_picker = "telescope"
 vim.g.lazyvim_statuscolumn = {
   folds_open = true,

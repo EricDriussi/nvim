@@ -7,6 +7,7 @@ return {
     vim.g.gruvbox_material_enable_italic = 1
     vim.g.gruvbox_material_current_word = "bold,italic"
 
+    -- TODO: delete?
     -- local border_color = "#928374"
     -- vim.api.nvim_set_hl(0, "WhichKeyBorder", { fg = border_color })
     -- vim.api.nvim_set_hl(0, "WhichKeyFloat", vim.api.nvim_get_hl_by_name("Normal", true))
