@@ -19,3 +19,4 @@ opt.undodir = vim.env.HOME .. "/.config/nvim/.undodir/"
 opt.wrap = true
 opt.history = 1000
 opt.swapfile = false
+opt.title = true -- Title to current file instead of terminal emulator name

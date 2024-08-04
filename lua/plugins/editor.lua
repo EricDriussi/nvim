@@ -88,29 +88,6 @@ return {
 
   {
     "nvim-neo-tree/neo-tree.nvim",
-    dependencies = {
-      {
-        -- Needed to ctrl+v / ctrl+h: https://github.com/nvim-neo-tree/neo-tree.nvim/blob/206241e451c12f78969ff5ae53af45616ffc9b72/README.md?plain=1#L109
-        "s1n7ax/nvim-window-picker",
-        version = "2.*",
-        config = function()
-          require("window-picker").setup({
-            show_prompt = false,
-            selection_chars = "ABCDEFGHIJKL",
-
-            filter_rules = {
-              include_current_win = false,
-              autoselect_one = true,
-              bo = {
-                filetype = { "neo-tree", "neo-tree-popup", "notify" },
-                buftype = { "terminal", "quickfix" },
-              },
-            },
-          })
-        end,
-      },
-    },
-
     -- replace all LazyVim keymaps
     keys = function()
       return {
@@ -174,8 +151,8 @@ return {
         width = 30,
         mappings = {
           ["<c-t>"] = "open_tabnew",
-          ["<c-h>"] = "split_with_window_picker",
-          ["<c-v>"] = "vsplit_with_window_picker",
+          ["<c-h>"] = "open_split",
+          ["<c-v>"] = "open_vsplit",
           ["l"] = "open_with_window_picker",
           ["h"] = "close_node",
           ["<cr>"] = "open_with_window_picker",
@@ -226,6 +203,7 @@ return {
   },
 
   {
+    -- TODO: checkhealth - conflicting keymaps
     "folke/which-key.nvim",
     keys = function()
       return {}
