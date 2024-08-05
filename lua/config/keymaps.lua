@@ -36,7 +36,7 @@ end, { desc = "Format" })
 LazyVim.toggle.map("<leader>L", LazyVim.toggle.format())
 
 -- toggle relativenumber
-LazyVim.toggle.map("<leader>R", LazyVim.toggle("relativenumber", { name = "Relative Number" }))
+LazyVim.toggle.map("<leader>n", LazyVim.toggle("relativenumber", { name = "Relative Number" }))
 
 -- lazygit
 map("n", "<leader>gg", function()
@@ -45,16 +45,10 @@ end, { desc = "Lazygit" })
 map("n", "<leader>gf", function()
   local git_path = vim.api.nvim_buf_get_name(0)
   LazyVim.lazygit({ args = { "-f", vim.trim(git_path) } })
-end, { desc = "Lazygit Current File History" })
+end, { desc = "File History" })
 map("n", "<leader>gl", function()
   LazyVim.lazygit({ args = { "log" }, cwd = LazyVim.root.git() })
-end, { desc = "Lazygit Log" })
-map("n", "<leader>gL", function()
-  LazyVim.lazygit({ args = { "log" } })
-end, { desc = "Lazygit Log (cwd)" })
-
--- TODO: map this to ctrl+w
-map("n", "<leader>bd", LazyVim.ui.bufremove, { desc = "Delete Buffer" })
+end, { desc = "Log" })
 
 -- Mine
 
@@ -67,10 +61,6 @@ end
 local function i(lhs, rhs)
   map("i", lhs, rhs)
 end
-
-map({ "n", "v" }, "<leader>l", function()
-  LazyVim.format({ force = true })
-end, { desc = "Format" })
 
 n("L", "$")
 n("H", "^")
@@ -181,16 +171,16 @@ end, { expr = true })
 
 n("gld", function()
   vim.diagnostic.open_float({ scope = "line" })
-end)
+end, { desc = "Diagnostics" })
 n("gnd", function()
   vim.diagnostic.goto_next()
-end)
+end, { desc = "Diagnostics" })
 n("gpd", function()
   vim.diagnostic.goto_prev()
-end)
+end, { desc = "Diagnostics" })
 n("gne", function()
   vim.diagnostic.goto_next({ severity = "ERROR" })
-end)
+end, { desc = "Errors" })
 n("gpe", function()
   vim.diagnostic.goto_prev({ severity = "ERROR" })
-end)
+end, { desc = "Errors" })

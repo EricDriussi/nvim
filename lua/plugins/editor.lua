@@ -70,18 +70,18 @@ return {
         { "<leader>F", LazyVim.pick("live_grep"), desc = "Find in Files" },
         { "<leader>F", LazyVim.pick("grep_string"), mode = "v", desc = "Find Selection" },
 
-        { "<C-b>", "<cmd>Telescope lsp_references<cr>", "References" },
-        { "gr", "<cmd>Telescope lsp_references<cr>", "References" },
-        { "gd", "<cmd>Telescope lsp_definitions<cr>", "Goto Definition" },
-        { "gi", "<cmd>Telescope lsp_implementations<cr>", "Goto Implementation" },
+        { "<C-b>", "<cmd>Telescope lsp_references<cr>", desc = "References" },
+        { "gr", "<cmd>Telescope lsp_references<cr>", desc = "References" },
+        { "gd", "<cmd>Telescope lsp_definitions<cr>", desc = "Goto Definition" },
+        { "gi", "<cmd>Telescope lsp_implementations<cr>", desc = "Goto Implementation" },
         { "gE", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Goto (ALL) Errors" },
 
         { "<C-Space>", "<cmd>Telescope spell_suggest<cr>", "Spelling" },
 
-        { "<leader>A", "<cmd>Telescope commands<cr>", "Actions" },
-        { "<leader>H", "<cmd>Telescope help_tags<cr>", "Help" },
-        { "<leader>R", "<cmd>Telescope registers<cr>", "Registers" },
-        { "<leader>gr", "<cmd>Telescope git_branches<cr>", "Branches" },
+        { "<leader>A", "<cmd>Telescope commands<cr>", desc = "Actions" },
+        { "<leader>H", "<cmd>Telescope help_tags<cr>", desc = "Help" },
+        { "<leader>R", "<cmd>Telescope registers<cr>", desc = "Registers" },
+        { "<leader>gr", "<cmd>Telescope git_branches<cr>", desc = "Branches" },
       }
     end,
   },
@@ -203,45 +203,50 @@ return {
   },
 
   {
-    -- TODO: checkhealth - conflicting keymaps
     "folke/which-key.nvim",
     keys = function()
       return {}
     end,
     opts = {
-      preset = "modern",
+      icons = { mappings = false },
       layout = {
         width = { min = 20, max = 80 },
         spacing = 5,
       },
-      -- TODO: once review is done, uncomment to reduce noise
-      --       plugins = {
-      --         marks = false,
-      --         registers = false,
-      --
-      --         -- Help for vim stuff
-      --         presets = {
-      --           operators = false,
-      --           motions = false,
-      --           text_objects = false,
-      --           windows = false,
-      --           nav = false,
-      --           z = true,
-      --           g = false,
-      --         },
-      -- 		},
-      spec = {
-        {
-          mode = { "n", "v" },
-          -- TODO: take what needed and remove rest
-          { "<leader>c", group = "code" },
-          { "<leader>g", group = "git" },
-          { "<leader>gh", group = "hunks" },
-          { "<leader>s", group = "search" },
-          { "<leader>x", group = "diagnostics/quickfix", icon = { icon = "󱖫 ", color = "green" } },
-          { "g", group = "goto" },
-          { "z", group = "fold" },
+      plugins = {
+        marks = false,
+        registers = false,
+
+        -- Help for vim stuff
+        presets = {
+          operators = false,
+          motions = false,
+          text_objects = false,
+          windows = false,
+          nav = false,
+          z = true,
+          g = false,
         },
+      },
+
+      spec = {
+        { "gl", group = "Goto Line" },
+        { "gn", group = "Goto Next" },
+        { "gp", group = "Goto Prev" },
+
+        { "<leader>u", hidden = true },
+        { "<leader>s", hidden = true },
+        { "<leader>t", hidden = true },
+        { "<leader>w", hidden = true },
+        { "<leader>c", hidden = true },
+        { "<leader>b", hidden = true },
+
+        { "gc", hidden = true },
+        { "gK", hidden = true },
+        { "gx", hidden = true },
+        { "g]", hidden = true },
+        { "g[", hidden = true },
+        { "gy", hidden = true },
       },
     },
   },
