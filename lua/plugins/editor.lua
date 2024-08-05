@@ -288,17 +288,6 @@ return {
   },
 
   {
-    "folke/trouble.nvim",
-    enabled = false,
-  },
-
-  {
-    -- TODO: seems overkill, eval if worth it
-    "folke/todo-comments.nvim",
-    enabled = false,
-  },
-
-  {
     "mg979/vim-visual-multi",
     config = function()
       -- MultiCursor behave like intelliJ

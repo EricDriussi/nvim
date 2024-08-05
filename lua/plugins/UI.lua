@@ -36,11 +36,6 @@ end
 
 return {
   {
-    "rcarriga/nvim-notify",
-    enabled = false,
-  },
-
-  {
     "akinsho/bufferline.nvim",
     opts = {
       options = {
@@ -109,10 +104,5 @@ return {
         },
       },
     },
-  },
-
-  {
-    "nvimdev/dashboard-nvim",
-    enabled = false,
   },
 }
