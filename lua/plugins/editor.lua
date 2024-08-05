@@ -292,4 +292,12 @@ return {
     "folke/todo-comments.nvim",
     enabled = false,
   },
+
+  {
+    "mg979/vim-visual-multi",
+    config = function()
+      -- MultiCursor behave like intelliJ
+      vim.g.VM_custom_remaps = { N = "Q" }
+    end,
+  },
 }
