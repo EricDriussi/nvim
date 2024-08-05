@@ -8,6 +8,7 @@ return {
       keys[#keys + 1] = { "<c-k>", vim.lsp.buf.signature_help }
       keys[#keys + 1] = { "<M-cr>", LazyVim.lsp.action.source }
       opts.inlay_hints = { enabled = false }
+      opts.servers.ansiblels = { filetypes = { "yaml", "yml" } }
     end,
   },
 
