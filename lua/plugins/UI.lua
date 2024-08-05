@@ -13,7 +13,8 @@ local function path_from_root()
   local bufname = vim.api.nvim_buf_get_name(0)
   local root = vim.fs.root(0, { ".git" }) or vim.fn.expand("%:p:h")
 
-  local rel_path = string.gsub(bufname, "^" .. root .. "/", "")
+  local escaped_root = root:gsub("([%(%)%.%%%+%-%*%?%[%^%$%]])", "%%%1")
+  local rel_path = string.gsub(bufname, "^" .. escaped_root .. "/", "")
 
   local pretty_output = string.gsub(rel_path, "/", " > ")
   return pretty_output
