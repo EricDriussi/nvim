@@ -41,15 +41,3 @@ aucmd("FileType", {
     vim.keymap.set("n", "gd", "<C-]>")
   end,
 })
-
--- TODO: I think LV already does this?
--- aucmd("VimEnter", {
---   desc = "Set root dir",
---   group = augroup("SetRootOnVimEnter", {}),
---   callback = function(ctx)
---     local root = vim.fs.root(ctx.buf, { ".git" })
---     if root then
---       vim.uv.chdir(root)
---     end
---   end,
--- })

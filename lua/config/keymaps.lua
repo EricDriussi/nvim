@@ -146,29 +146,8 @@ n("dd", function()
   return "dd"
 end, { expr = true })
 
--- TODO: this might not be needed with mini.ai
--- Fancy text objects
--- https://thevaluable.dev/vim-create-text-objects/
--- local chars = { "_", ".", ":", ",", ";", "|", "/", "\\", "*", "+", "%", "`", "?", "!" }
--- for _, char in ipairs(chars) do
---   for _, mode in ipairs({ "x", "o" }) do
---     map(
---       mode,
---       "i" .. char,
---       string.format(":<C-u>silent! normal! f%sF%slvt%s<cr>", char, char, char),
---       { noremap = true, silent = true }
---     )
---     map(
---       mode,
---       "a" .. char,
---       string.format(":<C-u>silent! normal! f%sF%svf%s<cr>", char, char, char),
---       { noremap = true, silent = true }
---     )
---   end
--- end
-
 -- diagnostics
-
+-- too many chords. limit to ge, gne, gne even for warnings
 n("gld", function()
   vim.diagnostic.open_float({ scope = "line" })
 end, { desc = "Diagnostics" })

@@ -25,8 +25,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.rust" },
     { import = "lazyvim.plugins.extras.lang.yaml" },
     { import = "lazyvim.plugins.extras.ui.treesitter-context" },
-    { import = "lazyvim.plugins.extras.lang.sql" }, -- TODO: review bindings
-    { import = "lazyvim.plugins.extras.lang.terraform" }, -- TODO: disable telescope-terraform stuff
+    { import = "lazyvim.plugins.extras.lang.sql" },
+    { import = "lazyvim.plugins.extras.lang.terraform" },
     { import = "plugins" },
   },
   defaults = {
