@@ -88,10 +88,13 @@ return {
   {
     "folke/noice.nvim",
     opts = {
-      -- no popup for cmdline
       cmdline = {
-        view = "cmdline",
+        view = "cmdline", -- no popup for cmdline
       },
+      presets = {
+        command_palette = false, -- no popup for cmdline completion
+      },
+
       routes = {
         -- hide `written` messages
         {
