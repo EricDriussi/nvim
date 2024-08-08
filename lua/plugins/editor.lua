@@ -157,8 +157,6 @@ return {
           ["<c-t>"] = "open_tabnew",
           ["<c-h>"] = "open_split",
           ["<c-v>"] = "open_vsplit",
-          ["l"] = "open",
-          ["h"] = "close_node",
           ["<cr>"] = "open",
           ["/"] = "none",
           ["y"] = "none",
@@ -213,10 +211,6 @@ return {
     end,
     opts = {
       icons = { mappings = false },
-      layout = {
-        width = { min = 20, max = 80 },
-        spacing = 5,
-      },
       plugins = {
         marks = false,
         registers = false,
@@ -228,7 +222,7 @@ return {
           text_objects = false,
           windows = false,
           nav = false,
-          z = true,
+          z = false,
           g = false,
         },
       },
