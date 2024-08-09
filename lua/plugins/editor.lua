@@ -1,3 +1,18 @@
+local function merge_hl(from, into)
+  vim.api.nvim_set_hl(0, into, {
+    fg = from.fg,
+    bg = from.bg,
+    bold = from.bold,
+    italic = from.italic,
+    underline = from.underline,
+    undercurl = from.undercurl,
+    reverse = from.reverse,
+    standout = from.standout,
+    strikethrough = from.strikethrough,
+    sp = from.sp,
+  })
+end
+
 return {
   {
     "nvim-telescope/telescope.nvim",
@@ -60,21 +75,6 @@ return {
         {
           event = "after_render",
           handler = function()
-            local function merge_hl(from, into)
-              vim.api.nvim_set_hl(0, into, {
-                fg = from.fg,
-                bg = from.bg,
-                bold = from.bold,
-                italic = from.italic,
-                underline = from.underline,
-                undercurl = from.undercurl,
-                reverse = from.reverse,
-                standout = from.standout,
-                strikethrough = from.strikethrough,
-                sp = from.sp,
-              })
-            end
-
             local hl_normal = vim.api.nvim_get_hl(0, { name = "Normal" })
             merge_hl(hl_normal, "NeoTreeNormal")
             merge_hl(hl_normal, "NeoTreeEndOfBuffer")
@@ -105,22 +105,10 @@ return {
       },
     },
   },
-  {
-
-    "MagicDuck/grug-far.nvim",
-    keys = require("keys").grug,
-  },
-
-  {
-    "folke/flash.nvim",
-    enabled = false,
-  },
 
   {
     "folke/which-key.nvim",
-    keys = function()
-      return {}
-    end,
+    keys = require("keys").none,
     opts = {
       icons = { mappings = false },
       plugins = {
@@ -141,10 +129,6 @@ return {
 
       spec = {
         -- TODO: rm groups ({ "<leader>a", "", desc = "+AI", mode = { "n", "v" } })
-        -- TODO: rm choice between err and diagnostic?
-        { "gl", group = "Goto Line" },
-        { "gn", group = "Goto Next" },
-        { "gp", group = "Goto Prev" },
 
         { "<leader>u", hidden = true },
         { "<leader>s", hidden = true },
@@ -182,5 +166,10 @@ return {
       -- MultiCursor behave like intelliJ
       vim.g.VM_custom_remaps = { N = "Q" }
     end,
+  },
+
+  {
+    "MagicDuck/grug-far.nvim",
+    keys = require("keys").grug,
   },
 }

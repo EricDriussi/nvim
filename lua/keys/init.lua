@@ -23,6 +23,7 @@ return {
     { "rn", vim.lsp.buf.rename },
     { "<c-k>", vim.lsp.buf.signature_help },
     { "<M-cr>", LazyVim.lsp.action.source },
+    { "gI", false },
   },
 
   grug = {

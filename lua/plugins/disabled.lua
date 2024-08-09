@@ -6,6 +6,7 @@ return {
 
   { "folke/trouble.nvim", enabled = false },
   { "folke/todo-comments.nvim", enabled = false }, -- TODO: seems overkill, eval if worth it
+  { "folke/flash.nvim", enabled = false },
 
   { "rcarriga/nvim-notify", enabled = false },
   { "nvimdev/dashboard-nvim", enabled = false },
