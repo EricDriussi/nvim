@@ -27,6 +27,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.ui.treesitter-context" },
     { import = "lazyvim.plugins.extras.lang.sql" },
     { import = "lazyvim.plugins.extras.lang.terraform" },
+    { import = "lazyvim.plugins.extras.test.core" },
+
     { import = "plugins" },
   },
   defaults = {

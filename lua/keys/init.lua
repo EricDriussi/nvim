@@ -12,6 +12,7 @@ return {
   git = require("keys.git"),
   neo_tree = require("keys.neo_tree"),
   copilot = require("keys.copilot"),
+  test = require("keys.test"),
 
   comment = {
     { "<leader>/", mode = { "n" }, "<cmd>CommentToggle<cr>", desc = "Toggle Comment" },
