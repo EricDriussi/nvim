@@ -70,6 +70,10 @@ return {
 
     opts = {
       close_if_last_window = true,
+      window = {
+        width = 30,
+        mappings = require("keys").neo_tree.mappings,
+      },
 
       event_handlers = {
         {
@@ -98,11 +102,6 @@ return {
           end,
         },
       },
-
-      window = {
-        width = 30,
-        mappings = require("keys").neo_tree.mappings,
-      },
     },
   },
 
@@ -128,15 +127,12 @@ return {
       },
 
       spec = {
-        -- TODO: rm groups ({ "<leader>a", "", desc = "+AI", mode = { "n", "v" } })
-
         { "<leader>u", hidden = true },
         { "<leader>s", hidden = true },
         { "<leader>t", hidden = true },
         { "<leader>w", hidden = true },
         { "<leader>c", hidden = true },
         { "<leader>b", hidden = true },
-
         { "gc", hidden = true },
         { "gK", hidden = true },
         { "gx", hidden = true },

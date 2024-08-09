@@ -100,4 +100,9 @@ return function()
   Nmap("gp", function()
     vim.diagnostic.goto_prev()
   end, { desc = "Goto Prev Error" })
+
+  -- Folds
+  Nmap("zo", "zO") -- open recursively
+  Nmap("zO", "zR") -- open all
+  Nmap("zC", "zM") -- close all
 end
