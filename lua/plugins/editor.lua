@@ -10,9 +10,8 @@ return {
       },
     },
 
+    keys = require("keys").telescope.commands,
     opts = function()
-      local actions = require("telescope.actions")
-
       local custom_ivy = {
         theme = "ivy",
         layout_config = { height = 0.35 },
@@ -21,6 +20,7 @@ return {
       local no_prev_dropdown = { theme = "dropdown", previewer = false }
 
       return {
+        mappings = require("keys").telescope.mappings(require("telescope.actions")),
         defaults = {
           prompt_prefix = "🔎 ",
           selection_caret = " ⮚ ",
@@ -29,26 +29,6 @@ return {
           layout_config = {
             prompt_position = "top",
             width = 0.90,
-          },
-
-          mappings = {
-            i = {
-              ["<C-i>"] = actions.cycle_history_next,
-              ["<C-o>"] = actions.cycle_history_prev,
-              ["<Esc>"] = actions.close,
-              ["<C-w>"] = actions.close,
-              ["<C-c>"] = actions.close,
-              ["<C-h>"] = actions.select_horizontal,
-              ["<M-q>"] = actions.send_to_qflist + actions.open_qflist,
-            },
-            n = {
-              ["<C-w>"] = actions.close,
-              ["<C-c>"] = actions.close,
-              ["<C-h>"] = actions.select_horizontal,
-              ["<M-q>"] = actions.send_to_qflist + actions.open_qflist,
-              ["J"] = actions.move_selection_next,
-              ["K"] = actions.move_selection_previous,
-            },
           },
         },
 
@@ -67,43 +47,11 @@ return {
         },
       }
     end,
-
-    keys = function()
-      return {
-        { "<leader>f", "<cmd>Telescope frecency workspace=CWD<cr>", desc = "Find File" },
-        { "<leader>F", LazyVim.pick("live_grep"), desc = "Find in Files" },
-        { "<leader>F", LazyVim.pick("grep_string"), mode = "v", desc = "Find Selection" },
-
-        { "<C-b>", "<cmd>Telescope lsp_references<cr>", desc = "References" },
-        { "gr", "<cmd>Telescope lsp_references<cr>", desc = "References" },
-        { "gd", "<cmd>Telescope lsp_definitions<cr>", desc = "Goto Definition" },
-        { "gi", "<cmd>Telescope lsp_implementations<cr>", desc = "Goto Implementation" },
-        { "gE", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Goto (ALL) Errors" },
-
-        { "<C-Space>", "<cmd>Telescope spell_suggest<cr>", "Spelling" },
-
-        { "<leader>A", "<cmd>Telescope commands<cr>", desc = "Actions" },
-        { "<leader>H", "<cmd>Telescope help_tags<cr>", desc = "Help" },
-        { "<leader>R", "<cmd>Telescope registers<cr>", desc = "Registers" },
-        { "<leader>gr", "<cmd>Telescope git_branches<cr>", desc = "Branches" },
-      }
-    end,
   },
 
   {
     "nvim-neo-tree/neo-tree.nvim",
-    -- replace all LazyVim keymaps
-    keys = function()
-      return {
-        {
-          "<leader>e",
-          function()
-            require("neo-tree.command").execute({ toggle = true, dir = LazyVim.root() })
-          end,
-          desc = "Explorer",
-        },
-      }
-    end,
+    keys = require("keys").neo_tree.keys,
 
     opts = {
       close_if_last_window = true,
@@ -153,50 +101,14 @@ return {
 
       window = {
         width = 30,
-        mappings = {
-          ["<c-t>"] = "open_tabnew",
-          ["<c-h>"] = "open_split",
-          ["<c-v>"] = "open_vsplit",
-          ["<cr>"] = "open",
-          ["/"] = "none",
-          ["y"] = "none",
-          ["yy"] = "copy_to_clipboard",
-          ["yp"] = function(state)
-            local node = state.tree:get_node()
-            local filepath = node:get_id()
-            local rel_filepath = vim.fn.fnamemodify(filepath, ":.")
-            vim.fn.setreg("+", rel_filepath)
-            print('Copied "' .. rel_filepath .. '" to system clipboard')
-          end,
-          ["yn"] = function(state)
-            local file = state.tree:get_node()
-            vim.fn.setreg("+", file.name)
-            print('Copied "' .. file.name .. '" to system clipboard')
-          end,
-        },
+        mappings = require("keys").neo_tree.mappings,
       },
     },
   },
   {
 
     "MagicDuck/grug-far.nvim",
-    keys = {
-      {
-        "<leader>S",
-        function()
-          local grug = require("grug-far")
-          local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
-          grug.grug_far({
-            transient = true,
-            prefills = {
-              filesFilter = ext and ext ~= "" and "*." .. ext or nil,
-            },
-          })
-        end,
-        mode = { "n", "v" },
-        desc = "Seek & Destroy",
-      },
-    },
+    keys = require("keys").grug,
   },
 
   {
@@ -228,6 +140,8 @@ return {
       },
 
       spec = {
+        -- TODO: rm groups ({ "<leader>a", "", desc = "+AI", mode = { "n", "v" } })
+        -- TODO: rm choice between err and diagnostic?
         { "gl", group = "Goto Line" },
         { "gn", group = "Goto Next" },
         { "gp", group = "Goto Prev" },
@@ -257,30 +171,7 @@ return {
         topdelete = { text = "▎" },
       },
       on_attach = function(buffer)
-        local gs = package.loaded.gitsigns
-        local function map(mode, l, r, desc)
-          vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
-        end
-
-        map("n", "<leader>gn", function()
-          if vim.wo.diff then
-            vim.cmd.normal({ "]c", bang = true })
-          else
-            gs.nav_hunk("next")
-          end
-        end, "Next Hunk")
-        map("n", "<leader>gp", function()
-          if vim.wo.diff then
-            vim.cmd.normal({ "[c", bang = true })
-          else
-            gs.nav_hunk("prev")
-          end
-        end, "Prev Hunk")
-
-        map("n", "<leader>gb", gs.reset_hunk, "Git Back Hunk")
-        map("n", "<leader>gB", gs.reset_buffer, "Git Back File")
-        map("n", "<leader>ga", gs.blame_line, "Git Anotate Line")
-        map("n", "<leader>gA", gs.blame, "Git Anotate File")
+        require("keys").git(buffer)
       end,
     },
   },

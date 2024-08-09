@@ -3,10 +3,9 @@ return {
     "neovim/nvim-lspconfig",
     opts = function(_, opts)
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
-      keys[#keys + 1] = { "rN", LazyVim.lsp.rename_file }
-      keys[#keys + 1] = { "rn", vim.lsp.buf.rename }
-      keys[#keys + 1] = { "<c-k>", vim.lsp.buf.signature_help }
-      keys[#keys + 1] = { "<M-cr>", LazyVim.lsp.action.source }
+      for _, key in ipairs(require("keys").lsp) do
+        keys[#keys + 1] = key
+      end
       opts.inlay_hints = { enabled = false }
       opts.servers.ansiblels = { filetypes = { "yaml", "yml" } }
     end,

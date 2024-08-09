@@ -1,11 +1,7 @@
-local none = function()
-  return {}
-end
-
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    keys = none,
+    keys = require("keys").none,
     opts = {
       incremental_selection = {
         enable = true,
