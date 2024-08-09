@@ -20,6 +20,14 @@ return {
       {
         "nvim-telescope/telescope-frecency.nvim",
         config = function()
+          require("telescope").setup({
+            extensions = {
+              frecency = {
+                matcher = "fuzzy",
+              },
+            },
+          })
+
           require("telescope").load_extension("frecency")
         end,
       },
@@ -35,8 +43,8 @@ return {
       local no_prev_dropdown = { theme = "dropdown", previewer = false }
 
       return {
-        mappings = require("keys").telescope.mappings(require("telescope.actions")),
         defaults = {
+          mappings = require("keys").telescope.mappings(require("telescope.actions")),
           prompt_prefix = "🔎 ",
           selection_caret = " ⮚ ",
           path_display = { "smart" },
